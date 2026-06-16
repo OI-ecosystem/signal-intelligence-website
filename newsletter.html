@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pokémon Lens Weekly — Signal Intelligence Newsletter</title>
+<meta name="description" content="Every week, Signal Intelligence identifies the highest-conviction Pokémon opportunities using historical precedent analysis, similarity scoring, replay charts, and maturity windows.">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#0d0f14;--bg2:#131720;--bg3:#1a1f2e;--bg4:#222840;
+  --text:#f0f0ec;--text2:#9ba3b8;--text3:#5a6278;
+  --border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.14);
+  --blue:#3b82f6;--blue-bg:rgba(59,130,246,0.12);--blue-dark:#93c5fd;--blue-mid:#60a5fa;
+  --amber:#f59e0b;--amber-bg:rgba(245,158,11,0.12);--amber-dark:#fcd34d;
+  --green:#10b981;--green-bg:rgba(16,185,129,0.12);--green-dark:#6ee7b7;
+  --purple:#8b5cf6;--purple-bg:rgba(139,92,246,0.12);--purple-dark:#c4b5fd;
+  --radius:8px;--radius-lg:12px;--radius-xl:16px;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+.page{max-width:960px;margin:0 auto;padding:0 20px;}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0 26px;border-bottom:0.5px solid var(--border);margin-bottom:48px;}
+.logo{font-size:16px;font-weight:700;letter-spacing:-0.03em;color:var(--text);}
+.logo span{color:var(--blue);}
+.nav-links{display:flex;gap:4px;align-items:center;}
+.nav-links a{font-size:13px;color:var(--text2);padding:6px 12px;border-radius:var(--radius);transition:all 0.15s;}
+.nav-links a:hover{color:var(--text);background:var(--bg2);}
+.nav-links a.active{color:var(--amber);background:var(--amber-bg);}
+.btn-primary{background:var(--blue);color:#fff;border:none;font-size:13px;padding:8px 18px;border-radius:var(--radius);font-family:inherit;cursor:pointer;font-weight:500;transition:all 0.15s;}
+.btn-primary:hover{background:var(--blue-mid);}
+
+/* SECTION LABELS */
+.section-label{font-size:11px;color:var(--blue);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:12px;}
+.section-heading{font-size:27px;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px;}
+.section-sub{font-size:15px;color:var(--text2);line-height:1.65;}
+
+/* HERO */
+.hero{padding:8px 0 56px;border-bottom:0.5px solid var(--border);margin-bottom:72px;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:5px 14px;border-radius:99px;background:var(--amber-bg);color:var(--amber-dark);margin-bottom:24px;font-weight:600;border:0.5px solid rgba(245,158,11,0.3);}
+h1{font-size:44px;font-weight:800;letter-spacing:-0.04em;line-height:1.1;margin-bottom:20px;}
+h1 em{font-style:normal;color:var(--amber);}
+.hero-sub{font-size:16px;color:var(--text2);line-height:1.7;max-width:600px;margin-bottom:32px;}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px;}
+.btn-amber{background:var(--amber);color:#0d0f14;border:none;font-size:15px;font-weight:700;padding:13px 28px;border-radius:var(--radius);font-family:inherit;cursor:pointer;transition:all 0.15s;}
+.btn-amber:hover{background:var(--amber-dark);}
+.btn-outline{background:none;color:var(--text2);border:0.5px solid var(--border2);font-size:14px;padding:12px 24px;border-radius:var(--radius);font-family:inherit;cursor:pointer;transition:all 0.15s;}
+.btn-outline:hover{background:var(--bg2);color:var(--text);}
+.hero-note{font-size:12px;color:var(--text3);}
+
+/* WHAT'S INCLUDED */
+.included-section{margin-bottom:72px;}
+.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:24px;}
+.feature-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:18px;}
+.feature-icon{font-size:22px;margin-bottom:10px;}
+.feature-name{font-size:13px;font-weight:700;margin-bottom:6px;}
+.feature-desc{font-size:12px;color:var(--text2);line-height:1.55;}
+
+/* EXAMPLE INSIGHT CARD */
+.insight-section{background:var(--bg3);border-radius:var(--radius-xl);padding:36px;margin-bottom:72px;}
+.insight-card{background:var(--bg2);border:0.5px solid var(--border2);border-radius:var(--radius-xl);padding:24px;max-width:520px;margin:24px auto 0;}
+.insight-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+.insight-entity{font-size:20px;font-weight:800;letter-spacing:-0.02em;}
+.insight-rank{font-size:12px;background:var(--amber-bg);color:var(--amber-dark);padding:4px 10px;border-radius:99px;font-weight:600;}
+.insight-opp{display:flex;align-items:center;gap:16px;background:var(--bg3);border-radius:var(--radius);padding:12px 16px;margin-bottom:18px;}
+.opp-label{font-size:11px;color:var(--text3);}
+.opp-val{font-size:22px;font-weight:800;letter-spacing:-0.02em;color:var(--amber);}
+.opp-sub{font-size:11px;color:var(--text2);}
+.insight-matches-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:10px;}
+.insight-match-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.match-name{font-size:13px;color:var(--text2);width:160px;flex-shrink:0;}
+.match-bar-wrap{flex:1;height:5px;background:var(--bg4);border-radius:3px;}
+.match-bar{height:5px;border-radius:3px;background:var(--blue);}
+.match-score{font-size:13px;font-weight:700;color:var(--blue);width:36px;text-align:right;flex-shrink:0;}
+.insight-consensus{margin-top:16px;background:var(--amber-bg);border:0.5px solid rgba(245,158,11,0.2);border-radius:var(--radius);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;}
+.consensus-label{font-size:12px;color:var(--amber-dark);font-weight:600;margin-bottom:2px;}
+.consensus-val{font-size:13px;color:var(--text2);}
+.consensus-window{font-size:13px;color:var(--amber);font-weight:700;}
+.insight-disclaimer{font-size:11px;color:var(--text3);line-height:1.55;margin-top:16px;padding-top:14px;border-top:0.5px solid var(--border);}
+
+/* SAMPLE ISSUE */
+.sample-section{margin-bottom:72px;}
+.sample-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;}
+.sample-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:20px;}
+.sample-card-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-bottom:14px;}
+.rankings-table{width:100%;border-collapse:collapse;}
+.rankings-table th{font-size:11px;color:var(--text3);text-align:left;padding:0 0 8px;border-bottom:0.5px solid var(--border);}
+.rankings-table td{font-size:13px;padding:8px 0;border-bottom:0.5px solid var(--border);vertical-align:middle;}
+.rankings-table tr:last-child td{border-bottom:none;}
+.rank-num{color:var(--text3);font-size:11px;width:20px;}
+.rank-name{font-weight:600;}
+.rank-score{color:var(--amber);font-weight:700;text-align:right;}
+.rank-change{font-size:11px;text-align:right;}
+.change-up{color:var(--green);}
+.change-new{color:var(--blue);}
+.change-dn{color:var(--text3);}
+.watchlist-item{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:0.5px solid var(--border);}
+.watchlist-item:last-child{border-bottom:none;}
+.wl-name{font-size:13px;font-weight:600;}
+.wl-status{font-size:11px;padding:2px 8px;border-radius:99px;}
+.wl-added{background:var(--blue-bg);color:var(--blue-dark);}
+.wl-alert{background:var(--amber-bg);color:var(--amber-dark);}
+.wl-watch{background:var(--bg3);color:var(--text3);}
+.wl-score{font-size:13px;color:var(--amber);font-weight:700;}
+
+/* PRICING */
+.pricing-section{margin-bottom:72px;}
+.pricing-card{background:var(--bg2);border:1.5px solid var(--amber);border-radius:var(--radius-xl);padding:36px;max-width:480px;margin:24px auto 0;box-shadow:0 0 40px rgba(245,158,11,0.12);}
+.pricing-name{font-size:15px;font-weight:600;color:var(--text2);margin-bottom:8px;}
+.pricing-amount{font-size:48px;font-weight:800;letter-spacing:-0.04em;margin-bottom:4px;}
+.pricing-period{font-size:14px;color:var(--text2);margin-bottom:24px;}
+.pricing-features{list-style:none;margin-bottom:28px;}
+.pricing-features li{font-size:14px;color:var(--text2);padding:8px 0;border-bottom:0.5px solid var(--border);display:flex;align-items:flex-start;gap:10px;}
+.pricing-features li:last-child{border-bottom:none;}
+.chk{color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px;}
+.pricing-cta{width:100%;padding:14px;border-radius:var(--radius);border:none;background:var(--amber);color:#0d0f14;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:all 0.15s;margin-bottom:12px;}
+.pricing-cta:hover{background:var(--amber-dark);}
+.pricing-note{font-size:12px;color:var(--text3);text-align:center;}
+
+/* FAQ */
+.faq-section{margin-bottom:72px;}
+.faq-item{border-bottom:0.5px solid var(--border);padding:18px 0;}
+.faq-q{font-size:14px;font-weight:700;margin-bottom:8px;}
+.faq-a{font-size:13px;color:var(--text2);line-height:1.65;}
+
+/* FOOTER */
+footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:20px;}
+.footer-logo{font-size:14px;font-weight:700;letter-spacing:-0.02em;}
+.footer-logo span{color:var(--blue);}
+.footer-links{display:flex;flex-wrap:wrap;}
+.footer-link{font-size:12px;color:var(--text3);margin-left:20px;}
+.footer-link:hover{color:var(--text2);}
+.footer-disclaimer{font-size:11px;color:var(--text3);line-height:1.6;width:100%;max-width:600px;margin-top:4px;}
+
+@media(max-width:640px){
+  h1{font-size:32px;}
+  .features-grid{grid-template-columns:repeat(2,1fr);}
+  .sample-grid{grid-template-columns:1fr;}
+  .hero-actions{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">Signal<span>.</span>Intelligence</a>
+  <div class="nav-links">
+    <a href="index.html#how">How it works</a>
+    <a href="historical-cases.html">Historical Cases</a>
+    <a href="newsletter.html" class="active">Newsletter</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="blog.html">Blog</a>
+    <button class="btn-primary" onclick="location.href='index.html#pricing'">Get Started</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🃏 Pokémon Lens Weekly · Published every Monday</div>
+  <h1>Find tomorrow's opportunities<br>before the <em>market does.</em></h1>
+  <p class="hero-sub">Every week, Signal Intelligence identifies the highest-conviction Pokémon opportunities using historical precedent analysis, similarity scoring, replay charts, and maturity windows — delivered every Monday morning.</p>
+  <div class="hero-actions">
+    <button class="btn-amber" onclick="location.href='{{LS_CHECKOUT_NEWSLETTER_POKEMON_WEEKLY}}'">Subscribe — £49/month</button>
+    <button class="btn-outline">View sample issue</button>
+  </div>
+  <p class="hero-note">Cancel anytime · No commitment · Delivered every Monday</p>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="included-section">
+  <div class="section-label">What's included</div>
+  <div class="section-heading">Everything the signal reveals.</div>
+  <div class="section-sub">Each issue is generated directly from Signal Intelligence — not curated manually, not based on opinion.</div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🏆</div>
+      <div class="feature-name">Top 10 Rankings</div>
+      <div class="feature-desc">Highest-conviction opportunities ranked by opportunity score with full signal decomposition.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <div class="feature-name">Historical Precedent Analysis</div>
+      <div class="feature-desc">Each card compared against validated historical cases. Similarity scores with named precedents.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎯</div>
+      <div class="feature-name">Similarity Scores</div>
+      <div class="feature-desc">Quantified pattern matching against SpaceX, Bitcoin, NVIDIA, and three other validated cases.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📈</div>
+      <div class="feature-name">Replay Charts</div>
+      <div class="feature-desc">CIA score progression and opportunity score development tracked over time for each entity.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⏱</div>
+      <div class="feature-name">Maturity Windows</div>
+      <div class="feature-desc">Consensus maturity window derived from historical precedent lead times — fast, expected, and slow scenarios.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">👁</div>
+      <div class="feature-name">Watchlist Changes</div>
+      <div class="feature-desc">New additions, removals, and score movements across the full monitored card universe.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔔</div>
+      <div class="feature-name">Weekly Alerts</div>
+      <div class="feature-desc">Threshold crossings, new detector firings, and cross-source corroboration events flagged immediately.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">✅</div>
+      <div class="feature-name">Cross-Source Validation</div>
+      <div class="feature-desc">Every opportunity confirmed across multiple independent data sources before inclusion.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXAMPLE INSIGHT CARD -->
+<section class="insight-section">
+  <div class="section-label">Example insight</div>
+  <div class="section-heading">What a Signal Intelligence card looks like.</div>
+  <div class="section-sub">Every opportunity in the newsletter is backed by this level of analysis.</div>
+
+  <div class="insight-card">
+    <div class="insight-header">
+      <div class="insight-entity">Charizard Base Set</div>
+      <div class="insight-rank">#1 this week</div>
+    </div>
+    <div class="insight-opp">
+      <div>
+        <div class="opp-label">Opportunity score</div>
+        <div class="opp-val">0.82</div>
+      </div>
+      <div style="flex:1;">
+        <div class="opp-label">Detectors fired</div>
+        <div style="font-size:15px;font-weight:700;">4 of 5</div>
+        <div class="opp-sub">Inventory · Buyout · PSA · Momentum</div>
+      </div>
+    </div>
+
+    <div class="insight-matches-label">Historical precedent matches</div>
+    <div class="insight-match-row">
+      <span class="match-name">Rayquaza Gold Star</span>
+      <div class="match-bar-wrap"><div class="match-bar" style="width:82%"></div></div>
+      <span class="match-score">0.82</span>
+    </div>
+    <div class="insight-match-row">
+      <span class="match-name">Umbreon VMAX Alt Art</span>
+      <div class="match-bar-wrap"><div class="match-bar" style="width:79%"></div></div>
+      <span class="match-score">0.79</span>
+    </div>
+    <div class="insight-match-row">
+      <span class="match-name">Pikachu Illustrator</span>
+      <div class="match-bar-wrap"><div class="match-bar" style="width:74%"></div></div>
+      <span class="match-score">0.74</span>
+    </div>
+
+    <div class="insight-consensus">
+      <div>
+        <div class="consensus-label">Consensus maturity window</div>
+        <div class="consensus-val">Based on 3 precedent matches</div>
+      </div>
+      <div class="consensus-window">6–18 months</div>
+    </div>
+
+    <div class="insight-disclaimer">Historical precedent is not predictive. Similarity scores indicate resemblance to historical patterns and outcomes, not future performance. This is not investment advice.</div>
+  </div>
+</section>
+
+<!-- SAMPLE ISSUE PREVIEW -->
+<section class="sample-section">
+  <div class="section-label">Sample issue</div>
+  <div class="section-heading">Inside a typical Monday issue.</div>
+  <div class="section-sub">Every issue follows the same structure — rankings, watchlist updates, and full HPI insight cards.</div>
+
+  <div class="sample-grid">
+    <!-- Rankings Table -->
+    <div class="sample-card">
+      <div class="sample-card-label">Top 10 Rankings · This Week</div>
+      <table class="rankings-table">
+        <thead>
+          <tr>
+            <th style="width:24px;">#</th>
+            <th>Card</th>
+            <th style="text-align:right;">Score</th>
+            <th style="text-align:right;">Chg</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="rank-num">1</td><td class="rank-name">Charizard Base Set</td><td class="rank-score">0.82</td><td class="rank-change change-up">↑2</td></tr>
+          <tr><td class="rank-num">2</td><td class="rank-name">Pikachu Illustrator</td><td class="rank-score">0.79</td><td class="rank-change change-new">NEW</td></tr>
+          <tr><td class="rank-num">3</td><td class="rank-name">Lugia 1st Edition</td><td class="rank-score">0.76</td><td class="rank-change change-up">↑1</td></tr>
+          <tr><td class="rank-num">4</td><td class="rank-name">Umbreon VMAX Alt Art</td><td class="rank-score">0.74</td><td class="rank-change change-dn">↓1</td></tr>
+          <tr><td class="rank-num">5</td><td class="rank-name">Charizard Shadowless</td><td class="rank-score">0.71</td><td class="rank-change change-dn">↓1</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Watchlist Update -->
+    <div class="sample-card">
+      <div class="sample-card-label">Watchlist Update</div>
+      <div class="watchlist-item">
+        <div><div class="wl-name">Pikachu Illustrator</div><div style="font-size:11px;color:var(--text3);">3 detectors fired this week</div></div>
+        <div style="display:flex;align-items:center;gap:8px;"><span class="wl-status wl-added">Added</span><span class="wl-score">0.79</span></div>
+      </div>
+      <div class="watchlist-item">
+        <div><div class="wl-name">Charizard Base Set</div><div style="font-size:11px;color:var(--text3);">Inventory compression alert</div></div>
+        <div style="display:flex;align-items:center;gap:8px;"><span class="wl-status wl-alert">Alert</span><span class="wl-score">0.82</span></div>
+      </div>
+      <div class="watchlist-item">
+        <div><div class="wl-name">Charizard 1st Edition</div><div style="font-size:11px;color:var(--text3);">Monitoring — threshold not reached</div></div>
+        <div style="display:flex;align-items:center;gap:8px;"><span class="wl-status wl-watch">Watch</span><span class="wl-score">0.54</span></div>
+      </div>
+      <div class="watchlist-item">
+        <div><div class="wl-name">Lugia 1st Edition</div><div style="font-size:11px;color:var(--text3);">PSA population signal detected</div></div>
+        <div style="display:flex;align-items:center;gap:8px;"><span class="wl-status wl-alert">Alert</span><span class="wl-score">0.76</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section">
+  <div class="section-label" style="text-align:center;">Pricing</div>
+  <div class="section-heading" style="text-align:center;">One newsletter. One price.</div>
+  <div class="section-sub" style="text-align:center;max-width:460px;margin:0 auto;">No tiers. No upsells inside the newsletter. Everything included from day one.</div>
+
+  <div class="pricing-card">
+    <div class="pricing-name">Pokémon Lens Weekly</div>
+    <div class="pricing-amount">£49</div>
+    <div class="pricing-period">per month · billed monthly</div>
+    <ul class="pricing-features">
+      <li><span class="chk">✓</span>Weekly issue published every Monday</li>
+      <li><span class="chk">✓</span>Top 10 opportunity rankings with full signal decomposition</li>
+      <li><span class="chk">✓</span>Historical precedent analysis per card</li>
+      <li><span class="chk">✓</span>Similarity scoring against validated historical cases</li>
+      <li><span class="chk">✓</span>Replay dashboards and CIA progression charts</li>
+      <li><span class="chk">✓</span>Maturity windows — fast, expected, and slow scenarios</li>
+      <li><span class="chk">✓</span>Watchlist tracking and threshold alerts</li>
+      <li><span class="chk">✓</span>New opportunities surfaced as signals emerge</li>
+    </ul>
+    <button class="pricing-cta" onclick="location.href='{{LS_CHECKOUT_NEWSLETTER_POKEMON_WEEKLY}}'">Subscribe now</button>
+    <div class="pricing-note">Cancel anytime · No contracts · Secure payment</div>
+  <p style="font-size:12px;color:var(--text3);margin-top:10px;text-align:center;">Newsletter subscriptions and platform subscriptions are separate entitlements. <a href="index.html#pricing" style="color:var(--blue);">View platform plans →</a></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="section-label">Common questions</div>
+  <div class="faq-item">
+    <div class="faq-q">How often is the newsletter published?</div>
+    <div class="faq-a">Every Monday morning. Each issue covers the full week of signal activity, updated rankings, watchlist changes, and new HPI analyses for any cards that crossed detection thresholds during the week.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Is this investment advice?</div>
+    <div class="faq-a">No. Signal Intelligence is an information service. The newsletter presents structured signal data, historical pattern analysis, and opportunity scores. Nothing published constitutes financial, investment, or trading advice. What you do with the information is your decision entirely.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">What data sources are analysed?</div>
+    <div class="faq-a">The Signal Intelligence platform collects from multiple independent sources including marketplace listings, sales data, population reports, auction results, and collector community signals. Every opportunity in the newsletter is cross-source validated before inclusion.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Can I cancel at any time?</div>
+    <div class="faq-a">Yes. There are no contracts and no minimum commitment. You can cancel your subscription at any time and you will not be charged again after cancellation. Access continues until the end of your current billing period.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">How do I access previous issues?</div>
+    <div class="faq-a">All issues are delivered by email and remain in your inbox. A subscriber archive is in development and will be available to all active subscribers when released — at no additional cost.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Signal<span>.</span>Intelligence</div>
+  <div>
+    <a href="terms.html" class="footer-link">Terms</a>
+    <a href="privacy.html" class="footer-link">Privacy</a>
+    <a href="disclaimer.html" class="footer-link">Disclaimer</a>
+    <a href="contact.html" class="footer-link">Contact</a>
+    <a href="blog.html" class="footer-link">Blog</a>
+  </div>
+  <div class="footer-disclaimer">Signal Intelligence is an information service. Nothing published constitutes financial, investment, or trading advice. All signals, scores, similarity comparisons, and historical analyses are for informational purposes only. Past precedents do not guarantee future outcomes. Pokémon and all related names are trademarks of Nintendo / Creatures Inc. / GAME FREAK inc.</div>
+</footer>
+
+</div>
+</body>
+</html>

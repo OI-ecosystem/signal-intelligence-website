@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <url>
+    <loc>https://oi-ecosystem.github.io/signal-intelligence-website/</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://oi-ecosystem.github.io/signal-intelligence-website/</loc>
+  </url>
+
+  <url>
+    <loc>https://oi-ecosystem.github.io/signal-intelligence-website/blog.html</loc>
+  </url>
+
+  <url>
+    <loc>https://oi-ecosystem.github.io/signal-intelligence-website/historical-cases.html</loc>
+  </url>
+
+  <url>
+    <loc>https://oi-ecosystem.github.io/signal-intelligence-website/historical-validation-framework.html</loc>
+  </url>
+
+  <url>
+    <loc>https://oi-ecosystem.github.io/signal-intelligence-website/newsletter.html</loc>
+  </url>
+
+  <url>
+    <loc>https://oi-ecosystem.github.io/signal-intelligence-website/terms.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://oi-ecosystem.github.io/signal-intelligence-website/privacy.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://oi-ecosystem.github.io/signal-intelligence-website/disclaimer.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://oi-ecosystem.github.io/signal-intelligence-website/contact.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://oi-ecosystem.github.io/signal-intelligence-website/index.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

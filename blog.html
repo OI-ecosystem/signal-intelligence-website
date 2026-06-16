@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal Intelligence Blog — Intelligence before the crowd</title>
+<meta name="description" content="Proprietary signal analysis, historical precedent comparisons, and opportunity intelligence across Pokémon, Crypto, AI and more.">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#0d0f14;--bg2:#131720;--bg3:#1a1f2e;--bg4:#222840;
+  --text:#f0f0ec;--text2:#9ba3b8;--text3:#5a6278;
+  --border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.14);
+  --blue:#3b82f6;--blue-bg:rgba(59,130,246,0.12);--blue-dark:#93c5fd;
+  --amber:#f59e0b;--amber-bg:rgba(245,158,11,0.12);--amber-dark:#fcd34d;
+  --green:#10b981;--green-bg:rgba(16,185,129,0.12);--green-dark:#6ee7b7;
+  --purple:#8b5cf6;--purple-bg:rgba(139,92,246,0.12);--purple-dark:#c4b5fd;
+  --red:#ef4444;--red-bg:rgba(239,68,68,0.1);
+  --radius:8px;--radius-lg:12px;--radius-xl:16px;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+.page{max-width:960px;margin:0 auto;padding:0 20px;}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0 26px;border-bottom:0.5px solid var(--border);margin-bottom:48px;}
+.logo{font-size:16px;font-weight:700;letter-spacing:-0.03em;color:var(--text);}
+.logo span{color:var(--blue);}
+.nav-links{display:flex;gap:4px;align-items:center;}
+.nav-links a{font-size:13px;color:var(--text2);padding:6px 12px;border-radius:var(--radius);}
+.nav-links a:hover,.nav-links a.active{color:var(--text);background:var(--bg2);}
+.btn-primary{background:var(--blue);color:#fff;border:none;font-size:13px;padding:8px 18px;border-radius:var(--radius);font-family:inherit;cursor:pointer;font-weight:500;}
+
+/* BLOG HERO */
+.blog-hero{margin-bottom:48px;padding-bottom:40px;border-bottom:0.5px solid var(--border);}
+.blog-eyebrow{font-size:11px;color:var(--blue);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:12px;}
+.blog-hero h1{font-size:32px;font-weight:800;letter-spacing:-0.03em;margin-bottom:10px;}
+.blog-hero-sub{font-size:15px;color:var(--text2);max-width:560px;line-height:1.65;}
+
+/* CATEGORY FILTERS */
+.categories{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:40px;}
+.cat{font-size:12px;padding:5px 14px;border-radius:99px;border:0.5px solid var(--border2);color:var(--text2);cursor:pointer;background:none;font-family:inherit;transition:all 0.15s;}
+.cat:hover,.cat.active{background:var(--blue-bg);border-color:rgba(59,130,246,0.4);color:var(--blue-dark);}
+.cat-pokemon.active{background:var(--amber-bg);border-color:rgba(245,158,11,0.4);color:var(--amber-dark);}
+.cat-crypto.active{background:var(--purple-bg);border-color:rgba(139,92,246,0.4);color:var(--purple-dark);}
+.cat-ai.active{background:var(--green-bg);border-color:rgba(16,185,129,0.4);color:var(--green-dark);}
+
+/* FEATURED ARTICLE */
+.featured{background:var(--bg2);border:0.5px solid var(--border2);border-radius:var(--radius-xl);padding:28px;margin-bottom:40px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;}
+.featured-label{font-size:11px;color:var(--amber);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:12px;}
+.featured-title{font-size:22px;font-weight:800;letter-spacing:-0.03em;line-height:1.2;margin-bottom:12px;}
+.featured-excerpt{font-size:13px;color:var(--text2);line-height:1.65;margin-bottom:20px;}
+.featured-meta{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--text3);margin-bottom:16px;}
+.tag{font-size:11px;padding:2px 8px;border-radius:99px;}
+.tag-pokemon{background:var(--amber-bg);color:var(--amber-dark);}
+.tag-crypto{background:var(--purple-bg);color:var(--purple-dark);}
+.tag-ai{background:var(--green-bg);color:var(--green-dark);}
+.tag-hpi{background:var(--blue-bg);color:var(--blue-dark);}
+.read-link{font-size:13px;color:var(--blue);font-weight:500;}
+.read-link:hover{color:var(--blue-dark);}
+
+/* HPI MINI CARD in featured */
+.hpi-mini{background:var(--bg3);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:18px;}
+.hpi-mini-header{font-size:11px;color:var(--text3);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.05em;}
+.hpi-mini-entity{font-size:18px;font-weight:800;letter-spacing:-0.02em;margin-bottom:14px;}
+.hpi-mini-matches{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+.hpi-mini-row{display:flex;align-items:center;justify-content:space-between;}
+.hpi-mini-name{font-size:12px;color:var(--text2);}
+.hpi-mini-bar-wrap{flex:1;margin:0 10px;height:4px;background:var(--bg4);border-radius:2px;}
+.hpi-mini-bar{height:4px;border-radius:2px;background:var(--blue);}
+.hpi-mini-score{font-size:12px;font-weight:600;color:var(--blue);width:36px;text-align:right;}
+.hpi-mini-consensus{font-size:12px;color:var(--amber);border-top:0.5px solid var(--border);padding-top:10px;}
+
+/* ARTICLE GRID */
+.articles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:48px;}
+.article-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:20px;transition:border-color 0.15s;}
+.article-card:hover{border-color:var(--border2);}
+.article-tags{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;}
+.article-title{font-size:15px;font-weight:700;letter-spacing:-0.02em;line-height:1.3;margin-bottom:8px;}
+.article-excerpt{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:14px;}
+.article-meta{font-size:12px;color:var(--text3);display:flex;align-items:center;justify-content:space-between;}
+.article-signal{font-size:12px;color:var(--blue);font-weight:500;}
+
+/* SIGNAL SNAPSHOT in articles */
+.signal-snap{background:var(--bg3);border-radius:var(--radius);padding:10px 12px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;}
+.snap-label{font-size:11px;color:var(--text3);}
+.snap-val{font-size:13px;font-weight:600;color:var(--text);}
+.snap-match{font-size:11px;color:var(--blue);}
+
+/* SIDEBAR / NEWSLETTER STRIP */
+.newsletter-strip{background:var(--bg2);border:0.5px solid rgba(245,158,11,0.3);border-radius:var(--radius-xl);padding:24px;margin-bottom:48px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.nl-strip-text h3{font-size:16px;font-weight:700;margin-bottom:4px;}
+.nl-strip-text p{font-size:13px;color:var(--text2);}
+.nl-strip-price{font-size:20px;font-weight:800;color:var(--amber);white-space:nowrap;}
+.nl-strip-btn{background:var(--amber);color:#0d0f14;border:none;font-size:13px;font-weight:700;padding:10px 22px;border-radius:var(--radius);font-family:inherit;cursor:pointer;white-space:nowrap;}
+
+/* TOOLS SIDEBAR STRIP */
+.tools-strip{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--radius-xl);padding:20px;margin-bottom:48px;}
+.tools-strip-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px;font-weight:600;}
+.tools-list{display:flex;gap:10px;flex-wrap:wrap;}
+.tool-pill{display:flex;align-items:center;gap:8px;background:var(--bg3);border:0.5px solid var(--border);border-radius:var(--radius);padding:10px 14px;font-size:13px;color:var(--text);transition:border-color 0.15s;}
+.tool-pill:hover{border-color:var(--border2);}
+.tool-pill-icon{font-size:16px;}
+.tool-pill-name{font-weight:600;}
+.tool-pill-desc{font-size:11px;color:var(--text3);}
+
+/* COMPANION TOOLS - light weight, never above CTAs */
+.companion-tool{background:var(--bg3);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:14px 16px;max-height:120px;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;}
+.companion-tool-text{font-size:12px;color:var(--text2);line-height:1.5;}
+.companion-tool-text strong{display:block;font-size:13px;color:var(--text);margin-bottom:2px;}
+.companion-tool-link{font-size:12px;color:var(--blue);font-weight:500;white-space:nowrap;flex-shrink:0;}
+.companion-tool-icon{font-size:20px;flex-shrink:0;}
+
+/* PAGINATION */
+.pagination{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:56px;}
+.page-btn{font-size:13px;padding:7px 14px;border-radius:var(--radius);border:0.5px solid var(--border);background:none;color:var(--text2);cursor:pointer;font-family:inherit;}
+.page-btn.active{background:var(--blue);color:#fff;border-color:var(--blue);}
+.page-btn:hover:not(.active){background:var(--bg2);}
+
+/* FOOTER */
+footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:20px;}
+.footer-logo{font-size:14px;font-weight:700;letter-spacing:-0.02em;}
+.footer-logo span{color:var(--blue);}
+.footer-links{display:flex;flex-wrap:wrap;}
+.footer-link{font-size:12px;color:var(--text3);margin-left:20px;}
+.footer-link:hover{color:var(--text2);}
+.footer-disclaimer{font-size:11px;color:var(--text3);line-height:1.6;width:100%;max-width:600px;margin-top:4px;}
+
+@media(max-width:640px){
+  .articles-grid{grid-template-columns:1fr;}
+  .featured{grid-template-columns:1fr;}
+  .newsletter-strip{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">Signal<span>.</span>Intelligence</a>
+  <div class="nav-links">
+    <a href="index.html#how">How it works</a>
+    <a href="historical-cases.html">Historical Cases</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="blog.html" class="active">Blog</a>
+    <button class="btn-primary" onclick="location.href='index.html#pricing'">Get Started</button>
+  </div>
+</nav>
+
+<!-- BLOG HERO -->
+<div class="blog-hero">
+  <div class="blog-eyebrow">Intelligence Blog</div>
+  <h1>See the signal.<br>Before the crowd.</h1>
+  <p class="blog-hero-sub">Proprietary signal analysis, historical precedent comparisons, and opportunity intelligence — published directly from the Signal Intelligence platform.</p>
+</div>
+
+<!-- CATEGORY FILTERS -->
+<div class="categories">
+  <button class="cat active">All</button>
+  <button class="cat cat-pokemon">🃏 Pokémon</button>
+  <button class="cat cat-crypto">⬡ Crypto</button>
+  <button class="cat cat-ai">◈ AI & Startups</button>
+  <button class="cat">📊 Historical Precedents</button>
+</div>
+
+<!-- FEATURED ARTICLE -->
+<div class="featured">
+  <div>
+    <div class="featured-label">Featured · HPI Analysis</div>
+    <div class="featured-meta">
+      <span class="tag tag-crypto">Crypto</span>
+      <span class="tag tag-hpi">HPI</span>
+      <span>15 Jun 2026</span>
+    </div>
+    <div class="featured-title">Ethereum Is Showing Similar Signals to Bitcoin in 2013</div>
+    <div class="featured-excerpt">Signal Intelligence has detected a strong pattern match between Ethereum's current signal profile and Bitcoin's 2013 accumulation phase — 11.3 years before Bitcoin achieved mainstream recognition. The similarity score is 47.2%.</div>
+    <a href="#" class="read-link">Read full analysis →</a>
+  </div>
+  <div class="hpi-mini">
+    <div class="hpi-mini-header">Live HPI · Ethereum</div>
+    <div class="hpi-mini-entity">Ethereum</div>
+    <div class="hpi-mini-matches">
+      <div class="hpi-mini-row">
+        <span class="hpi-mini-name">SpaceX</span>
+        <div class="hpi-mini-bar-wrap"><div class="hpi-mini-bar" style="width:99.6%"></div></div>
+        <span class="hpi-mini-score">49.8%</span>
+      </div>
+      <div class="hpi-mini-row">
+        <span class="hpi-mini-name">Bitcoin</span>
+        <div class="hpi-mini-bar-wrap"><div class="hpi-mini-bar" style="width:94.4%"></div></div>
+        <span class="hpi-mini-score">47.2%</span>
+      </div>
+      <div class="hpi-mini-row">
+        <span class="hpi-mini-name">NVIDIA</span>
+        <div class="hpi-mini-bar-wrap"><div class="hpi-mini-bar" style="width:88.2%"></div></div>
+        <span class="hpi-mini-score">44.1%</span>
+      </div>
+    </div>
+    <div class="hpi-mini-consensus">Consensus: 180–540 day maturity window</div>
+  </div>
+</div>
+
+<!-- ARTICLES GRID -->
+<div class="articles-grid">
+
+  <div class="article-card">
+    <div class="article-tags">
+      <span class="tag tag-pokemon">🃏 Pokémon</span>
+      <span class="tag tag-hpi">HPI</span>
+    </div>
+    <div class="article-title">Charizard Base Set Is Showing Early Accumulation Signals</div>
+    <div class="signal-snap">
+      <div><div class="snap-label">Opportunity score</div><div class="snap-val">0.82</div></div>
+      <div><div class="snap-label">Top HPI match</div><div class="snap-match">SpaceX 2008</div></div>
+      <div><div class="snap-label">Signal count</div><div class="snap-val">14</div></div>
+    </div>
+    <div class="article-excerpt">Inventory compression across three major platforms, combined with PSA population data, suggests a supply contraction consistent with early accumulation phases seen before major price movements.</div>
+    <div class="article-meta">
+      <span>14 Jun 2026</span>
+      <a href="#" class="read-link">Read →</a>
+    </div>
+  </div>
+
+  <div class="article-card">
+    <div class="article-tags">
+      <span class="tag tag-pokemon">🃏 Pokémon</span>
+    </div>
+    <div class="article-title">Umbreon VMAX Alt Art: Historical Precedent Analysis</div>
+    <div class="signal-snap">
+      <div><div class="snap-label">Opportunity score</div><div class="snap-val">0.76</div></div>
+      <div><div class="snap-label">Top HPI match</div><div class="snap-match">Shopify 2014</div></div>
+      <div><div class="snap-label">Signal count</div><div class="snap-val">9</div></div>
+    </div>
+    <div class="article-excerpt">Velocity and novelty detectors fired simultaneously across multiple sources in the past 30 days. Cross-source corroboration is the most reliable quality gate — and it is firing now.</div>
+    <div class="article-meta">
+      <span>13 Jun 2026</span>
+      <a href="#" class="read-link">Read →</a>
+    </div>
+  </div>
+
+  <div class="article-card">
+    <div class="article-tags">
+      <span class="tag tag-ai">◈ AI & Startups</span>
+      <span class="tag tag-hpi">HPI</span>
+    </div>
+    <div class="article-title">Which AI Startups Currently Resemble Early OpenAI?</div>
+    <div class="signal-snap">
+      <div><div class="snap-label">Entities analysed</div><div class="snap-val">110</div></div>
+      <div><div class="snap-label">Threshold passed</div><div class="snap-val">12</div></div>
+      <div><div class="snap-label">Top match</div><div class="snap-match">OpenAI 2017</div></div>
+    </div>
+    <div class="article-excerpt">Signal Intelligence has run HPI analysis across 110 tracked AI entities. 12 are showing signal profiles consistent with OpenAI's pre-breakthrough accumulation phase from 2017–2019.</div>
+    <div class="companion-tool">
+      <span class="companion-tool-icon">⚡</span>
+      <div class="companion-tool-text"><strong>Building an AI startup?</strong>Turn your idea into a compelling one-line value proposition in seconds.</div>
+      <a href="https://1line.ai" class="companion-tool-link" target="_blank">Launch 1LINE →</a>
+    </div>
+    <div class="article-meta" style="margin-top:12px;">
+      <span>12 Jun 2026</span>
+      <a href="#" class="read-link">Read →</a>
+    </div>
+  </div>
+
+  <div class="article-card">
+    <div class="article-tags">
+      <span class="tag tag-crypto">⬡ Crypto</span>
+    </div>
+    <div class="article-title">The 6 Historical Precedents Behind Signal Intelligence's Scoring</div>
+    <div class="signal-snap">
+      <div><div class="snap-label">Cases validated</div><div class="snap-val">6</div></div>
+      <div><div class="snap-label">Avg lead time</div><div class="snap-val">8.3yr</div></div>
+      <div><div class="snap-label">Threshold</div><div class="snap-val">0.35</div></div>
+    </div>
+    <div class="article-excerpt">SpaceX, Tesla, Bitcoin, NVIDIA, Shopify, OpenAI. These are the six validated historical cases that underpin every HPI analysis. Here is exactly what was detected and when.</div>
+    <div class="article-meta">
+      <span>11 Jun 2026</span>
+      <a href="#" class="read-link">Read →</a>
+    </div>
+  </div>
+
+  <div class="article-card">
+    <div class="article-tags">
+      <span class="tag tag-pokemon">🃏 Pokémon</span>
+    </div>
+    <div class="article-title">Pikachu Illustrator: What the Signals Are Saying Now</div>
+    <div class="signal-snap">
+      <div><div class="snap-label">Opportunity score</div><div class="snap-val">0.79</div></div>
+      <div><div class="snap-label">Detector firings</div><div class="snap-val">4</div></div>
+      <div><div class="snap-label">Sources</div><div class="snap-val">3</div></div>
+    </div>
+    <div class="article-excerpt">Four detectors have fired on Pikachu Illustrator in the past 14 days. Inventory compression, auction acceleration, and cross-source corroboration are all active simultaneously.</div>
+    <div class="article-meta">
+      <span>10 Jun 2026</span>
+      <a href="#" class="read-link">Read →</a>
+    </div>
+  </div>
+
+  <div class="article-card">
+    <div class="article-tags">
+      <span class="tag tag-ai">◈ AI & Startups</span>
+    </div>
+    <div class="article-title">GitHub Trending: The Early Signal That Predicted Four Breakouts</div>
+    <div class="signal-snap">
+      <div><div class="snap-label">Breakouts detected</div><div class="snap-val">4</div></div>
+      <div><div class="snap-label">Avg lead time</div><div class="snap-val">14 days</div></div>
+      <div><div class="snap-label">Source</div><div class="snap-match">GitHub Trending</div></div>
+    </div>
+    <div class="article-excerpt">GitHub Trending is one of six Signal Intelligence collectors. Over the past 90 days it surfaced four entities that subsequently appeared in TechCrunch, Hacker News front page, and Product Hunt simultaneously.</div>
+    <div class="companion-tool">
+      <span class="companion-tool-icon">📄</span>
+      <div class="companion-tool-text"><strong>Spotted a hiring signal?</strong>Optimise your CV for the roles emerging from these trends.</div>
+      <a href="#" class="companion-tool-link">Open Resume Builder →</a>
+    </div>
+    <div class="article-meta" style="margin-top:12px;">
+      <span>9 Jun 2026</span>
+      <a href="#" class="read-link">Read →</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- NEWSLETTER STRIP -->
+<div class="newsletter-strip">
+  <div class="nl-strip-text">
+    <h3>🃏 Pokémon Lens Newsletter</h3>
+    <p>Top 10 Pokémon card opportunities every Monday. Full signal breakdowns, PSA data, historical precedents.</p>
+  </div>
+  <div class="nl-strip-price">£49/month</div>
+  <button class="nl-strip-btn">Subscribe →</button>
+</div>
+
+
+
+<!-- PAGINATION -->
+<div class="pagination">
+  <button class="page-btn active">1</button>
+  <button class="page-btn">2</button>
+  <button class="page-btn">3</button>
+  <button class="page-btn">→</button>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Signal<span>.</span>Intelligence</div>
+  <div>
+    <a href="terms.html" class="footer-link">Terms</a>
+    <a href="privacy.html" class="footer-link">Privacy</a>
+    <a href="disclaimer.html" class="footer-link">Disclaimer</a>
+    <a href="contact.html" class="footer-link">Contact</a>
+    <a href="blog.html" class="footer-link">Blog</a>
+  </div>
+  <div class="footer-disclaimer">Signal Intelligence is an information service. Nothing published constitutes financial, investment, or trading advice. All signals, scores, and historical comparisons are for informational purposes only. Past precedents do not guarantee future outcomes.</div>
+</footer>
+
+</div>
+</body>
+</html>
