@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pokémon Lens Weekly — Signal Intelligence Newsletter</title>
-<meta name="description" content="Every week, Signal Intelligence identifies the highest-conviction Pokémon opportunities using historical precedent analysis, similarity scoring, replay charts, and maturity windows.">
+<title>Trading Card Lens Weekly — Signal Intelligence Newsletter</title>
+<meta name="description" content="Every week, Signal Intelligence identifies the highest-conviction Pokémon trading card opportunities using signal rankings, watchlist tracking, and cross-source validation. Historical precedent analysis arrives in a future upgrade.">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -57,6 +57,7 @@ h1 em{font-style:normal;color:var(--amber);}
 .feature-icon{font-size:22px;margin-bottom:10px;}
 .feature-name{font-size:13px;font-weight:700;margin-bottom:6px;}
 .feature-desc{font-size:12px;color:var(--text2);line-height:1.55;}
+.feature-soon{font-size:9px;background:var(--amber-bg);color:var(--amber-dark);padding:2px 7px;border-radius:99px;font-weight:700;letter-spacing:0.03em;display:inline-block;margin-bottom:8px;}
 
 /* EXAMPLE INSIGHT CARD */
 .insight-section{background:var(--bg3);border-radius:var(--radius-xl);padding:36px;margin-bottom:72px;}
@@ -115,6 +116,8 @@ h1 em{font-style:normal;color:var(--amber);}
 .pricing-features li{font-size:14px;color:var(--text2);padding:8px 0;border-bottom:0.5px solid var(--border);display:flex;align-items:flex-start;gap:10px;}
 .pricing-features li:last-child{border-bottom:none;}
 .chk{color:var(--green);font-size:15px;flex-shrink:0;margin-top:1px;}
+.chk.soon{color:var(--amber-dark);}
+.pricing-features li em{color:var(--text3);font-style:normal;font-size:11px;margin-left:5px;}
 .pricing-cta{width:100%;padding:14px;border-radius:var(--radius);border:none;background:var(--amber);color:#0d0f14;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:all 0.15s;margin-bottom:12px;}
 .pricing-cta:hover{background:var(--amber-dark);}
 .pricing-note{font-size:12px;color:var(--text3);text-align:center;}
@@ -161,11 +164,11 @@ footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">🃏 Pokémon Lens Weekly · Published every Monday</div>
+  <div class="hero-badge">🃏 Trading Card Lens Weekly · Pokémon focus · Published every Monday</div>
   <h1>Find tomorrow's opportunities<br>before the <em>market does.</em></h1>
-  <p class="hero-sub">Every week, Signal Intelligence identifies the highest-conviction Pokémon opportunities using historical precedent analysis, similarity scoring, replay charts, and maturity windows — delivered every Monday morning.</p>
+  <p class="hero-sub">Every week, Signal Intelligence identifies the highest-conviction opportunities — currently focused on Pokémon trading cards — using signal rankings, watchlist tracking, and cross-source validation. Historical precedent analysis, similarity scoring, and replay charts arrive in a future upgrade.</p>
   <div class="hero-actions">
-    <button class="btn-amber" onclick="location.href='{{LS_CHECKOUT_NEWSLETTER_POKEMON_WEEKLY}}'">Subscribe — £49/month</button>
+    <button class="btn-amber" onclick="location.href='https://opportunity-intelligence.lemonsqueezy.com/checkout/buy/4065c086-e268-4767-9a29-5976dc5ad096'">Subscribe — £49/month</button>
     <button class="btn-outline">View sample issue</button>
   </div>
   <p class="hero-note">Cancel anytime · No commitment · Delivered every Monday</p>
@@ -184,23 +187,27 @@ footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-
     </div>
     <div class="feature-card">
       <div class="feature-icon">📊</div>
+      <div class="feature-soon">Future Upgrade</div>
       <div class="feature-name">Historical Precedent Analysis</div>
-      <div class="feature-desc">Each card compared against validated historical cases. Similarity scores with named precedents.</div>
+      <div class="feature-desc">In development. Will compare each card against validated historical cases with named precedents.</div>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🎯</div>
+      <div class="feature-soon">Future Upgrade</div>
       <div class="feature-name">Similarity Scores</div>
-      <div class="feature-desc">Quantified pattern matching against SpaceX, Bitcoin, NVIDIA, and three other validated cases.</div>
+      <div class="feature-desc">In development. Will quantify pattern matching against SpaceX, Bitcoin, NVIDIA, and three other validated cases.</div>
     </div>
     <div class="feature-card">
       <div class="feature-icon">📈</div>
+      <div class="feature-soon">Future Upgrade</div>
       <div class="feature-name">Replay Charts</div>
-      <div class="feature-desc">CIA score progression and opportunity score development tracked over time for each entity.</div>
+      <div class="feature-desc">In development. Will track CIA score progression and opportunity score development over time for each entity.</div>
     </div>
     <div class="feature-card">
       <div class="feature-icon">⏱</div>
+      <div class="feature-soon">Future Upgrade</div>
       <div class="feature-name">Maturity Windows</div>
-      <div class="feature-desc">Consensus maturity window derived from historical precedent lead times — fast, expected, and slow scenarios.</div>
+      <div class="feature-desc">In development. Will derive a consensus maturity window from historical precedent lead times.</div>
     </div>
     <div class="feature-card">
       <div class="feature-icon">👁</div>
@@ -222,9 +229,9 @@ footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-
 
 <!-- EXAMPLE INSIGHT CARD -->
 <section class="insight-section">
-  <div class="section-label">Example insight</div>
-  <div class="section-heading">What a Signal Intelligence card looks like.</div>
-  <div class="section-sub">Every opportunity in the newsletter is backed by this level of analysis.</div>
+  <div class="section-label">Future upgrade preview</div>
+  <div class="section-heading">What a Signal Intelligence card will look like.</div>
+  <div class="section-sub">This level of historical analysis is coming in a future upgrade — preview shown with illustrative data, not yet included in active issues.</div>
 
   <div class="insight-card">
     <div class="insight-header">
@@ -268,7 +275,7 @@ footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-
       <div class="consensus-window">6–18 months</div>
     </div>
 
-    <div class="insight-disclaimer">Historical precedent is not predictive. Similarity scores indicate resemblance to historical patterns and outcomes, not future performance. This is not investment advice.</div>
+    <div class="insight-disclaimer">This historical precedent feature is in development and not yet included in active issues. Once released: similarity scores indicate resemblance to historical patterns and outcomes, not future performance — historical precedent is not predictive. This is not investment advice.</div>
   </div>
 </section>
 
@@ -276,7 +283,7 @@ footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-
 <section class="sample-section">
   <div class="section-label">Sample issue</div>
   <div class="section-heading">Inside a typical Monday issue.</div>
-  <div class="section-sub">Every issue follows the same structure — rankings, watchlist updates, and full HPI insight cards.</div>
+  <div class="section-sub">Every issue follows the same structure — rankings and watchlist updates today, with HPI insight cards arriving in a future upgrade.</div>
 
   <div class="sample-grid">
     <!-- Rankings Table -->
@@ -331,20 +338,20 @@ footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-
   <div class="section-sub" style="text-align:center;max-width:460px;margin:0 auto;">No tiers. No upsells inside the newsletter. Everything included from day one.</div>
 
   <div class="pricing-card">
-    <div class="pricing-name">Pokémon Lens Weekly</div>
+    <div class="pricing-name">Trading Card Lens Weekly</div>
     <div class="pricing-amount">£49</div>
     <div class="pricing-period">per month · billed monthly</div>
     <ul class="pricing-features">
       <li><span class="chk">✓</span>Weekly issue published every Monday</li>
       <li><span class="chk">✓</span>Top 10 opportunity rankings with full signal decomposition</li>
-      <li><span class="chk">✓</span>Historical precedent analysis per card</li>
-      <li><span class="chk">✓</span>Similarity scoring against validated historical cases</li>
-      <li><span class="chk">✓</span>Replay dashboards and CIA progression charts</li>
-      <li><span class="chk">✓</span>Maturity windows — fast, expected, and slow scenarios</li>
       <li><span class="chk">✓</span>Watchlist tracking and threshold alerts</li>
       <li><span class="chk">✓</span>New opportunities surfaced as signals emerge</li>
+      <li><span class="chk soon">↗</span>Historical precedent analysis per card<em>— future upgrade</em></li>
+      <li><span class="chk soon">↗</span>Similarity scoring against validated historical cases<em>— future upgrade</em></li>
+      <li><span class="chk soon">↗</span>Replay dashboards and CIA progression charts<em>— future upgrade</em></li>
+      <li><span class="chk soon">↗</span>Maturity windows — fast, expected, and slow scenarios<em>— future upgrade</em></li>
     </ul>
-    <button class="pricing-cta" onclick="location.href='{{LS_CHECKOUT_NEWSLETTER_POKEMON_WEEKLY}}'">Subscribe now</button>
+    <button class="pricing-cta" onclick="location.href='https://opportunity-intelligence.lemonsqueezy.com/checkout/buy/4065c086-e268-4767-9a29-5976dc5ad096'">Subscribe now</button>
     <div class="pricing-note">Cancel anytime · No contracts · Secure payment</div>
   <p style="font-size:12px;color:var(--text3);margin-top:10px;text-align:center;">Newsletter subscriptions and platform subscriptions are separate entitlements. <a href="index.html#pricing" style="color:var(--blue);">View platform plans →</a></p>
   </div>
@@ -368,6 +375,10 @@ footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-
   <div class="faq-item">
     <div class="faq-q">Can I cancel at any time?</div>
     <div class="faq-a">Yes. There are no contracts and no minimum commitment. You can cancel your subscription at any time and you will not be charged again after cancellation. Access continues until the end of your current billing period.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Will historical precedent analysis (HPI) be added?</div>
+    <div class="faq-a">Yes — HPI similarity scoring, replay charts, and maturity windows are in active development as part of the Signal Genesis upgrade. Current subscribers receive these automatically at no extra cost once released.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q">How do I access previous issues?</div>
