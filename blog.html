@@ -2277,7 +2277,7 @@ function siBuildArticleCard(post, dayOffset) {
     <div class="article-excerpt">${post.excerpt}</div>
     <div class="article-meta">
       <span>${siFormatDate(dayOffset)}</span>
-      <a href="${post.slug}.html" class="read-link">Read →</a>
+      <a href="blog_articles/${post.slug}.html" class="read-link">Read →</a>
     </div>
   </div>`;
 }
@@ -2407,7 +2407,7 @@ function siRenderFeatured(featured) {
   }
   if (featuredTitleEl) featuredTitleEl.textContent = featured.title;
   if (featuredExcerptEl) featuredExcerptEl.textContent = featured.excerpt;
-  if (featuredLinkEl) featuredLinkEl.setAttribute("href", `${featured.slug}.html`);
+  if (featuredLinkEl) featuredLinkEl.setAttribute("href", `blog_articles/${featured.slug}.html`);
 }
 
 function siRenderPagination(totalPages) {
