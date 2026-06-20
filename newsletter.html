@@ -169,7 +169,7 @@ footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-
   <p class="hero-sub">Every week, Signal Intelligence identifies the highest-conviction opportunities — currently focused on Pokémon trading cards — using signal rankings, watchlist tracking, and cross-source validation.</p>
   <div class="hero-actions">
     <button class="btn-amber" onclick="location.href='https://opportunity-intelligence.lemonsqueezy.com/checkout/buy/4065c086-e268-4767-9a29-5976dc5ad096'">Subscribe — £49/month</button>
-    <button class="btn-outline">View sample issue</button>
+    <button class="btn-outline" onclick="document.getElementById('sample-issue').scrollIntoView({behavior:'smooth'})">View sample issue</button>
   </div>
   <p class="hero-note">Cancel anytime · No commitment · Delivered every Monday</p>
 </section>
@@ -234,7 +234,7 @@ footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-
 </section>
 
 <!-- SAMPLE ISSUE PREVIEW -->
-<section class="sample-section">
+<section class="sample-section" id="sample-issue">
   <div class="section-label">Sample issue</div>
   <div class="section-heading">Inside a typical Monday issue.</div>
   <div class="section-sub">Every issue follows the same structure — rankings, watchlist updates, and market commentary, with a Genesis preview at the close of each issue.</div>
