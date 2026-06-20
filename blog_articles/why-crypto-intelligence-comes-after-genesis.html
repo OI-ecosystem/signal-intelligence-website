@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genesis Doesn't Just Score a Match. It Places You on the Timeline. — Signal Intelligence</title>
+<meta name="description" content="A similarity score tells you how closely two signal profiles resemble each other. It doesn't tell you where you currently sit inside that resemblance —…">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#0d0f14;--bg2:#131720;--bg3:#1a1f2e;--bg4:#222840;
+  --text:#f0f0ec;--text2:#9ba3b8;--text3:#5a6278;
+  --border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.14);
+  --blue:#3b82f6;--blue-bg:rgba(59,130,246,0.12);--blue-dark:#93c5fd;--blue-mid:#60a5fa;
+  --amber:#f59e0b;--amber-bg:rgba(245,158,11,0.12);--amber-dark:#fcd34d;
+  --green:#10b981;--green-bg:rgba(16,185,129,0.12);--green-dark:#6ee7b7;
+  --purple:#8b5cf6;--purple-bg:rgba(139,92,246,0.12);--purple-dark:#c4b5fd;
+  --radius:8px;--radius-lg:12px;--radius-xl:16px;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+.page{max-width:760px;margin:0 auto;padding:0 20px;}
+
+/* NAV (identical to site) */
+nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0 26px;border-bottom:0.5px solid var(--border);margin-bottom:40px;max-width:960px;margin-left:auto;margin-right:auto;padding-left:20px;padding-right:20px;}
+.logo{font-size:16px;font-weight:700;letter-spacing:-0.03em;color:var(--text);}
+.logo span{color:var(--blue);}
+.nav-links{display:flex;gap:4px;align-items:center;}
+.nav-links a{font-size:13px;color:var(--text2);padding:6px 12px;border-radius:var(--radius);}
+.nav-links a:hover,.nav-links a.active{color:var(--text);background:var(--bg2);}
+.nav-login{font-size:14px !important;font-weight:700 !important;color:#fff !important;}
+.btn-primary{background:var(--blue);color:#fff;border:none;font-size:13px;padding:8px 18px;border-radius:var(--radius);font-family:inherit;cursor:pointer;font-weight:500;}
+
+/* BREADCRUMB */
+.breadcrumb{font-size:12px;color:var(--text3);margin-bottom:28px;}
+.breadcrumb a{color:var(--text2);}
+.breadcrumb a:hover{color:var(--blue);}
+
+/* ARTICLE HEADER */
+.article-tags{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap;}
+.tag{font-size:11px;padding:3px 10px;border-radius:99px;font-weight:600;}
+.tag-pokemon{background:var(--amber-bg);color:var(--amber-dark);}
+.tag-crypto{background:var(--purple-bg);color:var(--purple-dark);}
+.tag-ai{background:var(--green-bg);color:var(--green-dark);}
+.tag-watches{background:var(--blue-bg);color:var(--blue-dark);}
+.tag-hpi{background:var(--blue-bg);color:var(--blue-dark);}
+.tag-genesis{background:var(--amber-bg);color:var(--amber-dark);}
+
+article h1{font-size:34px;font-weight:800;letter-spacing:-0.03em;line-height:1.15;margin-bottom:18px;}
+.article-byline{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text3);margin-bottom:36px;padding-bottom:28px;border-bottom:0.5px solid var(--border);}
+.byline-dot{width:5px;height:5px;border-radius:50%;background:var(--text3);}
+
+/* LEAD / DEK */
+.article-lead{font-size:17px;color:var(--text2);line-height:1.7;margin-bottom:32px;font-weight:400;}
+
+/* SIGNAL SNAPSHOT — premium version */
+.snap-panel{background:var(--bg2);border:0.5px solid var(--border2);border-radius:var(--radius-xl);padding:22px 24px;margin-bottom:36px;}
+.snap-panel-label{font-size:11px;color:var(--blue-dark);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:16px;}
+.snap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.snap-item-label{font-size:11px;color:var(--text3);margin-bottom:4px;}
+.snap-item-val{font-size:20px;font-weight:700;letter-spacing:-0.02em;color:var(--text);}
+.snap-item-val.accent{color:var(--blue);}
+.snap-item-val.amber{color:var(--amber);}
+
+/* BODY TYPOGRAPHY */
+.article-body p{margin-bottom:22px;font-size:16px;color:var(--text2);line-height:1.75;}
+.article-body p strong{color:var(--text);font-weight:600;}
+.article-body h2{font-size:22px;font-weight:700;letter-spacing:-0.02em;color:var(--text);margin:40px 0 18px;}
+.article-body h3{font-size:17px;font-weight:700;color:var(--text);margin:32px 0 14px;}
+.article-body ul{margin:0 0 22px;padding-left:0;list-style:none;}
+.article-body ul li{font-size:15px;color:var(--text2);padding:8px 0 8px 22px;border-bottom:0.5px solid var(--border);position:relative;line-height:1.6;}
+.article-body ul li:last-child{border-bottom:none;}
+.article-body ul li::before{content:"→";position:absolute;left:0;color:var(--blue);font-weight:700;}
+
+/* PULL QUOTE / CALLOUT */
+.callout{background:var(--amber-bg);border-left:3px solid var(--amber);border-radius:var(--radius);padding:18px 22px;margin:32px 0;font-size:15px;color:var(--amber-dark);line-height:1.65;}
+.callout strong{color:var(--amber-dark);}
+
+/* HPI MINI WITHIN ARTICLE BODY */
+.hpi-inline{background:var(--bg3);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:20px;margin:32px 0;}
+.hpi-inline-header{font-size:11px;color:var(--text3);margin-bottom:14px;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;}
+.hpi-inline-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.hpi-inline-name{font-size:13px;color:var(--text2);width:80px;flex-shrink:0;}
+.hpi-inline-bar-wrap{flex:1;margin:0 12px;height:5px;background:var(--bg4);border-radius:3px;}
+.hpi-inline-bar{height:5px;border-radius:3px;background:var(--blue);}
+.hpi-inline-score{font-size:13px;font-weight:700;color:var(--blue);width:44px;text-align:right;}
+.hpi-inline-consensus{font-size:12px;color:var(--amber);border-top:0.5px solid var(--border);padding-top:12px;margin-top:6px;}
+
+/* MID-ARTICLE CTA */
+.mid-cta{background:var(--bg2);border:0.5px solid rgba(59,130,246,0.3);border-radius:var(--radius-xl);padding:26px 28px;margin:40px 0;text-align:center;}
+.mid-cta-title{font-size:18px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px;}
+.mid-cta-sub{font-size:13px;color:var(--text2);margin-bottom:18px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.6;}
+
+/* COMPLIANCE / DISCLAIMER (in-article) */
+.article-disclaimer{font-size:12px;color:var(--text3);line-height:1.65;background:var(--bg2);border-radius:var(--radius);padding:14px 18px;margin:36px 0;}
+
+/* AUTHOR / CLOSING CTA BLOCK */
+.closing-cta{background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(59,130,246,0.08));border:1.5px solid var(--amber);border-radius:var(--radius-xl);padding:28px 32px;margin:48px 0 40px;text-align:center;}
+.closing-cta-title{font-size:21px;font-weight:800;letter-spacing:-0.03em;color:var(--amber);margin-bottom:8px;}
+.closing-cta-sub{font-size:13px;color:var(--text2);margin-bottom:20px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.6;}
+.closing-cta-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.btn{display:inline-block;font-size:13px;padding:10px 22px;border-radius:var(--radius);border:0.5px solid var(--border2);background:var(--bg2);color:var(--text);cursor:pointer;font-family:inherit;transition:all 0.15s;font-weight:500;}
+.btn:hover{background:var(--bg3);}
+.btn-amber{background:var(--amber);color:#0d0f14;border-color:var(--amber);font-weight:700;}
+.btn-amber:hover{background:var(--amber-dark);}
+
+/* RELATED ARTICLES */
+.related-label{font-size:11px;color:var(--blue);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:16px;}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:48px;}
+.related-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:18px;transition:border-color 0.15s;}
+.related-card:hover{border-color:var(--border2);}
+.related-card-tag{font-size:11px;color:var(--text3);margin-bottom:8px;}
+.related-card-title{font-size:14px;font-weight:700;line-height:1.35;margin-bottom:6px;}
+.related-card-link{font-size:12px;color:var(--blue);font-weight:500;}
+
+/* FOOTER (identical to site) */
+footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:20px;max-width:960px;margin-left:auto;margin-right:auto;padding-left:20px;padding-right:20px;}
+.footer-logo{font-size:14px;font-weight:700;letter-spacing:-0.02em;}
+.footer-logo span{color:var(--blue);}
+.footer-links{display:flex;flex-wrap:wrap;}
+.footer-link{font-size:12px;color:var(--text3);margin-left:20px;}
+.footer-link:hover{color:var(--text2);}
+.footer-disclaimer{font-size:11px;color:var(--text3);line-height:1.6;width:100%;max-width:600px;margin-top:4px;}
+
+@media(max-width:640px){
+  .snap-grid{grid-template-columns:1fr 1fr;}
+  .related-grid{grid-template-columns:1fr;}
+  article h1{font-size:26px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">Signal<span>.</span>Intelligence</a>
+  <div class="nav-links">
+    <a href="index.html#how">How it works</a>
+    <a href="historical-cases.html">Historical Cases</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="blog.html" class="active">Blog</a>
+    <a href="https://si.psiisp.com/login" class="nav-login">Login</a>
+    <button class="btn-primary" onclick="location.href='index.html#pricing'">Get Started</button>
+  </div>
+</nav>
+
+<div class="page">
+
+<div class="breadcrumb"><a href="blog.html">Blog</a> / Signal Genesis</div>
+
+<article>
+  <div class="article-tags">
+    <span class="tag tag-genesis">✦ Genesis</span>
+    <span class="tag tag-hpi">HPI</span>
+  </div>
+
+  <h1>Genesis Doesn't Just Score a Match. It Places You on the Timeline.</h1>
+
+  <div class="article-byline">
+    <span>29 Apr 2026</span>
+    <span class="byline-dot"></span>
+    <span>3 min read</span>
+    <span class="byline-dot"></span>
+    <span>Signal Intelligence Research</span>
+  </div>
+
+  <p class="article-lead">A similarity score tells you how closely two signal profiles resemble each other. It doesn't tell you where you currently sit inside that resemblance — early, late, or somewhere in the middle of a multi-year pattern. That's the question Genesis is built to answer.</p>
+
+  <div class="snap-panel">
+    <div class="snap-panel-label">Signal Snapshot</div>
+    <div class="snap-grid">
+      <div><div class="snap-item-label">Timeline structure</div><div class="snap-item-val accent">T-48 to T-0</div></div>
+      <div><div class="snap-item-label">Pattern archetypes</div><div class="snap-item-val amber">8 named types</div></div>
+      <div><div class="snap-item-label">Comparison basis</div><div class="snap-item-val accent">CIA stage matching</div></div>
+    </div>
+  </div>
+
+  <div class="article-body">
+    
+<p>HPI already answers a comparative question well: does this entity's current signal shape resemble a documented historical case, and by how much. Genesis takes that same comparison and adds a dimension HPI alone doesn't surface — position. Not just "this resembles Bitcoin's 2013 pattern" but "this sits at roughly the same stage Bitcoin was at, measured against the same case's own multi-year timeline."</p>
+
+<h2>What a timeline position actually means</h2>
+
+<p>Each of the six validated historical cases didn't arrive at recognition in a single moment — they moved through a documented sequence of stages, from the earliest detectable signal-only phase through to the point the rest of the market caught up. Genesis maps that sequence for every case as a timeline running from an early stage through to the eventual outcome, then plots where a current entity's signal profile falls along the equivalent stage of its closest-matching precedent.</p>
+
+<div class="callout">This is the difference between a single static comparison and a moving one. A 47% similarity score tells you a resemblance exists right now. A timeline position tells you whether that resemblance is still early in its development or already well advanced — which is a meaningfully different piece of information.</div>
+
+<h2>How the comparison actually gets made</h2>
+
+<p>This works through CIA stage matching — comparing an entity's current Collective Intelligence Asset profile against the historical CIA profile a validated case showed at an equivalent point in its own timeline. SpaceX's CIA signature nine years before recognition looked a specific way: a certain density of cross-source corroboration, a certain novelty decay rate, a certain signal velocity. Genesis checks whether a current entity's CIA profile matches that specific stage, not just the case's resemblance in the abstract.</p>
+
+<ul>
+<li>The timeline is built from the same historical replay data already validated for HPI — no separate dataset, no hindsight</li>
+<li>Position on the timeline updates as new signals arrive, so the comparison reflects current activity rather than a one-time snapshot</li>
+<li>The same six cases (SpaceX, Tesla, Bitcoin, NVIDIA, Shopify, OpenAI) anchor every timeline comparison, consistent with HPI's existing precedent library</li>
+</ul>
+
+<h2>Pattern archetypes: the shape behind the shape</h2>
+
+<p>Not every historical case moved through its timeline the same way. Genesis groups the underlying pattern into named archetypes — distinct shapes a signal profile can take on its way toward recognition, each with a different characteristic rhythm:</p>
+
+<ul>
+<li><strong>Infrastructure Builder</strong> — sustained capital and engineering deployment, visible in cases like SpaceX and Tesla</li>
+<li><strong>Ecosystem Creator</strong> — steady developer or merchant network expansion, the Shopify-style pattern</li>
+<li><strong>Network Effect Compounder</strong> — value that increases as participation increases, rather than from any single feature</li>
+<li><strong>Regulatory Beneficiary</strong> — a pattern that strengthens as the regulatory environment around it shifts favourably</li>
+<li><strong>Attention Explosion</strong> — rapid, concentrated novelty and corroboration arriving in a short window</li>
+<li><strong>Technology Inflection</strong> — the OpenAI-style shape, where a technical capability crosses a threshold that changes what's possible</li>
+<li><strong>Cultural Momentum</strong> — recognition driven by sustained cultural relevance rather than a single technical milestone</li>
+<li><strong>Scarcity Event</strong> — supply-side tightening as the primary driver, the dominant shape in Collectibles</li>
+</ul>
+
+<div class="callout">Knowing which archetype an entity's current pattern resembles — not just which historical case — adds a layer the raw similarity score can't provide on its own. A Scarcity Event pattern and an Infrastructure Builder pattern can produce a similar headline percentage while implying a completely different kind of trajectory.</div>
+
+<h2>Why this stays comparative, not predictive</h2>
+
+<p>None of this tells anyone what will happen next for any specific entity. A timeline position is a statement about resemblance to a documented historical stage, not a forecast of a future one. The same discipline that governs every HPI output applies here without exception: this is a comparison against six real, validated precedents — never a prediction of where any current entity is headed.</p>
+
+  </div>
+
+  <div class="article-disclaimer">Signal Intelligence is an information service. Nothing published constitutes financial, investment, or trading advice. All signals, scores, and historical comparisons are for informational purposes only. Past precedents do not guarantee future outcomes.</div>
+
+  <div class="closing-cta">
+    <div class="closing-cta-title">See where today's entities sit on the timeline.</div>
+    <div class="closing-cta-sub">HPI — the foundation this comparison is built on — is live today on the Professional tier.</div>
+    <div class="closing-cta-actions">
+      <a href="index.html#pricing" class="btn btn-amber">Unlock HPI Analysis</a>
+      <a href="historical-cases.html" class="btn">View Historical Cases</a>
+    </div>
+  </div>
+
+  <div class="related-label">Related Reading</div>
+  <div class="related-grid">
+    <a href="conviction-hard-without-proof-genesis-is-proof.html" class="related-card">
+      <div class="related-card-tag">Signal Genesis</div>
+      <div class="related-card-title">Conviction Is Hard Without Proof. Genesis Is the Proof.</div>
+      <div class="related-card-link">Read →</div>
+    </a>
+    <a href="genesis-lens-of-every-major-breakout.html" class="related-card">
+      <div class="related-card-tag">Signal Genesis</div>
+      <div class="related-card-title">What If You Could See Today&#x27;s Signals Through the Lens of Every Major Breakout in History?</div>
+      <div class="related-card-link">Read →</div>
+    </a>
+    <a href="tesla-2009-pattern-deep-dive.html" class="related-card">
+      <div class="related-card-tag">Signal Genesis</div>
+      <div class="related-card-title">Tesla 2009: Why Infrastructure Signals Outlasted Skepticism</div>
+      <div class="related-card-link">Read →</div>
+    </a>
+    <a href="history-does-not-repeat-but-shape-looks-familiar.html" class="related-card">
+      <div class="related-card-tag">Signal Genesis</div>
+      <div class="related-card-title">History Does Not Repeat Exactly. But the Shape Always Looks Familiar.</div>
+      <div class="related-card-link">Read →</div>
+    </a>
+  </div>
+
+</article>
+
+</div>
+
+<footer>
+  <div class="footer-logo">Signal<span>.</span>Intelligence</div>
+  <div>
+    <a href="terms.html" class="footer-link">Terms</a>
+    <a href="privacy.html" class="footer-link">Privacy</a>
+    <a href="disclaimer.html" class="footer-link">Disclaimer</a>
+    <a href="contact.html" class="footer-link">Contact</a>
+    <a href="blog.html" class="footer-link">Blog</a>
+  </div>
+  <div class="footer-disclaimer">Signal Intelligence is an information service. Nothing published constitutes financial, investment, or trading advice. All signals, scores, and historical comparisons are for informational purposes only. Past precedents do not guarantee future outcomes.</div>
+</footer>
+
+</body>
+</html>
