@@ -159,25 +159,21 @@ footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-
 
 <!-- CATEGORY FILTERS -->
 <div class="categories">
-  <button class="cat active">All</button>
-  <button class="cat cat-pokemon">🃏 Pokémon</button>
-  <button class="cat cat-crypto">⬡ Crypto</button>
-  <button class="cat cat-ai">◈ AI & Startups</button>
-  <button class="cat">📊 Historical Precedents</button>
+  <button class="cat active" data-filter="all">All</button>
+  <button class="cat cat-pokemon" data-filter="pokemon">🃏 Pokémon</button>
+  <button class="cat cat-crypto" data-filter="crypto">⬡ Crypto</button>
+  <button class="cat cat-ai" data-filter="ai">◈ AI & Startups</button>
+  <button class="cat" data-filter="precedents">📊 Historical Precedents</button>
 </div>
 
-<!-- FEATURED ARTICLE -->
-<div class="featured">
+<!-- FEATURED ARTICLE (populated by rotation script) -->
+<div class="featured" id="si-featured-article">
   <div>
     <div class="featured-label">Featured · HPI Analysis</div>
-    <div class="featured-meta">
-      <span class="tag tag-crypto">Crypto</span>
-      <span class="tag tag-hpi">HPI</span>
-      <span>15 Jun 2026</span>
-    </div>
-    <div class="featured-title">Ethereum Is Showing Similar Signals to Bitcoin in 2013</div>
-    <div class="featured-excerpt">Signal Intelligence has detected a strong pattern match between Ethereum's current signal profile and Bitcoin's 2013 accumulation phase — 11.3 years before Bitcoin achieved mainstream recognition. The similarity score is 47.2%.</div>
-    <a href="#" class="read-link">Read full analysis →</a>
+    <div class="featured-meta" id="si-featured-meta"></div>
+    <div class="featured-title" id="si-featured-title"></div>
+    <div class="featured-excerpt" id="si-featured-excerpt"></div>
+    <a href="#" class="read-link" id="si-featured-link">Read full analysis →</a>
   </div>
   <div class="hpi-mini">
     <div class="hpi-mini-header">Live HPI · Ethereum</div>
@@ -203,123 +199,8 @@ footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-
   </div>
 </div>
 
-<!-- ARTICLES GRID -->
-<div class="articles-grid">
-
-  <div class="article-card">
-    <div class="article-tags">
-      <span class="tag tag-pokemon">🃏 Pokémon</span>
-      <span class="tag tag-hpi">HPI</span>
-    </div>
-    <div class="article-title">Charizard Base Set Is Showing Early Accumulation Signals</div>
-    <div class="signal-snap">
-      <div><div class="snap-label">Opportunity score</div><div class="snap-val">0.82</div></div>
-      <div><div class="snap-label">Top HPI match</div><div class="snap-match">SpaceX 2008</div></div>
-      <div><div class="snap-label">Signal count</div><div class="snap-val">14</div></div>
-    </div>
-    <div class="article-excerpt">Inventory compression across three major platforms, combined with PSA population data, suggests a supply contraction consistent with early accumulation phases seen before major price movements.</div>
-    <div class="article-meta">
-      <span>14 Jun 2026</span>
-      <a href="#" class="read-link">Read →</a>
-    </div>
-  </div>
-
-  <div class="article-card">
-    <div class="article-tags">
-      <span class="tag tag-pokemon">🃏 Pokémon</span>
-    </div>
-    <div class="article-title">Umbreon VMAX Alt Art: Historical Precedent Analysis</div>
-    <div class="signal-snap">
-      <div><div class="snap-label">Opportunity score</div><div class="snap-val">0.76</div></div>
-      <div><div class="snap-label">Top HPI match</div><div class="snap-match">Shopify 2014</div></div>
-      <div><div class="snap-label">Signal count</div><div class="snap-val">9</div></div>
-    </div>
-    <div class="article-excerpt">Velocity and novelty detectors fired simultaneously across multiple sources in the past 30 days. Cross-source corroboration is the most reliable quality gate — and it is firing now.</div>
-    <div class="article-meta">
-      <span>13 Jun 2026</span>
-      <a href="#" class="read-link">Read →</a>
-    </div>
-  </div>
-
-  <div class="article-card">
-    <div class="article-tags">
-      <span class="tag tag-ai">◈ AI & Startups</span>
-      <span class="tag tag-hpi">HPI</span>
-    </div>
-    <div class="article-title">Which AI Startups Currently Resemble Early OpenAI?</div>
-    <div class="signal-snap">
-      <div><div class="snap-label">Entities analysed</div><div class="snap-val">110</div></div>
-      <div><div class="snap-label">Threshold passed</div><div class="snap-val">12</div></div>
-      <div><div class="snap-label">Top match</div><div class="snap-match">OpenAI 2017</div></div>
-    </div>
-    <div class="article-excerpt">Signal Intelligence has run HPI analysis across 110 tracked AI entities. 12 are showing signal profiles consistent with OpenAI's pre-breakthrough accumulation phase from 2017–2019.</div>
-    <div class="companion-tool">
-      <span class="companion-tool-icon">⚡</span>
-      <div class="companion-tool-text"><strong>Building an AI startup?</strong>Turn your idea into a compelling one-line value proposition in seconds.</div>
-      <a href="https://1line.ai" class="companion-tool-link" target="_blank">Launch 1LINE →</a>
-    </div>
-    <div class="article-meta" style="margin-top:12px;">
-      <span>12 Jun 2026</span>
-      <a href="#" class="read-link">Read →</a>
-    </div>
-  </div>
-
-  <div class="article-card">
-    <div class="article-tags">
-      <span class="tag tag-crypto">⬡ Crypto</span>
-    </div>
-    <div class="article-title">The 6 Historical Precedents Behind Signal Intelligence's Scoring</div>
-    <div class="signal-snap">
-      <div><div class="snap-label">Cases validated</div><div class="snap-val">6</div></div>
-      <div><div class="snap-label">Avg lead time</div><div class="snap-val">8.3yr</div></div>
-      <div><div class="snap-label">Threshold</div><div class="snap-val">0.35</div></div>
-    </div>
-    <div class="article-excerpt">SpaceX, Tesla, Bitcoin, NVIDIA, Shopify, OpenAI. These are the six validated historical cases that underpin every HPI analysis. Here is exactly what was detected and when.</div>
-    <div class="article-meta">
-      <span>11 Jun 2026</span>
-      <a href="#" class="read-link">Read →</a>
-    </div>
-  </div>
-
-  <div class="article-card">
-    <div class="article-tags">
-      <span class="tag tag-pokemon">🃏 Pokémon</span>
-    </div>
-    <div class="article-title">Pikachu Illustrator: What the Signals Are Saying Now</div>
-    <div class="signal-snap">
-      <div><div class="snap-label">Opportunity score</div><div class="snap-val">0.79</div></div>
-      <div><div class="snap-label">Detector firings</div><div class="snap-val">4</div></div>
-      <div><div class="snap-label">Sources</div><div class="snap-val">3</div></div>
-    </div>
-    <div class="article-excerpt">Four detectors have fired on Pikachu Illustrator in the past 14 days. Inventory compression, auction acceleration, and cross-source corroboration are all active simultaneously.</div>
-    <div class="article-meta">
-      <span>10 Jun 2026</span>
-      <a href="#" class="read-link">Read →</a>
-    </div>
-  </div>
-
-  <div class="article-card">
-    <div class="article-tags">
-      <span class="tag tag-ai">◈ AI & Startups</span>
-    </div>
-    <div class="article-title">GitHub Trending: The Early Signal That Predicted Four Breakouts</div>
-    <div class="signal-snap">
-      <div><div class="snap-label">Breakouts detected</div><div class="snap-val">4</div></div>
-      <div><div class="snap-label">Avg lead time</div><div class="snap-val">14 days</div></div>
-      <div><div class="snap-label">Source</div><div class="snap-match">GitHub Trending</div></div>
-    </div>
-    <div class="article-excerpt">GitHub Trending is one of six Signal Intelligence collectors. Over the past 90 days it surfaced four entities that subsequently appeared in TechCrunch, Hacker News front page, and Product Hunt simultaneously.</div>
-    <div class="companion-tool">
-      <span class="companion-tool-icon">📄</span>
-      <div class="companion-tool-text"><strong>Spotted a hiring signal?</strong>Optimise your CV for the roles emerging from these trends.</div>
-      <a href="#" class="companion-tool-link">Open Resume Builder →</a>
-    </div>
-    <div class="article-meta" style="margin-top:12px;">
-      <span>9 Jun 2026</span>
-      <a href="#" class="read-link">Read →</a>
-    </div>
-  </div>
-
+<!-- ARTICLES GRID (populated by rotation script) -->
+<div class="articles-grid" id="si-articles-grid">
 </div>
 
 <!-- NEWSLETTER STRIP -->
@@ -334,12 +215,8 @@ footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-
 
 
 
-<!-- PAGINATION -->
-<div class="pagination">
-  <button class="page-btn active">1</button>
-  <button class="page-btn">2</button>
-  <button class="page-btn">3</button>
-  <button class="page-btn">→</button>
+<!-- PAGINATION (populated by rotation script) -->
+<div class="pagination" id="si-pagination">
 </div>
 
 <!-- FOOTER -->
@@ -356,5 +233,2235 @@ footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-
 </footer>
 
 </div>
+<script>
+// Auto-generated from articles_data_partN.py — do not hand-edit.
+// Regenerate via generate_blog_data.py if article data changes.
+const SI_BLOG_POSTS = [
+  {
+    "slug": "ethereum-bitcoin-2013-precedent",
+    "title": "Ethereum Is Showing Similar Signals to Bitcoin in 2013",
+    "category": "crypto",
+    "filterBucket": "crypto",
+    "tags": [
+      {
+        "label": "⬡ Crypto",
+        "cls": "tag-crypto"
+      },
+      {
+        "label": "HPI",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Signal Intelligence has detected a strong pattern match between Ethereum's current signal profile and Bitcoin's 2013 accumulation phase — 11.3 years before Bitcoin achieved mainstream recognition.",
+    "snapItems": [
+      {
+        "label": "Top HPI match",
+        "val": "Bitcoin 2013",
+        "cls": "accent"
+      },
+      {
+        "label": "Similarity score",
+        "val": "47.2%",
+        "cls": "accent"
+      },
+      {
+        "label": "Maturity window",
+        "val": "180–540 days",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 1
+  },
+  {
+    "slug": "charizard-base-set-accumulation-signals",
+    "title": "Charizard Base Set Is Showing Early Accumulation Signals",
+    "category": "pokemon",
+    "filterBucket": "pokemon",
+    "tags": [
+      {
+        "label": "🃏 Pokémon",
+        "cls": "tag-pokemon"
+      },
+      {
+        "label": "HPI",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Inventory compression across three major platforms, combined with PSA population data, suggests a supply contraction consistent with early accumulation phases seen before major price movements.",
+    "snapItems": [
+      {
+        "label": "Opportunity score",
+        "val": "0.82",
+        "cls": "accent"
+      },
+      {
+        "label": "Top HPI match",
+        "val": "SpaceX 2008",
+        "cls": "accent"
+      },
+      {
+        "label": "Signal count",
+        "val": "14",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 2
+  },
+  {
+    "slug": "ai-startups-resembling-early-openai",
+    "title": "Which AI Startups Currently Resemble Early OpenAI?",
+    "category": "ai",
+    "filterBucket": "ai",
+    "tags": [
+      {
+        "label": "◈ AI & Startups",
+        "cls": "tag-ai"
+      },
+      {
+        "label": "HPI",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Signal Intelligence has run HPI analysis across 110 tracked AI entities. Twelve are showing signal profiles consistent with OpenAI's pre-breakthrough accumulation phase from 2017–2019.",
+    "snapItems": [
+      {
+        "label": "Entities analysed",
+        "val": "110",
+        "cls": "accent"
+      },
+      {
+        "label": "Threshold passed",
+        "val": "12",
+        "cls": "amber"
+      },
+      {
+        "label": "Top match",
+        "val": "OpenAI 2017",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 3
+  },
+  {
+    "slug": "watch-brand-hidden-indicator-before-price-surge",
+    "title": "This Watch Indicator Moves Before Every Price Surge — And Almost Nobody Tracks It",
+    "category": "watches",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "◷ Watches",
+        "cls": "tag-watches"
+      }
+    ],
+    "excerpt": "Across multiple historical watch market surges, one signal consistently appeared first: a quiet shift in waitlist length, months before retail prices moved at all.",
+    "snapItems": [
+      {
+        "label": "Signal category",
+        "val": "Allocation + scarcity",
+        "cls": "accent"
+      },
+      {
+        "label": "Signal type",
+        "val": "Allocation shift",
+        "cls": "accent"
+      },
+      {
+        "label": "Typical lead",
+        "val": "Months, not weeks",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 4
+  },
+  {
+    "slug": "genesis-lens-of-every-major-breakout",
+    "title": "What If You Could See Today's Signals Through the Lens of Every Major Breakout in History?",
+    "category": "genesis",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "✦ Genesis",
+        "cls": "tag-genesis"
+      },
+      {
+        "label": "HPI",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Six validated historical cases. One question they all answer: have we seen this pattern before? That question is the entire premise behind Signal Genesis.",
+    "snapItems": [
+      {
+        "label": "Historical cases",
+        "val": "6",
+        "cls": "accent"
+      },
+      {
+        "label": "Avg lead time",
+        "val": "8.3 years",
+        "cls": "amber"
+      },
+      {
+        "label": "Core question",
+        "val": "\"Seen this before?\"",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 5
+  },
+  {
+    "slug": "opportunities-found-after-they-already-moved",
+    "title": "Most Traders Find Out an Opportunity Existed After It Already Moved",
+    "category": "crypto",
+    "filterBucket": "crypto",
+    "tags": [
+      {
+        "label": "⬡ Crypto",
+        "cls": "tag-crypto"
+      }
+    ],
+    "excerpt": "By the time a token trends on social media or a headline mentions a protocol by name, the signal that actually mattered has usually been building for weeks.",
+    "snapItems": [
+      {
+        "label": "Domains live",
+        "val": "Crypto & DeFi",
+        "cls": "accent"
+      },
+      {
+        "label": "Entities tracked",
+        "val": "115",
+        "cls": "accent"
+      },
+      {
+        "label": "Update frequency",
+        "val": "Every 15 min",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 6
+  },
+  {
+    "slug": "population-reports-move-before-everyone-watching",
+    "title": "Population Reports Don't Lie — They Just Move Before Everyone Is Watching",
+    "category": "pokemon",
+    "filterBucket": "pokemon",
+    "tags": [
+      {
+        "label": "🃏 Pokémon",
+        "cls": "tag-pokemon"
+      }
+    ],
+    "excerpt": "PSA, CGC, and BGS population reports are public data. The information has never been hidden. What's been missing is someone watching it continuously enough to notice when it shifts.",
+    "snapItems": [
+      {
+        "label": "Detector type",
+        "val": "Population Scarcity",
+        "cls": "accent"
+      },
+      {
+        "label": "Data sources",
+        "val": "PSA, CGC, BGS",
+        "cls": "accent"
+      },
+      {
+        "label": "Signal class",
+        "val": "Supply-side",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 7
+  },
+  {
+    "slug": "github-activity-before-funding-announcement",
+    "title": "GitHub Activity Moves Months Before the Funding Round Gets Announced",
+    "category": "ai",
+    "filterBucket": "ai",
+    "tags": [
+      {
+        "label": "◈ AI & Startups",
+        "cls": "tag-ai"
+      }
+    ],
+    "excerpt": "Over a 90-day tracking window, four entities that surfaced on GitHub Trending subsequently appeared in major tech press — with an average lead time of 14 days between the technical signal and the headline.",
+    "snapItems": [
+      {
+        "label": "Breakouts detected",
+        "val": "4",
+        "cls": "accent"
+      },
+      {
+        "label": "Avg lead time",
+        "val": "14 days",
+        "cls": "amber"
+      },
+      {
+        "label": "Source",
+        "val": "GitHub Trending",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 8
+  },
+  {
+    "slug": "watch-waitlist-lengthened-nobody-noticed",
+    "title": "The Waitlist Got Longer Last Month. Nobody Noticed Except the Signal.",
+    "category": "watches",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "◷ Watches",
+        "cls": "tag-watches"
+      }
+    ],
+    "excerpt": "Waitlist length is one of the quietest signals in any collector market — and historically, one of the most reliable. It moves before the price list does, and almost nobody is checking it continuously.",
+    "snapItems": [
+      {
+        "label": "Signal category",
+        "val": "Demand vs allocation",
+        "cls": "accent"
+      },
+      {
+        "label": "Signal type",
+        "val": "Waitlist length",
+        "cls": "accent"
+      },
+      {
+        "label": "Visibility",
+        "val": "Low — by design",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 9
+  },
+  {
+    "slug": "nvidia-2016-pattern-completed",
+    "title": "NVIDIA in 2016 Looked Like Nothing. Then the Pattern Completed.",
+    "category": "genesis",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "✦ Genesis",
+        "cls": "tag-genesis"
+      },
+      {
+        "label": "HPI",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "NVIDIA's pre-recognition signal profile preceded mainstream attention by 7.2 years, with a peak validated opportunity score of 0.91 — the highest of all six precedents in the HPI library.",
+    "snapItems": [
+      {
+        "label": "Lead time",
+        "val": "7.2 years",
+        "cls": "amber"
+      },
+      {
+        "label": "Peak opp score",
+        "val": "0.91",
+        "cls": "accent"
+      },
+      {
+        "label": "Rank in library",
+        "val": "Highest score",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 10
+  },
+  {
+    "slug": "governance-activity-accelerated-nobody-watching",
+    "title": "Governance Activity on One Protocol Just Accelerated. Almost Nobody Is Watching.",
+    "category": "crypto",
+    "filterBucket": "crypto",
+    "tags": [
+      {
+        "label": "⬡ Crypto",
+        "cls": "tag-crypto"
+      }
+    ],
+    "excerpt": "Governance proposal frequency is one of the least glamorous signals Signal Intelligence tracks — and one of the most consistently informative, precisely because almost nobody else is watching it closely.",
+    "snapItems": [
+      {
+        "label": "Signal type",
+        "val": "Governance frequency",
+        "cls": "accent"
+      },
+      {
+        "label": "Update cycle",
+        "val": "Every 15 min",
+        "cls": "amber"
+      },
+      {
+        "label": "Domain",
+        "val": "Crypto & DeFi",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 11
+  },
+  {
+    "slug": "auction-sweeps-before-public-sale-headlines",
+    "title": "Auction Sweeps Happen Quietly Before the Public Sale Makes Headlines",
+    "category": "pokemon",
+    "filterBucket": "pokemon",
+    "tags": [
+      {
+        "label": "🃏 Pokémon",
+        "cls": "tag-pokemon"
+      },
+      {
+        "label": "HPI",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Buyout Detection exists to catch coordinated acquisition activity — market sweeps and listing removals that happen before any single high-profile sale makes the activity publicly obvious.",
+    "snapItems": [
+      {
+        "label": "Detector",
+        "val": "Buyout Detection",
+        "cls": "accent"
+      },
+      {
+        "label": "Signal class",
+        "val": "Coordinated acquisition",
+        "cls": "accent"
+      },
+      {
+        "label": "Typical pattern",
+        "val": "Quiet, then sudden",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 12
+  },
+  {
+    "slug": "every-unicorn-was-once-a-tool-nobody-heard-of",
+    "title": "Every Unicorn Was Once a Tool Nobody Had Heard Of Yet",
+    "category": "ai",
+    "filterBucket": "ai",
+    "tags": [
+      {
+        "label": "◈ AI & Startups",
+        "cls": "tag-ai"
+      }
+    ],
+    "excerpt": "There is no point in any company's history where it was obviously going to become what it eventually became — except in hindsight. The signal profile that precedes recognition looks, at the time, like noise.",
+    "snapItems": [
+      {
+        "label": "Entities tracked",
+        "val": "110",
+        "cls": "accent"
+      },
+      {
+        "label": "Collectors",
+        "val": "GitHub, HN, Product Hunt",
+        "cls": "accent"
+      },
+      {
+        "label": "Signal window",
+        "val": "Continuous",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 13
+  },
+  {
+    "slug": "forum-sentiment-shifts-before-price-list-update",
+    "title": "Forum Sentiment Shifts Weeks Before the Price List Gets Updated",
+    "category": "watches",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "◷ Watches",
+        "cls": "tag-watches"
+      }
+    ],
+    "excerpt": "Community sentiment in collector forums tends to shift in tone well before any official price list reflects the change — a lead-time pattern the Watches domain is being built specifically to capture.",
+    "snapItems": [
+      {
+        "label": "Signal category",
+        "val": "Sentiment + scarcity",
+        "cls": "accent"
+      },
+      {
+        "label": "Signal type",
+        "val": "Sentiment shift",
+        "cls": "accent"
+      },
+      {
+        "label": "Typical lead",
+        "val": "Weeks",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 14
+  },
+  {
+    "slug": "history-does-not-repeat-but-shape-looks-familiar",
+    "title": "History Does Not Repeat Exactly. But the Shape Always Looks Familiar.",
+    "category": "genesis",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "✦ Genesis",
+        "cls": "tag-genesis"
+      },
+      {
+        "label": "HPI",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Mark Twain's observation that history rhymes rather than repeats is, in a precise and measurable sense, exactly what Historical Precedent Intelligence is built to detect.",
+    "snapItems": [
+      {
+        "label": "Method",
+        "val": "Pattern shape, not outcome",
+        "cls": "accent"
+      },
+      {
+        "label": "Precedents",
+        "val": "6 validated cases",
+        "cls": "accent"
+      },
+      {
+        "label": "Avg lead time",
+        "val": "8.3 years",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 15
+  },
+  {
+    "slug": "token-three-sources-confirming-signal",
+    "title": "One Token Just Hit Three Sources Confirming the Same Signal",
+    "category": "crypto",
+    "filterBucket": "crypto",
+    "tags": [
+      {
+        "label": "⬡ Crypto",
+        "cls": "tag-crypto"
+      },
+      {
+        "label": "HPI",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Cross-source corroboration is the single strongest quality gate in the Signal Intelligence scoring model. When three independent collectors confirm the same pattern simultaneously, the probability of noise drops sharply.",
+    "snapItems": [
+      {
+        "label": "Corroboration level",
+        "val": "3 sources",
+        "cls": "accent"
+      },
+      {
+        "label": "Quality gate",
+        "val": "Strongest available",
+        "cls": "amber"
+      },
+      {
+        "label": "Domain",
+        "val": "Crypto & DeFi",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 16
+  },
+  {
+    "slug": "first-edition-pattern-before-breakout",
+    "title": "The 1st Edition Pattern Always Looks the Same Right Before It Breaks Out",
+    "category": "pokemon",
+    "filterBucket": "pokemon",
+    "tags": [
+      {
+        "label": "🃏 Pokémon",
+        "cls": "tag-pokemon"
+      },
+      {
+        "label": "HPI",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "1st Edition Charizard and Lugia 1st Edition share a documented signal signature in the historical replay data — a pattern that, when it reappears, is now actively tracked across the rest of the Collectibles domain.",
+    "snapItems": [
+      {
+        "label": "Validated cases",
+        "val": "2 (1st Ed. Charizard, Lugia)",
+        "cls": "accent"
+      },
+      {
+        "label": "Pattern type",
+        "val": "Print-run scarcity",
+        "cls": "accent"
+      },
+      {
+        "label": "Detector",
+        "val": "Population + Inventory",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 17
+  },
+  {
+    "slug": "product-hunt-acceleration-rate-never-lies",
+    "title": "Product Hunt Launches Are Noisy. The Acceleration Rate Never Lies.",
+    "category": "ai",
+    "filterBucket": "ai",
+    "tags": [
+      {
+        "label": "◈ AI & Startups",
+        "cls": "tag-ai"
+      }
+    ],
+    "excerpt": "Launch day on Product Hunt is inherently noisy and partly driven by promotional effort. What's harder to manufacture artificially is sustained engagement acceleration in the weeks that follow.",
+    "snapItems": [
+      {
+        "label": "Signal type",
+        "val": "Post-launch acceleration",
+        "cls": "accent"
+      },
+      {
+        "label": "Collector",
+        "val": "Product Hunt",
+        "cls": "accent"
+      },
+      {
+        "label": "Reliability factor",
+        "val": "Sustained, not single-day",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 18
+  },
+  {
+    "slug": "brand-allocation-decisions-before-retail-sees",
+    "title": "Brand Allocation Decisions Get Made Quietly, Months Before Retail Sees It",
+    "category": "watches",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "◷ Watches",
+        "cls": "tag-watches"
+      }
+    ],
+    "excerpt": "Allocation decisions — which dealers receive which references, in what quantities — are made internally well before any retail-facing change becomes visible. The decision precedes the visibility by a wide margin.",
+    "snapItems": [
+      {
+        "label": "Signal category",
+        "val": "Upstream allocation",
+        "cls": "accent"
+      },
+      {
+        "label": "Signal type",
+        "val": "Allocation shift",
+        "cls": "accent"
+      },
+      {
+        "label": "Visibility gap",
+        "val": "Months",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 19
+  },
+  {
+    "slug": "tesla-spacex-openai-had-a-moment",
+    "title": "Tesla, SpaceX, OpenAI: All Had a Moment Nobody Noticed Yet",
+    "category": "genesis",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "✦ Genesis",
+        "cls": "tag-genesis"
+      },
+      {
+        "label": "HPI",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Three of the six validated historical cases in the HPI library, side by side: Tesla's 9.7 year lead time, SpaceX's 9.4 years, and OpenAI's 6.8 years — each preceded by a signal-only phase that looked, at the time, unremarkable.",
+    "snapItems": [
+      {
+        "label": "Tesla lead time",
+        "val": "9.7 years",
+        "cls": "accent"
+      },
+      {
+        "label": "SpaceX lead time",
+        "val": "9.4 years",
+        "cls": "accent"
+      },
+      {
+        "label": "OpenAI lead time",
+        "val": "6.8 years",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 20
+  },
+  {
+    "slug": "cia-score-sounds-like-a-joke",
+    "title": "CIA Score Sounds Like a Joke Until You See What It Actually Tracks",
+    "category": "crypto",
+    "filterBucket": "crypto",
+    "tags": [
+      {
+        "label": "⬡ Crypto",
+        "cls": "tag-crypto"
+      }
+    ],
+    "excerpt": "Collective Intelligence Asset scoring is the layer that turns repeated observation into a compounding measure — tracking frequency, recency, and source diversity over time rather than scoring any single signal in isolation.",
+    "snapItems": [
+      {
+        "label": "Layer",
+        "val": "CIA scoring",
+        "cls": "accent"
+      },
+      {
+        "label": "Inputs",
+        "val": "Frequency, recency, diversity",
+        "cls": "accent"
+      },
+      {
+        "label": "Behaviour",
+        "val": "Compounds over time",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 21
+  },
+  {
+    "slug": "most-collectors-react-to-price-signals-react-before",
+    "title": "Most Collectors React to Price. Most Signals React Before Price.",
+    "category": "pokemon",
+    "filterBucket": "pokemon",
+    "tags": [
+      {
+        "label": "🃏 Pokémon",
+        "cls": "tag-pokemon"
+      }
+    ],
+    "excerpt": "Price is the lagging output of a pattern, not the pattern itself. By the time price moves enough to attract broad attention, the inventory, population, and auction signals that drove it have typically already played out.",
+    "snapItems": [
+      {
+        "label": "Signal philosophy",
+        "val": "Lead, not lag",
+        "cls": "accent"
+      },
+      {
+        "label": "Detector count",
+        "val": "5 active types",
+        "cls": "accent"
+      },
+      {
+        "label": "Data type",
+        "val": "Non-price-derived",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 22
+  },
+  {
+    "slug": "hacker-news-front-page-early-signal-source",
+    "title": "Hacker News Front Page Is Not Random. It Is an Early Signal Source.",
+    "category": "ai",
+    "filterBucket": "ai",
+    "tags": [
+      {
+        "label": "◈ AI & Startups",
+        "cls": "tag-ai"
+      }
+    ],
+    "excerpt": "Front-page placement on Hacker News correlates with a specific, identifiable pattern of sustained technical discussion — distinct from viral but shallow engagement that fades within hours.",
+    "snapItems": [
+      {
+        "label": "Collector",
+        "val": "Hacker News",
+        "cls": "accent"
+      },
+      {
+        "label": "Signal type",
+        "val": "Sustained discussion",
+        "cls": "accent"
+      },
+      {
+        "label": "Reliability marker",
+        "val": "Engagement depth",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 23
+  },
+  {
+    "slug": "watch-market-moves-on-scarcity-not-hype",
+    "title": "The Watch Market Moves on Scarcity, Not Hype. Scarcity Just Hides Better.",
+    "category": "watches",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "◷ Watches",
+        "cls": "tag-watches"
+      }
+    ],
+    "excerpt": "Hype is loud and visible by nature. Genuine scarcity — the structural kind that actually drives sustained secondary-market appreciation — tends to be quiet and only becomes obvious well after the fact.",
+    "snapItems": [
+      {
+        "label": "Signal category",
+        "val": "Allocation + scarcity",
+        "cls": "accent"
+      },
+      {
+        "label": "Core driver",
+        "val": "Structural scarcity",
+        "cls": "accent"
+      },
+      {
+        "label": "Visibility",
+        "val": "Delayed",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 24
+  },
+  {
+    "slug": "conviction-hard-without-proof-genesis-is-proof",
+    "title": "Conviction Is Hard Without Proof. Genesis Is the Proof.",
+    "category": "genesis",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "✦ Genesis",
+        "cls": "tag-genesis"
+      },
+      {
+        "label": "HPI",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "A signal tells you something unusual is happening. It doesn't, on its own, tell you whether to take that signal seriously. Genesis exists to answer the second question with documented historical evidence rather than intuition.",
+    "snapItems": [
+      {
+        "label": "Function",
+        "val": "Historical validation",
+        "cls": "accent"
+      },
+      {
+        "label": "Cases available",
+        "val": "6, fully validated",
+        "cls": "accent"
+      },
+      {
+        "label": "Output",
+        "val": "Genesis Score 0-100",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 25
+  },
+  {
+    "slug": "protocol-announcements-buried-in-noise",
+    "title": "Protocol Announcements Get Buried in Noise. The Signal Does Not Get Buried.",
+    "category": "crypto",
+    "filterBucket": "crypto",
+    "tags": [
+      {
+        "label": "⬡ Crypto",
+        "cls": "tag-crypto"
+      }
+    ],
+    "excerpt": "The volume of announcements across the crypto ecosystem makes it genuinely difficult for any single human to track which ones matter. Continuous structured collection doesn't have that limitation.",
+    "snapItems": [
+      {
+        "label": "Collector cadence",
+        "val": "Continuous",
+        "cls": "accent"
+      },
+      {
+        "label": "Domain entities",
+        "val": "115",
+        "cls": "accent"
+      },
+      {
+        "label": "Update frequency",
+        "val": "Every 15 min",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 26
+  },
+  {
+    "slug": "illustrator-pikachu-did-not-happen-overnight",
+    "title": "Illustrator Pikachu Did Not Happen Overnight. Neither Does the Next One.",
+    "category": "pokemon",
+    "filterBucket": "pokemon",
+    "tags": [
+      {
+        "label": "🃏 Pokémon",
+        "cls": "tag-pokemon"
+      },
+      {
+        "label": "HPI",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Pikachu Illustrator's status as one of the most significant cards in the hobby wasn't established in a single moment. The signal data shows a sustained build, documented through historical replay using only pre-recognition information.",
+    "snapItems": [
+      {
+        "label": "Detector firings",
+        "val": "4 in past 14 days",
+        "cls": "accent"
+      },
+      {
+        "label": "Sources corroborating",
+        "val": "3",
+        "cls": "accent"
+      },
+      {
+        "label": "Pattern type",
+        "val": "Sustained build",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 27
+  },
+  {
+    "slug": "next-big-platform-built-in-public-nobody-scoring",
+    "title": "The Next Big Platform Is Being Built Right Now, in Public. Nobody Is Scoring It.",
+    "category": "ai",
+    "filterBucket": "ai",
+    "tags": [
+      {
+        "label": "◈ AI & Startups",
+        "cls": "tag-ai"
+      },
+      {
+        "label": "HPI",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Most of the activity that eventually defines a major platform happens in full public view — commits, launches, discussions. What's missing is usually not visibility. It's continuous, structured scoring of that visible activity.",
+    "snapItems": [
+      {
+        "label": "Entities tracked",
+        "val": "110",
+        "cls": "accent"
+      },
+      {
+        "label": "Confirmed matches",
+        "val": "12 vs OpenAI 2017",
+        "cls": "accent"
+      },
+      {
+        "label": "Visibility",
+        "val": "Fully public",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 28
+  },
+  {
+    "slug": "discontinued-reference-becomes-valuable",
+    "title": "Every Discontinued Reference Becomes Valuable. The Signal Is in the Discontinuation Announcement.",
+    "category": "watches",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "◷ Watches",
+        "cls": "tag-watches"
+      }
+    ],
+    "excerpt": "Discontinuation announcements are a well-documented historical precursor to secondary-market appreciation in collector watch categories — and they're announced publicly, well ahead of the resulting price movement.",
+    "snapItems": [
+      {
+        "label": "Signal category",
+        "val": "Discontinuation tracking",
+        "cls": "accent"
+      },
+      {
+        "label": "Signal type",
+        "val": "Discontinuation event",
+        "cls": "accent"
+      },
+      {
+        "label": "Historical pattern",
+        "val": "Documented precursor",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 29
+  },
+  {
+    "slug": "scheduler-fires-every-15-minutes",
+    "title": "A Scheduler Fires Every 15 Minutes. Most People Check the Market Once a Day.",
+    "category": "crypto",
+    "filterBucket": "crypto",
+    "tags": [
+      {
+        "label": "⬡ Crypto",
+        "cls": "tag-crypto"
+      }
+    ],
+    "excerpt": "The structural advantage of continuous collection isn't speed for its own sake. It's that some patterns are only visible across multiple closely-spaced observations — and a once-daily check structurally cannot capture that.",
+    "snapItems": [
+      {
+        "label": "Crypto update cycle",
+        "val": "Every 15 min",
+        "cls": "amber"
+      },
+      {
+        "label": "AI/GitHub cycle",
+        "val": "Every 30-60 min",
+        "cls": "accent"
+      },
+      {
+        "label": "Collectibles cycle",
+        "val": "Daily",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 30
+  },
+  {
+    "slug": "bitcoin-2010-zero-headlines-every-signal-mattered",
+    "title": "Bitcoin in 2010 Had Zero Headlines and Every Signal That Mattered",
+    "category": "genesis",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "✦ Genesis",
+        "cls": "tag-genesis"
+      },
+      {
+        "label": "HPI",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Bitcoin's pre-recognition signal profile preceded mainstream attention by 11.3 years — the longest lead time of all six validated cases in the HPI library, built during a period with essentially zero mainstream press coverage.",
+    "snapItems": [
+      {
+        "label": "Lead time",
+        "val": "11.3 years",
+        "cls": "amber"
+      },
+      {
+        "label": "Peak opp score",
+        "val": "0.85",
+        "cls": "accent"
+      },
+      {
+        "label": "Press coverage at the time",
+        "val": "Effectively none",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 31
+  },
+  {
+    "slug": "why-signal-data-is-the-actual-product",
+    "title": "Why Signal Data Is the Actual Product, Not the Dashboard",
+    "category": "precedent",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "📊 Historical Precedents",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Dashboards, charts, and alerts are the visible surface of Signal Intelligence. The actual commercial asset is underneath all of it — the accumulating database that makes every one of those surfaces possible.",
+    "snapItems": [
+      {
+        "label": "Asset type",
+        "val": "Accumulating database",
+        "cls": "accent"
+      },
+      {
+        "label": "Growth",
+        "val": "Every 15 minutes",
+        "cls": "amber"
+      },
+      {
+        "label": "Competitive moat",
+        "val": "Time-based",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 32
+  },
+  {
+    "slug": "insurance-intelligence-regulatory-signals-explained",
+    "title": "Insurance Intelligence: What Regulatory Signal Tracking Will Actually Look Like",
+    "category": "precedent",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "🛡 Insurance Intelligence",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Insurance Intelligence is one of three domains currently in development, built around a category most signal platforms ignore entirely: regulatory change as a leading indicator, not a lagging compliance cost.",
+    "snapItems": [
+      {
+        "label": "Lead indicator",
+        "val": "Regulatory filings",
+        "cls": "accent"
+      },
+      {
+        "label": "Signal class",
+        "val": "Regulatory + claims pattern",
+        "cls": "accent"
+      },
+      {
+        "label": "Founder background",
+        "val": "Infrastructure patent holder",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 33
+  },
+  {
+    "slug": "property-intelligence-planning-signals-before-price",
+    "title": "Property Intelligence: Why Planning Applications Move Before Price Does",
+    "category": "precedent",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "🏠 Property",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Planning applications, infrastructure announcements, and demographic shifts are all public record — and all tend to precede meaningful property price movement by a window most buyers and investors don't track continuously.",
+    "snapItems": [
+      {
+        "label": "Lead indicator",
+        "val": "Planning applications",
+        "cls": "accent"
+      },
+      {
+        "label": "Signal class",
+        "val": "Planning + infrastructure",
+        "cls": "accent"
+      },
+      {
+        "label": "Data nature",
+        "val": "Public record",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 34
+  },
+  {
+    "slug": "shopify-2014-precedent-explained",
+    "title": "Shopify in 2014: The Quietest Precedent in the HPI Library",
+    "category": "genesis",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "✦ Genesis",
+        "cls": "tag-genesis"
+      },
+      {
+        "label": "HPI",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Shopify's pre-recognition signal profile carries the shortest lead time of all six validated cases at 8.1 years — still nearly a decade, and a useful reminder that even the platform's 'quickest' precedent moved on a multi-year timescale.",
+    "snapItems": [
+      {
+        "label": "Lead time",
+        "val": "8.1 years",
+        "cls": "amber"
+      },
+      {
+        "label": "Peak opp score",
+        "val": "0.82",
+        "cls": "accent"
+      },
+      {
+        "label": "Rank in library",
+        "val": "Shortest of six",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 35
+  },
+  {
+    "slug": "why-genesis-is-not-financial-advice",
+    "title": "Why Genesis Is Comparative, Not Predictive — And Why That Distinction Is the Whole Product",
+    "category": "genesis",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "✦ Genesis",
+        "cls": "tag-genesis"
+      }
+    ],
+    "excerpt": "It would be easy to market historical precedent matching as a forecasting tool. Signal Intelligence deliberately doesn't, because the distinction between comparison and prediction is the entire basis of the product's credibility.",
+    "snapItems": [
+      {
+        "label": "Product framing",
+        "val": "Comparative, not predictive",
+        "cls": "accent"
+      },
+      {
+        "label": "Compliance layer",
+        "val": "On every output surface",
+        "cls": "amber"
+      },
+      {
+        "label": "Historical cases",
+        "val": "6, fully disclosed",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 36
+  },
+  {
+    "slug": "what-cross-domain-correlation-actually-requires",
+    "title": "What Cross-Domain Signal Correlation Actually Requires — And Why Most Claims Skip It",
+    "category": "precedent",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "📊 Historical Precedents",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "It's tempting to claim that a signal in one domain predicts behaviour in another. Signal Intelligence treats that kind of claim as something that requires genuine evidence before it's presented to anyone — sophisticated buyers especially.",
+    "snapItems": [
+      {
+        "label": "Standard",
+        "val": "Evidence before claim",
+        "cls": "accent"
+      },
+      {
+        "label": "Risk addressed",
+        "val": "Reputational + commercial",
+        "cls": "amber"
+      },
+      {
+        "label": "Domains",
+        "val": "6, structurally independent",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 37
+  },
+  {
+    "slug": "why-newsletter-and-platform-access-stay-separate",
+    "title": "Why Newsletter Subscriptions and Platform Access Are Kept Completely Separate",
+    "category": "precedent",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "📊 Historical Precedents",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Trading Card Lens Weekly is built and billed entirely independently from Signal Intelligence platform access. This separation is a deliberate architectural decision, not an oversight.",
+    "snapItems": [
+      {
+        "label": "Newsletter access",
+        "val": "Independent of platform tier",
+        "cls": "accent"
+      },
+      {
+        "label": "Platform access",
+        "val": "Independent of newsletter",
+        "cls": "accent"
+      },
+      {
+        "label": "Detection method",
+        "val": "Variant ID only",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 38
+  },
+  {
+    "slug": "why-six-domains-share-one-engine",
+    "title": "Why Six Domains Share One Engine — And What That Actually Buys You",
+    "category": "precedent",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "📊 Historical Precedents",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "MASTER, the platform's core infrastructure, contains zero domain-specific logic. Every signal, regardless of source, flows through identical normalisation, scoring, and historical comparison — by design.",
+    "snapItems": [
+      {
+        "label": "Domain-specific logic in core",
+        "val": "Zero",
+        "cls": "accent"
+      },
+      {
+        "label": "Live domains",
+        "val": "3",
+        "cls": "accent"
+      },
+      {
+        "label": "Domains in development",
+        "val": "3",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 39
+  },
+  {
+    "slug": "openai-2017-precedent-deep-dive",
+    "title": "OpenAI 2017: The Precedent Behind the Platform's Most-Matched AI Pattern",
+    "category": "genesis",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "✦ Genesis",
+        "cls": "tag-genesis"
+      },
+      {
+        "label": "HPI",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "OpenAI's 2017–2019 signal profile produced a peak opportunity score of 0.89 and a 6.8 year lead time — the shortest lead time among the six cases, and the most frequently matched precedent in the AI & Startups domain today.",
+    "snapItems": [
+      {
+        "label": "Lead time",
+        "val": "6.8 years",
+        "cls": "amber"
+      },
+      {
+        "label": "Peak opp score",
+        "val": "0.89",
+        "cls": "accent"
+      },
+      {
+        "label": "Confirmed matches today",
+        "val": "12 entities",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 40
+  },
+  {
+    "slug": "moonbreon-historical-replay-case-study",
+    "title": "Moonbreon and the Historical Replay Engine: A Case Study in No-Hindsight Validation",
+    "category": "pokemon",
+    "filterBucket": "pokemon",
+    "tags": [
+      {
+        "label": "🃏 Pokémon",
+        "cls": "tag-pokemon"
+      },
+      {
+        "label": "HPI",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Umbreon VMAX Alt Art — widely known by its community nickname 'Moonbreon' — is one of the entities validated through the platform's strict historical replay engine, which permits zero hindsight data.",
+    "snapItems": [
+      {
+        "label": "Replay rule",
+        "val": "Zero hindsight permitted",
+        "cls": "accent"
+      },
+      {
+        "label": "Current opp score",
+        "val": "0.76",
+        "cls": "amber"
+      },
+      {
+        "label": "Top HPI match",
+        "val": "Shopify 2014",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 41
+  },
+  {
+    "slug": "spacex-2008-precedent-deep-dive",
+    "title": "SpaceX 2008: The Highest-Scoring Recent Match in the HPI Library",
+    "category": "genesis",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "✦ Genesis",
+        "cls": "tag-genesis"
+      },
+      {
+        "label": "HPI",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "SpaceX's pre-recognition signal profile from 2008 currently produces the strongest single HPI match across the entire platform — 49.8% similarity to Ethereum's live signal data today, the highest of any active comparison.",
+    "snapItems": [
+      {
+        "label": "Lead time",
+        "val": "9.4 years",
+        "cls": "amber"
+      },
+      {
+        "label": "Peak opp score",
+        "val": "0.87",
+        "cls": "accent"
+      },
+      {
+        "label": "Current top match",
+        "val": "49.8% (Ethereum)",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 42
+  },
+  {
+    "slug": "tesla-2009-pattern-deep-dive",
+    "title": "Tesla 2009: Why Infrastructure Signals Outlasted Skepticism",
+    "category": "genesis",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "✦ Genesis",
+        "cls": "tag-genesis"
+      },
+      {
+        "label": "HPI",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Tesla's validated case carries a 9.7 year lead time and a 0.88 peak opportunity score — built during a period when the company's long-term viability was, by most public accounts, genuinely uncertain.",
+    "snapItems": [
+      {
+        "label": "Lead time",
+        "val": "9.7 years",
+        "cls": "amber"
+      },
+      {
+        "label": "Peak opp score",
+        "val": "0.88",
+        "cls": "accent"
+      },
+      {
+        "label": "Signal type",
+        "val": "Infrastructure-building",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 43
+  },
+  {
+    "slug": "survivorship-bias-in-the-precedent-library",
+    "title": "Survivorship Bias in the Precedent Library: A Limitation We Disclose, Not Hide",
+    "category": "precedent",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "📊 Historical Precedents",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "All six validated cases in the HPI library are success stories. That's not an oversight — it's a structural limitation worth naming clearly, especially to institutional buyers evaluating the platform seriously.",
+    "snapItems": [
+      {
+        "label": "Cases in library",
+        "val": "6, all eventual successes",
+        "cls": "amber"
+      },
+      {
+        "label": "Failed-pattern cases",
+        "val": "0 currently",
+        "cls": "accent"
+      },
+      {
+        "label": "Disclosure policy",
+        "val": "Proactive",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 44
+  },
+  {
+    "slug": "how-historical-replay-actually-works",
+    "title": "How Historical Replay Actually Works: The Mechanics Behind 'No Hindsight Permitted'",
+    "category": "precedent",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "📊 Historical Precedents",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Historical replay isn't just a phrase used to describe how the six validated cases were built. It's a specific, repeatable methodology with a hard constraint: only information available before a chosen date is permitted into the analysis.",
+    "snapItems": [
+      {
+        "label": "Core constraint",
+        "val": "Zero hindsight data",
+        "cls": "accent"
+      },
+      {
+        "label": "Validated entities",
+        "val": "10+",
+        "cls": "accent"
+      },
+      {
+        "label": "Methodology",
+        "val": "Repeatable, auditable",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 45
+  },
+  {
+    "slug": "do-it-once-do-it-right-sequencing-discipline",
+    "title": "Do It Once, Do It Right: The Sequencing Discipline Behind This Platform",
+    "category": "precedent",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "📊 Historical Precedents",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Building infrastructure is genuinely enjoyable work. Shipping monetisable product before the previous layer is proven is a discipline failure — and this platform has been built around actively guarding against that exact failure mode.",
+    "snapItems": [
+      {
+        "label": "Governing principle",
+        "val": "No new modules before onboarding proven",
+        "cls": "amber"
+      },
+      {
+        "label": "Modules already shipped",
+        "val": "Multiple",
+        "cls": "accent"
+      },
+      {
+        "label": "Discipline applied",
+        "val": "Every sprint",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 46
+  },
+  {
+    "slug": "genesis-pattern-archetypes-explained",
+    "title": "Genesis Pattern Archetypes: Categorising Historical Signal Shapes",
+    "category": "genesis",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "✦ Genesis",
+        "cls": "tag-genesis"
+      },
+      {
+        "label": "HPI",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Not every validated historical case shares the same signal shape. Distinguishing the underlying pattern archetype — not just the similarity score — is what makes a comparison genuinely informative rather than a single flattened number.",
+    "snapItems": [
+      {
+        "label": "Archetype examples",
+        "val": "Infrastructure, platform, protocol",
+        "cls": "accent"
+      },
+      {
+        "label": "Cases sharing infra shape",
+        "val": "SpaceX, Tesla",
+        "cls": "accent"
+      },
+      {
+        "label": "Cases sharing platform shape",
+        "val": "Shopify, OpenAI",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 47
+  },
+  {
+    "slug": "satellite-tools-historical-similarity-checker-teaser",
+    "title": "Coming Later: Standalone Tools Built on the Same Proprietary Data",
+    "category": "precedent",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "📊 Historical Precedents",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "A future roadmap of smaller, standalone one-time-purchase tools is planned — anchored to the platform's proprietary HPI and entity database, not built as generic wrappers around any off-the-shelf model.",
+    "snapItems": [
+      {
+        "label": "Pricing range",
+        "val": "£9–£79, one-time",
+        "cls": "accent"
+      },
+      {
+        "label": "Sequencing",
+        "val": "After first paying customers",
+        "cls": "amber"
+      },
+      {
+        "label": "Top candidate",
+        "val": "Historical Similarity Checker",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 48
+  },
+  {
+    "slug": "show-a-signal-not-the-signal-public-checker-philosophy",
+    "title": "\"Show A Signal, Not THE Signal\": The Philosophy Behind Public-Facing Tools",
+    "category": "precedent",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "📊 Historical Precedents",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Any future public-facing tool built on this platform's data will follow one deliberate design rule: reveal enough directional information to be genuinely useful, while keeping full historical playback and precedent detail behind paid tiers.",
+    "snapItems": [
+      {
+        "label": "Public output",
+        "val": "Directional only (rising/stable/cooling)",
+        "cls": "accent"
+      },
+      {
+        "label": "Gated output",
+        "val": "Full playback + precedent name",
+        "cls": "amber"
+      },
+      {
+        "label": "Design intent",
+        "val": "Useful, not exhaustive",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 49
+  },
+  {
+    "slug": "b2b-widget-licensing-cia-hpi-scoring-badges",
+    "title": "B2B Widget Licensing: Embedding CIA and HPI Scoring on Third-Party Sites",
+    "category": "precedent",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "📊 Historical Precedents",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "A planned licensing model would let third-party niche sites embed live CIA and HPI scoring badges directly — currently viable only in domains where a real producer module already exists.",
+    "snapItems": [
+      {
+        "label": "Currently viable domain",
+        "val": "Pokémon only",
+        "cls": "amber"
+      },
+      {
+        "label": "Requirement",
+        "val": "Real producer module",
+        "cls": "accent"
+      },
+      {
+        "label": "Model",
+        "val": "B2B licensing",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 50
+  },
+  {
+      "slug": "why-crypto-intelligence-comes-after-genesis",
+      "title": "Genesis Doesn't Just Score a Match. It Places You on the Timeline.",
+      "category": "genesis",
+      "filterBucket": "precedents",
+      "tags": [
+        {
+          "label": "✦ Genesis",
+          "cls": "tag-genesis"
+        },
+        {
+          "label": "HPI",
+          "cls": "tag-hpi"
+        }
+      ],
+      "excerpt": "A similarity score tells you how closely two signal profiles resemble each other. It doesn't tell you where you currently sit inside that resemblance — early, late, or somewhere in the middle of a multi-year pattern. That's the question Genesis is built to answer.",
+      "snapItems": [
+        {
+          "label": "Timeline structure",
+          "val": "T-48 to T-0",
+          "cls": "accent"
+        },
+        {
+          "label": "Pattern archetypes",
+          "val": "8 named types",
+          "cls": "amber"
+        },
+        {
+          "label": "Comparison basis",
+          "val": "CIA stage matching",
+          "cls": "accent"
+        }
+      ],
+      "dateOffset": 51
+    },
+  {
+    "slug": "why-the-engine-is-domain-agnostic-by-design",
+    "title": "Only the Lenses Change: Unpacking the Domain-Agnostic Engine Thesis",
+    "category": "precedent",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "📊 Historical Precedents",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "The core thesis behind this entire platform is a single sentence: the engine is domain-agnostic, only the lenses change. Unpacking what that actually means in practice reveals why it matters more than it might first sound.",
+    "snapItems": [
+      {
+        "label": "Core engine logic",
+        "val": "Identical across domains",
+        "cls": "accent"
+      },
+      {
+        "label": "Domain-specific code",
+        "val": "Lives only in modules",
+        "cls": "accent"
+      },
+      {
+        "label": "Live domains",
+        "val": "3 of 6 planned",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 52
+  },
+  {
+    "slug": "one-time-vs-subscription-the-framing-rule",
+    "title": "One-Time Outcome or Ongoing Data? The Rule Behind Every Pricing Decision",
+    "category": "precedent",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "📊 Historical Precedents",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Every product decision on this platform follows one simple test: if the value is a single outcome, it's priced once. If the value is ongoing fresh data, it's a subscription. Mixing the two creates confused products and confused pricing.",
+    "snapItems": [
+      {
+        "label": "Subscription examples",
+        "val": "Platform tiers, newsletter",
+        "cls": "accent"
+      },
+      {
+        "label": "One-time examples",
+        "val": "Future satellite tools",
+        "cls": "amber"
+      },
+      {
+        "label": "Test applied",
+        "val": "Outcome vs ongoing value",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 53
+  },
+  {
+    "slug": "organic-first-distribution-why-no-paid-ads-yet",
+    "title": "Why This Platform Isn't Running Paid Ads — Yet",
+    "category": "precedent",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "📊 Historical Precedents",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Content, community, and a £49/month newsletter are the current distribution strategy. Paid acquisition channels are deliberately not part of the current plan — a sequencing decision, not a permanent one.",
+    "snapItems": [
+      {
+        "label": "Current channels",
+        "val": "Content, community, newsletter",
+        "cls": "accent"
+      },
+      {
+        "label": "Paid channels",
+        "val": "Not currently in use",
+        "cls": "amber"
+      },
+      {
+        "label": "Target communities",
+        "val": "X, Reddit, Discord, TCG forums",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 54
+  },
+  {
+    "slug": "what-happens-when-a-domain-reaches-365-entities",
+    "title": "What Happens When a Domain Scales: Entity Growth and the CIA Layer",
+    "category": "precedent",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "📊 Historical Precedents",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "115 entities in Crypto & DeFi today. 110 in AI & Startups. As these numbers grow, the CIA layer doesn't just track more entities — it gets structurally more valuable, because comparison and corroboration both improve with scale.",
+    "snapItems": [
+      {
+        "label": "Crypto entities today",
+        "val": "115",
+        "cls": "accent"
+      },
+      {
+        "label": "AI entities today",
+        "val": "110",
+        "cls": "accent"
+      },
+      {
+        "label": "Scaling effect",
+        "val": "Compounding, not linear",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 55
+  },
+  {
+    "slug": "why-enterprise-tier-includes-api-access",
+    "title": "Why API Access Is Reserved for Enterprise — And What That Signals",
+    "category": "precedent",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "📊 Historical Precedents",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "Programmatic access to signals, entities, CIA scores, and HPI analyses is available exclusively on the Enterprise tier at £5,000/month — a deliberate gate, not an arbitrary upsell.",
+    "snapItems": [
+      {
+        "label": "API access tier",
+        "val": "Enterprise only",
+        "cls": "amber"
+      },
+      {
+        "label": "Enterprise price",
+        "val": "£5,000/month",
+        "cls": "accent"
+      },
+      {
+        "label": "Rationale",
+        "val": "Infrastructure-level access",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 56
+  },
+  {
+    "slug": "weekly-digest-vs-real-time-feed-starter-tier-design",
+    "title": "Why Starter Gets a Weekly Digest While Professional Gets Real-Time Signals",
+    "category": "precedent",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "📊 Historical Precedents",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "The gap between Starter's weekly digest and Professional's priority real-time signals isn't an arbitrary feature split — it reflects a genuine difference in how each tier's likely user actually wants to consume intelligence.",
+    "snapItems": [
+      {
+        "label": "Starter cadence",
+        "val": "Weekly digest",
+        "cls": "accent"
+      },
+      {
+        "label": "Professional cadence",
+        "val": "Priority real-time signals",
+        "cls": "amber"
+      },
+      {
+        "label": "Underlying data",
+        "val": "Identical across both",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 57
+  },
+  {
+    "slug": "why-six-domains-not-sixty",
+    "title": "Why This Platform Plans Six Domains, Not Sixty",
+    "category": "precedent",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "📊 Historical Precedents",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "The domain-agnostic engine could, in principle, support dozens of intelligence lenses. The current roadmap deliberately limits scope to six — a constraint chosen for quality, not a limitation of the architecture.",
+    "snapItems": [
+      {
+        "label": "Planned domains",
+        "val": "6 total",
+        "cls": "accent"
+      },
+      {
+        "label": "Currently live",
+        "val": "3 of 6",
+        "cls": "accent"
+      },
+      {
+        "label": "Constraint type",
+        "val": "Deliberate, not technical",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 58
+  },
+  {
+    "slug": "reading-an-opportunity-score-decomposition",
+    "title": "How to Actually Read an Opportunity Score Decomposition",
+    "category": "pokemon",
+    "filterBucket": "pokemon",
+    "tags": [
+      {
+        "label": "🃏 Pokémon",
+        "cls": "tag-pokemon"
+      }
+    ],
+    "excerpt": "An opportunity score of 0.82 is a single number. The decomposition behind it — which detectors fired, how many sources corroborated, how recent the activity is — is where the actually useful information lives.",
+    "snapItems": [
+      {
+        "label": "Score range",
+        "val": "0.0 to 1.0",
+        "cls": "accent"
+      },
+      {
+        "label": "Components",
+        "val": "Detector mix + corroboration",
+        "cls": "accent"
+      },
+      {
+        "label": "Reading priority",
+        "val": "Decomposition over raw score",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 59
+  },
+  {
+    "slug": "why-the-platform-tracks-recency-as-heavily-as-frequency",
+    "title": "Why Recency Carries as Much Weight as Frequency in CIA Scoring",
+    "category": "crypto",
+    "filterBucket": "crypto",
+    "tags": [
+      {
+        "label": "⬡ Crypto",
+        "cls": "tag-crypto"
+      }
+    ],
+    "excerpt": "An entity with frequent historical signal activity that has gone quiet recently scores differently from one with the same total signal count but sustained recent activity. Recency weighting exists specifically to capture that difference.",
+    "snapItems": [
+      {
+        "label": "CIA dimensions",
+        "val": "Frequency, recency, diversity",
+        "cls": "accent"
+      },
+      {
+        "label": "Risk addressed",
+        "val": "Stale-signal false positives",
+        "cls": "amber"
+      },
+      {
+        "label": "Weighting",
+        "val": "Recency decays older signals",
+        "cls": "accent"
+      }
+    ],
+    "dateOffset": 60
+  },
+  {
+    "slug": "intelligence-that-compounds-in-value-tagline-explained",
+    "title": "\"Intelligence That Compounds in Value\": What the Platform's Own Tagline Actually Claims",
+    "category": "precedent",
+    "filterBucket": "precedents",
+    "tags": [
+      {
+        "label": "📊 Historical Precedents",
+        "cls": "tag-hpi"
+      }
+    ],
+    "excerpt": "The phrase appears directly on the platform's own pricing section. Unpacking exactly what it claims — and what it deliberately doesn't claim — is worth doing explicitly rather than taking the marketing language at face value.",
+    "snapItems": [
+      {
+        "label": "Claim type",
+        "val": "Structural, not promotional",
+        "cls": "accent"
+      },
+      {
+        "label": "Mechanism",
+        "val": "CIA layer accumulation",
+        "cls": "accent"
+      },
+      {
+        "label": "What it doesn't claim",
+        "val": "Guaranteed returns",
+        "cls": "amber"
+      }
+    ],
+    "dateOffset": 61
+  }
+];
+
+
+// ===== Signal Intelligence Blog — Deterministic Rotation Engine =====
+// No backend, no cron. Picks a "featured" + 6 grid posts based on the
+// current day-of-year, so the same posts show all day, then rotate
+// tomorrow. Cycles through the full 61-post pool roughly every two months.
+
+function siDayOfYear(d) {
+  const start = new Date(d.getFullYear(), 0, 0);
+  const diff = d - start;
+  return Math.floor(diff / 86400000);
+}
+
+// Simple deterministic pseudo-random shuffle seeded by a number, so the
+// same seed always produces the same order (no Math.random — must be
+// reproducible across every visitor on the same day).
+function siSeededShuffle(array, seed) {
+  const arr = array.slice();
+  let s = seed;
+  function nextRand() {
+    s = (s * 9301 + 49297) % 233280;
+    return s / 233280;
+  }
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(nextRand() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function siFormatDate(offsetDays) {
+  const d = new Date();
+  d.setDate(d.getDate() - offsetDays);
+  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+}
+
+function siRenderTags(tags) {
+  return tags.map(t => `<span class="tag ${t.cls}">${t.label}</span>`).join("");
+}
+
+function siRenderSnapItems(items, useMatchClass) {
+  return items.map(it => {
+    // The real site's CSS has both .snap-val and .snap-match classes;
+    // pick whichever the original card markup used for that slot's style.
+    const cls = it.cls === "accent" ? "snap-match" : "snap-val";
+    return `<div><div class="snap-label">${it.label}</div><div class="${cls}">${it.val}</div></div>`;
+  }).join("");
+}
+
+function siBuildArticleCard(post, dayOffset) {
+  const companionHTML = ""; // companion-tool cross-promos stay static/manual, not rotated
+  return `
+  <div class="article-card">
+    <div class="article-tags">
+      ${siRenderTags(post.tags)}
+    </div>
+    <div class="article-title">${post.title}</div>
+    <div class="signal-snap">
+      ${siRenderSnapItems(post.snapItems)}
+    </div>
+    <div class="article-excerpt">${post.excerpt}</div>
+    <div class="article-meta">
+      <span>${siFormatDate(dayOffset)}</span>
+      <a href="${post.slug}.html" class="read-link">Read →</a>
+    </div>
+  </div>`;
+}
+
+const SI_PAGE_SIZE = 8; // articles per page, for page 2 onward (page 1 uses the 1+6 rotation layout)
+let siState = {
+  filter: "all",
+  page: 1,
+  todaysPosts: null,
+  featured: null,
+  gridPosts: null,
+};
+
+function siRenderBlog() {
+  const today = new Date();
+  const doy = siDayOfYear(today);
+  const pool = SI_BLOG_POSTS;
+  const poolSize = pool.length;
+
+  // Deterministic shuffle of the whole pool, re-shuffled with a seed that
+  // changes roughly every 2 months (not every single day) so the *order*
+  // feels editorially stable within a cycle, while which 7 posts surface
+  // each day still rotates daily via the index window below.
+  const cycleSeed = Math.floor(doy / 60) + today.getFullYear() * 10;
+  const shuffled = siSeededShuffle(pool, cycleSeed);
+
+  // Pick today's window of 7 posts (1 featured + 6 grid) from the shuffled
+  // pool using day-of-year modulo, so the window slides forward by one
+  // post per day and wraps around cleanly.
+  const startIdx = doy % poolSize;
+  const todaysPosts = [];
+  for (let i = 0; i < 7; i++) {
+    todaysPosts.push(shuffled[(startIdx + i) % poolSize]);
+  }
+
+  const featured = todaysPosts[0];
+  const gridPosts = todaysPosts.slice(1);
+
+  siState.todaysPosts = todaysPosts;
+  siState.featured = featured;
+  siState.gridPosts = gridPosts;
+
+  // ---- Render featured (page 1, "all" filter only — see siRenderPage) ----
+  siRenderPage();
+
+  // ---- Wire category filters ----
+  const filterButtons = document.querySelectorAll(".cat[data-filter]");
+  filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      filterButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      siState.filter = btn.getAttribute("data-filter");
+      siState.page = 1; // reset to page 1 whenever the filter changes
+      siRenderPage();
+    });
+  });
+}
+
+// Returns the full ordered list of articles for the CURRENT filter,
+// always starting with today's featured + grid (in their rotated order)
+// followed by every remaining matching article — so page 1 always matches
+// the original "today's rotation" view, and later pages page through the
+// rest of the pool without ever repeating an article.
+function siGetFilteredArticleList(filter) {
+  const { todaysPosts, featured } = siState;
+
+  if (filter === "all") {
+    const rest = SI_BLOG_POSTS.filter(p => !todaysPosts.some(t => t.slug === p.slug));
+    return todaysPosts.concat(rest);
+  }
+
+  const matches = SI_BLOG_POSTS.filter(p => p.filterBucket === filter);
+  const featuredInFilter = matches.some(p => p.slug === featured.slug);
+  if (featuredInFilter) {
+    const restOfMatches = matches.filter(p => p.slug !== featured.slug);
+    return [featured].concat(restOfMatches);
+  }
+  return matches;
+}
+
+function siRenderPage() {
+  const gridEl = document.getElementById("si-articles-grid");
+  const featuredSection = document.getElementById("si-featured-article");
+  if (!gridEl) return;
+
+  const fullList = siGetFilteredArticleList(siState.filter);
+  const PAGE_ONE_SIZE = 7;
+  const totalPages = fullList.length <= PAGE_ONE_SIZE
+    ? 1
+    : 1 + Math.ceil((fullList.length - PAGE_ONE_SIZE) / SI_PAGE_SIZE);
+  if (siState.page > totalPages) siState.page = totalPages;
+
+  const isPageOne = siState.page === 1;
+  const showFeaturedOnPageOne = isPageOne && fullList.length > 0 && fullList[0].slug === siState.featured.slug;
+
+  if (isPageOne) {
+    // Page 1: featured card (if it belongs to this filter) + next 6 articles
+    if (featuredSection) featuredSection.style.display = showFeaturedOnPageOne ? "" : "none";
+    const pageItems = showFeaturedOnPageOne ? fullList.slice(1, 7) : fullList.slice(0, 7);
+
+    if (showFeaturedOnPageOne) {
+      siRenderFeatured(siState.featured);
+    }
+    gridEl.innerHTML = pageItems.map((p, i) => siBuildArticleCard(p, p.dateOffset + i)).join("\n");
+  } else {
+    // Page 2+: no featured block, plain grid of SI_PAGE_SIZE articles per page.
+    // Page 2 starts right after whatever page 1 already showed (7 items),
+    // then every subsequent page moves by SI_PAGE_SIZE.
+    if (featuredSection) featuredSection.style.display = "none";
+    const afterPageOne = fullList.slice(7);
+    const startIdx = (siState.page - 2) * SI_PAGE_SIZE;
+    const pageItems = afterPageOne.slice(startIdx, startIdx + SI_PAGE_SIZE);
+    gridEl.innerHTML = pageItems.map((p, i) => siBuildArticleCard(p, p.dateOffset + i)).join("\n");
+  }
+
+  siRenderPagination(totalPages);
+}
+
+function siRenderFeatured(featured) {
+  const featuredMetaEl = document.getElementById("si-featured-meta");
+  const featuredTitleEl = document.getElementById("si-featured-title");
+  const featuredExcerptEl = document.getElementById("si-featured-excerpt");
+  const featuredLinkEl = document.getElementById("si-featured-link");
+
+  if (featuredMetaEl) {
+    featuredMetaEl.innerHTML = `${siRenderTags(featured.tags)}<span>${siFormatDate(featured.dateOffset)}</span>`;
+  }
+  if (featuredTitleEl) featuredTitleEl.textContent = featured.title;
+  if (featuredExcerptEl) featuredExcerptEl.textContent = featured.excerpt;
+  if (featuredLinkEl) featuredLinkEl.setAttribute("href", `${featured.slug}.html`);
+}
+
+function siRenderPagination(totalPages) {
+  const paginationEl = document.getElementById("si-pagination");
+  if (!paginationEl) return;
+
+  if (totalPages <= 1) {
+    paginationEl.innerHTML = "";
+    return;
+  }
+
+  const current = siState.page;
+  let buttons = [];
+
+  // Always show page 1, page totalPages, current page, and one page on
+  // each side of current — collapse everything else into a "…" marker so
+  // this stays readable even when a filter produces many pages.
+  const pageNumbers = new Set([1, totalPages, current, current - 1, current + 1]);
+  const sorted = Array.from(pageNumbers).filter(n => n >= 1 && n <= totalPages).sort((a, b) => a - b);
+
+  let lastShown = 0;
+  for (const n of sorted) {
+    if (n - lastShown > 1) {
+      buttons.push(`<span class="page-btn" style="cursor:default;border:none;">…</span>`);
+    }
+    const activeClass = n === current ? " active" : "";
+    buttons.push(`<button class="page-btn${activeClass}" data-page="${n}">${n}</button>`);
+    lastShown = n;
+  }
+
+  const nextDisabled = current >= totalPages;
+  buttons.push(`<button class="page-btn" data-page="next" ${nextDisabled ? 'style="opacity:0.35;cursor:default;"' : ""}>→</button>`);
+
+  paginationEl.innerHTML = buttons.join("\n");
+
+  paginationEl.querySelectorAll("button.page-btn[data-page]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const val = btn.getAttribute("data-page");
+      if (val === "next") {
+        if (siState.page < totalPages) siState.page += 1;
+      } else {
+        siState.page = parseInt(val, 10);
+      }
+      siRenderPage();
+      // Scroll back to the top of the article grid so paging feels like
+      // moving to a new "page" rather than silently changing content
+      // far above the visible scroll position.
+      const categoriesEl = document.querySelector(".categories");
+      if (categoriesEl) categoriesEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", siRenderBlog);
+</script>
 </body>
 </html>
