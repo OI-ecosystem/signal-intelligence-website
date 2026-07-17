@@ -88,6 +88,32 @@ section{padding:110px 0;}
 .mod-shot .body{margin-top:14px;font-size:13px;color:rgba(255,255,255,0.75);}
 @media(max-width:860px){.module .wrap{grid-template-columns:1fr;}.module:nth-child(even) .wrap{direction:ltr;}}
 
+/* CAPABILITY EXPLORER — thumbnail selector + stage */
+.cap-explorer{padding:100px 0;}
+.cap-thumbs{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;margin-top:40px;}
+.cap-thumb{border:1px solid var(--line);border-radius:6px;overflow:hidden;cursor:pointer;background:none;padding:0;text-align:left;transition:border-color .2s ease;}
+.cap-thumb img{width:100%;display:block;opacity:0.65;transition:opacity .2s ease;}
+.cap-thumb-label{font-size:10.5px;padding:8px 10px;color:var(--grey-500);font-family:'JetBrains Mono',monospace;line-height:1.3;border-top:1px solid var(--line);}
+.cap-thumb:hover img{opacity:0.9;}
+.cap-thumb.active{border-color:var(--gold);}
+.cap-thumb.active img{opacity:1;}
+.cap-thumb.active .cap-thumb-label{color:var(--gold);}
+@media(max-width:900px){.cap-thumbs{grid-template-columns:repeat(4,1fr);}}
+@media(max-width:560px){.cap-thumbs{grid-template-columns:repeat(2,1fr);}}
+
+.cap-stage{display:grid;grid-template-columns:1.3fr 0.9fr;gap:48px;align-items:center;margin-top:40px;border:1px solid var(--line);border-radius:8px;padding:40px;}
+.cap-stage-img-wrap{position:relative;}
+.cap-stage-item{display:none;}
+.cap-stage-item.active{display:block;}
+.cap-stage-item img{width:100%;border-radius:6px;cursor:zoom-in;display:block;}
+.cap-stage-text{}
+.cap-text-item{display:none;}
+.cap-text-item.active{display:block;}
+.cap-text-item .cap-k{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;}
+.cap-text-item h3{font-size:24px;margin-top:10px;}
+.cap-text-item p{margin-top:14px;font-size:15px;color:var(--grey-700);}
+@media(max-width:860px){.cap-stage{grid-template-columns:1fr;padding:24px;}}
+
 /* PROGRESSION */
 .progression{background:var(--grey-900);color:#fff;}
 .progression h2{color:#fff;font-size:clamp(26px,3.4vw,38px);max-width:600px;}
@@ -240,128 +266,95 @@ footer a:hover{color:#fff;}
   </div>
 </section>
 
-<!-- 4. INSIDE SIGNAL GENESIS — MODULES -->
-<div>
-  <div class="module">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">Intelligence Briefing Room</div>
-        <h3>Every match, in one room.</h3>
-        <p>Live HPI data across every tracked entity — searchable, alertable, ranked by conviction.</p>
+<!-- 4. INSIDE SIGNAL GENESIS — CAPABILITY EXPLORER -->
+<section class="cap-explorer">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:8px;">
+      <div class="eyebrow">Inside Signal Genesis</div>
+      <h2 style="font-size:28px;">Every capability, in one place.</h2>
+    </div>
+
+    <div class="cap-thumbs reveal" id="cap-thumbs">
+      <button class="cap-thumb active" data-idx="0"><img src="assets/Intelligence_briefing_room.png" alt="Briefing Room"><div class="cap-thumb-label">Briefing Room</div></button>
+      <button class="cap-thumb" data-idx="1"><img src="assets/HPI_historical_matches.png" alt="HPI Matches"><div class="cap-thumb-label">HPI Matches</div></button>
+      <button class="cap-thumb" data-idx="2"><img src="assets/genesis_3.png" alt="Pattern Archetypes"><div class="cap-thumb-label">Archetypes</div></button>
+      <button class="cap-thumb" data-idx="3"><img src="assets/genesis_6_opportunity_score_3months.png" alt="Genesis Score"><div class="cap-thumb-label">Genesis Score</div></button>
+      <button class="cap-thumb" data-idx="4"><img src="assets/genesis_7_CIA_score.png" alt="CIA Stage Matching"><div class="cap-thumb-label">CIA Stage</div></button>
+      <button class="cap-thumb" data-idx="5"><img src="assets/genesis_8_Historical_return.png" alt="Historical Return"><div class="cap-thumb-label">Historical Return</div></button>
+      <button class="cap-thumb" data-idx="6"><img src="assets/genesis_4_signature_card.png" alt="Signature Card"><div class="cap-thumb-label">Signature Card</div></button>
+      <button class="cap-thumb" data-idx="7"><img src="assets/genesis_5_opportunity_score.png" alt="Compliance Layer"><div class="cap-thumb-label">Compliance</div></button>
+    </div>
+
+    <div class="cap-stage reveal">
+      <div class="cap-stage-img-wrap" id="cap-stage-imgs">
+        <a href="assets/Intelligence_briefing_room.png" class="glightbox cap-stage-item active" data-idx="0" data-gallery="capabilities" data-description="Intelligence Briefing Room — live matches, search, and alerts"><img src="assets/Intelligence_briefing_room.png" alt="Intelligence Briefing Room"></a>
+        <a href="assets/HPI_historical_matches.png" class="glightbox cap-stage-item" data-idx="1" data-gallery="capabilities" data-description="Today's strongest historical matches, ranked by similarity"><img src="assets/HPI_historical_matches.png" alt="HPI historical matches"></a>
+        <a href="assets/genesis_3.png" class="glightbox cap-stage-item" data-idx="2" data-gallery="capabilities" data-description="All eight Pattern Archetypes, with real historical examples"><img src="assets/genesis_3.png" alt="Pattern archetypes"></a>
+        <a href="assets/genesis_6_opportunity_score_3months.png" class="glightbox cap-stage-item" data-idx="3" data-gallery="capabilities" data-description="Genesis Score and confidence, tracked across the progression timeline"><img src="assets/genesis_6_opportunity_score_3months.png" alt="Genesis Score"></a>
+        <a href="assets/genesis_7_CIA_score.png" class="glightbox cap-stage-item" data-idx="4" data-gallery="capabilities" data-description="CIA Stage Matching — live progression vs historical equivalent"><img src="assets/genesis_7_CIA_score.png" alt="CIA Stage Matching"></a>
+        <a href="assets/genesis_8_Historical_return.png" class="glightbox cap-stage-item" data-idx="5" data-gallery="capabilities" data-description="Historical return tracked at 3, 6, 12, 24 and 36 months from match point"><img src="assets/genesis_8_Historical_return.png" alt="Historical Return"></a>
+        <a href="assets/genesis_4_signature_card.png" class="glightbox cap-stage-item" data-idx="6" data-gallery="capabilities" data-description="Genesis Signature Card — a shareable one-card summary"><img src="assets/genesis_4_signature_card.png" alt="Signature Card"></a>
+        <a href="assets/genesis_5_opportunity_score.png" class="glightbox cap-stage-item" data-idx="7" data-gallery="capabilities" data-description="Standing compliance disclaimer, present on every Genesis output"><img src="assets/genesis_5_opportunity_score.png" alt="Compliance Layer"></a>
       </div>
-      <div class="mod-shot reveal">
-        <a href="assets/Intelligence_briefing_room.png" class="glightbox" data-gallery="mod-briefing" data-description="Intelligence Briefing Room">
-          <img src="assets/Intelligence_briefing_room.png" alt="Intelligence Briefing Room">
-        </a>
-        <div class="mod-gallery">
-          <a href="assets/HPI_historical_matches.png" class="glightbox" data-gallery="mod-briefing" data-description="Today's strongest historical matches"><img src="assets/HPI_historical_matches.png" alt="HPI historical matches list"></a>
+      <div class="cap-stage-text" id="cap-stage-text">
+        <div class="cap-text-item active" data-idx="0">
+          <div class="cap-k">Intelligence Briefing Room</div>
+          <h3>Every match, in one room.</h3>
+          <p>Live HPI data across every tracked entity — searchable, ranked by conviction, updated continuously.</p>
+        </div>
+        <div class="cap-text-item" data-idx="1">
+          <div class="cap-k">HPI Precedent Matches</div>
+          <h3>Today's strongest historical signal.</h3>
+          <p>The full ranked list of live entities matched against validated precedent, updated as conditions change.</p>
+        </div>
+        <div class="cap-text-item" data-idx="2">
+          <div class="cap-k">Pattern Archetypes</div>
+          <h3>Eight recognised structural patterns.</h3>
+          <p>Infrastructure Builder, Ecosystem Creator, Network Effect Compounder, and five others — every entity is classified against a known archetype.</p>
+        </div>
+        <div class="cap-text-item" data-idx="3">
+          <div class="cap-k">Genesis Score</div>
+          <h3>One number. Full conviction.</h3>
+          <p>A single score distils similarity, stage, and pattern strength — tracked live across the progression timeline.</p>
+        </div>
+        <div class="cap-text-item" data-idx="4">
+          <div class="cap-k">CIA Stage Matching</div>
+          <h3>Live intelligence, historical context.</h3>
+          <p>Today's Compounding Intelligence Asset progression matched against the equivalent historical stage.</p>
+        </div>
+        <div class="cap-text-item" data-idx="5">
+          <div class="cap-k">Historical Return Tracking</div>
+          <h3>What happened after the match point.</h3>
+          <p>Real historical returns at 3, 6, 12, 24 and 36 months — context, not a promise.</p>
+        </div>
+        <div class="cap-text-item" data-idx="6">
+          <div class="cap-k">Signature Card</div>
+          <h3>Every analysis, shareable.</h3>
+          <p>A single-card summary of any Genesis analysis — built for circulation inside a research team.</p>
+        </div>
+        <div class="cap-text-item" data-idx="7">
+          <div class="cap-k">Compliance Layer</div>
+          <h3>Present on every output.</h3>
+          <p>Every report, score, and signature card carries the same standing compliance disclaimer — historical precedent, not prediction.</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="module">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">Genesis Analysis Reports</div>
-        <h3>A full report, for any entity.</h3>
-        <p>Score, closest historical match, pattern archetype, and current position — generated on demand.</p>
-      </div>
-      <div class="mod-shot reveal">
-        <a href="assets/genesis_1.png" class="glightbox" data-gallery="mod-report" data-description="Genesis Analysis Report — Ethereum">
-          <img src="assets/genesis_1.png" alt="Genesis Analysis Report — Ethereum">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="module">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">Historical Progression Viewer</div>
-        <h3>See where you are, not just what you resemble.</h3>
-        <p>A six-node timeline scrubber built on real CIA, opportunity, and price data.</p>
-      </div>
-      <div class="mod-shot reveal">
-        <a href="assets/genesis_6_opportunity_score_3months.png" class="glightbox" data-gallery="mod-progression" data-description="Historical Progression Viewer — Opportunity Score">
-          <img src="assets/genesis_6_opportunity_score_3months.png" alt="Historical Progression Viewer">
-        </a>
-        <div class="mod-gallery">
-          <a href="assets/genesis_7_CIA_score.png" class="glightbox" data-gallery="mod-progression" data-description="CIA Score view"><img src="assets/genesis_7_CIA_score.png" alt="CIA Score progression"></a>
-          <a href="assets/genesis_8_Historical_return.png" class="glightbox" data-gallery="mod-progression" data-description="Historical Return view"><img src="assets/genesis_8_Historical_return.png" alt="Historical Return progression"></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="module">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">Pattern Archetypes</div>
-        <h3>Eight recognised structural patterns.</h3>
-        <p>Infrastructure Builder, Ecosystem Creator, Network Effect Compounder, and five others — every entity is classified against a known archetype.</p>
-      </div>
-      <div class="mod-shot reveal">
-        <a href="assets/genesis_3.png" class="glightbox" data-gallery="mod-archetype" data-description="All eight Pattern Archetypes, with real historical examples">
-          <img src="assets/genesis_3.png" alt="Pattern archetypes — all eight, with examples">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="module">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">Genesis Score</div>
-        <h3>One number. Full conviction.</h3>
-        <p>A single 0–100 score distils similarity, stage, and pattern strength into one figure.</p>
-      </div>
-      <div class="mod-shot reveal">
-        <a href="assets/genesis_1.png" class="glightbox" data-gallery="mod-score" data-description="Genesis Score — Ethereum">
-          <img src="assets/genesis_1.png" alt="Genesis Score display">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="module">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">Signature Card</div>
-        <h3>Every analysis, shareable.</h3>
-        <p>A single-card summary of any Genesis analysis — built for circulation inside a research team.</p>
-      </div>
-      <div class="mod-shot reveal">
-        <a href="assets/genesis_4_signature_card.png" class="glightbox" data-gallery="mod-signature" data-description="Genesis Signature Card — Ethereum">
-          <img src="assets/genesis_4_signature_card.png" alt="Genesis Signature Card">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="module">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">CIA Stage Matching</div>
-        <h3>Live intelligence, historical context.</h3>
-        <p>Today's Compounding Intelligence Asset progression matched against the equivalent historical stage.</p>
-      </div>
-      <div class="mod-shot reveal">
-        <a href="assets/genesis_7_CIA_score.png" class="glightbox" data-gallery="mod-cia" data-description="CIA Stage Matching — Ethereum vs Chainlink">
-          <img src="assets/genesis_7_CIA_score.png" alt="CIA Stage Matching">
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="module" style="border-bottom:none;">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">Compliance Layer</div>
-        <h3>Present on every output.</h3>
-        <p>Every report, score, and signature card carries the same standing compliance disclaimer — historical precedent, not prediction.</p>
-      </div>
-      <div class="mod-shot reveal">
-        <a href="assets/genesis_5_opportunity_score.png" class="glightbox" data-gallery="mod-compliance" data-description="Standing compliance disclaimer, present on every Genesis output">
-          <img src="assets/genesis_5_opportunity_score.png" alt="Compliance disclaimer on every output">
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
+</section>
+
+<script>
+document.querySelectorAll('#cap-thumbs .cap-thumb').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const idx = btn.getAttribute('data-idx');
+    document.querySelectorAll('#cap-thumbs .cap-thumb').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('#cap-stage-imgs .cap-stage-item').forEach(el=>el.classList.remove('active'));
+    document.querySelectorAll('#cap-stage-text .cap-text-item').forEach(el=>el.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelector('#cap-stage-imgs .cap-stage-item[data-idx="'+idx+'"]').classList.add('active');
+    document.querySelector('#cap-stage-text .cap-text-item[data-idx="'+idx+'"]').classList.add('active');
+  });
+});
+</script>
 
 <!-- 5. HISTORICAL PROGRESSION -->
 <section class="progression">
