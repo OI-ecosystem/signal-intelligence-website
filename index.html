@@ -197,6 +197,32 @@ section{padding:96px 0;}
 @media(max-width:860px){.brief-pub{grid-template-columns:1fr;}}
 
 /* 12. PRICING */
+
+/* TRUST SECTION */
+.trust-band{background:var(--grey-900);color:#fff;padding:110px 0;}
+.trust-band .eyebrow{color:var(--gold-bright,#E4C077);}
+.trust-band h2{color:#fff;font-size:clamp(26px,3.4vw,38px);max-width:680px;}
+.trust-band .lead{margin-top:18px;font-size:16px;color:rgba(255,255,255,0.6);max-width:620px;}
+.trust-visual{margin-top:48px;border:1px solid rgba(255,255,255,0.14);border-radius:8px;overflow:hidden;}
+.trust-visual img{width:100%;display:block;cursor:zoom-in;}
+
+.trust-snapshot{margin-top:56px;}
+.trust-snapshot .snap-label{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:.06em;margin-bottom:18px;}
+.snap-grid{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid rgba(255,255,255,0.12);border-radius:6px;overflow:hidden;}
+.snap-cell{padding:22px 18px;border-right:1px solid rgba(255,255,255,0.1);}
+.snap-cell:last-child{border-right:none;}
+.snap-cell .val{font-family:'Fraunces',serif;font-size:22px;color:#fff;}
+.snap-cell .lbl{font-size:10.5px;color:rgba(255,255,255,0.4);margin-top:6px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.04em;}
+@media(max-width:900px){.snap-grid{grid-template-columns:repeat(3,1fr);}.snap-cell:nth-child(3n){border-right:none;}}
+@media(max-width:560px){.snap-grid{grid-template-columns:repeat(2,1fr);}.snap-cell:nth-child(2n){border-right:none;}}
+
+.trust-arch{margin-top:56px;}
+.trust-arch .snap-label{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:.06em;margin-bottom:18px;}
+.arch-row{display:flex;border:1px solid rgba(255,255,255,0.12);border-radius:6px;overflow:hidden;flex-wrap:wrap;}
+.arch-step{flex:1;min-width:130px;padding:22px 16px;border-right:1px solid rgba(255,255,255,0.1);text-align:center;}
+.arch-step:last-child{border-right:none;}
+.arch-step span{font-family:'JetBrains Mono',monospace;font-size:12px;color:#fff;}
+@media(max-width:800px){.arch-step{border-right:none;border-bottom:1px solid rgba(255,255,255,0.1);}}
 .pricing{background:var(--grey-100);}
 .ladder{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--white);}
 .ltier{padding:34px 22px;border-right:1px solid var(--line);text-align:left;}
@@ -468,6 +494,48 @@ footer a:hover{color:#fff;}
         </ul>
         <div class="brief-price">£49<span>/month</span></div>
         <div class="brief-note">Delivered every Monday. Collectibles Insight, Crypto Insight, and Energy Insight follow the same format as coverage expands.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust-band">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Built on evidence, not promises</div>
+      <h2>Historical validation.</h2>
+      <p class="lead">The cases presented below were selected because each represents a market that ultimately achieved broad commercial recognition. Signal Intelligence reconstructs the information environment that existed before that recognition occurred, identifying the earliest observable signals, behavioural patterns and contextual changes that preceded the outcome.</p>
+      <p class="lead">This analysis is not intended to demonstrate that historical events can be predicted with certainty. Rather, it demonstrates that major market developments are frequently preceded by recurring patterns that become visible well before consensus forms.</p>
+      <p class="lead">The lead times shown indicate the interval between the earliest evidence detectable through our methodology and the point at which the opportunity became widely recognised. Those intervals form the empirical foundation of the Historical Intelligence model.</p>
+    </div>
+
+    <div class="trust-visual reveal">
+      <a href="assets/historical-validation.svg" class="glightbox" data-gallery="trust" data-description="Historical validation — six cases, 8.3 year average lead time">
+        <img src="assets/historical-validation.svg" alt="Historical validation — six cases, 8.3 year average lead time">
+      </a>
+    </div>
+
+    <div class="trust-snapshot reveal">
+      <div class="snap-label">Production platform snapshot — 17 July 2026 · not updated live</div>
+      <div class="snap-grid">
+        <div class="snap-cell"><div class="val">79,111</div><div class="lbl">Signals</div></div>
+        <div class="snap-cell"><div class="val">79,749</div><div class="lbl">Raw events</div></div>
+        <div class="snap-cell"><div class="val">45</div><div class="lbl">Sources</div></div>
+        <div class="snap-cell"><div class="val">1,963</div><div class="lbl">Entities</div></div>
+        <div class="snap-cell"><div class="val">915</div><div class="lbl">Opportunities</div></div>
+        <div class="snap-cell"><div class="val">53</div><div class="lbl">Active jobs</div></div>
+      </div>
+    </div>
+
+    <div class="trust-arch reveal">
+      <div class="snap-label">How it's built</div>
+      <div class="arch-row">
+        <div class="arch-step"><span>Sources</span></div>
+        <div class="arch-step"><span>Signal Intelligence</span></div>
+        <div class="arch-step"><span>Behaviour</span></div>
+        <div class="arch-step"><span>Historical Intelligence</span></div>
+        <div class="arch-step"><span>Signal Genesis</span></div>
       </div>
     </div>
   </div>
