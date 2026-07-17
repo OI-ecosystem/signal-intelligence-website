@@ -4,519 +4,542 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Signal Intelligence — See tomorrow's opportunities through the lens of history</title>
-<meta name="description" content="Signal Intelligence analyses live signals across collectibles, crypto, AI and more — then compares them against historical precedents to surface emerging opportunities before mainstream recognition.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,420;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+.shot-img{width:100%;display:block;border-radius:6px;cursor:zoom-in;}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;}
+.gallery-item{border-radius:6px;overflow:hidden;border:1px solid var(--line);cursor:zoom-in;position:relative;}
+.gallery-item img{width:100%;display:block;transition:transform .3s ease;}
+.gallery-item:hover img{transform:scale(1.03);}
+.gallery-cap{padding:12px 14px;font-size:12px;color:var(--grey-500);font-family:'JetBrains Mono',monospace;border-top:1px solid var(--line);}
+@media(max-width:760px){.gallery-grid{grid-template-columns:1fr;}}
+</style>
+<style>
 :root{
-  --bg:#0d0f14;--bg2:#131720;--bg3:#1a1f2e;--bg4:#222840;
-  --text:#f0f0ec;--text2:#9ba3b8;--text3:#5a6278;
-  --border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.14);
-  --blue:#3b82f6;--blue-bg:rgba(59,130,246,0.12);--blue-dark:#93c5fd;--blue-mid:#60a5fa;
-  --amber:#f59e0b;--amber-bg:rgba(245,158,11,0.12);--amber-dark:#fcd34d;
-  --green:#10b981;--green-bg:rgba(16,185,129,0.12);--green-dark:#6ee7b7;
-  --purple:#8b5cf6;--purple-bg:rgba(139,92,246,0.12);--purple-dark:#c4b5fd;
-  --radius:8px;--radius-lg:12px;--radius-xl:16px;
+  --ink:#111214;
+  --grey-900:#1B1C1F;
+  --grey-700:#4A4D54;
+  --grey-500:#7A7D85;
+  --grey-300:#D8D9DD;
+  --grey-100:#F2F2F0;
+  --white:#FFFFFF;
+  --blue:#2F5FD6;
+  --blue-dim:#eef1fb;
+  --gold:#B8892E;
+  --gold-dim:#FBF4E6;
+  --line:#E4E3E0;
 }
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;}
-.page{max-width:960px;margin:0 auto;padding:0 20px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--white);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.01em;color:var(--ink);}
+.mono{font-family:'JetBrains Mono',monospace;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1140px;margin:0 auto;padding:0 32px;}
+.narrow{max-width:620px;}
+
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--blue);margin-bottom:16px;
+}
+.eyebrow.gold{color:var(--gold);}
+
+/* reveal-on-scroll, subtle only */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease, transform .7s ease;}
+.reveal.in{opacity:1;transform:none;}
 
 /* NAV */
-nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0 26px;border-bottom:0.5px solid var(--border);margin-bottom:48px;}
-.logo{font-size:16px;font-weight:700;letter-spacing:-0.03em;color:var(--text);text-decoration:none;}
-.logo span{color:var(--blue);}
-.nav-links{display:flex;gap:4px;align-items:center;}
-.nav-links a{font-size:13px;color:var(--text2);text-decoration:none;padding:6px 12px;border-radius:var(--radius);}
-.nav-links a:hover{color:var(--text);background:var(--bg2);}
-.nav-login{font-size:14px !important;font-weight:700 !important;color:#fff !important;}
-.nav-login:hover{color:var(--blue) !important;background:transparent !important;}
-.btn{display:inline-block;font-size:13px;padding:8px 18px;border-radius:var(--radius);border:0.5px solid var(--border2);background:var(--bg2);color:var(--text);text-decoration:none;cursor:pointer;font-family:inherit;transition:all 0.15s;}
-.btn:hover{background:var(--bg3);}
-.btn-primary{background:var(--blue);color:#fff;border-color:var(--blue);font-size:14px;padding:10px 24px;font-weight:500;}
-.btn-primary:hover{background:var(--blue-mid);}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
+.logo{font-family:'Fraunces',serif;font-weight:600;font-size:17px;}
+.navlinks{display:flex;gap:30px;font-size:13.5px;color:var(--grey-700);}
+.navlinks a:hover{color:var(--ink);}
+.navcta{display:flex;align-items:center;gap:22px;}
+.btn{display:inline-block;padding:10px 20px;font-size:13px;font-weight:600;border-radius:2px;}
+.btn-blue{background:var(--blue);color:#fff;}
+.btn-outline{border:1px solid var(--grey-300);color:var(--ink);}
+.btn-gold{background:var(--gold);color:#fff;}
+.btn-gold-outline{border:1px solid var(--gold);color:var(--gold);}
+@media(max-width:860px){.navlinks{display:none;}}
 
-/* LIVE BANNER */
-.live-banner{background:var(--blue-bg);border:0.5px solid rgba(59,130,246,0.3);border-radius:var(--radius);padding:10px 16px;margin-bottom:48px;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--blue-dark);}
-.live-dot{width:7px;height:7px;border-radius:50%;background:var(--blue);flex-shrink:0;animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
+section{padding:96px 0;}
 
-/* HERO */
-.hero{padding:8px 0 48px;border-bottom:0.5px solid var(--border);margin-bottom:56px;}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:4px 14px;border-radius:99px;background:var(--blue-bg);color:var(--blue-dark);margin-bottom:24px;letter-spacing:0.02em;}
-h1{font-size:44px;font-weight:700;letter-spacing:-0.04em;line-height:1.1;margin-bottom:20px;}
-h1 em{font-style:normal;color:var(--blue);}
-.hero-sub{font-size:16px;color:var(--text2);line-height:1.7;max-width:580px;margin-bottom:32px;}
-.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px;}
-.hero-note{font-size:12px;color:var(--text3);}
+/* 1. HERO */
+.hero{padding:180px 0 156px;}
+.hero .wrap{display:grid;grid-template-columns:0.95fr 1.05fr;gap:64px;align-items:center;}
+.hero h1{font-size:clamp(36px,5.2vw,60px);line-height:1.12;}
+.hero p{margin-top:26px;font-size:17.5px;color:var(--grey-700);max-width:480px;}
+.hero-built{margin-top:18px;font-size:14.5px;color:var(--grey-900);font-family:'Fraunces',serif;font-style:italic;max-width:460px;}
+.hero-ctas{display:flex;gap:14px;margin-top:36px;}
+.hero-sub{margin-top:16px;font-size:12px;color:var(--grey-500);}
 
-/* HPI CARD */
-.hero-hpi{background:var(--bg2);border:0.5px solid var(--border2);border-radius:var(--radius-xl);padding:24px;margin-top:40px;}
-.hpi-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
-.hpi-card-title{font-size:13px;font-weight:600;color:var(--text);}
-.hpi-badge{font-size:11px;padding:3px 10px;border-radius:99px;background:var(--purple-bg);color:var(--purple-dark);font-weight:500;}
-.hpi-entity{font-size:22px;font-weight:700;letter-spacing:-0.03em;margin-bottom:4px;}
-.hpi-subtitle{font-size:13px;color:var(--text2);margin-bottom:20px;}
-.hpi-matches{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px;}
-.hpi-match{background:var(--bg3);border:0.5px solid var(--border);border-radius:var(--radius);padding:12px;}
-.hpi-match-name{font-size:13px;font-weight:600;margin-bottom:4px;}
-.hpi-match-score{font-size:20px;font-weight:700;letter-spacing:-0.02em;color:var(--blue);}
-.hpi-match-label{font-size:11px;color:var(--text3);margin-bottom:8px;}
-.hpi-match-outcome{font-size:11px;padding:2px 8px;border-radius:99px;background:var(--green-bg);color:var(--green-dark);}
-.hpi-consensus{background:var(--amber-bg);border:0.5px solid rgba(245,158,11,0.2);border-radius:var(--radius);padding:12px 16px;display:flex;align-items:center;gap:12px;}
-.hpi-consensus-label{font-size:12px;color:var(--amber-dark);font-weight:600;margin-bottom:2px;}
-.hpi-consensus-text{font-size:13px;color:var(--text2);}
-.hpi-maturity{font-size:12px;color:var(--amber);flex-shrink:0;text-align:right;min-width:80px;}
+.shot{background:var(--grey-900);border-radius:8px;padding:2px;box-shadow:0 40px 90px -40px rgba(0,0,0,0.4);}
+.shot-inner{background:#16171B;border-radius:7px;padding:40px;color:#fff;}
+.shot-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;}
+.shot-top .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:rgba(255,255,255,0.4);text-transform:uppercase;}
+.shot-top h4{color:#fff;font-size:26px;margin-top:8px;}
+.shot-badge{font-family:'JetBrains Mono',monospace;font-size:10.5px;border:1px solid var(--gold);color:var(--gold);padding:5px 12px;border-radius:14px;height:fit-content;}
+.shot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;margin-top:6px;}
+.shot-cell{padding-right:18px;}
+.shot-cell .pct{font-family:'Fraunces',serif;font-size:30px;}
+.shot-cell .lbl{font-size:11px;color:rgba(255,255,255,0.45);margin-top:2px;}
+.shot-cell .note{margin-top:8px;display:inline-block;font-size:10px;font-family:'JetBrains Mono',monospace;background:rgba(255,255,255,0.08);padding:3px 8px;border-radius:3px;color:#e0c27a;}
 
-/* HISTORICAL CASES — now second, immediately after hero */
-.section-label{font-size:11px;color:var(--blue);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;font-weight:700;}
-.cases-section{margin-bottom:72px;}
-.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;}
-.case-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:18px;}
-.case-name{font-size:14px;font-weight:600;margin-bottom:6px;}
-.case-lead{font-size:22px;font-weight:700;letter-spacing:-0.02em;color:var(--blue);}
-.case-lead-label{font-size:11px;color:var(--text3);margin-bottom:8px;}
-.case-peak{font-size:13px;color:var(--amber);font-weight:500;}
-.cases-hook{text-align:center;margin-top:4px;}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr;}}
 
-/* STATS */
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:72px;}
-.stat{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:18px;text-align:center;}
-.stat-val{font-size:28px;font-weight:700;letter-spacing:-0.03em;}
-.stat-val span{font-size:16px;color:var(--blue);}
-.stat-label{font-size:12px;color:var(--text2);margin-top:4px;}
+/* 2. WHY WE EXIST */
+.why{background:var(--grey-100);}
+.why .wrap{max-width:680px;text-align:left;}
+.why p{font-size:20px;line-height:1.6;color:var(--grey-900);font-family:'Fraunces',serif;font-weight:400;}
 
-/* HOW IT WORKS — slightly different bg for visual rhythm */
-.how-section{background:var(--bg3);border-radius:var(--radius-xl);padding:36px;margin-bottom:72px;}
-.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px;}
-.how-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:20px;}
-.how-num{font-size:11px;color:var(--blue);font-weight:700;margin-bottom:10px;letter-spacing:0.05em;}
-.how-title{font-size:14px;font-weight:600;margin-bottom:8px;}
-.how-desc{font-size:13px;color:var(--text2);line-height:1.65;}
-.section-heading{font-size:27px;font-weight:800;letter-spacing:-0.03em;}
-.section-sub{font-size:14px;color:var(--text2);margin-top:6px;}
+/* 3. LIVE PLATFORM INTELLIGENCE */
+.console{border:1px solid var(--line);border-radius:6px;overflow:hidden;}
+.console-grid{display:grid;grid-template-columns:repeat(3,1fr);}
+.console-cell{padding:34px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);}
+.console-cell:nth-child(3n){border-right:none;}
+.console-cell .val{font-family:'Fraunces',serif;font-size:40px;color:var(--ink);line-height:1;}
+.console-cell .lbl{font-size:11px;color:var(--grey-500);margin-top:10px;text-transform:uppercase;letter-spacing:.05em;font-family:'JetBrains Mono',monospace;}
+.console-foot{padding:14px 26px;font-size:11.5px;color:var(--grey-500);font-family:'JetBrains Mono',monospace;background:var(--grey-100);}
+@media(max-width:760px){.console-grid{grid-template-columns:1fr 1fr;}.console-cell:nth-child(3n){border-right:1px solid var(--line);}.console-cell:nth-child(2n){border-right:none;}}
 
-/* DOMAINS — different bg again */
-.domains-section{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--radius-xl);padding:36px;margin-bottom:72px;}
-.domains-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px;}
-.domain-card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:18px;}
-.domain-card.active{border-color:rgba(59,130,246,0.3);}
-.domain-tag{font-size:10px;padding:2px 8px;border-radius:99px;display:inline-block;margin-bottom:10px;}
-.domain-tag.live{background:var(--blue-bg);color:var(--blue-dark);}
-.domain-tag.coming{background:var(--bg3);color:var(--text3);}
-.domain-name{font-size:15px;font-weight:600;margin-bottom:6px;}
-.domain-desc{font-size:12px;color:var(--text2);line-height:1.55;}
-.domain-signals{font-size:12px;color:var(--blue);margin-top:10px;font-weight:500;}
+/* transition line */
+.transition{text-align:left;padding:70px 0;}
+.transition .wrap p{font-family:'Fraunces',serif;font-size:26px;font-weight:400;color:var(--grey-700);font-style:italic;}
 
-/* NEWSLETTER */
-.newsletter-section{background:var(--bg2);border:0.5px solid rgba(245,158,11,0.3);border-radius:var(--radius-xl);padding:36px;margin-bottom:72px;}
-.newsletter-badge{display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:6px 14px;border-radius:99px;background:var(--amber-bg);color:var(--amber-dark);margin-bottom:16px;font-weight:600;border:0.5px solid rgba(245,158,11,0.3);}
-.newsletter-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px;}
-.nl-card{background:var(--bg3);border:0.5px solid var(--border);border-radius:var(--radius);padding:12px;}
-.nl-card-label{font-size:11px;color:var(--text3);margin-bottom:4px;}
-.nl-card-val{font-size:14px;font-weight:600;}
-.nl-card-sub{font-size:11px;color:var(--text2);margin-top:2px;}
-.newsletter-price{display:flex;align-items:baseline;gap:6px;margin-bottom:16px;}
-.nl-price{font-size:32px;font-weight:700;letter-spacing:-0.03em;}
-.nl-period{font-size:14px;color:var(--text2);}
-.newsletter-features{list-style:none;margin-bottom:20px;}
-.newsletter-features li{font-size:13px;color:var(--text2);padding:6px 0;border-bottom:0.5px solid var(--border);display:flex;align-items:flex-start;gap:8px;}
-.newsletter-features li:last-child{border-bottom:none;}
-.chk{color:var(--green);font-size:14px;flex-shrink:0;}
+/* 5. PROCESS */
+.process-row{display:flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;flex-wrap:wrap;}
+.pstep{flex:1;min-width:150px;padding:26px 20px;border-right:1px solid var(--line);}
+.pstep:last-child{border-right:none;}
+.pstep .n{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--blue);letter-spacing:.08em;}
+.pstep h4{font-size:15px;margin-top:8px;font-weight:600;font-family:'Inter',sans-serif;}
+.pstep p{font-size:12.5px;color:var(--grey-500);margin-top:6px;}
+@media(max-width:900px){.pstep{border-right:none;border-bottom:1px solid var(--line);}}
 
-/* PRICING */
-.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:56px;}
-.price-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:22px;}
-.price-card.featured{border:1.5px solid var(--blue);background:var(--bg3);}
-.price-badge{font-size:11px;background:var(--blue-bg);color:var(--blue-dark);padding:3px 10px;border-radius:99px;display:inline-block;margin-bottom:12px;}
-.price-name{font-size:15px;font-weight:600;margin-bottom:6px;}
-.price-amount{font-size:32px;font-weight:700;letter-spacing:-0.03em;}
-.price-period{font-size:12px;color:var(--text2);margin-bottom:20px;}
-.price-features{list-style:none;margin-bottom:22px;}
-.price-features li{font-size:13px;color:var(--text2);padding:6px 0;border-bottom:0.5px solid var(--border);display:flex;align-items:flex-start;gap:8px;}
-.price-features li:last-child{border-bottom:none;}
-.xmk{color:var(--text3);font-size:14px;flex-shrink:0;}
-.price-btn{width:100%;padding:10px;border-radius:var(--radius);font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;transition:all 0.15s;}
-.price-btn-blue{border:none;background:var(--blue);color:#fff;}
-.price-btn-blue:hover{background:var(--blue-mid);}
-.price-btn-outline{border:0.5px solid var(--border2);background:none;color:var(--text);}
-.price-btn-outline:hover{background:var(--bg3);}
+/* 6. HIERARCHY */
+.hier{padding:56px 0 8px;text-align:center;}
+.hier-root{font-family:'Fraunces',serif;font-size:22px;color:var(--ink);}
+.hier-stem{width:1px;height:46px;background:var(--grey-300);margin:0 auto;}
+.hier-branches{display:grid;grid-template-columns:repeat(4,1fr);gap:0;text-align:center;position:relative;}
+.hier-branches::before{content:"";position:absolute;top:0;left:12.5%;right:12.5%;height:1px;background:var(--grey-300);}
+.hbranch{padding-top:34px;position:relative;}
+.hbranch::before{content:"";position:absolute;top:0;left:50%;width:1px;height:34px;background:var(--grey-300);}
+.hbranch.emph::before{background:var(--gold);}
+.hbranch h5{font-size:15px;font-weight:600;margin-bottom:14px;}
+.hbranch.emph h5{color:var(--gold);}
+.hbranch ul{list-style:none;font-size:12.5px;color:var(--grey-500);}
+.hbranch li{padding:5px 0;}
+@media(max-width:860px){.hier-branches{grid-template-columns:1fr 1fr;row-gap:36px;}.hier-branches::before{display:none;}}
 
-/* FAQ */
-.faq{margin-bottom:56px;}
-.faq-item{border-bottom:0.5px solid var(--border);padding:18px 0;}
-.faq-q{font-size:14px;font-weight:600;margin-bottom:8px;}
-.faq-a{font-size:13px;color:var(--text2);line-height:1.65;}
+/* 7. STATEMENT */
+.statement{padding:150px 0;text-align:left;}
+.statement h2{font-size:clamp(30px,4.6vw,54px);line-height:1.25;font-weight:400;}
+
+/* 8. TRUST */
+.trust{background:var(--grey-100);}
+.trust-grid{margin-top:20px;max-width:520px;}
+.tcell{padding:22px 0;border-bottom:1px solid var(--line);font-family:'Fraunces',serif;font-size:22px;color:var(--grey-900);}
+.tcell:last-child{border-bottom:none;}
+
+/* 9. GENESIS */
+.genesis{background:var(--grey-900);color:#fff;padding:150px 0;}
+.genesis .eyebrow{color:#E4C077;}
+.genesis h2{color:#fff;font-size:clamp(30px,4.2vw,46px);max-width:760px;}
+.genesis .lead{margin-top:24px;font-size:18px;color:rgba(255,255,255,0.65);max-width:640px;}
+.genesis-shot{margin-top:64px;border:1px solid rgba(255,255,255,0.14);border-radius:8px;overflow:hidden;}
+.gtop{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,0.1);}
+.gtop .gk{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:.08em;}
+.gtop h3{color:#fff;font-size:26px;margin-top:6px;}
+.gbadge{font-family:'JetBrains Mono',monospace;font-size:11px;border:1px solid #E4C077;color:#E4C077;padding:5px 14px;border-radius:16px;height:fit-content;}
+.gbody{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding-top:30px;}
+.gmetric{padding-right:28px;border-right:1px solid rgba(255,255,255,0.1);}
+.gmetric:last-child{border-right:none;}
+.gmetric .pct{font-family:'Fraunces',serif;font-size:32px;color:#fff;}
+.gmetric .name{font-size:12.5px;color:rgba(255,255,255,0.5);margin-top:4px;}
+.gmetric .note{margin-top:12px;display:inline-block;font-size:11px;font-family:'JetBrains Mono',monospace;background:rgba(228,192,119,0.12);color:#E4C077;padding:4px 10px;border-radius:3px;}
+@media(max-width:800px){.gbody{grid-template-columns:1fr;gap:22px;}.gmetric{border-right:none;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:22px;}}
+.genesis-cta{margin-top:34px;}
+
+/* 10. INTELLIGENCE IN ACTION */
+.action{}
+.action-flow{border:1px solid var(--line);border-radius:6px;padding:44px;}
+.aflow-item{display:flex;align-items:center;gap:18px;padding:16px 0;}
+.aflow-item .dot{width:9px;height:9px;border-radius:50%;background:var(--blue);flex-shrink:0;}
+.aflow-item.final .dot{background:var(--gold);}
+.aflow-item .txt strong{font-size:16px;font-weight:600;display:block;}
+.aflow-item .txt span{display:block;font-size:12.5px;color:var(--grey-500);margin-top:2px;}
+.aflow-item .txt span.mono{margin-top:0;font-size:11px;}
+.aflow-arrow{margin-left:4px;color:var(--grey-300);font-family:'JetBrains Mono',monospace;font-size:13px;}
+.action-close{margin-top:30px;padding-top:24px;border-top:1px solid var(--line);font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:var(--grey-700);}
+
+/* 11. WEEKLY BRIEFS */
+.briefs-intro{max-width:640px;}
+.brief-pub{margin-top:48px;border:1px solid var(--line);border-radius:6px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;}
+.brief-left{background:var(--grey-900);color:#fff;padding:64px 52px;display:flex;flex-direction:column;justify-content:center;min-height:340px;}
+.brief-left .eyebrow{color:#8fb0f5;}
+.brief-left h3{color:#fff;font-size:44px;}
+.brief-meta{display:flex;flex-wrap:wrap;gap:16px;margin-top:24px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,0.45);}
+.brief-right{padding:52px;}
+.brief-right ul{list-style:none;}
+.brief-right li{padding:11px 0;border-bottom:1px solid var(--line);font-size:14px;}
+.brief-right li:last-child{border-bottom:none;}
+.brief-price{margin-top:24px;font-family:'Fraunces',serif;font-size:28px;}
+.brief-price span{font-size:13px;color:var(--grey-500);font-family:'Inter',sans-serif;}
+.brief-note{margin-top:20px;font-size:12.5px;color:var(--grey-500);}
+@media(max-width:860px){.brief-pub{grid-template-columns:1fr;}}
+
+/* 12. PRICING */
+.pricing{background:var(--grey-100);}
+.ladder{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--white);}
+.ltier{padding:34px 22px;border-right:1px solid var(--line);text-align:left;}
+.ltier:last-child{border-right:none;}
+.ltier.feat{background:var(--gold-dim);}
+.ltier .tname{font-family:'JetBrains Mono',monospace;font-size:10.5px;text-transform:uppercase;color:var(--grey-500);letter-spacing:.08em;}
+.ltier .tprice{font-family:'Fraunces',serif;font-size:26px;margin-top:10px;font-weight:400;}
+.ltier .tprice span{font-size:11px;color:var(--grey-500);font-family:'Inter',sans-serif;}
+.ltier .tcta{display:block;margin-top:16px;font-size:12.5px;color:var(--blue);font-weight:600;}
+.ltier.feat .tcta{color:var(--gold);}
+@media(max-width:900px){.ladder{grid-template-columns:1fr 1fr;}.ltier{border-bottom:1px solid var(--line);}}
 
 /* FOOTER */
-footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:20px;}
-.footer-logo{font-size:14px;font-weight:700;color:var(--text);letter-spacing:-0.02em;}
-.footer-logo span{color:var(--blue);}
-.footer-links{display:flex;}
-.footer-link{font-size:12px;color:var(--text3);text-decoration:none;margin-left:20px;}
-.footer-link:hover{color:var(--text2);}
-.footer-disclaimer{font-size:11px;color:var(--text3);line-height:1.6;max-width:600px;margin-top:12px;width:100%;}
-
-@media(max-width:620px){
-  h1{font-size:30px;}
-  .stats-row,.how-grid,.pricing-grid,.hpi-matches,.newsletter-cards,.domains-grid,.cases-grid{grid-template-columns:1fr 1fr;}
-}
+footer{background:var(--grey-900);color:rgba(255,255,255,0.5);padding:56px 0 30px;font-size:13px;}
+.fgrid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,0.1);}
+.flinks{display:flex;gap:22px;flex-wrap:wrap;}
+footer a:hover{color:#fff;}
+.fbottom{padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:rgba(255,255,255,0.3);font-size:11.5px;}
+.disclaimer{max-width:680px;color:rgba(255,255,255,0.25);line-height:1.6;margin-top:8px;}
 </style>
-<script data-goatcounter="https://signal333.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
-<div class="page">
 
-<!-- NAV -->
 <nav>
-  <a href="index.html" class="logo">Signal<span>.</span>Intelligence</a>
-  <div class="nav-links">
-    <a href="index.html#how">How it works</a>
-    <a href="historical-cases.html">Historical Cases</a>
-    <a href="lenses.html">Lenses</a>
-    <a href="newsletter.html">Newsletter</a>
-    <a href="index.html#pricing">Pricing</a>
-    <a href="blog.html">Blog</a>
-    <a href="https://si.psiisp.com/login" class="nav-login">Login</a>
-    <a href="index.html#pricing" class="btn btn-primary">Get Started</a>
+  <div class="wrap">
+    <div class="logo">Signal Intelligence</div>
+    <div class="navlinks">
+      <a href="#how">How it works</a>
+      <a href="genesis.html">Signal Genesis</a>
+      <a href="#briefs">Intelligence Briefs</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <div class="navcta">
+      <a href="#" style="font-size:13.5px;color:var(--grey-700);">Login</a>
+      <a href="#pricing" class="btn btn-blue">Get Started</a>
+    </div>
   </div>
 </nav>
 
-<!-- LIVE BANNER -->
-<div class="live-banner">
-  <div class="live-dot"></div>
-  <span>600+ entities tracked · Energy Intelligence now live · Ethereum resembles Bitcoin 2013 · CIA scoring live across crypto, AI, collectibles &amp; energy</span>
-</div>
-
-<!-- HERO -->
+<!-- 1. HERO — WHO WE ARE -->
 <section class="hero">
-  <div class="hero-badge">Live signals · Historical precedents · Crypto · AI · Collectibles · Energy</div>
-  <h1>See tomorrow's opportunities<br>through the <em>lens of history.</em></h1>
-  <p class="hero-sub">Signal Intelligence analyses live signals across collectibles, crypto, AI and more — then compares them against validated historical precedents to surface emerging opportunities before mainstream recognition.</p>
-  <div class="hero-actions">
-    <a href="#pricing" class="btn btn-primary">Get Started</a>
-    <a href="historical-cases.html" class="btn">View Historical Cases</a>
-  </div>
-  <p class="hero-note">Subscribe from £49/month · Cancel anytime</p>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Signal Intelligence Platform</div>
+      <h1>See tomorrow's opportunities through the lens of history.</h1>
+      <p>Signal Intelligence continuously analyses live market signals and compares them against validated historical precedent — surfacing structural opportunities before they become consensus.</p>
+      <div class="hero-built">Built for people whose decisions benefit from seeing change before consensus does.</div>
+      <div class="hero-ctas">
+        <a href="#pricing" class="btn btn-blue">Get Started</a>
+        <a href="#action" class="btn btn-outline">View Historical Cases</a>
+      </div>
+      <div class="hero-sub">Subscriptions from £49/month · Cancel anytime</div>
+    </div>
 
-  <!-- Live HPI Card -->
-  <div class="hero-hpi">
-    <div class="hpi-card-header">
-      <span class="hpi-card-title">Historical Precedent Intelligence — Live Analysis</span>
-      <span class="hpi-badge">HPI · Professional</span>
+    <div class="shot reveal">
+      <a href="assets/dashboard-overview.png" class="glightbox" data-gallery="dashboard" data-description="Live Signal Intelligence dashboard — Crypto & AI lens">
+        <img src="assets/dashboard-overview-product-shot.png" class="shot-img" alt="Signal Intelligence live dashboard">
+      </a>
     </div>
-    <div class="hpi-entity">Ethereum</div>
-    <div class="hpi-subtitle">Current signal profile matched against 6 validated historical precedents</div>
-    <div class="hpi-matches">
-      <div class="hpi-match">
-        <div class="hpi-match-name">SpaceX</div>
-        <div class="hpi-match-score">49.8%</div>
-        <div class="hpi-match-label">similarity</div>
-        <span class="hpi-match-outcome">Breakout confirmed</span>
+  </div>
+</section>
+
+<!-- 2. WHY WE EXIST -->
+<section class="why">
+  <div class="wrap reveal">
+    <div class="eyebrow">The problem</div>
+    <p>Every market produces thousands of signals every day. Most are noise. A small number become structural opportunities. Signal Intelligence continuously analyses those signals, compares them against historical precedent, and surfaces high-conviction opportunities before they become consensus.</p>
+  </div>
+</section>
+
+<!-- 3. PROOF WE'RE REAL — LIVE PLATFORM INTELLIGENCE -->
+<section>
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:36px;">
+      <div class="eyebrow">Live platform intelligence</div>
+      <h2 style="font-size:28px;">Evidence the engine is operating.</h2>
+    </div>
+    <div class="console reveal">
+      <div class="console-grid">
+        <div class="console-cell"><div class="val mono">1,150+</div><div class="lbl">Entities tracked</div></div>
+        <div class="console-cell"><div class="val mono">37,000+</div><div class="lbl">Signals processed</div></div>
+        <div class="console-cell"><div class="val mono">551+</div><div class="lbl">Opportunities identified</div></div>
+        <div class="console-cell"><div class="val mono">50,000+</div><div class="lbl">CIA observations</div></div>
+        <div class="console-cell"><div class="val mono">10</div><div class="lbl">Historical precedents</div></div>
+        <div class="console-cell"><div class="val mono">Live</div><div class="lbl">Last update</div></div>
       </div>
-      <div class="hpi-match">
-        <div class="hpi-match-name">Bitcoin</div>
-        <div class="hpi-match-score">47.2%</div>
-        <div class="hpi-match-label">similarity</div>
-        <span class="hpi-match-outcome">Protocol expansion</span>
-      </div>
-      <div class="hpi-match">
-        <div class="hpi-match-name">NVIDIA</div>
-        <div class="hpi-match-score">44.1%</div>
-        <div class="hpi-match-label">similarity</div>
-        <span class="hpi-match-outcome">Infrastructure scaling</span>
+      <div class="console-foot">Updated continuously · scoring cycle runs every 15 minutes</div>
+    </div>
+    <div class="reveal" style="margin-top:14px;display:flex;gap:24px;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--grey-500);">
+      <span style="color:#3F8F5F;">●</span><span>Operational</span>
+      <span>Collectors — 29 active</span>
+      <span>Last intelligence cycle — 2 minutes ago</span>
+    </div>
+  </div>
+</section>
+
+<!-- 4. TRANSITION -->
+<section class="transition">
+  <div class="wrap reveal">
+    <p>Markets leave fingerprints.</p>
+  </div>
+</section>
+
+<!-- 5. HOW WE THINK -->
+<section id="how">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:36px;">
+      <div class="eyebrow">How intelligence becomes action</div>
+      <h2 style="font-size:28px;">One process. Every market.</h2>
+    </div>
+    <div class="process-row reveal">
+      <div class="pstep"><div class="n">EVIDENCE</div><h4>Collection</h4><p>Signals gathered continuously from sources built for each market.</p></div>
+      <div class="pstep"><div class="n">CONTEXT</div><h4>Normalisation</h4><p>Evidence structured into comparable entities and fields.</p></div>
+      <div class="pstep"><div class="n">HISTORY</div><h4>Comparison</h4><p>Live profiles matched against validated historical precedent.</p></div>
+      <div class="pstep"><div class="n">CIA</div><h4>Scoring</h4><p>Conviction accumulates per entity, continuously, over time.</p></div>
+      <div class="pstep"><div class="n">RANK</div><h4>Opportunity</h4><p>Entities ranked by what's changing — not by price alone.</p></div>
+      <div class="pstep"><div class="n">OPERATOR</div><h4>Decision</h4><p>Genesis positions the signal on a historical timeline.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. WHAT WE PRODUCE — HIERARCHY -->
+<section style="background:var(--grey-100);">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:36px;">
+      <div class="eyebrow">What the platform produces</div>
+      <h2 style="font-size:28px;">One platform. Four outputs.</h2>
+    </div>
+    <div class="hier reveal">
+      <div class="hier-root">Signal Intelligence</div>
+      <div class="hier-stem"></div>
+      <div class="hier-branches">
+        <div class="hbranch">
+          <h5>Live Intelligence</h5>
+          <ul><li>Crypto &amp; AI</li><li>Collectibles</li><li>Energy</li></ul>
+          <a href="assets/Lenses.png" class="glightbox" data-gallery="lenses" data-description="Live lens selector — switch between intelligence domains">
+            <img src="assets/Lenses.png" alt="Lens selector" style="width:100%;margin-top:12px;border-radius:4px;border:1px solid var(--line);cursor:zoom-in;">
+          </a>
+        </div>
+        <div class="hbranch emph">
+          <h5>Signal Genesis&trade;</h5>
+          <ul><li>Historical precedent intelligence</li><li>Genesis Score</li></ul>
+        </div>
+        <div class="hbranch emph">
+          <h5>Weekly Intelligence Briefs</h5>
+          <ul><li>Sneaker Insight</li><li>Expanding by market</li></ul>
+        </div>
+        <div class="hbranch">
+          <h5>Delivery</h5>
+          <ul><li>Individual</li><li>Professional</li><li>Enterprise</li></ul>
+        </div>
       </div>
     </div>
-    <div class="hpi-consensus">
+  </div>
+</section>
+
+<!-- 7. THE STATEMENT -->
+<section class="statement">
+  <div class="wrap reveal">
+    <h2>Signal Intelligence is not a price tracker.<br>It is an intelligence engine.</h2>
+  </div>
+</section>
+
+<!-- 8. TRUST -->
+<section class="trust">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:8px;">
+      <div class="eyebrow">Platform discipline</div>
+    </div>
+    <div class="trust-grid reveal">
+      <div class="tcell">Runs continuously</div>
+      <div class="tcell">Learns historically</div>
+      <div class="tcell">Scales across markets</div>
+      <div class="tcell">Designed for operators</div>
+      <div class="tcell">Enterprise-ready</div>
+      <div class="tcell">Evidence first</div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. WHY GENESIS EXISTS -->
+<section class="genesis" id="genesis">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow gold">Signal Genesis&trade; — Historical Precedent Intelligence</div>
+      <h2>Signal Genesis&trade; is the historical intelligence layer of Signal Intelligence.</h2>
+      <p class="lead">Compare any entity against 10 validated historical precedents and understand exactly where it sits within a proven structural pattern.</p>
+    </div>
+
+    <div class="genesis-shot reveal">
+      <a href="assets/genesis_1.png" class="glightbox" data-gallery="genesis-home" data-description="Genesis Analysis Report — Ethereum">
+        <img src="assets/genesis_1.png" class="shot-img" alt="Signal Genesis Analysis Report — Ethereum">
+      </a>
+    </div>
+    <div class="genesis-cta reveal">
+      <a href="genesis.html" class="btn btn-gold-outline">Explore Signal Genesis&trade;</a>
+      <div style="margin-top:14px;font-size:12px;color:rgba(255,255,255,0.4);font-family:'JetBrains Mono',monospace;">Signal Genesis&trade; is live on the platform · Request Access to open a subscription</div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. INTELLIGENCE IN ACTION -->
+<section class="action" id="action">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:36px;">
+      <div class="eyebrow">Intelligence in action</div>
+      <h2 style="font-size:28px;">One genuine case.</h2>
+    </div>
+    <div class="action-flow reveal">
+      <div class="aflow-item"><div class="dot"></div><div class="txt"><strong>Ethereum</strong><span class="mono" style="color:var(--grey-500);">14 Jan</span><span>Entity enters continuous monitoring</span></div></div>
+      <div class="aflow-item"><div class="dot"></div><div class="txt"><strong>Signals detected</strong><span>Protocol activity, developer velocity, and on-chain movement accelerate</span></div></div>
+      <div class="aflow-item"><div class="dot"></div><div class="txt"><strong>Historical comparison</strong><span>Live profile matched against validated precedent</span></div></div>
+      <div class="aflow-item"><div class="dot"></div><div class="txt"><strong>Genesis similarity</strong><span>49.8% match to SpaceX's breakout phase</span></div></div>
+      <div class="aflow-item"><div class="dot"></div><div class="txt"><strong>Opportunity generated</strong><span>Ranked and surfaced ahead of consensus recognition</span></div></div>
+      <div class="aflow-item"><div class="dot"></div><div class="txt"><strong class="mono" style="font-size:12px;color:var(--grey-500);">Six months later</strong></div></div>
+      <div class="aflow-item final"><div class="dot"></div><div class="txt"><strong>Outcome</strong><span>Consensus caught up 180–540 days later</span></div></div>
+      <div class="action-close">The result wasn't predicted. It was recognised.</div>
+    </div>
+    <div class="gallery-grid reveal">
       <div>
-        <div class="hpi-consensus-label">Consensus outlook</div>
-        <div class="hpi-consensus-text">Strong historical precedent for continued accumulation phase. Cross-source confirmation increasing.</div>
+        <a href="assets/Entity_Card.png" class="glightbox gallery-item" data-gallery="action-evidence" data-description="Entity intelligence — signals, sources and HPI match">
+          <img src="assets/Entity_Card.png" alt="Entity intelligence card">
+        </a>
+        <div class="gallery-cap">Signal detected — full entity intelligence</div>
       </div>
-      <div class="hpi-maturity">180–540<br>day window</div>
-    </div>
-  </div>
-</section>
-
-<!-- HISTORICAL CASES — immediately after hero -->
-<section id="cases" class="cases-section" style="padding-top:8px;">
-  <div class="section-label">Historical validation</div>
-  <div style="margin-bottom:20px;">
-    <div style="font-size:28px;font-weight:800;letter-spacing:-0.04em;margin-bottom:8px;">6 cases. 8.3 year average lead time.</div>
-    <div style="font-size:14px;color:var(--text2);max-width:560px;line-height:1.65;">Signal Intelligence has been validated against six historical cases where the earliest detectable signals preceded mainstream recognition by years — not months.</div>
-  </div>
-  <div class="cases-grid">
-    <div class="case-card">
-      <div class="case-name">SpaceX</div>
-      <div class="case-lead">9.4y</div>
-      <div class="case-lead-label">lead time before mainstream</div>
-      <div class="case-peak">Peak opp score: 0.87</div>
-    </div>
-    <div class="case-card">
-      <div class="case-name">NVIDIA</div>
-      <div class="case-lead">7.2y</div>
-      <div class="case-lead-label">lead time before mainstream</div>
-      <div class="case-peak">Peak opp score: 0.91</div>
-    </div>
-    <div class="case-card">
-      <div class="case-name">Bitcoin</div>
-      <div class="case-lead">11.3y</div>
-      <div class="case-lead-label">lead time before mainstream</div>
-      <div class="case-peak">Peak opp score: 0.85</div>
-    </div>
-    <div class="case-card">
-      <div class="case-name">OpenAI</div>
-      <div class="case-lead">6.8y</div>
-      <div class="case-lead-label">lead time before mainstream</div>
-      <div class="case-peak">Peak opp score: 0.89</div>
-    </div>
-    <div class="case-card">
-      <div class="case-name">Shopify</div>
-      <div class="case-lead">8.1y</div>
-      <div class="case-lead-label">lead time before mainstream</div>
-      <div class="case-peak">Peak opp score: 0.82</div>
-    </div>
-    <div class="case-card">
-      <div class="case-name">Tesla</div>
-      <div class="case-lead">9.7y</div>
-      <div class="case-lead-label">lead time before mainstream</div>
-      <div class="case-peak">Peak opp score: 0.88</div>
-    </div>
-  </div>
-  <div class="cases-hook" style="margin-top:20px;">
-    <a href="historical-cases.html" style="display:inline-block;background:linear-gradient(135deg,rgba(245,158,11,0.15),rgba(59,130,246,0.12));border:1.5px solid var(--amber);border-radius:var(--radius-lg);padding:20px 40px;text-decoration:none;color:var(--text);transition:all 0.2s;box-shadow:0 0 32px rgba(245,158,11,0.18);" onmouseover="this.style.boxShadow='0 0 48px rgba(245,158,11,0.32)'" onmouseout="this.style.boxShadow='0 0 32px rgba(245,158,11,0.18)'">
-      <div style="font-size:20px;font-weight:800;letter-spacing:-0.03em;margin-bottom:6px;color:var(--amber);">See the signal before the crowd →</div>
-      <div style="font-size:13px;color:var(--text2);">Explore the full interactive historical validation dashboard — signal timelines, CIA progression, outcome tracking</div>
-    </a>
-    <p style="font-size:12px;color:var(--text3);margin-top:12px;">Full subscriber access unlocks live Historical Precedent Intelligence across all live lenses — Collectibles, Crypto, AI Startups, Energy Intelligence and more</p>
-  </div>
-</section>
-
-<!-- STATS -->
-<div class="stats-row">
-  <div class="stat"><div class="stat-val">600<span>+</span></div><div class="stat-label">Entities tracked live</div></div>
-  <div class="stat"><div class="stat-val">6</div><div class="stat-label">Historical precedents validated</div></div>
-  <div class="stat"><div class="stat-val">8.3<span>yr</span></div><div class="stat-label">Avg lead time before mainstream</div></div>
-  <div class="stat"><div class="stat-val">4</div><div class="stat-label">Live intelligence lenses</div></div>
-</div>
-
-<!-- HOW IT WORKS — distinct bg -->
-<section id="how" class="how-section" style="margin-top:8px;">
-  <div class="section-label">How it works</div>
-  <div class="section-heading">Three layers of intelligence.</div>
-  <div class="section-sub">Every signal captured. Every entity scored. Every opportunity compared against history.</div>
-  <div class="how-grid">
-    <div class="how-card">
-      <div class="how-num">01 · SIGNAL LAYER</div>
-      <div class="how-title">Continuous signal capture</div>
-      <div class="how-desc">Specialist collectors run continuously across GitHub, Hacker News, CoinGecko, EIA, IEA, OPEC, energy patent databases, utility filings, and more — capturing signals before they reach mainstream attention.</div>
-    </div>
-    <div class="how-card">
-      <div class="how-num">02 · INTELLIGENCE LAYER</div>
-      <div class="how-title">CIA compounding</div>
-      <div class="how-desc">Every signal contributes to a Compounding Intelligence Asset. CIA scores accumulate over time, capturing frequency, recency, and source diversity. Intelligence grows with every observation.</div>
-    </div>
-    <div class="how-card">
-      <div class="how-num">03 · HPI LAYER</div>
-      <div class="how-title">Historical interpretation</div>
-      <div class="how-desc">Live entity fingerprints are matched against validated historical precedents — SpaceX, Tesla, Bitcoin, NVIDIA, Shopify, OpenAI — revealing where in its maturity cycle an entity currently sits.</div>
-    </div>
-  </div>
-</section>
-
-<!-- INTELLIGENCE DOMAINS — distinct bg -->
-<section class="domains-section">
-  <div class="section-label">Intelligence domains</div>
-  <div class="section-heading">One platform. Multiple intelligence lenses.</div>
-  <div class="section-sub">Every lens feeds the same intelligence engine. Every entity is eligible for HPI matching. New lenses are added based on subscriber demand.</div>
-  <div class="domains-grid">
-    <div class="domain-card active">
-      <span class="domain-tag live">Live</span>
-      <div class="domain-name">Collectibles</div>
-      <div class="domain-desc">Pokémon TCG, Sports Cards, Magic The Gathering, Yu-Gi-Oh, Comics, Memorabilia.</div>
-      <div class="domain-signals">6 entities tracked</div>
-    </div>
-    <div class="domain-card active">
-      <span class="domain-tag live">Live</span>
-      <div class="domain-name">Crypto &amp; DeFi</div>
-      <div class="domain-desc">Protocols, tokens, governance proposals, and on-chain announcements across major networks.</div>
-      <div class="domain-signals">357 entities tracked</div>
-    </div>
-    <div class="domain-card active">
-      <span class="domain-tag live">Live</span>
-      <div class="domain-name">AI &amp; Startups</div>
-      <div class="domain-desc">GitHub trending repositories, Hacker News launches, Product Hunt discoveries.</div>
-      <div class="domain-signals">589 entities tracked</div>
-    </div>
-    <div class="domain-card active">
-      <span class="domain-tag live">Live</span>
-      <div class="domain-name">Energy Intelligence</div>
-      <div class="domain-desc">Oil &amp; gas, nuclear, renewables, grid infrastructure, critical minerals, and energy policy — monitored across 9 institutional evidence streams.</div>
-      <div class="domain-signals">EIA · IEA · OPEC · Baker Hughes · 9 evidence streams</div>
-    </div>
-    <div class="domain-card">
-      <span class="domain-tag coming">Coming soon</span>
-      <div class="domain-name">Watches</div>
-      <div class="domain-desc">Reference pricing, auction results, PSA population reports, and collector momentum.</div>
-    </div>
-    <div class="domain-card">
-      <span class="domain-tag coming">Coming soon</span>
-      <div class="domain-name">Venture &amp; Startup Intelligence</div>
-      <div class="domain-desc">Funding velocity, hiring signals, GitHub acceleration, and founder network activity.</div>
-    </div>
-  </div>
-</section>
-
-<!-- NEWSLETTER -->
-<section id="newsletter" style="margin-bottom:56px;">
-  <div class="section-label">Newsletter</div>
-  <div class="newsletter-section">
-    <div class="newsletter-badge">🃏 Trading Card Lens Weekly</div>
-    <div style="font-size:24px;font-weight:800;letter-spacing:-0.03em;margin-bottom:6px;">Trading Card Lens Weekly</div>
-    <div style="font-size:13px;color:var(--blue-dark);margin-bottom:12px;font-weight:500;">Weekly Pokémon Intelligence · Top 10 Opportunity Digest</div>
-    <div style="font-size:14px;color:var(--text2);margin-bottom:20px;line-height:1.65;max-width:560px;">Every week, Signal Intelligence analyses inventory compression, buyout detection, PSA population data, and auction acceleration across the Pokémon TCG market — then surfaces the 10 highest-conviction opportunities with full signal breakdowns.</div>
-    <div class="newsletter-cards">
-      <div class="nl-card">
-        <div class="nl-card-label">Signals analysed</div>
-        <div class="nl-card-val">500+</div>
-        <div class="nl-card-sub">Per weekly issue</div>
+      <div>
+        <a href="assets/Opportunity_Explorer.png" class="glightbox gallery-item" data-gallery="action-evidence" data-description="Opportunity ranked in the live Opportunity Explorer">
+          <img src="assets/Opportunity_Explorer.png" alt="Opportunity Explorer ranking">
+        </a>
+        <div class="gallery-cap">Opportunity ranked — live Explorer</div>
       </div>
-      <div class="nl-card">
-        <div class="nl-card-label">Detectors running</div>
-        <div class="nl-card-val">5</div>
-        <div class="nl-card-sub">Inventory · Buyout · PSA · Auction · Momentum</div>
-      </div>
-      <div class="nl-card">
-        <div class="nl-card-label">Coverage</div>
-        <div class="nl-card-val">Expanding</div>
-        <div class="nl-card-sub">New lenses launching over time</div>
+      <div>
+        <a href="assets/genesis_2.png" class="glightbox gallery-item" data-gallery="action-evidence" data-description="Historical progression and outcome, recognised via Genesis">
+          <img src="assets/genesis_2.png" alt="Historical progression outcome">
+        </a>
+        <div class="gallery-cap">Outcome — recognised via Signal Genesis</div>
       </div>
     </div>
-    <div class="newsletter-price">
-      <div class="nl-price">£49</div>
-      <div class="nl-period">/ month</div>
+  </div>
+</section>
+
+<!-- 11. WEEKLY INTELLIGENCE BRIEFS -->
+<section id="briefs">
+  <div class="wrap">
+    <div class="briefs-intro reveal">
+      <div class="eyebrow">Weekly intelligence briefs</div>
+      <h2 style="font-size:28px;">The platform's public intelligence output.</h2>
+      <p style="margin-top:16px;color:var(--grey-700);font-size:15.5px;">Every week, Signal Intelligence publishes focused intelligence briefs for individual markets. Each brief distils what is changing now, what is strengthening, and what new opportunities are beginning to emerge before they become widely recognised.</p>
     </div>
-    <ul class="newsletter-features">
-      <li><span class="chk">✓</span>Top 10 Pokémon card opportunities every week</li>
-      <li><span class="chk">✓</span>Full signal breakdown per card</li>
-      <li><span class="chk">✓</span>Inventory compression alerts</li>
-      <li><span class="chk">✓</span>PSA population scarcity signals</li>
-      <li><span class="chk">✓</span>Opportunity score with full decomposition</li>
-    </ul>
-    <a href="newsletter.html" class="btn btn-primary" style="font-size:14px;padding:12px 28px;">Subscribe — £49/month</a>
-    <p style="font-size:12px;color:var(--text3);margin-top:10px;">Delivered every Monday · Cancel anytime</p>
-    <div style="margin-top:16px;padding:14px 16px;background:var(--amber-bg);border:0.5px solid rgba(245,158,11,0.25);border-radius:8px;"><p style="font-size:13px;color:var(--text2);line-height:1.6;"><strong style="color:var(--amber-dark)">Want to know what these signals mean?</strong> Genesis adds historical context, lifecycle positioning, and pattern interpretation on top of every signal — coming soon as a premium upgrade.</p></div>
-    <div style="margin-top:20px;padding-top:16px;border-top:0.5px solid var(--border);"><p style="font-size:13px;color:var(--text2);line-height:1.65;"><strong style="color:var(--text)">Choose your focus.</strong> Every intelligence domain offers its own dedicated newsletter. Subscribe to a single lens from £49/month, or unlock the multi-lens platform from £99/month. Professional (£399/month) adds HPI historical precedent matching; Genesis (£999/month) adds full historical interpretation.</p></div>
+
+    <div class="brief-pub reveal">
+      <div class="brief-left">
+        <div class="eyebrow">Sneaker Insight</div>
+        <h3>Issue 018</h3>
+        <div class="brief-meta">
+          <span>MONDAY</span>
+          <span>TOP INTELLIGENCE</span>
+          <span>HISTORICAL COMPARISON</span>
+          <span>CONVICTION SCORE</span>
+        </div>
+      </div>
+      <div class="brief-right">
+        <ul>
+          <li>What's moving</li>
+          <li>What's strengthening</li>
+          <li>What's new</li>
+          <li>Historical comparisons</li>
+          <li>Emerging structural opportunities</li>
+        </ul>
+        <div class="brief-price">£49<span>/month</span></div>
+        <div class="brief-note">Delivered every Monday. Collectibles Insight, Crypto Insight, and Energy Insight follow the same format as coverage expands.</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- PRICING -->
-<section id="pricing" style="margin-bottom:8px;">
-  <div class="section-label">Pricing</div>
-  <div style="font-size:28px;font-weight:800;letter-spacing:-0.04em;margin-bottom:8px;">Intelligence that compounds in value.</div><div style="font-size:14px;color:var(--text2);margin-bottom:8px;">Start with one lens or unlock every domain.</div><div style="font-size:13px;color:var(--text3);margin-bottom:24px;">Newsletter subscriptions from £49/month · Full platform from £99/month</div>
+<!-- 12. PRICING -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:36px;">
+      <div class="eyebrow">Pricing</div>
+      <h2 style="font-size:28px;">Intelligence that compounds in value.</h2>
+    </div>
+    <div class="ladder reveal">
+      <div class="ltier">
+        <div class="tname">Weekly Brief</div>
+        <div class="tprice">£49<span>/mo</span></div>
+        <a href="#" class="tcta">Subscribe →</a>
+      </div>
+      <div class="ltier">
+        <div class="tname">Starter</div>
+        <div class="tprice">£99<span>/mo</span></div>
+        <a href="#" class="tcta">Choose Starter →</a>
+      </div>
+      <div class="ltier">
+        <div class="tname">Professional</div>
+        <div class="tprice">£399<span>/mo</span></div>
+        <a href="#" class="tcta">Choose Professional →</a>
+      </div>
+      <div class="ltier feat">
+        <div class="tname">Signal Genesis&trade;</div>
+        <div class="tprice">£999<span>/mo</span></div>
+        <a href="#" class="tcta">Request Access →</a>
+      </div>
+      <div class="ltier">
+        <div class="tname">Enterprise</div>
+        <div class="tprice">£5,000<span>+/mo</span></div>
+        <a href="#" class="tcta">Contact →</a>
+      </div>
+    </div>
+  </div>
 </section>
-<div class="pricing-grid">
-  <div class="price-card">
-    <div class="price-name">Starter</div>
-    <div class="price-amount">£99</div>
-    <div class="price-period">per month</div>
-    <ul class="price-features">
-      <li><span class="chk">✓</span>Live signal feed</li>
-      <li><span class="chk">✓</span>231+ entities tracked</li>
-      <li><span class="chk">✓</span>CIA opportunity scores</li>
-      <li><span class="chk">✓</span>Crypto, AI &amp; Energy domains</li>
-      <li><span class="chk">✓</span>Weekly digest</li>
-      <li><span class="xmk">–</span>Historical Precedent Intelligence</li>
-      <li><span class="xmk">–</span>Collectibles domain</li>
-      <li><span class="xmk">–</span>API access</li>
-    </ul>
-    <button class="price-btn price-btn-outline" onclick="location.href='https://opportunity-intelligence.lemonsqueezy.com/buy/489f28b9-e451-4c5b-9ed3-96353f23b97a'">Choose Starter</button>
-  </div>
-  <div class="price-card featured">
-    <div class="price-badge">Most popular</div>
-    <div class="price-name">Professional</div>
-    <div class="price-amount">£399</div>
-    <div class="price-period">per month</div>
-    <ul class="price-features">
-      <li><span class="chk">✓</span>Everything in Starter</li>
-      <li><span class="chk">✓</span>Historical Precedent Intelligence</li>
-      <li><span class="chk">✓</span>All live domains including Collectibles &amp; Energy</li>
-      <li><span class="chk">✓</span>HPI entity analysis</li>
-      <li><span class="chk">✓</span>Priority signals</li>
-      <li><span class="xmk">–</span>API access</li>
-    </ul>
-    <button class="price-btn price-btn-blue" onclick="location.href='https://opportunity-intelligence.lemonsqueezy.com/buy/5b28f345-cdc7-4986-8b86-82e60594ff97'">Choose Professional</button>
-  </div>
-  <div class="price-card" style="opacity:0.95;">
-    <div class="price-badge" style="background:var(--amber-bg);color:var(--amber-dark);">Coming Soon</div>
-    <div class="price-name">Genesis</div>
-    <div class="price-amount">£999</div>
-    <div class="price-period">per month</div>
-    <ul class="price-features">
-      <li><span class="chk">✓</span>Everything in Professional</li>
-      <li><span class="chk">✓</span>Historical context and interpretation</li>
-      <li><span class="chk">✓</span>Signal lifecycle positioning</li>
-      <li><span class="chk">✓</span>Cross-domain pattern recognition</li>
-      <li><span class="chk">✓</span>Advanced intelligence workflows</li>
-    </ul>
-    <p style="font-size:12px;color:var(--text3);margin-bottom:14px;">Genesis is currently in development.</p>
-    <button class="price-btn price-btn-outline" onclick="location.href='contact.html'">Join the Waitlist</button>
-  </div>
-  <div class="price-card">
-    <div class="price-name">Enterprise</div>
-    <div class="price-amount">£5,000</div>
-    <div class="price-period">per month</div>
-    <ul class="price-features">
-      <li><span class="chk">✓</span>Everything in Professional</li>
-      <li><span class="chk">✓</span>Full API access</li>
-      <li><span class="chk">✓</span>Custom domain integrations</li>
-      <li><span class="chk">✓</span>Dedicated account management</li>
-      <li><span class="chk">✓</span>Custom precedent library</li>
-      <li><span class="chk">✓</span>White-label options</li>
-      <li><span class="chk">✓</span>SLA guarantee</li>
-      <li><span class="chk">✓</span>On-site briefings</li>
-    </ul>
-    <button class="price-btn price-btn-outline" onclick="location.href='contact.html'">Contact Enterprise</button>
-  </div>
-</div>
-
-<p style="text-align:center;font-size:13px;color:var(--text2);margin-top:-4px;margin-bottom:48px;">Already a subscriber? <a href="https://si.psiisp.com/login" style="color:var(--blue);font-weight:600;">Login here</a></p>
-
-<!-- FAQ -->
-<div class="faq" style="margin-top:48px;">
-  <div class="section-label">Common questions</div>
-  <div class="faq-item">
-    <div class="faq-q">What is Historical Precedent Intelligence?</div>
-    <div class="faq-a">HPI matches the current signal profile of any live entity against six validated historical cases — SpaceX, Tesla, Bitcoin, NVIDIA, Shopify, and OpenAI. It identifies which historical trajectory the current entity most resembles and calculates a maturity window showing where in the cycle it likely sits.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">How is the Pokémon newsletter different from general trading advice?</div>
-    <div class="faq-a">It is not advice. It is structured signal intelligence — inventory compression data, PSA population scarcity signals, auction acceleration patterns, and market momentum scores — presented as ranked opportunities with full evidence breakdowns. What you do with that information is your decision.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">How often are signals updated?</div>
-    <div class="faq-a">The platform runs continuous collection cycles across all domains. Crypto signals update every 15 minutes. AI and GitHub signals every 30–60 minutes. Collectibles signals daily. The full opportunity engine re-scores after every pipeline run.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">Can I access Signal Intelligence via API?</div>
-    <div class="faq-a">API access is available on the Enterprise plan. It provides programmatic access to signals, entities, CIA scores, opportunity rankings, and HPI analyses. Documentation available on request.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">What domains are currently live?</div>
-    <div class="faq-a">Collectibles, Crypto &amp; DeFi, AI &amp; Startups, and Energy Intelligence are live today. New lenses are developed based on subscriber demand — see our <a href="lenses.html" style="color:var(--blue)">Lenses page</a> to request a lens for your industry.</div>
-  </div>
-</div>
 
 <footer>
-  <div class="footer-logo">Signal<span>.</span>Intelligence</div>
-  <div>
-    <a href="terms.html" class="footer-link">Terms</a>
-    <a href="privacy.html" class="footer-link">Privacy</a>
-    <a href="disclaimer.html" class="footer-link">Disclaimer</a>
-    <a href="contact.html" class="footer-link">Contact</a>
-    <a href="lenses.html" class="footer-link">Lenses</a>
-    <a href="blog.html" class="footer-link">Blog</a>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="logo" style="color:#fff;">Signal Intelligence</div>
+      <div class="flinks">
+        <a href="#how">Documentation</a>
+        <a href="#">API</a>
+        <a href="#action">Historical Cases</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+        <a href="#">Status</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+    <div class="fbottom">
+      <div>© 2026 Signal Intelligence.</div>
+      <div class="disclaimer">Signal Intelligence is information analysis. Nothing produced constitutes financial, investment, or trading advice. Signals, scores and historical comparisons are informational assessments only; they are not predictions of future outcomes.</div>
+    </div>
   </div>
-  <div class="footer-disclaimer">Signal Intelligence is an information service. Nothing published constitutes financial, investment, or trading advice. All signals, scores, and historical comparisons are for informational purposes only. Past precedents do not guarantee future outcomes.</div>
 </footer>
 
-</div>
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+const els = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:0.12});
+els.forEach(el=>io.observe(el));
+const lightbox = GLightbox({selector:'.glightbox', touchNavigation:true, loop:false, zoomable:true});
+</script>
+
 </body>
 </html>

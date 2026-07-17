@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal Genesis™ — Historical Precedent Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,420;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+<style>
+.shot-img{width:100%;display:block;border-radius:6px;cursor:zoom-in;}
+.mod-shot img{width:100%;display:block;border-radius:8px;cursor:zoom-in;}
+.mod-gallery{display:flex;gap:10px;margin-top:12px;}
+.mod-gallery a{flex:1;border-radius:5px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);cursor:zoom-in;}
+.mod-gallery img{width:100%;display:block;}
+</style>
+<style>
+:root{
+  --ink:#111214; --grey-900:#1B1C1F; --grey-700:#4A4D54; --grey-500:#7A7D85;
+  --grey-300:#D8D9DD; --grey-100:#F2F2F0; --white:#FFFFFF;
+  --blue:#2F5FD6; --gold:#B8892E; --gold-bright:#E4C077; --gold-dim:#FBF4E6; --line:#E4E3E0;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--white);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.01em;color:var(--ink);}
+.mono{font-family:'JetBrains Mono',monospace;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1140px;margin:0 auto;padding:0 32px;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease, transform .7s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
+.logo{font-family:'Fraunces',serif;font-weight:600;font-size:17px;}
+.navlinks{display:flex;gap:30px;font-size:13.5px;color:var(--grey-700);}
+.navlinks a:hover{color:var(--ink);}
+.navcta{display:flex;align-items:center;gap:22px;}
+.btn{display:inline-block;padding:11px 22px;font-size:13px;font-weight:600;border-radius:2px;}
+.btn-gold{background:var(--gold);color:#fff;}
+.btn-outline{border:1px solid var(--grey-300);color:var(--ink);}
+@media(max-width:860px){.navlinks{display:none;}}
+
+section{padding:110px 0;}
+
+/* HERO */
+.ghero{padding:170px 0 140px;}
+.ghero .wrap{display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center;}
+.ghero h1{font-size:clamp(34px,4.6vw,54px);line-height:1.14;}
+.ghero p{margin-top:24px;font-size:17px;color:var(--grey-700);max-width:460px;}
+.ghero-ctas{display:flex;gap:14px;margin-top:34px;}
+@media(max-width:900px){.ghero .wrap{grid-template-columns:1fr;}}
+
+.brief-shot{background:var(--grey-900);border-radius:8px;padding:2px;box-shadow:0 40px 90px -40px rgba(0,0,0,0.4);}
+.brief-shot-inner{background:#16171B;border-radius:7px;padding:40px;color:#fff;min-height:340px;}
+.bs-top{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:.08em;margin-bottom:24px;}
+.bs-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+.bs-row:last-child{border-bottom:none;}
+.bs-name{font-size:15px;}
+.bs-score{font-family:'Fraunces',serif;font-size:18px;color:var(--gold-bright);}
+
+/* PROBLEM */
+.problem{background:var(--grey-100);}
+.problem .wrap{max-width:640px;}
+.problem h2{font-size:clamp(28px,3.6vw,40px);line-height:1.2;}
+.problem p{margin-top:22px;font-size:17px;color:var(--grey-700);}
+
+/* PROCESS */
+.gprocess-row{display:flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;flex-wrap:wrap;}
+.gpstep{flex:1;min-width:150px;padding:26px 20px;border-right:1px solid var(--line);}
+.gpstep:last-child{border-right:none;}
+.gpstep .n{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--gold);letter-spacing:.08em;}
+.gpstep h4{font-size:14.5px;margin-top:8px;font-weight:600;font-family:'Inter',sans-serif;}
+.gpstep p{font-size:12px;color:var(--grey-500);margin-top:6px;}
+@media(max-width:900px){.gpstep{border-right:none;border-bottom:1px solid var(--line);}}
+
+/* MODULES */
+.module{padding:96px 0;border-bottom:1px solid var(--line);}
+.module .wrap{display:grid;grid-template-columns:0.85fr 1.15fr;gap:60px;align-items:center;}
+.module:nth-child(even) .wrap{direction:rtl;}
+.module:nth-child(even) .wrap > *{direction:ltr;}
+.module h3{font-size:26px;}
+.module p{margin-top:16px;font-size:15.5px;color:var(--grey-700);max-width:420px;}
+.mod-shot{background:var(--grey-900);border-radius:8px;padding:28px;min-height:220px;color:#fff;}
+.mod-shot .k{font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:.08em;}
+.mod-shot .body{margin-top:14px;font-size:13px;color:rgba(255,255,255,0.75);}
+@media(max-width:860px){.module .wrap{grid-template-columns:1fr;}.module:nth-child(even) .wrap{direction:ltr;}}
+
+/* PROGRESSION */
+.progression{background:var(--grey-900);color:#fff;}
+.progression h2{color:#fff;font-size:clamp(26px,3.4vw,38px);max-width:600px;}
+.progression p{margin-top:18px;color:rgba(255,255,255,0.6);max-width:560px;font-size:15.5px;}
+.timeline{margin-top:56px;border:1px solid rgba(255,255,255,0.14);border-radius:8px;padding:44px;position:relative;}
+.tl-track{position:relative;height:2px;background:rgba(255,255,255,0.15);margin:36px 0;}
+.tl-fill{position:absolute;left:0;top:0;height:2px;width:58%;background:var(--gold-bright);}
+.tl-dot{position:absolute;top:-4px;width:10px;height:10px;border-radius:50%;background:var(--gold-bright);}
+.tl-labels{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:rgba(255,255,255,0.5);}
+.you-are-here{position:absolute;top:-34px;left:56%;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--gold-bright);}
+
+/* ACTION */
+.action-flow{border:1px solid var(--line);border-radius:6px;padding:44px;}
+.aflow-item{display:flex;align-items:center;gap:18px;padding:15px 0;}
+.aflow-item .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.aflow-item .txt strong{font-size:16px;font-weight:600;display:block;}
+.aflow-item .txt span{display:block;font-size:12.5px;color:var(--grey-500);margin-top:2px;}
+.action-close{margin-top:30px;padding-top:24px;border-top:1px solid var(--line);font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:var(--grey-700);}
+
+/* AUDIENCE */
+.audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:12px;}
+.acell{background:var(--white);padding:28px 24px;font-size:14.5px;font-weight:600;}
+@media(max-width:760px){.audience-grid{grid-template-columns:1fr 1fr;}}
+
+/* PRICING */
+.gpricing{background:var(--gold-dim);}
+.gprice-card{max-width:520px;border:1px solid var(--line);border-radius:8px;background:var(--white);padding:48px;}
+.gprice-card .tname{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;color:var(--grey-500);letter-spacing:.08em;}
+.gprice-card .tprice{font-family:'Fraunces',serif;font-size:44px;margin-top:12px;}
+.gprice-card .tprice span{font-size:14px;color:var(--grey-500);font-family:'Inter',sans-serif;}
+.gprice-card ul{list-style:none;margin:28px 0;}
+.gprice-card li{font-size:13.5px;padding:8px 0;border-bottom:1px solid var(--line);}
+.gprice-card li:last-child{border-bottom:none;}
+.gprice-note{margin-top:22px;font-size:12.5px;color:var(--grey-500);}
+
+/* RELATED */
+.related{border-top:1px solid var(--line);}
+.related-grid{display:flex;gap:40px;flex-wrap:wrap;margin-top:20px;}
+.related-grid a{font-size:14px;color:var(--blue);font-weight:600;}
+
+footer{background:var(--grey-900);color:rgba(255,255,255,0.5);padding:56px 0 30px;font-size:13px;}
+.fgrid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,0.1);}
+.flinks{display:flex;gap:22px;flex-wrap:wrap;}
+footer a:hover{color:#fff;}
+.fbottom{padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:rgba(255,255,255,0.3);font-size:11.5px;}
+.disclaimer{max-width:680px;color:rgba(255,255,255,0.25);line-height:1.6;margin-top:8px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">Signal Intelligence</div>
+    <div class="navlinks">
+      <a href="index.html">Platform</a>
+      <a href="genesis.html">Signal Genesis</a>
+      <a href="index.html#briefs">Intelligence Briefs</a>
+      <a href="index.html#pricing">Pricing</a>
+    </div>
+    <div class="navcta">
+      <a href="index.html" style="font-size:13.5px;color:var(--grey-700);">← Platform</a>
+      <a href="#pricing" class="btn btn-gold">Request Access</a>
+    </div>
+  </div>
+</nav>
+
+<!-- 1. HERO -->
+<section class="ghero">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Signal Genesis&trade;</div>
+      <h1>Historical Precedent Intelligence.</h1>
+      <p>Compare today's live intelligence against validated historical precedents and understand where an opportunity sits within a proven structural pattern.</p>
+      <div class="ghero-ctas">
+        <a href="#pricing" class="btn btn-gold">Request Access</a>
+        <a href="index.html#action" class="btn btn-outline">View Historical Cases</a>
+      </div>
+    </div>
+    <div class="brief-shot reveal">
+      <a href="assets/Intelligence_briefing_room.png" class="glightbox" data-gallery="briefing-room" data-description="Intelligence Briefing Room — live matches and search">
+        <img src="assets/Intelligence_briefing_room.png" class="shot-img" alt="Intelligence Briefing Room">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 1b. INCLUDED -->
+<section style="padding:70px 0;border-bottom:1px solid var(--line);">
+  <div class="wrap reveal">
+    <div class="eyebrow">Signal Genesis&trade; — included</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px 40px;max-width:820px;">
+      <div style="font-size:14px;">✓ Historical Precedent Intelligence</div>
+      <div style="font-size:14px;">✓ CIA Stage Matching</div>
+      <div style="font-size:14px;">✓ Genesis Score</div>
+      <div style="font-size:14px;">✓ Pattern Archetypes</div>
+      <div style="font-size:14px;">✓ Historical Progression Viewer</div>
+      <div style="font-size:14px;">✓ Intelligence Briefing Room</div>
+      <div style="font-size:14px;">✓ Signature Cards</div>
+      <div style="font-size:14px;">✓ Genesis Analysis Reports</div>
+      <div style="font-size:14px;">✓ Compliance Layer</div>
+      <div style="font-size:14px;">✓ All future historical libraries</div>
+    </div>
+  </div>
+</section>
+
+<!-- 1c. CATEGORY DEFINITION -->
+<section style="background:var(--grey-100);">
+  <div class="wrap reveal">
+    <div class="eyebrow">What this actually is</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:20px;">
+      <div style="background:var(--white);padding:32px 28px;">
+        <div class="mono" style="font-size:11px;color:var(--grey-500);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;">Traditional Analytics</div>
+        <div style="font-family:'Fraunces',serif;font-size:18px;">Shows what happened.</div>
+      </div>
+      <div style="background:var(--white);padding:32px 28px;">
+        <div class="mono" style="font-size:11px;color:var(--blue);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;">Signal Intelligence</div>
+        <div style="font-family:'Fraunces',serif;font-size:18px;">Shows what is happening.</div>
+      </div>
+      <div style="background:var(--white);padding:32px 28px;">
+        <div class="mono" style="font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;">Signal Genesis&trade;</div>
+        <div style="font-family:'Fraunces',serif;font-size:18px;">Shows where this has happened before — and what happened next.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. THE PROBLEM -->
+<section class="problem">
+  <div class="wrap reveal">
+    <h2>Markets repeat.<br>People don't.</h2>
+    <p>Every market generates thousands of signals. Most disappear. Some become structural opportunities. The difficulty isn't recognising them afterwards — it's recognising them while they are forming. Signal Genesis continuously compares today's intelligence against validated historical precedents to identify where current conditions resemble history.</p>
+  </div>
+</section>
+
+<!-- 3. HOW IT WORKS -->
+<section>
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:36px;">
+      <div class="eyebrow">How Signal Genesis works</div>
+      <h2 style="font-size:28px;">From entity to decision.</h2>
+    </div>
+    <div class="gprocess-row reveal">
+      <div class="gpstep"><div class="n">01</div><h4>Live Entity</h4><p>Any tracked entity enters analysis.</p></div>
+      <div class="gpstep"><div class="n">02</div><h4>Historical Matching</h4><p>Compared against ten validated precedents.</p></div>
+      <div class="gpstep"><div class="n">03</div><h4>Pattern Archetype</h4><p>Classified into a recognised structural pattern.</p></div>
+      <div class="gpstep"><div class="n">04</div><h4>Genesis Score</h4><p>A single conviction number, 0–100.</p></div>
+      <div class="gpstep"><div class="n">05</div><h4>CIA Stage Matching</h4><p>Positioned against historical intelligence progression.</p></div>
+      <div class="gpstep"><div class="n">06</div><h4>Decision Support</h4><p>The operator decides, with history as context.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. INSIDE SIGNAL GENESIS — MODULES -->
+<div>
+  <div class="module">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="eyebrow">Intelligence Briefing Room</div>
+        <h3>Every match, in one room.</h3>
+        <p>Live HPI data across every tracked entity — searchable, alertable, ranked by conviction.</p>
+      </div>
+      <div class="mod-shot reveal">
+        <a href="assets/Intelligence_briefing_room.png" class="glightbox" data-gallery="mod-briefing" data-description="Intelligence Briefing Room">
+          <img src="assets/Intelligence_briefing_room.png" alt="Intelligence Briefing Room">
+        </a>
+        <div class="mod-gallery">
+          <a href="assets/HPI_historical_matches.png" class="glightbox" data-gallery="mod-briefing" data-description="Today's strongest historical matches"><img src="assets/HPI_historical_matches.png" alt="HPI historical matches list"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="module">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="eyebrow">Genesis Analysis Reports</div>
+        <h3>A full report, for any entity.</h3>
+        <p>Score, closest historical match, pattern archetype, and current position — generated on demand.</p>
+      </div>
+      <div class="mod-shot reveal">
+        <a href="assets/genesis_1.png" class="glightbox" data-gallery="mod-report" data-description="Genesis Analysis Report — Ethereum">
+          <img src="assets/genesis_1.png" alt="Genesis Analysis Report — Ethereum">
+        </a>
+        <div class="mod-gallery">
+          <a href="assets/genesis_3.png" class="glightbox" data-gallery="mod-report" data-description="Intelligence evidence and alternative interpretations"><img src="assets/genesis_3.png" alt="Intelligence evidence detail"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="module">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="eyebrow">Historical Progression Viewer</div>
+        <h3>See where you are, not just what you resemble.</h3>
+        <p>A six-node timeline scrubber built on real CIA, opportunity, and price data.</p>
+      </div>
+      <div class="mod-shot reveal">
+        <a href="assets/genesis_6_opportunity_score_3months.png" class="glightbox" data-gallery="mod-progression" data-description="Historical Progression Viewer — Opportunity Score">
+          <img src="assets/genesis_6_opportunity_score_3months.png" alt="Historical Progression Viewer">
+        </a>
+        <div class="mod-gallery">
+          <a href="assets/genesis_7_CIA_score.png" class="glightbox" data-gallery="mod-progression" data-description="CIA Score view"><img src="assets/genesis_7_CIA_score.png" alt="CIA Score progression"></a>
+          <a href="assets/genesis_8_Historical_return.png" class="glightbox" data-gallery="mod-progression" data-description="Historical Return view"><img src="assets/genesis_8_Historical_return.png" alt="Historical Return progression"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="module">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="eyebrow">Pattern Archetypes</div>
+        <h3>Eight recognised structural patterns.</h3>
+        <p>Infrastructure Builder, Network Effect, and six others — every entity is classified against a known archetype.</p>
+      </div>
+      <div class="mod-shot reveal">
+        <a href="assets/genesis_3.png" class="glightbox" data-gallery="mod-archetype" data-description="Alternative interpretations across pattern archetypes">
+          <img src="assets/genesis_3.png" alt="Pattern archetypes — alternative interpretations">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="module">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="eyebrow">Genesis Score</div>
+        <h3>One number. Full conviction.</h3>
+        <p>A single 0–100 score distils similarity, stage, and pattern strength into one figure.</p>
+      </div>
+      <div class="mod-shot reveal">
+        <a href="assets/genesis_1.png" class="glightbox" data-gallery="mod-score" data-description="Genesis Score — Ethereum">
+          <img src="assets/genesis_1.png" alt="Genesis Score display">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="module">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="eyebrow">Signature Card</div>
+        <h3>Every analysis, shareable.</h3>
+        <p>A single-card summary of any Genesis analysis — built for circulation inside a research team.</p>
+      </div>
+      <div class="mod-shot reveal">
+        <a href="assets/genesis_4_signature_card.png" class="glightbox" data-gallery="mod-signature" data-description="Genesis Signature Card — Ethereum">
+          <img src="assets/genesis_4_signature_card.png" alt="Genesis Signature Card">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="module">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="eyebrow">CIA Stage Matching</div>
+        <h3>Live intelligence, historical context.</h3>
+        <p>Today's Compounding Intelligence Asset progression matched against the equivalent historical stage.</p>
+      </div>
+      <div class="mod-shot reveal">
+        <a href="assets/genesis_7_CIA_score.png" class="glightbox" data-gallery="mod-cia" data-description="CIA Stage Matching — Ethereum vs Chainlink">
+          <img src="assets/genesis_7_CIA_score.png" alt="CIA Stage Matching">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="module" style="border-bottom:none;">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="eyebrow">Compliance Layer</div>
+        <h3>Present on every output.</h3>
+        <p>Every report, score, and signature card carries the same standing compliance disclaimer — historical precedent, not prediction.</p>
+      </div>
+      <div class="mod-shot reveal">
+        <a href="assets/genesis_5_opportunity_score.png" class="glightbox" data-gallery="mod-compliance" data-description="Standing compliance disclaimer, present on every Genesis output">
+          <img src="assets/genesis_5_opportunity_score.png" alt="Compliance disclaimer on every output">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 5. HISTORICAL PROGRESSION -->
+<section class="progression">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Historical progression</div>
+      <h2>Every opportunity follows a progression.</h2>
+      <p>Signal Genesis doesn't simply identify similarity. It positions today's opportunity within the historical progression of validated precedents.</p>
+    </div>
+    <div class="timeline reveal" style="padding:0;overflow:hidden;">
+      <a href="assets/genesis_2.png" class="glightbox" data-gallery="progression" data-description="You Are Here — historical progression and outcomes">
+        <img src="assets/genesis_2.png" class="shot-img" alt="Historical progression — You Are Here">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. INTELLIGENCE IN ACTION -->
+<section id="action">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:36px;">
+      <div class="eyebrow">Intelligence in action</div>
+      <h2 style="font-size:28px;">One genuine case.</h2>
+    </div>
+    <div class="action-flow reveal">
+      <div class="aflow-item"><div class="dot"></div><div class="txt"><strong>Ethereum</strong><span>Entity enters continuous monitoring</span></div></div>
+      <div class="aflow-item"><div class="dot"></div><div class="txt"><strong>Signals detected</strong><span>Protocol activity and developer velocity accelerate</span></div></div>
+      <div class="aflow-item"><div class="dot"></div><div class="txt"><strong>Historical comparison</strong><span>Matched against ten validated precedents</span></div></div>
+      <div class="aflow-item"><div class="dot"></div><div class="txt"><strong>Pattern archetype</strong><span>Classified as Infrastructure Builder</span></div></div>
+      <div class="aflow-item"><div class="dot"></div><div class="txt"><strong>Genesis Score</strong><span>78 / 100 — strong historical precedent</span></div></div>
+      <div class="aflow-item"><div class="dot"></div><div class="txt"><strong>CIA stage</strong><span>Matched to SpaceX's confirmed breakout phase</span></div></div>
+      <div class="aflow-item"><div class="dot"></div><div class="txt"><strong>Opportunity generated</strong><span>Ranked and surfaced ahead of consensus</span></div></div>
+      <div class="aflow-item"><div class="dot"></div><div class="txt"><strong>Outcome</strong><span>Consensus caught up 180–540 days later</span></div></div>
+      <div class="action-close">The result wasn't predicted. It was recognised.</div>
+    </div>
+    <div style="margin-top:28px;">
+      <a href="assets/Entity_Card.png" class="glightbox" data-gallery="genesis-action" data-description="Full entity intelligence — evidence, HPI match, and Genesis entry point">
+        <img src="assets/Entity_Card.png" class="shot-img" alt="Entity intelligence — evidence and HPI match" style="border:1px solid var(--line);">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 7. BUILT FOR PROFESSIONAL DECISIONS -->
+<section style="background:var(--grey-100);">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:8px;">
+      <div class="eyebrow">Built for professional decisions</div>
+    </div>
+    <div class="audience-grid reveal">
+      <div class="acell">Professional Investors</div>
+      <div class="acell">Research Teams</div>
+      <div class="acell">Operators</div>
+      <div class="acell">Family Offices</div>
+      <div class="acell">Enterprises</div>
+      <div class="acell">Strategic Decision Makers</div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. PRICING -->
+<section class="gpricing" id="pricing">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:36px;">
+      <div class="eyebrow">Pricing</div>
+      <h2 style="font-size:28px;">One product. One price.</h2>
+    </div>
+    <div class="gprice-card reveal">
+      <div class="tname">Signal Genesis&trade;</div>
+      <div class="tprice">£999<span>/month</span></div>
+      <ul>
+        <li>Historical Intelligence</li>
+        <li>Genesis Analysis Reports</li>
+        <li>Intelligence Briefing Room</li>
+        <li>Historical Progression Viewer</li>
+        <li>Pattern Archetypes</li>
+        <li>Signature Cards</li>
+        <li>CIA Stage Matching</li>
+        <li>Compliance Layer</li>
+      </ul>
+      <a href="#" class="btn btn-gold">Request Access</a>
+      <div class="gprice-note">Signal Genesis is fully deployed on the Signal Intelligence platform. Subscriptions are opened through a managed onboarding process.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. RELATED PLATFORM -->
+<section class="related">
+  <div class="wrap reveal">
+    <div class="eyebrow" style="color:var(--blue);">Continue exploring</div>
+    <div class="related-grid">
+      <a href="index.html">Signal Intelligence Platform</a>
+      <a href="index.html#briefs">Weekly Intelligence Briefs</a>
+      <a href="index.html#action">Historical Cases</a>
+      <a href="#">Documentation</a>
+      <a href="index.html#pricing">Enterprise</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="logo" style="color:#fff;">Signal Intelligence</div>
+      <div class="flinks">
+        <a href="index.html">Platform</a>
+        <a href="genesis.html">Signal Genesis</a>
+        <a href="index.html#briefs">Intelligence Briefs</a>
+        <a href="#">Documentation</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="fbottom">
+      <div>© 2026 Signal Intelligence.</div>
+      <div class="disclaimer">Signal Genesis is historical precedent analysis. Nothing produced constitutes financial, investment, or trading advice. Scores, similarities, and pattern archetypes are informational assessments only; they are not predictions of future outcomes.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+const els = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:0.1});
+els.forEach(el=>io.observe(el));
+const lightbox = GLightbox({selector:'.glightbox', touchNavigation:true, loop:false, zoomable:true});
+</script>
+
+</body>
+</html>
