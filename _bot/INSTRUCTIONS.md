@@ -1,7 +1,7 @@
 # Signal Intelligence blog: daily article job
 
 Not published (Jekyll skips folders starting with `_`). Owner: Garry. Agreed 7 Nov 2026.
-Each day the job writes ONE article for signal333.com/blog.html and publishes it. Garry does not approve each post; the checks below are the safeguard.
+Each run writes EXACTLY ONE article for signal333.com/blog.html and publishes it. Garry does not approve each post; the checks below are the safeguard.
 
 ## Hard rules (never break)
 
@@ -9,13 +9,15 @@ Each day the job writes ONE article for signal333.com/blog.html and publishes it
 2. **Every fact is sourced.** Every number, date, price, event, statistic or quote of fact must be confirmed with WebSearch/WebFetch against a reliable source (official sites, regulators, company filings, exchanges, PSA/CGC population pages, major publications such as Reuters, Bloomberg, FT, BBC, CoinDesk, The Block). If you cannot confirm it, leave it out. List every source in the Sources block.
 3. **Information, not advice.** No buy, sell or hold calls, no price targets, no "this will go up", no promises. Historical precedents do not predict outcomes; say so where it matters. Keep the article disclaimer.
 4. **Never mention** ACE, HRAM, TrustTier, patents, the Paul Smith archive, or any person's private details. Never name, link to or quote anyone whose post Alpha CIS collected.
-5. **Wording:** "we", "Signal Intelligence", "our solution"; never "I built". UK English. Calm, precise, evidence-first: the existing articles' voice.
-6. **Prices of our plans:** do not state them in the article (they change; the pricing page has them). The closing call to action links to the pricing page.
-7. **Only touch:** the new `blog_articles/<slug>.html`, `_bot/posts.json`, and the files `_bot/build_blog.py` regenerates (`blog.html`, `sitemap.xml`). Nothing else on the site.
+5. **Politics:** only as it affects markets, strictly neutral, no opinion on parties or candidates; election results only when called by major news organisations, with sources.
+6. **Wording:** "we", "Signal Intelligence", "our solution"; never "I built". UK English. Calm, precise, evidence-first: the existing articles' voice.
+7. **Prices of our plans:** do not state them in the article (they change; the pricing page has them). The closing call to action links to the pricing page.
+8. **Only touch:** the new `blog_articles/<slug>.html`, `_bot/posts.json`, and the files `_bot/build_blog.py` regenerates (`blog.html`, `sitemap.xml`). Nothing else on the site.
 
 ## Steps
 
 ### 1. Pick today's topic
+- **One article per day.** If `_bot/posts.json` already has a post dated today, stop without writing anything (that is a success, not a failure).
 - Categories (filterBucket): `pokemon` (trading cards), `crypto`, `ai` (AI and startups), `precedents` (historical precedents across markets: watches, collectibles, tech, commodities).
 - Rotate: choose the category with the fewest articles in the last 7 days of `_bot/posts.json` (ties: pokemon, crypto, ai, precedents).
 - Find what people are asking or what is moving now in that category:
