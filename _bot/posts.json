@@ -1,5 +1,46 @@
 [
  {
+  "slug": "us-midterms-crypto-election-precedents",
+  "title": "Democrats Won the Midterms. What Have US Elections Meant for Crypto Before?",
+  "category": "crypto",
+  "filterBucket": "crypto",
+  "tags": [
+   {
+    "label": "⬡ Crypto",
+    "cls": "tag-crypto"
+   }
+  ],
+  "excerpt": "US elections have mattered to crypto mainly through what Congress and regulators do next, and the last two showed how differently that can play out: a policy-driven rally after 2024, and an industry collapse unrelated to the vote in the same week as the 2022 midterms. The 2026 result, with Democrats taking both the House and the Senate, puts the stalled CLARITY Act at the centre of that question.",
+  "snapItems": [
+   {
+    "label": "CLARITY Act Senate procedural vote",
+    "val": "49–50",
+    "cls": "accent"
+   },
+   {
+    "label": "Bitcoin first above $100,000",
+    "val": "5 Dec 2024",
+    "cls": ""
+   },
+   {
+    "label": "FTX bankruptcy filing",
+    "val": "11 Nov 2022",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-07",
+  "readtime": "4 min read",
+  "sources": [
+   "https://news.bitcoin.com/featured/crypto-industry-braces-tougher-rules-after-democrats-midterms/",
+   "https://cointelegraph.com/news/us-midterms-2026-live-results-and-what-they-mean-for-crypto",
+   "https://cryptoticker.io/en/democrats-win-house-midterms-2026-crypto/",
+   "https://www.thestar.com.my/business/business-news/2024/12/05/bitcoin-tops-us100000-on-optimism-over-trump-crypto-plans",
+   "https://6abc.com/post/what-is-genius-act-trump-sign-1st-major-federal-cryptocurrency-bill-law/17181655/",
+   "https://ballotpedia.org/Election_results,_2022:_U.S._Congress",
+   "https://www.coindesk.com/policy/2022/11/11/ftx-files-for-bankruptcy-protections-in-us"
+  ]
+ },
+ {
   "slug": "30th-celebration-anniversary-reprint-precedents",
   "title": "30th Celebration Brings Back Base Set Charizard. Pokémon Has Done This Twice Before.",
   "category": "pokemon",
