@@ -1,5 +1,49 @@
 [
  {
+  "slug": "30th-celebration-anniversary-reprint-precedents",
+  "title": "30th Celebration Brings Back Base Set Charizard. Pokémon Has Done This Twice Before.",
+  "category": "pokemon",
+  "filterBucket": "pokemon",
+  "tags": [
+   {
+    "label": "🃏 Pokémon",
+    "cls": "tag-pokemon"
+   }
+  ],
+  "excerpt": "Yes: the 30th Celebration set is the third time in a decade that Pokémon has marked an anniversary by bringing back its most famous early designs, after Evolutions in 2016 and Celebrations in 2021. The precedents show how differently each set was built and sold, and the 2021 one arrived in a year so heated that a major US retailer temporarily stopped selling trading cards in its stores.",
+  "snapItems": [
+   {
+    "label": "Released worldwide",
+    "val": "16 Sep 2026",
+    "cls": "accent"
+   },
+   {
+    "label": "30th Celebration master set",
+    "val": "199 cards",
+    "cls": ""
+   },
+   {
+    "label": "Celebrations (2021) set",
+    "val": "25 + 25 classics",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-07",
+  "readtime": "4 min read",
+  "sources": [
+   "https://www.vice.com/en/article/pokemon-tcg-30th-celebration-english-set-list/",
+   "https://tcgwatchtower.com/pokemon/sets/mega-evolution/30th-celebration/cards",
+   "https://shopping.yahoo.com/toys-games/articles/pok-mon-tcg-november-2026-154841068.html",
+   "https://bulbapedia.bulbagarden.net/wiki/Evolutions_(TCG)",
+   "https://serebii.net/card/celebrations",
+   "https://www.gameinformer.com/2021/06/24/pokemon-trading-card-game-announces-25th-anniversary-celebration-collection",
+   "https://www.nintendolife.com/news/2021/06/pokemon_celebrations_trading_card_set_will_bring_back_classic_cards_including_base_set_charizard",
+   "https://en.wikipedia.org/wiki/Pok%C3%A9mon_25th_Anniversary",
+   "https://abc7.com/post/pokemon-cards-target-stops-selling-trading-sports-walmart/10631791/",
+   "https://www.nbcnews.com/news/us-news/target-halts-sale-trading-cards-including-pok-mon-over-safety-n1267442"
+  ]
+ },
+ {
   "slug": "ethereum-bitcoin-2013-precedent",
   "title": "Ethereum Is Showing Similar Signals to Bitcoin in 2013",
   "category": "crypto",
