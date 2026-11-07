@@ -202,7 +202,7 @@ footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-
       </div>
     </div>
     <div class="hpi-mini-consensus" id="hpi-consensus">Consensus: 180–540 day maturity window</div>
-    <div id="hpi-asof" style="font-size:11px;color:var(--text3);margin-top:8px;">Reading from 18 Jun 2026</div>
+    <div id="hpi-asof" style="font-size:11px;color:var(--text3);margin-top:8px;" hidden></div>
   </div>
 </div>
 
@@ -731,7 +731,8 @@ footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-
       return '<div class="hpi-mini-row"><span class="hpi-mini-name">' + esc(m.name) + '</span><div class="hpi-mini-bar-wrap"><div class="hpi-mini-bar" style="width:' + w + '%"></div></div><span class="hpi-mini-score">' + Number(m.score).toFixed(1) + '%</span></div>';
     }).join("");
     if (d.consensus) document.getElementById("hpi-consensus").textContent = "Consensus: " + d.consensus;
-    document.getElementById("hpi-asof").textContent = (d.live ? "Updated " : "Reading from ") + dt;
+    var asof = document.getElementById("hpi-asof");
+    if (d.live && dt) { asof.textContent = "Updated " + dt; asof.hidden = false; } else { asof.hidden = true; }
   }).catch(function () {});
 })();
 </script>
