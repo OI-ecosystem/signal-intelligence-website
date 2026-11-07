@@ -1,0 +1,12 @@
+{
+  "_about": "Feeds the HPI panel on blog.html. live=false shows it as a dated example. When HPI v2 writes real readings here, set live=true and as_of to the reading date; the panel then shows 'Live HPI' with the update date. Bar width = score x 2.",
+  "live": false,
+  "entity": "Ethereum",
+  "as_of": "2026-06-18",
+  "matches": [
+    {"name": "SpaceX", "score": 49.8},
+    {"name": "Bitcoin", "score": 47.2},
+    {"name": "NVIDIA", "score": 44.1}
+  ],
+  "consensus": "180–540 day maturity window"
+}

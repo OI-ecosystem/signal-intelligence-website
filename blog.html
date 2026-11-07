@@ -181,10 +181,10 @@ footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-
     <a href="blog_articles/us-midterms-crypto-election-precedents.html" class="read-link" id="si-featured-link">Read full analysis →</a>
     <!-- SI:FEATURED:END -->
   </div>
-  <div class="hpi-mini">
-    <div class="hpi-mini-header">Live HPI · Ethereum</div>
-    <div class="hpi-mini-entity">Ethereum</div>
-    <div class="hpi-mini-matches">
+  <div class="hpi-mini" id="hpi-panel">
+    <div class="hpi-mini-header" id="hpi-header">HPI example · Ethereum</div>
+    <div class="hpi-mini-entity" id="hpi-entity">Ethereum</div>
+    <div class="hpi-mini-matches" id="hpi-matches">
       <div class="hpi-mini-row">
         <span class="hpi-mini-name">SpaceX</span>
         <div class="hpi-mini-bar-wrap"><div class="hpi-mini-bar" style="width:99.6%"></div></div>
@@ -201,7 +201,8 @@ footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-
         <span class="hpi-mini-score">44.1%</span>
       </div>
     </div>
-    <div class="hpi-mini-consensus">Consensus: 180–540 day maturity window</div>
+    <div class="hpi-mini-consensus" id="hpi-consensus">Consensus: 180–540 day maturity window</div>
+    <div id="hpi-asof" style="font-size:11px;color:var(--text3);margin-top:8px;">Reading from 18 Jun 2026</div>
   </div>
 </div>
 
@@ -714,6 +715,24 @@ footer{border-top:0.5px solid var(--border);padding:28px 0;display:flex;justify-
     });
   });
   render();
+})();
+</script>
+<script>
+// HPI panel: reads data/hpi-snapshot.json. live=false shows a dated example; live=true shows "Live HPI" with the reading date.
+(function () {
+  function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  fetch("data/hpi-snapshot.json", { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+    if (!d || !d.entity || !d.matches || !d.matches.length) return;
+    var dt = d.as_of ? new Date(d.as_of + "T12:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "";
+    document.getElementById("hpi-header").textContent = (d.live ? "Live HPI · " : "HPI example · ") + d.entity;
+    document.getElementById("hpi-entity").textContent = d.entity;
+    document.getElementById("hpi-matches").innerHTML = d.matches.slice(0, 5).map(function (m) {
+      var w = Math.max(0, Math.min(100, Number(m.score) * 2));
+      return '<div class="hpi-mini-row"><span class="hpi-mini-name">' + esc(m.name) + '</span><div class="hpi-mini-bar-wrap"><div class="hpi-mini-bar" style="width:' + w + '%"></div></div><span class="hpi-mini-score">' + Number(m.score).toFixed(1) + '%</span></div>';
+    }).join("");
+    if (d.consensus) document.getElementById("hpi-consensus").textContent = "Consensus: " + d.consensus;
+    document.getElementById("hpi-asof").textContent = (d.live ? "Updated " : "Reading from ") + dt;
+  }).catch(function () {});
 })();
 </script>
 </body>
