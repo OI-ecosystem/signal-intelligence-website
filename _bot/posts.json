@@ -1,5 +1,59 @@
 [
  {
+  "slug": "openai-valuation-below-target-precedents",
+  "title": "OpenAI's New Round Came In Below Its First Target. Tech Has Been Here Before.",
+  "category": "ai",
+  "filterBucket": "ai",
+  "tags": [
+   {
+    "label": "◈ AI & Startups",
+    "cls": "tag-ai"
+   }
+  ],
+  "excerpt": "Yes: Facebook in 2012, Uber in 2019 and WeWork in 2019 all priced below what had been expected, and what followed ranged from a slow recovery to bankruptcy. OpenAI's reported $11 billion raise at a $1.25 trillion valuation, below the $1.4 trillion target reported in September, is a private round rather than a listing, which changes how far those precedents carry.",
+  "snapItems": [
+   {
+    "label": "OpenAI valuation reported 6 Nov",
+    "val": "$1.25tn",
+    "cls": "accent"
+   },
+   {
+    "label": "Target reported 29 Sep",
+    "val": "$30bn at $1.4tn",
+    "cls": ""
+   },
+   {
+    "label": "WeWork valuation, Jan to Oct 2019",
+    "val": "$47bn → ~$8bn",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-08",
+  "readtime": "4 min read",
+  "sources": [
+   "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+   "https://gvwire.com/2026/11/06/openai-secures-11-billion-funding-at-1-25-trillion-valuation-bloomberg-news-reports/",
+   "https://theaiinsider.tech/2026/11/07/openai-secures-11b-at-1-25t-valuation-as-funding-round-falls-short-of-earlier-target/",
+   "https://247wallst.com/investing/2026/11/07/openai-just-raised-11-billion-at-a-1-25-trillion-valuation-below-the-1-4-trillion-it-first-sought/",
+   "https://bgr.com/2012/05/17/facebook-ipo-price-38-valuation-104-billion",
+   "https://www.mprnews.org/story/2012/05/18/facebook-ipo",
+   "https://money.cnn.com/2012/05/21/markets/facebook-stock/index.htm",
+   "https://www.techradar.com/news/world-of-tech/facebook-shares-hit-new-low-1094777",
+   "https://www.cbsnews.com/news/facebook-soaring-stock-closes-above-38-ipo-price",
+   "https://www.cnbc.com/2018/10/16/uber-proposals-value-the-company-at-120-billion-in-a-possible-ipo-wsj.html",
+   "https://investor.uber.com/news-events/news/press-release-details/2019/Uber-Announces-Pricing-of-Initial-Public-Offering/default.aspx",
+   "https://www.cnbc.com/amp/2019/05/09/uber-ipo-pricing.html",
+   "https://www.cbsnews.com/news/uber-stock-price-down-on-first-day-as-public-company",
+   "https://www.bloomberg.com/news/articles/2019-01-08/wework-s-backers-staff-can-cash-out-in-2-billion-softbank-deal",
+   "https://uk.finance.yahoo.com/news/exclusive-wework-considers-ipo-valuation-141710308.html",
+   "https://edition.cnn.com/2019/09/24/tech/wework-ceo-adam-neumann-stepping-down",
+   "https://www.malaymail.com/news/money/2019/09/30/wework-says-will-file-to-withdraw-ipo/1795836",
+   "https://www.entrepreneur.com/business-news/softbank-weworks-largest-investor-takes-control-of-the-embattled-office-company-with-co-founder-adam-neumann-stepping-down/341197",
+   "https://www.businesswire.com/news/home/20211020005910/en",
+   "https://www.bangordailynews.com/2023/11/06/nation/wework-seeks-bankruptcy-protection-a-stunning-fall-for-a-firm-once-valued-at-close-to-50-billion/"
+  ]
+ },
+ {
   "slug": "us-midterms-crypto-election-precedents",
   "title": "Democrats Won the Midterms. What Have US Elections Meant for Crypto Before?",
   "category": "crypto",
