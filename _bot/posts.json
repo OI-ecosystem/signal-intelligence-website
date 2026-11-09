@@ -1,5 +1,55 @@
 [
  {
+  "slug": "gold-below-january-record-past-peaks",
+  "title": "Gold Has Fallen Far From Its January Record. Here Is What Followed Its Last Two Peaks.",
+  "category": "precedents",
+  "filterBucket": "precedents",
+  "tags": [
+   {
+    "label": "📊 Historical Precedents",
+    "cls": "tag-hpi"
+   }
+  ],
+  "excerpt": "Gold has been here before: after its peaks in January 1980 and September 2011, it did not set a new record until January 2008 and July 2020. Spot gold is now near $4,070, well below January's record of about $5,595, and the speed and causes of this year's swing differ from both precedents in ways worth understanding.",
+  "snapItems": [
+   {
+    "label": "Spot gold record, 29 Jan 2026",
+    "val": "$5,594.82",
+    "cls": "accent"
+   },
+   {
+    "label": "Spot gold, 6 Nov 2026",
+    "val": "$4,070.59",
+    "cls": ""
+   },
+   {
+    "label": "Gap between 1980 and next record",
+    "val": "Jan 1980 → Jan 2008",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-09",
+  "readtime": "4 min read",
+  "sources": [
+   "https://www.kitco.com/news/off-the-wire/2026-01-29/gold-nears-5600-safe-haven-rush-intensifies-silver-blazes-past-120",
+   "https://www.business-standard.com/markets/commodities/gold-silver-plunge-as-wild-swings-record-losses-rattle-metals-markets-126013100093_1.html",
+   "https://www.energyconnects.com/news/oil/2026/november/gold-extends-rebound-above-4-100-as-dollar-and-yields-decline/",
+   "https://www.kitco.com/news/off-the-wire/2026-11-04/gold-gains-3-dollar-slides-after-democratic-midterm-gains",
+   "https://www.nationthailand.com/business/trading-investment/40073160",
+   "https://www.kitco.com/news/off-the-wire/2026-11-06/gold-drops-stays-track-best-week-over-two-months",
+   "https://www.bankofengland.co.uk/-/media/boe/files/monetary-policy-summary-and-minutes/2026/monetary-policy-summary-and-minutes-november-2026.pdf",
+   "https://www.bullionvault.com/gold-news/gold_January_1980_800_spike_bull_market_110620072",
+   "https://secure.northernminer.com/news/gold-makes-comeback/1000116321",
+   "https://www.lbma.org.uk/alchemist/issue-18/gold-rollercoaster",
+   "https://www.dawn.com/news/282812",
+   "https://www.gold.org/goldhub/research/investment-update-gold-hits-record-high-sprint-or-marathon",
+   "https://www.cnbc.com/2013/04/15/gold-settles-down-93-lowest-since-february-2011.html",
+   "https://www.business-standard.com/amp/article/reuters/gold-collapses-as-investors-race-for-exits-brace-for-end-of-bull-market-113041600036_1.html",
+   "https://fortune.com/2015/12/31/gold-prices-2016/",
+   "https://m.ph.investing.com/news/commodities-news/preciousgold-hits-new-record-high-on-track-for-ninth-weekly-rise-249724"
+  ]
+ },
+ {
   "slug": "openai-valuation-below-target-precedents",
   "title": "OpenAI's New Round Came In Below Its First Target. Tech Has Been Here Before.",
   "category": "ai",
