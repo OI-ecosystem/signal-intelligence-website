@@ -1,5 +1,47 @@
 [
  {
+  "slug": "delta-reign-mega-rayquaza-precedents",
+  "title": "Delta Reign Puts Mega Rayquaza Back at the Centre. Rayquaza Has Been Here Twice Before.",
+  "category": "pokemon",
+  "filterBucket": "pokemon",
+  "tags": [
+   {
+    "label": "🃏 Pokémon",
+    "cls": "tag-pokemon"
+   }
+  ],
+  "excerpt": "Yes: Delta Reign, released on 6 November 2026, is not the first English Pokémon set to put Rayquaza up front, after Roaring Skies featured Mega Rayquaza in 2015 and a Rayquaza VMAX became one of the most valuable cards in Evolving Skies in 2021. The earlier sets show that a Rayquaza headline is no guarantee the set's top card will be a Rayquaza, and they arrived in very different markets.",
+  "snapItems": [
+   {
+    "label": "Delta Reign English release",
+    "val": "6 Nov 2026",
+    "cls": "accent"
+   },
+   {
+    "label": "Roaring Skies English release",
+    "val": "6 May 2015",
+    "cls": ""
+   },
+   {
+    "label": "Evolving Skies cards incl. secret rares",
+    "val": "237",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-10",
+  "readtime": "4 min read",
+  "sources": [
+   "https://cardsrfun.de/en/blogs/news/delta-reign-mega-rayquaza-ex-release",
+   "https://comicbook.com/gaming/review/pokemon-tcg-delta-reign-cards-review/",
+   "https://tcgwatchtower.com/pokemon/sets/mega-evolution/delta-reign",
+   "https://bulbapedia.bulbagarden.net/wiki/Emerald_Break_(TCG)",
+   "https://serebii.net/card/roaringskies/",
+   "https://pkmncards.com/card/m-rayquaza-ex-roaring-skies-ros-76/",
+   "https://www.pokemon.com/us/pokemon-tcg/xy-roaring-skies",
+   "https://rarecandy.com/blog/evolving-skies-top-10-cards-best-hits-and-chase-cards"
+  ]
+ },
+ {
   "slug": "gold-below-january-record-past-peaks",
   "title": "Gold Has Fallen Far From Its January Record. Here Is What Followed Its Last Two Peaks.",
   "category": "precedents",

@@ -7,7 +7,7 @@
   </url>
   <url>
     <loc>https://signal333.com/blog.html</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
@@ -55,6 +55,12 @@
     <loc>https://signal333.com/disclaimer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://signal333.com/blog_articles/delta-reign-mega-rayquaza-precedents.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://signal333.com/blog_articles/gold-below-january-record-past-peaks.html</loc>
