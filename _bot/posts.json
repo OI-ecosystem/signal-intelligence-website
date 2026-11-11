@@ -1,5 +1,52 @@
 [
  {
+  "slug": "airdrop-farming-past-airdrops-precedents",
+  "title": "Airdrop Farming Is Back in Fashion. What Happened to the Big Airdrops Before?",
+  "category": "crypto",
+  "filterBucket": "crypto",
+  "tags": [
+   {
+    "label": "⬡ Crypto",
+    "cls": "tag-crypto"
+   }
+  ],
+  "excerpt": "Past airdrops have more often been followed by falling prices than rising ones: Uniswap's token rose in its first week in 2020, but Arbitrum and Wormhole traded well below their early highs within days, and a Keyrock study found 88% of tokens launched alongside airdrops in 2024 declined. Vendor research on this year's airdrops points the same way, with 35 of 46 tokens studied trading below their first-week median price.",
+  "snapItems": [
+   {
+    "label": "2026 airdrop tokens below first-week median (Bitquery)",
+    "val": "35 of 46",
+    "cls": "accent"
+   },
+   {
+    "label": "Uniswap airdrop per address, Sept 2020",
+    "val": "400 UNI",
+    "cls": ""
+   },
+   {
+    "label": "2024 airdrop tokens that declined (Keyrock)",
+    "val": "88%",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-11",
+  "readtime": "5 min read",
+  "sources": [
+   "https://bitquery.io/investigations/crypto-airdrops-2026",
+   "https://blog.uniswap.org/uni",
+   "https://www.theblock.co/news/defi/2020-09-20-140k-addresses-uni-claims-78255",
+   "https://www.coindesk.com/uniswap-users-uni-tokens",
+   "https://docs.arbitrum.foundation/airdrop-eligibility-distribution",
+   "https://www.coindesk.com/markets/2023/03/23/arbitrums-arb-token-trades-at-399-as-625143-wallets-receive-airdrop/",
+   "https://www.coindesk.com/markets/2023/03/23/arbitrum-token-settles-at-138-amid-airdrop-claim-chaos/",
+   "https://decrypt.co/124519/arbitrum-settles-into-top-40-coins-with-81-of-airdrop-claimed",
+   "https://www.theblock.co/news/markets/2024-04-03-wormhole-token-sinks-nearly-25-before-bouncing-back-amid-beeple-post-and-phishing-scams-286310",
+   "https://decrypt.co/225796/wormholes-solana-token-plunges-50-after-massive-airdrop",
+   "https://dlnews.com/articles/snapshot/keyrock-study-says-most-token-airdrops-crash-after-launch/",
+   "https://www.theblock.co/news/ecosystems/2024-05-14-layerzero-labs-ceo-says-up-to-100000-addresses-have-self-reported-as-airdrop-sybils-294230",
+   "https://www.theblock.co/news/ecosystems/2024-06-26-layerzeros-zro-token-faces-mixed-reactions-as-sybil-crackdown-continues-301626"
+  ]
+ },
+ {
   "slug": "delta-reign-mega-rayquaza-precedents",
   "title": "Delta Reign Puts Mega Rayquaza Back at the Centre. Rayquaza Has Been Here Twice Before.",
   "category": "pokemon",
