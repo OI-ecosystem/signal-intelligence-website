@@ -1,5 +1,53 @@
 [
  {
+  "slug": "ai-stocks-selloff-past-tech-scares",
+  "title": "AI Stocks Just Had Their Worst Day Since 2025. Two Earlier Tech Scares Ended Very Differently.",
+  "category": "ai",
+  "filterBucket": "ai",
+  "tags": [
+   {
+    "label": "◈ AI & Startups",
+    "cls": "tag-ai"
+   }
+  ],
+  "excerpt": "Yes, tech has been through scares like this before: Nvidia's record one-day loss in the DeepSeek sell-off of January 2025 was regained within five months, while the telecom build-out bust of 2000 to 2002 took the Nasdaq down 78.4% and fifteen years to recover. The sell-off of 5 November 2026, driven by worries that AI data-centre construction may slow, has so far looked more like a sharp scare than either of those, but the precedents show both endings are possible.",
+  "snapItems": [
+   {
+    "label": "S&P 500 fall, 5 Nov 2026",
+    "val": "−4.4%",
+    "cls": "accent"
+   },
+   {
+    "label": "Nvidia one-day value loss, 27 Jan 2025",
+    "val": "$589bn",
+    "cls": ""
+   },
+   {
+    "label": "Nasdaq peak to trough, 2000 to 2002",
+    "val": "−78.4%",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-12",
+  "readtime": "5 min read",
+  "sources": [
+   "https://www.wgem.com/2026/11/05/brutal-sell-off-ai-stocks-sends-wall-street-reeling-sp-500-sees-worst-day-since-2025-liberation-day-tariffs/",
+   "https://www.bnnbloomberg.ca/markets/2026/11/11/rebounding-ai-stocks-lift-wall-street/",
+   "https://boereport.com/2025/04/03/us-stocks-post-biggest-drop-since-2020-dollar-falls-as-trump-tariffs-fuel-recession-fears/amp/",
+   "https://www.nasdaq.com/articles/stock-plunge-trade-war-escalates",
+   "https://www.bloomberg.com/news/articles/2025-01-27/asml-sinks-as-china-ai-startup-triggers-panic-in-tech-stocks",
+   "https://finance.yahoo.com/news/chinas-deepseek-sets-off-ai-071458375.html",
+   "https://www.nbcsandiego.com/news/business/money-report/nvidia-shares-head-for-record-close-as-wall-street-shrugs-off-china-concerns/3855927",
+   "https://abc7news.com/17038169/",
+   "https://www.dallasfed.org/~/media/documents/research/swe/2002/swe0201c.pdf",
+   "https://www.fdic.gov/bank/analytical/bank-trends/bt0205.pdf",
+   "https://money.cnn.com/2002/01/28/companies/globalcrossing/index.htm",
+   "https://money.cnn.com/2002/07/19/news/worldcom_bankruptcy/index.htm",
+   "https://fortune.com/2015/04/23/nasdaq-supasses-internet-bubble-peak-to-set-new-record/",
+   "https://www.foxbusiness.com/markets/milestones-for-the-nasdaq-composite"
+  ]
+ },
+ {
   "slug": "airdrop-farming-past-airdrops-precedents",
   "title": "Airdrop Farming Is Back in Fashion. What Happened to the Big Airdrops Before?",
   "category": "crypto",
