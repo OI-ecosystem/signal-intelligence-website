@@ -1,5 +1,52 @@
 [
  {
+  "slug": "pre-owned-watch-recovery-past-slumps",
+  "title": "Pre-Owned Watch Prices Are Rising Again. Here Is How the Last Two Watch Slumps Ended.",
+  "category": "precedents",
+  "filterBucket": "precedents",
+  "tags": [
+   {
+    "label": "◷ Watches",
+    "cls": "tag-watches"
+   }
+  ],
+  "excerpt": "The watch industry has climbed out of two slumps since 2008: Swiss watch exports rebounded 22.1% in 2010 after falling 22.3% in 2009, but rose only 2.7% in 2017 after two years of decline. Pre-owned prices have now risen for five straight quarters yet remain about 29% below their 2022 peak, and record inventory is what sets this recovery apart.",
+  "snapItems": [
+   {
+    "label": "WatchCharts index, Q3 2026",
+    "val": "+1.2%",
+    "cls": "accent"
+   },
+   {
+    "label": "Index vs April 2022 peak",
+    "val": "About −29%",
+    "cls": ""
+   },
+   {
+    "label": "Swiss watch exports, 2009",
+    "val": "−22.3%",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-13",
+  "readtime": "4 min read",
+  "sources": [
+   "https://usa.watchpro.com/rolex-price-rally-runs-out-of-steam-2/",
+   "https://www.everestbands.com/blogs/bezel-barrel/rolex-prices-just-had-their-slowest-quarter-in-almost-two-years",
+   "https://barringtonwatchwinders.com/en-us/blogs/blog/the-pre-owned-watch-market-is-recovering-rolex-is-being-left-behind",
+   "https://www.forbes.com/sites/garthfriesen/2026/10/20/luxury-watch-prices-rise-again-but-record-inventory-clouds-the-outlook/",
+   "https://www.swissinfo.ch/eng/swiss-watch-exports-rise-for-fifth-month-on-us,-europe-demand/92243607",
+   "https://www.businessoffashion.com/articles/luxury/luxury-watches-resale-bubble-burst/",
+   "https://www.axios.com/2023/10/14/watch-prices-down-market-collapse-2023",
+   "https://www.fhs.swiss/eng/2010-02-04_747.html",
+   "https://www.fhs.swiss/eng/2011-02-03_839.html",
+   "https://bd.fashionnetwork.com/news/Swiss-watch-exports-hit-record-21-bn-in-2011,231972.html",
+   "https://www.fhs.swiss/eng/2017_01_26_00_statistics.html",
+   "https://www.bloomberg.com/news/articles/2017-01-26/swiss-watch-exports-have-worst-year-since-financial-crisis",
+   "https://www.fhs.swiss/eng/2018_01_30_statistics.html"
+  ]
+ },
+ {
   "slug": "ai-stocks-selloff-past-tech-scares",
   "title": "AI Stocks Just Had Their Worst Day Since 2025. Two Earlier Tech Scares Ended Very Differently.",
   "category": "ai",
