@@ -320,10 +320,8 @@ footer a:hover{color:#fff;}
       </div>
       <div class="console-foot" data-snap-foot>Updated continuously · scoring cycle runs every 15 minutes</div>
     </div>
-    <div class="reveal" style="margin-top:14px;display:flex;gap:24px;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--grey-500);">
-      <span style="color:#3F8F5F;">●</span><span>Operational</span>
-      <span>Collectors — 29 active</span>
-      <span>Last intelligence cycle — 2 minutes ago</span>
+    <div class="reveal" data-snap-opline style="margin-top:14px;display:flex;gap:24px;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--grey-500);">
+      <span style="color:#3F8F5F;" data-snap-dot>●</span><span data-snap-oper>Operational</span>
     </div>
   </div>
 </section>
@@ -643,13 +641,24 @@ const lightbox = GLightbox({selector:'.glightbox', touchNavigation:true, loop:fa
 // data-snap-live-label: the label a cell takes once live (cumulative totals read "recorded").
 // data-snap-alt: a second key the cell shows, with its own label, when the first is not supplied.
 // [data-snap-growth]: growth since the dated baseline typed on the element, shown once live.
+// [data-snap-opline]: the "Operational" line. It is shown only on the strength of a fresh reading:
+// hidden when the file is missing or not live, and replaced by the reading date when stale.
+// Collector count and last cycle time live in the console footer, from the file; never type them here.
 (function () {
+  var opline = document.querySelector("[data-snap-opline]");
+  // No usable reading: drop every claim of being live, and leave the typed totals as a floor.
+  function noOp() {
+    if (opline) opline.style.display = "none";
+    var st = document.querySelector("[data-snap-status]"), ft = document.querySelector("[data-snap-foot]");
+    if (st) st.textContent = "—";
+    if (ft) ft.textContent = "Live reading unavailable · scoring cycle runs every 15 minutes";
+  }
   function ok(x) { return typeof x === "number" && isFinite(x); }
   function fmt(n) { return n.toLocaleString("en-GB"); }
   fetch("data/site-snapshot.json", { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
-    if (!d || d.live !== true || !d.as_of) return;
+    if (!d || d.live !== true || !d.as_of) return noOp();
     var t = new Date(d.as_of);
-    if (isNaN(t.getTime())) return;
+    if (isNaN(t.getTime())) return noOp();
     var day = t.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
     var stamp = day + ", " + t.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "UTC" }) + " UTC";
     var maxAge = Number(d.max_age_hours) > 0 ? Number(d.max_age_hours) : 24;
@@ -686,9 +695,14 @@ const lightbox = GLightbox({selector:'.glightbox', touchNavigation:true, loop:fa
       if (fresh) parts.push("scoring cycle runs every 15 minutes");
       foot.textContent = parts.join(" · ");
     }
+    if (!fresh) {
+      var dot = document.querySelector("[data-snap-dot]"), oper = document.querySelector("[data-snap-oper]");
+      if (dot) dot.style.color = "#9A9A9A";
+      if (oper) oper.textContent = "Status not confirmed since " + day;
+    }
     var label = document.querySelector("[data-snap-label]");
     if (label) label.textContent = "Production platform snapshot — " + stamp + (fresh ? "" : " · not updated live");
-  }).catch(function () {});
+  }).catch(noOp);
 })();
 </script>
 
