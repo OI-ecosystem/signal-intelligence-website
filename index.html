@@ -310,14 +310,14 @@ footer a:hover{color:#fff;}
     </div>
     <div class="console reveal">
       <div class="console-grid">
-        <div class="console-cell"><div class="val mono">1,150+</div><div class="lbl">Entities tracked</div></div>
-        <div class="console-cell"><div class="val mono">37,000+</div><div class="lbl">Signals processed</div></div>
-        <div class="console-cell"><div class="val mono">551+</div><div class="lbl">Opportunities identified</div></div>
-        <div class="console-cell"><div class="val mono">50,000+</div><div class="lbl">CIA observations</div></div>
-        <div class="console-cell"><div class="val mono">10</div><div class="lbl">Historical precedents</div></div>
-        <div class="console-cell"><div class="val mono">Live</div><div class="lbl">Last update</div></div>
+        <div class="console-cell"><div class="val mono" data-snap="entities">1,150+</div><div class="lbl">Entities tracked</div></div>
+        <div class="console-cell"><div class="val mono" data-snap="signals">37,000+</div><div class="lbl">Signals processed</div></div>
+        <div class="console-cell"><div class="val mono" data-snap="opportunities">551+</div><div class="lbl">Opportunities identified</div></div>
+        <div class="console-cell"><div class="val mono" data-snap="cia_observations">50,000+</div><div class="lbl">CIA observations</div></div>
+        <div class="console-cell"><div class="val mono" data-snap="precedents">10</div><div class="lbl">Historical precedents</div></div>
+        <div class="console-cell"><div class="val mono" data-snap-status>Live</div><div class="lbl">Last update</div></div>
       </div>
-      <div class="console-foot">Updated continuously · scoring cycle runs every 15 minutes</div>
+      <div class="console-foot" data-snap-foot>Updated continuously · scoring cycle runs every 15 minutes</div>
     </div>
     <div class="reveal" style="margin-top:14px;display:flex;gap:24px;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--grey-500);">
       <span style="color:#3F8F5F;">●</span><span>Operational</span>
@@ -523,14 +523,14 @@ footer a:hover{color:#fff;}
     </div>
 
     <div class="trust-snapshot reveal">
-      <div class="snap-label">Production platform snapshot — 17 July 2026 · not updated live</div>
+      <div class="snap-label" data-snap-label>Production platform snapshot — 17 July 2026 · not updated live</div>
       <div class="snap-grid">
-        <div class="snap-cell"><div class="val">79,111</div><div class="lbl">Signals</div></div>
-        <div class="snap-cell"><div class="val">79,749</div><div class="lbl">Raw events</div></div>
-        <div class="snap-cell"><div class="val">45</div><div class="lbl">Sources</div></div>
-        <div class="snap-cell"><div class="val">1,963</div><div class="lbl">Entities</div></div>
-        <div class="snap-cell"><div class="val">915</div><div class="lbl">Opportunities</div></div>
-        <div class="snap-cell"><div class="val">53</div><div class="lbl">Active jobs</div></div>
+        <div class="snap-cell"><div class="val" data-snap="signals">79,111</div><div class="lbl">Signals</div></div>
+        <div class="snap-cell"><div class="val" data-snap="raw_events">79,749</div><div class="lbl">Raw events</div></div>
+        <div class="snap-cell"><div class="val" data-snap="sources">45</div><div class="lbl">Sources</div></div>
+        <div class="snap-cell"><div class="val" data-snap="entities">1,963</div><div class="lbl">Entities</div></div>
+        <div class="snap-cell"><div class="val" data-snap="opportunities">915</div><div class="lbl">Opportunities</div></div>
+        <div class="snap-cell"><div class="val" data-snap="active_jobs">53</div><div class="lbl">Active jobs</div></div>
       </div>
     </div>
 
@@ -631,6 +631,34 @@ const io = new IntersectionObserver((entries)=>{
 },{threshold:0.12});
 els.forEach(el=>io.observe(el));
 const lightbox = GLightbox({selector:'.glightbox', touchNavigation:true, loop:false, zoomable:true});
+</script>
+
+<script>
+// Platform counters: reads data/site-snapshot.json, written by the export job on the platform server.
+// live=false (or a missing file) leaves the typed values above untouched. live=true fills every
+// [data-snap] cell from the file and shows when the reading was taken. A reading older than
+// max_age_hours is shown with its date in place of "Live".
+(function () {
+  fetch("data/site-snapshot.json", { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+    if (!d || d.live !== true || !d.as_of) return;
+    var t = new Date(d.as_of);
+    if (isNaN(t.getTime())) return;
+    var day = t.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+    var stamp = day + ", " + t.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "UTC" }) + " UTC";
+    var maxAge = Number(d.max_age_hours) > 0 ? Number(d.max_age_hours) : 24;
+    var fresh = (Date.now() - t.getTime()) / 36e5 <= maxAge;
+    document.querySelectorAll("[data-snap]").forEach(function (el) {
+      var v = d[el.getAttribute("data-snap")];
+      if (typeof v === "number" && isFinite(v)) el.textContent = v.toLocaleString("en-GB");
+    });
+    var status = document.querySelector("[data-snap-status]");
+    if (status) status.textContent = fresh ? "Live" : day;
+    var foot = document.querySelector("[data-snap-foot]");
+    if (foot) foot.textContent = (fresh ? "Reading taken " : "Last reading ") + stamp + " · scoring cycle runs every 15 minutes";
+    var label = document.querySelector("[data-snap-label]");
+    if (label) label.textContent = "Production platform snapshot — " + stamp + (fresh ? "" : " · not updated live");
+  }).catch(function () {});
+})();
 </script>
 
 <script data-goatcounter="https://signal333.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

@@ -1,0 +1,14 @@
+{
+  "_about": "Feeds the platform counters on index.html (every element with a data-snap attribute). Written by the export job on the platform server; never edited by hand once live. live=false leaves the typed values on the page untouched. When the job writes real readings, it sets live=true and as_of to the reading time in UTC (ISO 8601, ending in Z). A reading older than max_age_hours is shown with its date in place of 'Live'. Totals only: no entity names, scores or ranks belong in this file.",
+  "live": false,
+  "as_of": null,
+  "max_age_hours": 24,
+  "entities": null,
+  "signals": null,
+  "raw_events": null,
+  "sources": null,
+  "opportunities": null,
+  "active_jobs": null,
+  "cia_observations": null,
+  "precedents": null
+}
