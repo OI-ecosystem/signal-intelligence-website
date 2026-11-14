@@ -210,6 +210,7 @@ section{padding:96px 0;}
 
 .trust-snapshot{margin-top:56px;}
 .trust-snapshot .snap-label{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:.06em;margin-bottom:18px;}
+.trust-snapshot .snap-growth{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:rgba(255,255,255,0.6);letter-spacing:.02em;margin-top:16px;}
 .snap-grid{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid rgba(255,255,255,0.12);border-radius:6px;overflow:hidden;}
 .snap-cell{padding:22px 18px;border-right:1px solid rgba(255,255,255,0.1);}
 .snap-cell:last-child{border-right:none;}
@@ -310,14 +311,14 @@ footer a:hover{color:#fff;}
     </div>
     <div class="console reveal">
       <div class="console-grid">
-        <div class="console-cell"><div class="val mono">1,150+</div><div class="lbl">Entities tracked</div></div>
-        <div class="console-cell"><div class="val mono">37,000+</div><div class="lbl">Signals processed</div></div>
-        <div class="console-cell"><div class="val mono">551+</div><div class="lbl">Opportunities identified</div></div>
-        <div class="console-cell"><div class="val mono">50,000+</div><div class="lbl">CIA observations</div></div>
-        <div class="console-cell"><div class="val mono">10</div><div class="lbl">Historical precedents</div></div>
-        <div class="console-cell"><div class="val mono">Live</div><div class="lbl">Last update</div></div>
+        <div class="console-cell"><div class="val mono" data-snap="entities">1,150+</div><div class="lbl">Entities tracked</div></div>
+        <div class="console-cell"><div class="val mono" data-snap="signals">37,000+</div><div class="lbl">Signals processed</div></div>
+        <div class="console-cell"><div class="val mono" data-snap="opportunities">551+</div><div class="lbl">Opportunities identified</div></div>
+        <div class="console-cell"><div class="val mono" data-snap="cia_observations" data-snap-live-label="CIA observations recorded">50,000+</div><div class="lbl">CIA observations</div></div>
+        <div class="console-cell"><div class="val mono" data-snap="precedents">10</div><div class="lbl">Historical precedents</div></div>
+        <div class="console-cell"><div class="val mono" data-snap-status>Live</div><div class="lbl">Last update</div></div>
       </div>
-      <div class="console-foot">Updated continuously · scoring cycle runs every 15 minutes</div>
+      <div class="console-foot" data-snap-foot>Updated continuously · scoring cycle runs every 15 minutes</div>
     </div>
     <div class="reveal" style="margin-top:14px;display:flex;gap:24px;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--grey-500);">
       <span style="color:#3F8F5F;">●</span><span>Operational</span>
@@ -523,15 +524,16 @@ footer a:hover{color:#fff;}
     </div>
 
     <div class="trust-snapshot reveal">
-      <div class="snap-label">Production platform snapshot — 17 July 2026 · not updated live</div>
+      <div class="snap-label" data-snap-label>Production platform snapshot — 17 July 2026 · not updated live</div>
       <div class="snap-grid">
-        <div class="snap-cell"><div class="val">79,111</div><div class="lbl">Signals</div></div>
-        <div class="snap-cell"><div class="val">79,749</div><div class="lbl">Raw events</div></div>
-        <div class="snap-cell"><div class="val">45</div><div class="lbl">Sources</div></div>
-        <div class="snap-cell"><div class="val">1,963</div><div class="lbl">Entities</div></div>
-        <div class="snap-cell"><div class="val">915</div><div class="lbl">Opportunities</div></div>
-        <div class="snap-cell"><div class="val">53</div><div class="lbl">Active jobs</div></div>
+        <div class="snap-cell"><div class="val" data-snap="signals" data-snap-live-label="Signals recorded">79,111</div><div class="lbl">Signals</div></div>
+        <div class="snap-cell"><div class="val" data-snap="raw_events" data-snap-live-label="Raw events collected">79,749</div><div class="lbl">Raw events</div></div>
+        <div class="snap-cell"><div class="val" data-snap="sources">45</div><div class="lbl">Sources</div></div>
+        <div class="snap-cell"><div class="val" data-snap="entities">1,963</div><div class="lbl">Entities</div></div>
+        <div class="snap-cell"><div class="val" data-snap="opportunities">915</div><div class="lbl">Opportunities</div></div>
+        <div class="snap-cell"><div class="val" data-snap="active_jobs" data-snap-alt="score_readings" data-snap-alt-label="Score readings recorded">53</div><div class="lbl">Active jobs</div></div>
       </div>
+      <div class="snap-growth" data-snap-growth data-base-date="2026-07-17" data-base-signals="79111" data-base-entities="1963" hidden></div>
     </div>
 
     <div class="trust-arch reveal">
@@ -631,6 +633,63 @@ const io = new IntersectionObserver((entries)=>{
 },{threshold:0.12});
 els.forEach(el=>io.observe(el));
 const lightbox = GLightbox({selector:'.glightbox', touchNavigation:true, loop:false, zoomable:true});
+</script>
+
+<script>
+// Platform counters: reads data/site-snapshot.json, written by the export job on the platform server.
+// live=false (or a missing file) leaves the typed values above untouched. live=true fills every
+// [data-snap] cell from the file and shows when the reading was taken. A reading older than
+// max_age_hours is shown with its date in place of "Live".
+// data-snap-live-label: the label a cell takes once live (cumulative totals read "recorded").
+// data-snap-alt: a second key the cell shows, with its own label, when the first is not supplied.
+// [data-snap-growth]: growth since the dated baseline typed on the element, shown once live.
+(function () {
+  function ok(x) { return typeof x === "number" && isFinite(x); }
+  function fmt(n) { return n.toLocaleString("en-GB"); }
+  fetch("data/site-snapshot.json", { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+    if (!d || d.live !== true || !d.as_of) return;
+    var t = new Date(d.as_of);
+    if (isNaN(t.getTime())) return;
+    var day = t.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+    var stamp = day + ", " + t.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "UTC" }) + " UTC";
+    var maxAge = Number(d.max_age_hours) > 0 ? Number(d.max_age_hours) : 24;
+    var fresh = (Date.now() - t.getTime()) / 36e5 <= maxAge;
+    document.querySelectorAll("[data-snap]").forEach(function (el) {
+      var lbl = el.parentNode ? el.parentNode.querySelector(".lbl") : null;
+      var v = d[el.getAttribute("data-snap")], text = el.getAttribute("data-snap-live-label");
+      if (!ok(v)) { v = d[el.getAttribute("data-snap-alt")]; text = el.getAttribute("data-snap-alt-label"); }
+      if (!ok(v)) return;
+      el.textContent = fmt(v);
+      if (lbl && text) lbl.textContent = text;
+    });
+    var growth = document.querySelector("[data-snap-growth]");
+    if (growth) {
+      var bs = Number(growth.getAttribute("data-base-signals")), be = Number(growth.getAttribute("data-base-entities"));
+      var bd = new Date(growth.getAttribute("data-base-date") + "T12:00:00Z");
+      if (ok(d.signals) && ok(d.entities) && bs > 0 && be > 0 && d.signals > bs && d.entities > be && !isNaN(bd.getTime())) {
+        growth.textContent = "Since " + bd.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }) +
+          ": signals " + fmt(bs) + " → " + fmt(d.signals) + " (" + (d.signals / bs).toFixed(1) + "×) · entities " +
+          fmt(be) + " → " + fmt(d.entities) + " (" + (d.entities / be).toFixed(1) + "×)";
+        growth.hidden = false;
+      }
+    }
+    var status = document.querySelector("[data-snap-status]");
+    if (status) status.textContent = fresh ? "Live" : day;
+    var foot = document.querySelector("[data-snap-foot]");
+    if (foot) {
+      // Optional keys: last_cycle_at (time of the last scoring cycle) and collectors_active.
+      var c = d.last_cycle_at ? new Date(d.last_cycle_at) : null, parts = [];
+      if (!fresh) parts.push("Last reading " + stamp);
+      else if (c && !isNaN(c.getTime())) parts.push("Last intelligence cycle " + c.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }) + ", " + c.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "UTC" }) + " UTC");
+      else parts.push("Reading taken " + stamp);
+      if (fresh && ok(d.collectors_active)) parts.push(fmt(d.collectors_active) + " collectors active");
+      if (fresh) parts.push("scoring cycle runs every 15 minutes");
+      foot.textContent = parts.join(" · ");
+    }
+    var label = document.querySelector("[data-snap-label]");
+    if (label) label.textContent = "Production platform snapshot — " + stamp + (fresh ? "" : " · not updated live");
+  }).catch(function () {});
+})();
 </script>
 
 <script data-goatcounter="https://signal333.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

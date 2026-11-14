@@ -1,0 +1,17 @@
+{
+  "_about": "Feeds the platform counters on index.html (every element with a data-snap attribute). Written by the export job on the platform server; never edited by hand once live. live=false leaves the typed values on the page untouched. When the job writes real readings, it sets live=true and as_of to the reading time in UTC (ISO 8601, ending in Z). A reading older than max_age_hours is shown with its date in place of 'Live'. Values are plain numbers, no commas; null keeps the typed value. Cumulative keys (everything ever recorded; must never decrease): signals, raw_events, cia_observations, score_readings. Current-count keys: entities, sources, opportunities, precedents. active_jobs is optional: when it is null and score_readings is a number, that cell shows score readings. Optional status-line keys: collectors_active (number) and last_cycle_at (UTC time of the last scoring cycle, ISO 8601 ending in Z). Totals only: no entity names, scores or ranks belong in this file.",
+  "live": false,
+  "as_of": null,
+  "max_age_hours": 24,
+  "entities": null,
+  "signals": null,
+  "raw_events": null,
+  "sources": null,
+  "opportunities": null,
+  "cia_observations": null,
+  "score_readings": null,
+  "precedents": null,
+  "active_jobs": null,
+  "collectors_active": null,
+  "last_cycle_at": null
+}
