@@ -676,7 +676,16 @@ const lightbox = GLightbox({selector:'.glightbox', touchNavigation:true, loop:fa
     var status = document.querySelector("[data-snap-status]");
     if (status) status.textContent = fresh ? "Live" : day;
     var foot = document.querySelector("[data-snap-foot]");
-    if (foot) foot.textContent = (fresh ? "Reading taken " : "Last reading ") + stamp + " · scoring cycle runs every 15 minutes";
+    if (foot) {
+      // Optional keys: last_cycle_at (time of the last scoring cycle) and collectors_active.
+      var c = d.last_cycle_at ? new Date(d.last_cycle_at) : null, parts = [];
+      if (!fresh) parts.push("Last reading " + stamp);
+      else if (c && !isNaN(c.getTime())) parts.push("Last intelligence cycle " + c.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }) + ", " + c.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "UTC" }) + " UTC");
+      else parts.push("Reading taken " + stamp);
+      if (fresh && ok(d.collectors_active)) parts.push(fmt(d.collectors_active) + " collectors active");
+      if (fresh) parts.push("scoring cycle runs every 15 minutes");
+      foot.textContent = parts.join(" · ");
+    }
     var label = document.querySelector("[data-snap-label]");
     if (label) label.textContent = "Production platform snapshot — " + stamp + (fresh ? "" : " · not updated live");
   }).catch(function () {});
