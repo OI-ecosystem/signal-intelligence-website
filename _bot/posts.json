@@ -1,5 +1,48 @@
 [
  {
+  "slug": "psa-value-tier-reopens-2021-grading-freeze",
+  "title": "PSA Has Reopened Its Value Grading Tier. In 2021, It Took 14 Months to Return.",
+  "category": "pokemon",
+  "filterBucket": "pokemon",
+  "tags": [
+   {
+    "label": "🃏 Pokémon",
+    "cls": "tag-pokemon"
+   }
+  ],
+  "excerpt": "PSA reopened its Value grading tier on 29 October 2026 at $39.99 per card, just under five months after pausing it with about 10 million cards in its backlog. It has done this once before: in 2021 PSA suspended its cheaper services for the same reason, and Value only returned in June 2022, about 14 months later, after Express had come back $50 dearer.",
+  "snapItems": [
+   {
+    "label": "PSA Value price from 29 Oct 2026",
+    "val": "$39.99",
+    "cls": "accent"
+   },
+   {
+    "label": "PSA backlog, 28 Oct 2026",
+    "val": "7.2 million",
+    "cls": ""
+   },
+   {
+    "label": "2021 Value suspension",
+    "val": "Mar 2021 – Jun 2022",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-14",
+  "readtime": "5 min read",
+  "sources": [
+   "https://www.si.com/collectibles/psa-to-reopen-value-service-tier-introducing-reduced-turnaround-times",
+   "https://www.thegamer.com/youll-be-able-to-grade-pokemon-cards-cheaper-soon-as-psa-opens-new-tier/",
+   "https://www.psacard.com/articles/articleview/15210",
+   "https://sportscollectorsdigest.com/psa-halts-value-grading-services-amid-10-million-card-backlog",
+   "https://www.psacard.com/articles/articleview/15763",
+   "https://prewarcards.com/2021/04/01/citing-heavy-demand-psa-suspends-most-card-submissions/",
+   "https://sportscollectorsdigest.com/news/psa-brings-back-express-service-sports-card-grading-submissions-backlog",
+   "https://www.psacard.com/articles/articleview/10446",
+   "https://sportscollectorsdigest.com/news/psa-reopens-card-grading-service-level-backlog-sports-collectibles"
+  ]
+ },
+ {
   "slug": "pre-owned-watch-recovery-past-slumps",
   "title": "Pre-Owned Watch Prices Are Rising Again. Here Is How the Last Two Watch Slumps Ended.",
   "category": "precedents",
