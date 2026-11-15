@@ -1,5 +1,56 @@
 [
  {
+  "slug": "bitcoin-200-week-average-past-breaks",
+  "title": "Bitcoin Has Slipped Below Its 200-Week Average. Here Is What Followed Earlier Breaks.",
+  "category": "crypto",
+  "filterBucket": "crypto",
+  "tags": [
+   {
+    "label": "⬡ Crypto",
+    "cls": "tag-crypto"
+   }
+  ],
+  "excerpt": "Bitcoin fell below its 200-week moving average, around $68,000, on 13 November and kept falling, to about $63,500 late on 14 November. The line has been tested before: it held on a weekly-close basis in December 2018, was broken only briefly in March 2020, and in 2022 bitcoin stayed below it until October 2023, after a further fall to $15,480.",
+  "snapItems": [
+   {
+    "label": "200-week moving average, 13 Nov 2026 (CoinDesk)",
+    "val": "~$68,000",
+    "cls": "accent"
+   },
+   {
+    "label": "Bitcoin's fall over the week to 14 Nov (Bitcoin Magazine)",
+    "val": "~13%",
+    "cls": ""
+   },
+   {
+    "label": "Record high, 6 Oct 2025 (Fortune)",
+    "val": "$126,198",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-15",
+  "readtime": "4 min read",
+  "sources": [
+   "https://www.coindesk.com/tech/2026/11/13/live-news-bitcoin-drops-below-200-week-moving-average-as-dollar-strength-pressures-risk-assets",
+   "https://bitcoinmagazine.com/markets/bitcoin-price-crashes-13-percent-65600",
+   "https://www.forbes.com/sites/digital-assets/2026/11/14/bitcoin-collapse-fears-suddenly-surge-after-2-trillion-crypto-crash/",
+   "https://cryptoticker.io/en/crypto-news-bitcoin-falls-to-63500-fed-hike-bets-november-14-2026/",
+   "https://fortune.com/article/price-of-bitcoin-11-12-2026",
+   "https://cointelegraph.com/markets/btc-price-loses-200-week-trend-line-as-2022-repeats",
+   "https://fortune.com/crypto/2017/12/17/bitcoin-record-high-short-of-20000/",
+   "https://www.coindesk.com/a-year-after-bottoming-out-at-3100-bitcoin-is-up-127/",
+   "https://coindesk.com/down-again-bitcoin-is-closing-on-key-long-term-price-support",
+   "https://www.cnbc.com/2020/03/13/bitcoin-loses-half-of-its-value-in-two-day-plunge.html",
+   "https://k33.com/research/archive/articles/finding-support-at-usd20-000-but-trading-below-200w-ma",
+   "https://www.coindesk.com/markets/2026/02/02/why-a-usd58-000-bitcoin-is-the-key-number-for-crypto-investors-right-now",
+   "https://www.coindesk.com/bitcoin-halving-arrives-mining-rewards-drop-for-third-time-in-history/",
+   "https://www.bloomberg.com/news/articles/2020-12-31/bitcoin-surges-above-29-000-for-another-high-in-banner-year",
+   "https://cointelegraph.com/markets/bitcoin-price-briefly-hits-69k-ath-before-plummeting-back-to-earth",
+   "https://beincrypto.com/bitcoin-btc-reaches-weekly-close-below-200-week-moving-average-ma",
+   "https://www.kitco.com/news/article/2022-11-21/fear-takes-over-crypto-market-btc-dips-multi-year-low-15480"
+  ]
+ },
+ {
   "slug": "psa-value-tier-reopens-2021-grading-freeze",
   "title": "PSA Has Reopened Its Value Grading Tier. In 2021, It Took 14 Months to Return.",
   "category": "pokemon",
