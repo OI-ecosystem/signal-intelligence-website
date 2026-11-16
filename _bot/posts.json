@@ -1,5 +1,52 @@
 [
  {
+  "slug": "anthropic-ipo-record-listings-precedents",
+  "title": "Anthropic's IPO Could Be the Biggest Ever. Here Is What Followed Earlier Record Listings.",
+  "category": "ai",
+  "filterBucket": "ai",
+  "tags": [
+   {
+    "label": "◈ AI & Startups",
+    "cls": "tag-ai"
+   }
+  ],
+  "excerpt": "Record listings have started strongly before and then struggled: Alibaba in 2014 and Saudi Aramco in 2019 both rose sharply on debut, then fell below their offer prices within a year, while SpaceX, the record holder since June 2026, ended its first week 37% above its IPO price. Anthropic’s offering, which with $26 billion of share commitments would come to about $90 billion, has not yet priced, so these precedents show a range of outcomes rather than a forecast.",
+  "snapItems": [
+   {
+    "label": "Anthropic IPO plus commitments (Silicon Republic)",
+    "val": "~$64bn + $26bn",
+    "cls": "accent"
+   },
+   {
+    "label": "SpaceX IPO, June 2026 (NPR)",
+    "val": "$75bn",
+    "cls": ""
+   },
+   {
+    "label": "Saudi Aramco IPO incl. green shoe, 2019 to 2020",
+    "val": "$29.4bn",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-16",
+  "readtime": "5 min read",
+  "sources": [
+   "https://www.siliconrepublic.com/business/anthropic-aims-for-1-4trn-valuation-in-blockbuster-ipo",
+   "https://www.siliconrepublic.com/business/bloomberg-anthropic-ipo-six-times-oversubscribed-ai",
+   "https://the-decoder.com/anthropics-ipo-is-six-times-oversubscribed-and-on-track-to-become-the-largest-public-offering-in-history/",
+   "https://www.bloomberg.com/news/articles/2026-11-12/anthropic-s-ipo-is-said-to-be-about-six-times-oversubscribed",
+   "https://fortune.com/2014/09/22/alibaba-is-officially-the-biggest-ipo-ever-after-green-shoe-released/",
+   "https://europe.chinadaily.com.cn/business/2015-08/25/content_21698380.htm",
+   "https://www.aljazeera.com/economy/2019/12/5/biggest-ipo-in-history-saudi-aramco-shares-priced",
+   "https://gulfnews.com/business/aramco-raises-ipo-to-record-294-bln-through-greenshoe-option-1.68959262",
+   "https://worldoil.com/news/2020/3/6/aramco-s-drop-below-ipo-price-deals-blow-to-saudi-economic-plan",
+   "https://www.spglobal.com/energy/en/news-research/latest-news/crude-oil/030820-aramco-shares-plunge-below-ipo-price-for-first-time",
+   "https://www.npr.org/2026/06/11/nx-s1-5853199/spacex-ipo-price-elon-musk",
+   "https://news.bloomberglaw.com/tech-and-telecom-law/spacex-prepares-for-debut-as-75-billion-ipo-breaks-record-1",
+   "https://news.bloomberglaw.com/capital-markets/spacex-extends-two-day-drop-a-week-after-largest-ever-ipo-2"
+  ]
+ },
+ {
   "slug": "bitcoin-200-week-average-past-breaks",
   "title": "Bitcoin Has Slipped Below Its 200-Week Average. Here Is What Followed Earlier Breaks.",
   "category": "crypto",
