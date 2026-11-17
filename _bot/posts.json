@@ -1,5 +1,48 @@
 [
  {
+  "slug": "new-york-art-auctions-past-slump-recoveries",
+  "title": "New York Art Auctions Are Aiming for $2bn Again. Here Is How the Last Two Slumps Ended.",
+  "category": "precedents",
+  "filterBucket": "precedents",
+  "tags": [
+   {
+    "label": "📊 Historical Precedents",
+    "cls": "tag-hpi"
+   }
+  ],
+  "excerpt": "The art market has recovered from two deep slumps in living memory: after 1990 sales stayed far below their peak for years, while after the 2008 crisis a new auction record for a painting came in May 2010. New York's November sales are now forecast at $2.04bn or more after auction sales fell 25% in 2024, and the speed of this year's rebound is what sets it apart.",
+  "snapItems": [
+   {
+    "label": "Sotheby's evening sales, 16 Nov 2026",
+    "val": "$378.7m",
+    "cls": "accent"
+   },
+   {
+    "label": "Christie's auction sales, H1 2026",
+    "val": "+71%",
+    "cls": ""
+   },
+   {
+    "label": "Global auction sales, 2024",
+    "val": "−25%",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-17",
+  "readtime": "5 min read",
+  "sources": [
+   "https://www.theartnewspaper.com/2026/11/16/yayoi-kusama-sets-15m-auction-record-as-sothebys-opens-new-york-mega-sales",
+   "https://www.theartnewspaper.com/2026/11/12/new-york-autumn-2026-auctions-preview-bonhams-christies-phillips-sothebys",
+   "https://theartnewspaper.com/2026/07/15/trophy-lots-and-luxury-goods-fuel-rebound-for-christies-and-sothebys-2026-half-year-results",
+   "https://www.artbasel.com/news/the-art-basel-and-ubs-global-art-market-report-2025",
+   "https://news.artnet.com/market/picasso-painting-broke-real-record-300470",
+   "https://www.theartnewspaper.com/2002/01/01/1991-2001-a-mini-guide-to-a-decade-in-the-art-market",
+   "https://content.time.com/time/subscriber/article/0,33009,971858-3,00.html",
+   "https://www.thefiscaltimes.com/2010/05/06/Picture-Worth-1065-Million-What-Recession",
+   "https://www.npr.org/blogs/thetwo-way/2010/05/picasso_nude_green_leaves_auct.html"
+  ]
+ },
+ {
   "slug": "anthropic-ipo-record-listings-precedents",
   "title": "Anthropic's IPO Could Be the Biggest Ever. Here Is What Followed Earlier Record Listings.",
   "category": "ai",
