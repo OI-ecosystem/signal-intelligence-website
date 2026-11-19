@@ -69,7 +69,7 @@ open(path, "w", encoding="utf-8").write(s)
 
 # sitemap
 pages = ["", "blog.html", "historical-cases.html", "historical-validation-framework.html", "lenses.html",
-         "genesis.html", "newsletter.html", "contact.html", "terms.html", "privacy.html", "disclaimer.html"]
+         "genesis.html", "contact.html", "terms.html", "privacy.html", "disclaimer.html"]
 pages = [p for p in pages if p == "" or os.path.exists(os.path.join(ROOT, p))]
 today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 urls = []

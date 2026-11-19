@@ -2201,8 +2201,8 @@
   "excerpt": "A future roadmap of smaller, standalone one-time-purchase tools is planned — anchored to the platform's proprietary HPI and entity database, not built as generic wrappers around any off-the-shelf model.",
   "snapItems": [
    {
-    "label": "Pricing range",
-    "val": "£9–£79, one-time",
+    "label": "Pricing",
+    "val": "One-time purchase",
     "cls": "accent"
    },
    {
@@ -2394,7 +2394,7 @@
     "cls": "tag-hpi"
    }
   ],
-  "excerpt": "Content, community, and a £49/month newsletter are the current distribution strategy. Paid acquisition channels are deliberately not part of the current plan — a sequencing decision, not a permanent one.",
+  "excerpt": "Content, community, and a weekly newsletter are the current distribution strategy. Paid acquisition channels are deliberately not part of the current plan — a sequencing decision, not a permanent one.",
   "snapItems": [
    {
     "label": "Current channels",
@@ -2458,7 +2458,7 @@
     "cls": "tag-hpi"
    }
   ],
-  "excerpt": "Programmatic access to signals, entities, CIA scores, and HPI analyses is available exclusively on the Enterprise tier at £5,000/month — a deliberate gate, not an arbitrary upsell.",
+  "excerpt": "Programmatic access to signals, entities, CIA scores, and HPI analyses is available exclusively on the Enterprise tier — a deliberate gate, not an arbitrary upsell.",
   "snapItems": [
    {
     "label": "API access tier",
@@ -2466,8 +2466,8 @@
     "cls": "amber"
    },
    {
-    "label": "Enterprise price",
-    "val": "£5,000/month",
+    "label": "Access",
+    "val": "Enterprise tier",
     "cls": "accent"
    },
    {
