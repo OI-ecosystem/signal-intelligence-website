@@ -63,7 +63,7 @@ Every page carries two script tags together, in this order:
 
 ```html
 <script>window.goatcounter = {path: function(p) { return "/signal333" + p }}</script>
-<script data-goatcounter="https://signal333.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://oi-relay.psiisp.workers.dev/e" async src="/assets/site.js"></script>
 ```
 
 The first line matters. The counter is shared with alpha333.org and lifekit333.com, and GoatCounter does not record which site a visit came from, so without the prefix this site's pages are counted together with theirs and cannot be told apart. `article_template.html` already carries both lines: keep them, in that order, in any new article or page.
