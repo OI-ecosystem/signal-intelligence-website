@@ -1,5 +1,51 @@
 [
  {
+  "slug": "bitcoin-etf-outflows-past-waves",
+  "title": "Bitcoin ETFs Have Lost $2.35bn in November. Here Is What Followed Earlier Outflow Waves.",
+  "category": "crypto",
+  "filterBucket": "crypto",
+  "tags": [
+   {
+    "label": "⬡ Crypto",
+    "cls": "tag-crypto"
+   }
+  ],
+  "excerpt": "US spot bitcoin ETFs lost $2.35 billion in the first nine trading days of November, leaving them about $1.98 billion in net outflows for 2026. Earlier waves ended differently: bitcoin set new records within months of the January 2024 and early 2025 outflows, but was still lower a year after the record withdrawals of late 2025.",
+  "snapItems": [
+   {
+    "label": "November outflows after nine trading days (The Block)",
+    "val": "$2.35bn",
+    "cls": "accent"
+   },
+   {
+    "label": "Net 2026 flows to 14 Nov (The Block)",
+    "val": "−$1.98bn",
+    "cls": ""
+   },
+   {
+    "label": "Previous two-month record, Nov–Dec 2025 (CoinDesk)",
+    "val": "$4.57bn",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-19",
+  "readtime": "5 min read",
+  "sources": [
+   "https://www.theblock.co/news/markets/2026-11-07-bitcoin-etfs-flip-negative-for-2026-after-1.28-billion-outflow-week-worst-since-june-435984",
+   "https://theblock.co/news/markets/2026-11-14-bitcoin-etfs-lose-1-billion-for-the-second-week-in-a-row-as-crypto-funds-except-one-continue-bleeding-440337",
+   "https://fortune.com/article/price-of-bitcoin-11-17-2026/",
+   "https://nydig.com/research/have-gbtc-redemptions-peaked",
+   "https://cointelegraph.com/news/bitcoin-price-correction-grayscale-gbtc-etf-outflows",
+   "https://www.bloomberg.com/news/articles/2024-03-13/bitcoin-tops-73-000-to-hit-new-record-on-insatiable-etf-demand",
+   "https://www.bloomberg.com/news/articles/2025-02-28/-hot-money-flees-bitcoin-etfs-at-record-pace-in-risk-aversion",
+   "https://thedefiant.io/bitcoin-etfs-end-8-day-losing-streak-with-usd95-million-of-inflows",
+   "https://www.theblock.co/post/353833/bitcoin-hits-new-all-time-high-as-risk-assets-rebound-from-april-lows",
+   "https://coinmarketcap.com/academy/article/bitcoin-etf-outflows-hit-dollar348b-in-novembers-largest-exit-since-february",
+   "https://www.morningstar.com/funds/crypto-etfs-saw-record-withdrawals-bitcoin-collapsed-november",
+   "https://finance.yahoo.com/news/bitcoin-etfs-lose-record-4-074537244.html"
+  ]
+ },
+ {
   "slug": "art-academy-promos-millions-illustrator-precedent",
   "title": "Art Academy Promo Cards Now Sell for Millions. Has a Contest Prize Card Done This Before?",
   "category": "pokemon",
