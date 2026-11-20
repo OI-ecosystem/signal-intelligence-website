@@ -144,7 +144,7 @@ button{font:inherit;color:inherit;cursor:pointer}
   <div class="bubble" id="bubble" role="dialog" aria-live="polite"><div class="t" id="btext"></div><div class="r"><span id="bcount"></span><span style="display:flex;gap:6px"><button class="x" id="bstop">Explore myself</button><button class="n" id="bnext">Next</button></span></div></div>
 </div>
 </div>
-<p class="note">A demonstration, not a live service. Platform data is at least 30 days old and refreshed weekly; HPI v2 library statistics carry their own date. Ethereum's precedent matches and Genesis read are shown from a platform screen (November 2026) until they join the weekly data. Precedent outcomes are realised history, not forecasts, and nothing here is financial advice.</p>
+<p class="note">A demonstration, not a live service. Platform data is at least 30 days old and refreshed weekly; HPI v2 library statistics carry their own date. Ethereum's Genesis read comes from the stored Signal Genesis analysis of 17 July 2026; its precedent matches are shown from a platform screen (November 2026). Both join the weekly data next. Precedent outcomes are realised history, not forecasts, and nothing here is financial advice.</p>
 
 <script>
 {
@@ -185,7 +185,7 @@ function panel(){
   else if(tab==='matches') body= eth ? `<div class="small">Closest historical precedents</div>${matchHTML()}<p class="small" style="margin-top:12px">Pattern similarity only. Not predictive. Shown from a platform screen, November 2026; precedent matches join the weekly data next.</p>`
       : `<div class="locked">Precedent matches for every entity join the demo's weekly data next. Ethereum shows an example now.</div>`;
   else body= eth ? `<div class="small">Position on the closest precedent's path</div>
-      <p style="margin:6px 0 12px">Equivalent to <b>Chainlink, 2019-Q2</b>.</p>
+      <p style="margin:6px 0 12px">Equivalent to <b>Chainlink, 2019-Q2</b>. Genesis score <b>78.4</b>, strong historical precedent.</p>
       <ol class="journey" id="journey">${STAGES.map((s,k)=>`<li class="${k<1?'done':k===1?'here':''}">${s}${k===1?'<span class="here-tag">You are here</span>':''}</li>`).join('')}</ol>
       <div class="small" style="margin-top:16px">What happened next for Chainlink, from that stage</div>
       <div class="outs" id="outs">${outs()}</div>
@@ -250,8 +250,9 @@ const STAGE=[
    <div class="pending"><b>Arrives with HPI v2:</b> fingerprint-to-fingerprint similarity across the whole self-discovered library, not just the original 10 precedents.</div>`},
  {t:'Similarity and conviction',st:['ok','30-day-old data'],h:()=>'Why the score is what it is',
   b:()=>`<p class="lead">Every opportunity score is built from six components. Here is how strongly each one registered for ${nm(C().entity)}, and which drove its score of ${C().score.toFixed(3)}.</p>${compHTML(C())}`},
- {t:'Trajectory',st:['ok','HPI v2 library'],h:()=>'Where it sits on the path, and how paths are recorded',
-  b:()=>`<p class="lead">Signal Genesis places Ethereum on its closest precedent's path: equivalent to <b>Chainlink, 2019-Q2</b>.</p>
+ {t:'Trajectory',st:['ok','Signal Genesis'],h:()=>'Where it sits on the path, and how paths are recorded',
+  b:()=>`<p class="lead">Signal Genesis places Ethereum on its closest precedent's path: equivalent to <b>Chainlink, 2019-Q2</b>. Genesis score <b>78.4</b>, strong historical precedent; similarity 68.6; archetype Infrastructure Builder.</p>
+   <p class="small">From the stored Signal Genesis analysis of Ethereum, 17 July 2026.</p>
    <ol class="journey">${STAGES.map((x,k)=>`<li class="${k<1?'done':k===1?'here':''}">${x}${k===1?'<span class="here-tag">You are here</span>':''}</li>`).join('')}</ol>
    <div class="small" style="margin-top:22px">How HPI v2 records a trajectory · real fingerprint from the library: ${FP.entity} (${FP.domain}), ${FP.endpoint.toLowerCase()}, ${FP.days}-day window ending ${FP.end}</div>
    <div class="fig" id="fpfig"><svg id="fpsvg" role="img" aria-label="Opportunity score from 9 August to 15 September 2026, falling from 0.69 to 0.59, then jumping to 0.71 on 3 September and forming a peak at 0.72; CIA observations marked on 2, 3, 10, 11 and 12 September"></svg></div>
