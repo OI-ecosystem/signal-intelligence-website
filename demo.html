@@ -288,8 +288,12 @@ document.addEventListener('click',ev=>{ const b=ev.target.closest('[data-s]'), g
 
 fetch('data/demo-snapshot.json',{cache:'no-cache'}).then(r=>{ if(!r.ok) throw 0; return r.json(); }).then(d=>{
   S=d; S.asof=new Date(d.as_of.slice(0,10)).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
-  $('asof').textContent=`Platform data as of ${S.asof} · ${d.delay_days} days delayed · refreshed weekly · not a live service`;
-  sel=(items()[0]||{}).entity; render(); steps(); stage(); mode(true);
+  const gen=new Date(d.generated_at).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+  $('asof').textContent=`Platform data as of ${S.asof} · last refreshed ${gen} · refreshed weekly · not a live service`;
+  sel=(items()[0]||{}).entity; render();
+  /* deep links: demo.html#stage-4 opens that stage; demo.html#dashboard opens the dashboard */
+  const h=location.hash.match(/^#stage-([1-5])$/); if(h) si=+h[1]-1;
+  steps(); stage(); mode(location.hash!=='#dashboard');
 }).catch(()=>{ $('stage').innerHTML='<div class="empty">The demo data could not be loaded. Please refresh the page.</div>'; mode(true); });
 }
 </script>
