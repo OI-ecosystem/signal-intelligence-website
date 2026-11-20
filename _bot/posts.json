@@ -1,5 +1,53 @@
 [
  {
+  "slug": "nvidia-ceo-exit-tech-succession-precedents",
+  "title": "Nvidia Has Lost Its Founder as CEO. Here Is What Followed Earlier Tech Leadership Changes.",
+  "category": "ai",
+  "filterBucket": "ai",
+  "tags": [
+   {
+    "label": "◈ AI & Startups",
+    "cls": "tag-ai"
+   }
+  ],
+  "excerpt": "Sudden changes at the top of large technology companies have been followed by very different paths: Apple's shares fell about 5% after hours when Steve Jobs resigned as chief executive in 2011, and the company later became the first listed company worth $1 trillion, while Intel's shares jumped 15% when it named a permanent chief executive a little over three months after Pat Gelsinger's exit. Nvidia, whose co-founder Jensen Huang resigned on 12 November 2026 after 33 years, is at the start of that process, with an interim chief executive and a search under way, so these cases show a range of outcomes rather than a forecast.",
+  "snapItems": [
+   {
+    "label": "Nvidia revenue, quarter to 25 Oct 2026 (Fox Business)",
+    "val": "$115.8bn",
+    "cls": "accent"
+   },
+   {
+    "label": "Nvidia share price, 11 Nov close to 12 Nov open (SF Standard)",
+    "val": "$173.73 → $151.00",
+    "cls": ""
+   },
+   {
+    "label": "Intel shares the day after naming Lip-Bu Tan, Mar 2025 (Bloomberg)",
+    "val": "+15%",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-20",
+  "readtime": "5 min read",
+  "sources": [
+   "https://sfstandard.com/2026/11/12/nvidia-ceo-jensen-huang-resigns/",
+   "https://thenextweb.com/news/jensen-huang-resigns-as-nvidia-ceo-after-33-years-effective-immediately",
+   "https://www.koreajoongangdaily.com/world/nvidia-ceo-jensen-huang-resigns-in-blow-to-ai-boom-he-helped-foster/12971239",
+   "https://www.chinadailyhk.com/article/642623",
+   "https://www.foxbusiness.com/markets/nvidia-releases-quarterly-earnings-after-jensen-huangs-resignation-ceo",
+   "https://w.media/nvidia-declares-first-results-after-huangs-exit-revenue-doubles-yoy-driven-by-ai-demand/",
+   "https://www.thewealthadvisor.com/article/nvidia-passes-its-first-earnings-test-without-jensen-huang",
+   "https://money.cnn.com/2011/08/24/technology/apple_after_hours_shares/index.htm",
+   "https://www.rte.ie/news/business/2011/0825/305304-apple-business",
+   "https://www.euronews.com/2018/08/02/apple-becomes-world-s-first-public-company-worth-1-trillion",
+   "https://www.clickondetroit.com/business/2024/12/02/intel-ceo-gelsinger-retires-zinsner-and-johnston-holthaus-named-interim-co-ceos/",
+   "https://uk.investing.com/news/stock-market-news/intel-ceo-pat-gelsinger-retires-stock-rises-3815548",
+   "https://finance.yahoo.com/news/intel-names-chip-industry-veteran-204753745.html",
+   "https://industryweek.com/leadership/companies-executives/news/55274345/struggling-intel-names-industry-veteran-lip-bu-tan-as-ceo"
+  ]
+ },
+ {
   "slug": "bitcoin-etf-outflows-past-waves",
   "title": "Bitcoin ETFs Have Lost $2.35bn in November. Here Is What Followed Earlier Outflow Waves.",
   "category": "crypto",
