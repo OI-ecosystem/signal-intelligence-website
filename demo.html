@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live demo — Signal Intelligence</title>
+<meta name="description" content="Try Signal Intelligence: a working copy of the dashboard on delayed data, and a five-stage walk-through of how the engine reasons from signals to historical precedent.">
+<link rel="canonical" href="https://signal333.com/demo.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* VOICE work: the real product, hands-on
+   IDEA the live dashboard itself, running on month-old data, with a guide that can drive it
+   PICTURE the working dashboard fills the screen; the big cursor is the only extra
+   COLOUR the app's own night ground, green scores, amber precedents, Signal blue for the guide
+   TYPE Inter + JetBrains Mono for figures, as in the app
+   LAYOUT laptop: feed left, entity panel right; phone: feed, then panel */
+:root{color-scheme:dark;--bg:#0a0e18;--panel:#0f1524;--panel2:#131a2c;--line:#1f2840;--ink:#e8ecf6;--muted:#93a0bf;--faint:#6b7799;--green:#34d399;--amber:#f5a524;--blue:#2F5FD6;--blue2:#5b85ff}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,sans-serif;overflow-x:clip}
+button{font:inherit;color:inherit;cursor:pointer}
+.mono{font-family:'JetBrains Mono',monospace}
+.top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:12px max(2vw,14px);border-bottom:1px solid var(--line);background:#0c1120}
+.brand{font-weight:700;letter-spacing:.12em;font-size:14px;color:var(--amber)}
+.demo{font-size:12px;background:#1b2440;color:#c9d4f2;border-radius:999px;padding:4px 10px}
+.asof{font-size:12.5px;color:var(--muted)}
+.sp{flex:1}
+.btn{border:1px solid #2b3658;background:transparent;border-radius:8px;padding:9px 14px;font-weight:600;font-size:14px;min-height:40px}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn.guide{border-color:var(--blue2);color:#cdd9ff}
+.lenses{display:flex;gap:6px;padding:12px max(2vw,14px) 0;flex-wrap:wrap}
+.lens{background:transparent;border:1px solid var(--line);border-radius:8px;padding:8px 14px;font-size:14px;color:var(--muted);min-height:40px}
+.lens[aria-pressed="true"]{background:var(--panel2);border-color:#33406a;color:var(--ink)}
+.app{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:14px;padding:14px max(2vw,14px) 10px;position:relative}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px}
+.feedhead{display:flex;justify-content:space-between;align-items:baseline;padding:14px 16px 8px}
+.feedhead h2,.ph h2{font-size:15px;margin:0;font-weight:600}
+.small{font-size:12.5px;color:var(--faint)}
+.row{display:grid;grid-template-columns:minmax(0,1fr) 92px 70px;gap:10px;align-items:center;width:100%;text-align:left;background:transparent;border:0;border-top:1px solid var(--line);padding:11px 16px;min-height:52px}
+.row:hover{background:#121a2e}
+.row[aria-selected="true"]{background:#16203a;box-shadow:inset 3px 0 0 var(--blue2)}
+.row b{font-weight:600}
+.row .sub{display:block;font-size:12px;color:var(--faint)}
+.score{color:var(--green);font-family:'JetBrains Mono',monospace;font-size:14px}
+.band{display:inline-block;font-size:10.5px;color:var(--green);border:1px solid #1d5c47;border-radius:4px;padding:0 5px;margin-top:2px}
+.sig{text-align:right;font-family:'JetBrains Mono',monospace;color:var(--muted)}
+.empty{padding:40px 20px;text-align:center;color:var(--muted)}
+.ph{padding:16px 18px 0;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.ent{font-size:26px;font-weight:700;margin:2px 0 0}
+.big{font-family:'JetBrains Mono',monospace;font-size:34px;color:var(--green);line-height:1}
+.tabs{display:flex;gap:4px;padding:12px 18px 0;border-bottom:1px solid var(--line)}
+.tab{background:transparent;border:0;border-bottom:2px solid transparent;padding:10px 12px;color:var(--muted);font-weight:500;min-height:44px}
+.tab[aria-selected="true"]{color:var(--ink);border-color:var(--blue2)}
+.tab .lock{font-size:11px;color:var(--amber);margin-left:4px}
+.body{padding:16px 18px 18px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.stat{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.stat .v{font-family:'JetBrains Mono',monospace;font-size:18px}
+.stat .k{font-size:12px;color:var(--faint)}
+.ev{margin:14px 0 0;padding:0;list-style:none}
+.ev li{border-top:1px solid var(--line);padding:9px 0;font-size:13.5px;color:#c6cfe6}
+.ev li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--amber);margin-right:8px;vertical-align:2px}
+.match{display:grid;grid-template-columns:minmax(0,1fr) 120px 48px;gap:10px;align-items:center;padding:11px 0;border-top:1px solid var(--line)}
+.bar{height:6px;background:#1c2540;border-radius:3px;overflow:hidden}.bar i{display:block;height:100%;background:var(--amber)}
+.pct{font-family:'JetBrains Mono',monospace;color:var(--amber);text-align:right}
+.journey{list-style:none;margin:0;padding:0 0 0 18px;border-left:2px solid #24304f}
+.journey li{position:relative;padding:5px 0 5px 14px;color:var(--faint);font-size:14px}
+.journey li::before{content:"";position:absolute;left:-25px;top:11px;width:10px;height:10px;border-radius:50%;background:#24304f;border:2px solid var(--bg)}
+.journey li.done{color:var(--muted)}.journey li.done::before{background:#4b5a85}
+.journey li.here{color:var(--amber);font-weight:600}.journey li.here::before{background:var(--amber);box-shadow:0 0 0 5px rgba(245,165,36,.2)}
+.here-tag{font-size:10.5px;border:1px solid var(--amber);border-radius:4px;padding:0 6px;margin-left:8px}
+.outs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin-top:12px}
+.out{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px}
+.out .v{color:var(--green);font-family:'JetBrains Mono',monospace;font-weight:500}
+.locked{background:var(--panel2);border:1px dashed #33406a;border-radius:10px;padding:18px;color:var(--muted)}
+.note{padding:4px max(2vw,14px) 22px;font-size:12.5px;color:var(--faint)}
+.cursor{position:absolute;width:54px;height:62px;pointer-events:none;z-index:20;transition:left .6s cubic-bezier(.3,.7,.3,1),top .6s cubic-bezier(.3,.7,.3,1);filter:drop-shadow(0 4px 8px rgba(0,0,0,.5));display:none}
+.cursor .ring{animation:pulse 1.6s ease-out infinite;transform-origin:10px 10px}
+@keyframes pulse{0%{transform:scale(.6);opacity:.75}100%{transform:scale(1.7);opacity:0}}
+.bubble{position:absolute;z-index:21;width:300px;background:var(--blue);color:#fff;border-radius:10px;padding:14px 16px;box-shadow:0 14px 34px rgba(47,95,214,.5);display:none;transition:left .6s,top .6s}
+.bubble .t{font-weight:500}
+.bubble .r{display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:8px}
+.bubble .r span{font-size:12px;opacity:.8}
+.bubble button{border-radius:7px;padding:7px 12px;font-weight:600;font-size:13px;min-height:36px}
+.bubble .x{background:transparent;border:1px solid rgba(255,255,255,.5)}
+.bubble .n{background:#fff;color:var(--blue);border:0}
+.modes{display:flex;gap:6px;padding:12px max(2vw,14px) 0;flex-wrap:wrap}
+.mode{background:transparent;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:14px;color:var(--muted);min-height:40px}
+.mode[aria-pressed="true"]{background:var(--ink);color:#0a0e18;border-color:var(--ink)}
+.case{display:grid;grid-template-columns:260px minmax(0,1fr);gap:14px;padding:14px max(2vw,14px) 10px}
+.steps{list-style:none;margin:0;padding:8px}
+.steps button{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:transparent;border:0;border-radius:10px;padding:12px;min-height:56px}
+.steps button[aria-current="step"]{background:#16203a}
+.steps .num{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:600;background:#1c2540;color:#c9d4f2}
+.steps button[aria-current="step"] .num{background:var(--blue);color:#fff}
+.steps .lbl{font-weight:600;display:block}
+.pill{display:inline-block;font-size:11px;border-radius:999px;padding:1px 8px;margin-top:3px}
+.pill.ok{background:#0f3b2c;color:#6ee7b7}.pill.wait{background:#3a2a0b;color:#fbbf24}.pill.part{background:#1b2a4d;color:#9db8ff}
+.stagebody{padding:20px 22px}
+.stagebody h3{font-size:20px;margin:0 0 6px}
+.lead{color:#c6cfe6;margin:0 0 16px;max-width:68ch}
+.pending{border:1px dashed #5a4614;background:#1a160b;border-radius:10px;padding:14px 16px;color:#e8d3a1;margin-top:14px}
+.comp{display:grid;grid-template-columns:180px minmax(0,1fr) 112px;gap:12px;align-items:center;padding:9px 0;border-top:1px solid var(--line);font-size:14px}
+.comp .bar i{background:#2b3658}.comp .bar i.on{background:var(--blue2)}.comp.nc{grid-template-columns:180px minmax(0,1fr)}@media(max-width:860px){.comp.nc{grid-template-columns:120px minmax(0,1fr)}}
+[hidden]{display:none!important}
+.tabs{overflow-x:auto;scrollbar-width:none}.tab{white-space:nowrap;flex:none}
+.lens:disabled{opacity:.6;cursor:not-allowed}.lens .soon{font-size:11px;margin-left:8px;color:var(--amber)}
+.fig{position:relative;height:260px;margin-top:8px}.fig svg{position:absolute;inset:0;width:100%;height:100%}
+.fig text{font:12px Inter,sans-serif;fill:var(--muted)}
+.reasons{display:grid;gap:8px;margin-top:10px}
+.reason{display:grid;grid-template-columns:minmax(0,1fr) 120px 30px;gap:10px;align-items:center;font-size:14px}
+.reason .bar i{background:#f87171}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0}
+.backlink{color:var(--muted);font-size:14px;text-decoration:none}
+@media(max-width:860px){.case{grid-template-columns:minmax(0,1fr)}.steps{display:flex;overflow-x:auto;gap:4px}.steps li{flex:none;width:200px}.steps button{width:100%}.comp{grid-template-columns:110px minmax(0,1fr) 96px}}
+@media(max-width:860px){.app{grid-template-columns:minmax(0,1fr)}.outs{grid-template-columns:repeat(3,minmax(0,1fr))}.bubble{position:fixed;left:12px!important;right:12px;bottom:12px;top:auto!important;width:auto}.cursor{width:38px;height:44px}}
+@media(prefers-reduced-motion:reduce){.cursor,.bubble{transition:none}.cursor .ring{animation:none}}
+</style>
+</head>
+<body>
+<div class="top">
+  <a href="index.html" class="backlink">← signal333.com</a><span class="brand">SIGNAL</span><span class="demo">Live demo</span>
+  <span class="asof" id="asof">Loading real platform data…</span>
+  <span class="sp"></span>
+  <button class="btn guide" id="guide">Guide me</button>
+  <a class="btn primary" href="index.html#pricing" style="text-decoration:none;display:inline-flex;align-items:center">Get live access</a>
+</div>
+<div class="modes" role="group" aria-label="Demo mode"><button class="mode" id="m-case" aria-pressed="true">How it reasons: one case, five stages</button><button class="mode" id="m-dash" aria-pressed="false">Explore the dashboard</button></div>
+<section id="caseview" class="case" aria-label="Five-stage walk-through">
+  <nav class="card" aria-label="Stages"><ol class="steps" id="steps"></ol></nav>
+  <article class="card stagebody" id="stage" aria-live="polite"></article>
+</section>
+<div id="dashview" hidden>
+<div class="lenses" id="lenses" role="group" aria-label="Lens"></div>
+
+<div class="app" id="app">
+  <section class="card" id="feedcard" aria-label="Opportunity feed">
+    <div class="feedhead"><h2 id="feedtitle">Opportunity feed</h2><span class="small" id="feedcount"></span></div>
+    <div class="row small" style="border-top:0;min-height:0;padding-top:0;padding-bottom:6px"><span>Entity</span><span>Score</span><span style="text-align:right">Rank</span></div>
+    <div id="feed"></div>
+  </section>
+  <section class="card" id="panel" aria-label="Entity detail"></section>
+  <svg class="cursor" id="cursor" viewBox="0 0 54 62" aria-hidden="true"><circle class="ring" cx="10" cy="10" r="12" fill="#7da2ff"/><path d="M6 4 L6 44 L16 34 L23 52 L31 48 L24 31 L38 31 Z" fill="#0b0f1a" stroke="#fff" stroke-width="3" stroke-linejoin="round"/></svg>
+  <div class="bubble" id="bubble" role="dialog" aria-live="polite"><div class="t" id="btext"></div><div class="r"><span id="bcount"></span><span style="display:flex;gap:6px"><button class="x" id="bstop">Explore myself</button><button class="n" id="bnext">Next</button></span></div></div>
+</div>
+</div>
+<p class="note">A demonstration, not a live service. Platform data is at least 30 days old and refreshed weekly; HPI v2 library statistics carry their own date. Ethereum's precedent matches and Genesis read are shown from a platform screen (November 2026) until they join the weekly data. Precedent outcomes are realised history, not forecasts, and nothing here is financial advice.</p>
+
+<script>
+{
+const $=id=>document.getElementById(id);
+const NAMES={bitcoin:'Bitcoin',ethereum:'Ethereum',arbitrum:'Arbitrum',uniswap:'Uniswap',hyperliquid:'Hyperliquid',nexo:'Nexo',kucoin:'KuCoin',gate:'Gate',aave:'Aave',chainlink:'Chainlink',solana:'Solana'};
+const nm=e=>NAMES[e]||e.replace(/_/g,' ').replace(/^./,c=>c.toUpperCase());
+const PAT={momentum:'Momentum',repeated_appearance:'Repeated appearance',multi_source:'Confirmed by several sources',cross_domain:'Seen across domains'};
+const pat=p=>PAT[p]||p.replace(/_/g,' ');
+const REASON={attention_lapse_decline:'Attention lapsed and declined','attention_lapse_decline,insufficient_evidence_at_cycle':'Attention lapsed, and not enough evidence',insufficient_evidence_at_cycle:'Not enough evidence at the cycle'};
+const COMP=[['signal_quality','Signal quality'],['source_breadth','Source breadth'],['behaviour','Behaviour'],['outcome','Outcome'],['cia','CIA'],['recency','Recency']];
+const LENSNAME={crypto:'Crypto',ai:'AI',collectibles:'Collectibles',energy:'Energy'};
+const fmt=n=>Number(n).toLocaleString('en-GB');
+/* Ethereum's precedent matches and Genesis read come from a live platform screen
+   until they are added to the weekly export. */
+const ETH_HPI=[['Shopify','Historical case',68],['Chainlink','Price movement',68],['SpaceX','Historical case',67]];
+const STAGES=['Origin signal','Early accumulation','Infrastructure build','Developer adoption','Ecosystem expansion','Commercial expansion','Institutional recognition','Acceleration phase','Peak recognition'];
+let S, lens='crypto', sel=null, tab='overview';
+
+const items=()=>(S.lenses[lens]||{items:[]}).items;
+const statsHTML=e=>`<div class="stats">${[['Opportunity score',e.score.toFixed(3)],['Rank','#'+e.rank],['Observations',fmt(e.evidence.observations)],['Sources',e.evidence.sources],['Behaviours',e.evidence.behaviours.length],['Avg signal score',e.evidence.avg_signal_score.toFixed(2)]].map(([k,v])=>`<div class="stat"><div class="v">${v}</div><div class="k">${k}</div></div>`).join('')}</div>`;
+const whyHTML=e=>`<div class="small" style="margin-top:16px">Types of source behind it · ${fmt(e.evidence.observations)} observations in total</div><ul class="ev">${e.evidence.source_types.map(x=>`<li>${x}</li>`).join('')}</ul>
+  <div class="small" style="margin-top:14px">Behaviour the engine recognised</div><ul class="ev">${e.evidence.behaviours.map(x=>`<li>${pat(x.pattern)} <span class="small">· ${fmt(x.n)} times</span></li>`).join('')}</ul>`;
+const compHTML=e=>COMP.map(([k,l])=>`<div class="comp nc"><span>${l}</span><span class="bar"><i class="on" style="width:${e.components[k]*100}%"></i></span></div>`).join('')
+  +(e.drivers?`<p style="margin-top:14px">Biggest drivers: <b>${e.drivers.join(', ').replace(/, ([^,]*)$/,' and $1')}</b>.</p>`:'');
+const matchHTML=()=>ETH_HPI.map(([n,t,p])=>`<div class="match"><span><b>${n}</b><span class="sub small" style="display:block">${t}</span></span><span class="bar"><i style="width:${p}%"></i></span><span class="pct">${p}%</span></div>`).join('');
+
+function lenses(){ $('lenses').innerHTML=Object.entries(S.lenses).map(([k,v])=>`<button class="lens" data-l="${k}" aria-pressed="${k===lens}" ${v.enabled?'':'disabled title="Being rebuilt. Opens soon."'}>${LENSNAME[k]||k}${v.enabled?'':'<span class="soon">Being rebuilt</span>'}</button>`).join(''); }
+function feed(){
+  const it=items(); $('feedcount').textContent=it.length+' shown';
+  $('feed').innerHTML=it.map(e=>`<button class="row" role="option" data-e="${e.entity}" aria-selected="${e.entity===sel}"><span><b>${nm(e.entity)}</b><span class="sub">${e.evidence.sources} sources · ${fmt(e.evidence.observations)} observations</span></span><span><span class="score">${e.score.toFixed(3)}</span></span><span class="sig">#${e.rank}</span></button>`).join('');
+}
+function cur(){ return items().find(e=>e.entity===sel); }
+function panel(){
+  const e=cur(); if(!e){ $('panel').innerHTML=`<div class="empty">Choose an entity from the feed.</div>`; return; }
+  const eth=e.entity==='ethereum'; let body='';
+  if(tab==='overview') body=statsHTML(e)+whyHTML(e);
+  else if(tab==='score') body=`<div class="small" style="margin-bottom:6px">Six components, and how strongly each one registered</div>`+compHTML(e);
+  else if(tab==='matches') body= eth ? `<div class="small">Closest historical precedents</div>${matchHTML()}<p class="small" style="margin-top:12px">Pattern similarity only. Not predictive. Shown from a platform screen, November 2026; precedent matches join the weekly data next.</p>`
+      : `<div class="locked">Precedent matches for every entity join the demo's weekly data next. Ethereum shows an example now.</div>`;
+  else body= eth ? `<div class="small">Position on the closest precedent's path</div>
+      <p style="margin:6px 0 12px">Equivalent to <b>Chainlink, 2019-Q2</b>.</p>
+      <ol class="journey" id="journey">${STAGES.map((s,k)=>`<li class="${k<1?'done':k===1?'here':''}">${s}${k===1?'<span class="here-tag">You are here</span>':''}</li>`).join('')}</ol>
+      <div class="small" style="margin-top:16px">What happened next for Chainlink, from that stage</div>
+      <div class="outs" id="outs">${outs()}</div>
+      <p class="small" style="margin-top:10px">Chainlink's realised price change after that stage, measured from 2019-Q2. A historical record, not a forecast for Ethereum.</p>`
+      : `<div class="locked"><b style="color:var(--ink)">Genesis read: included for Ethereum in this demo.</b><br>Get live access to run any entity through Signal Genesis.</div>`;
+  $('panel').innerHTML=`<div class="ph"><div><div class="small">${LENSNAME[lens]} · rank #${e.rank} of all entities</div><div class="ent">${nm(e.entity)}</div></div><div style="text-align:right"><div class="big">${e.score.toFixed(3)}</div><div class="small">opportunity score</div></div></div>
+    <div class="tabs" role="tablist">${[['overview','Overview'],['score','Score breakdown'],['matches','Precedents'],['genesis','Genesis']].map(([k,l])=>`<button class="tab" role="tab" data-t="${k}" aria-selected="${tab===k}">${l}${(k==='genesis'||k==='matches')&&!eth?'<span class="lock">sample</span>':''}</button>`).join('')}</div>
+    <div class="body">${body}</div>`;
+}
+function outs(){ const o=(S.precedent.outcomes[0]||{}).price_pct||{}; return [3,6,12,24,36].map(m=>o[m]==null?'':`<div class="out"><div class="v">${o[m]>=0?'+':''}${fmt(Math.round(o[m]))}%</div><div class="small">${m} months</div></div>`).join(''); }
+function render(){ lenses(); feed(); panel(); }
+document.addEventListener('click',ev=>{
+  const l=ev.target.closest('[data-l]'), r=ev.target.closest('[data-e]'), t=ev.target.closest('[data-t]');
+  if(l&&!l.disabled){ lens=l.dataset.l; sel=(items()[0]||{}).entity; tab='overview'; render(); }
+  if(r){ sel=r.dataset.e; render(); }
+  if(t){ tab=t.dataset.t; panel(); }
+});
+
+/* guide: the big cursor drives the real interface */
+const G=[
+  {at:'#lenses',  text:'Crypto is open. AI, Collectibles and Energy are being rebuilt and open soon. Everything here is real platform data from 30 days ago.'},
+  {at:'#feed .row', text:'The opportunity feed: entities ranked by the engine, with score, sources and observations.'},
+  {do:()=>{sel='ethereum';tab='overview';render();}, at:'[data-e="ethereum"]', text:'Open Ethereum.'},
+  {at:'#panel .stats', text:'Its record: score, rank, how many observations, from how many independent sources.'},
+  {at:'#panel .ev', text:'The types of source behind it, and the behaviour the engine recognised.'},
+  {do:()=>{tab='score';panel();}, at:'#panel .comp', text:'Why the score is what it is: six components, and the ones that drove it.'},
+  {do:()=>{tab='matches';panel();}, at:'#panel .match', text:'The precedents it most resembles, with similarity.'},
+  {do:()=>{tab='genesis';panel();}, at:'#journey .here', text:'Signal Genesis places it on Chainlink’s path: early accumulation.'},
+  {at:'#outs', text:'And shows what happened next for Chainlink from that stage. Now explore on your own.'}
+];
+let gi=-1;
+function gshow(){
+  const s=G[gi]; if(s.do) s.do();
+  const el=document.querySelector(s.at); if(!el) return;
+  el.scrollIntoView({block:'center',behavior:'smooth'});
+  setTimeout(()=>{
+    const r=el.getBoundingClientRect(), a=$('app').getBoundingClientRect();
+    const x=r.left-a.left+Math.min(r.width*0.3,120), y=r.top-a.top+Math.min(r.height*0.5,24);
+    const c=$('cursor'); c.style.display='block'; c.style.left=x+'px'; c.style.top=y+'px';
+    const b=$('bubble'); b.style.display='block';
+    const left = x+330 > a.width ? x-310 : x+46; b.style.left=Math.max(8,left)+'px'; b.style.top=(y+40)+'px';
+    $('btext').textContent=s.text; $('bcount').textContent=(gi+1)+' of '+G.length;
+    $('bnext').textContent= gi===G.length-1?'Finish':'Next';
+  }, 250);
+}
+function gstop(){ gi=-1; $('cursor').style.display='none'; $('bubble').style.display='none'; }
+$('guide').onclick=()=>{ lens='crypto'; sel=(items()[0]||{}).entity; tab='overview'; render(); gi=0; gshow(); };
+$('bnext').onclick=()=>{ if(gi>=G.length-1) gstop(); else { gi++; gshow(); } };
+$('bstop').onclick=gstop;
+
+/* ---------- five-stage walk-through ---------- */
+const FP={entity:'30-days-of-python',domain:'AI',endpoint:'Peak',days:8,end:'2026-09-15',endLevel:0.7185,
+  series:[['08-09',.6943],['08-10',.6921],['08-11',.6871],['08-12',.6824],['08-13',.6775],['08-14',.6727],['08-15',.6681],['08-16',.6634],['08-17',.6587],['08-18',.6542],['08-19',.6498],['08-20',.6452],['08-21',.6408],['08-22',.6364],['08-23',.6321],['08-24',.6278],['08-25',.6236],['08-26',.6194],['08-27',.6152],['08-28',.6111],['08-29',.6071],['08-30',.6031],['08-31',.599],['09-01',.5952],['09-02',.5932],['09-03',.707],['09-04',.707]],
+  cia:['09-02','09-03','09-10','09-11','09-12']};
+const C=()=>S.case;
+const STAGE=[
+ {t:'Fingerprint',st:['ok','30-day-old data'],h:()=>`What the engine saw in ${nm(C().entity)}`,
+  b:()=>`<p class="lead">Every entity builds a record of independent observations. This is ${nm(C().entity)}'s on ${S.asof}: the evidence behind its score, not a price chart.</p>${statsHTML(C())}${whyHTML(C())}`},
+ {t:'Historical comparison',st:['part','Platform screen'],h:()=>'Which precedents it resembles',
+  b:()=>`<p class="lead">The engine compares that record with validated historical cases. Ethereum's closest matches:</p>${matchHTML()}
+   <p class="small" style="margin-top:12px">Pattern similarity only. Not predictive. Shown from a platform screen, November 2026; these join the weekly data next.</p>
+   <div class="pending"><b>Arrives with HPI v2:</b> fingerprint-to-fingerprint similarity across the whole self-discovered library, not just the original 10 precedents.</div>`},
+ {t:'Similarity and conviction',st:['ok','30-day-old data'],h:()=>'Why the score is what it is',
+  b:()=>`<p class="lead">Every opportunity score is built from six components. Here is how strongly each one registered for ${nm(C().entity)}, and which drove its score of ${C().score.toFixed(3)}.</p>${compHTML(C())}`},
+ {t:'Trajectory',st:['ok','HPI v2 library'],h:()=>'Where it sits on the path, and how paths are recorded',
+  b:()=>`<p class="lead">Signal Genesis places Ethereum on its closest precedent's path: equivalent to <b>Chainlink, 2019-Q2</b>.</p>
+   <ol class="journey">${STAGES.map((x,k)=>`<li class="${k<1?'done':k===1?'here':''}">${x}${k===1?'<span class="here-tag">You are here</span>':''}</li>`).join('')}</ol>
+   <div class="small" style="margin-top:22px">How HPI v2 records a trajectory · real fingerprint from the library: ${FP.entity} (${FP.domain}), ${FP.endpoint.toLowerCase()}, ${FP.days}-day window ending ${FP.end}</div>
+   <div class="fig" id="fpfig"><svg id="fpsvg" role="img" aria-label="Opportunity score from 9 August to 15 September 2026, falling from 0.69 to 0.59, then jumping to 0.71 on 3 September and forming a peak at 0.72; CIA observations marked on 2, 3, 10, 11 and 12 September"></svg></div>
+   <p class="small">Score falls for three weeks, then jumps on 3 September as new observations arrive and forms a peak at ${FP.endLevel}. Momentum was first seen 71 days before; repeated appearance 43 days before. Example case only; showcase cases are chosen when HPI v2 completes.</p>`},
+ {t:'Outcome verification',st:['part','Partly with HPI v2'],h:()=>'What happened, and how the evidence was judged',
+  b:()=>{ const L=S.library, c=L.candidates, rr=L.reject_reasons, mx=Math.max(1,...rr.map(x=>x.n));
+   return `<p class="lead">For the precedent, the record is complete. What happened next for Chainlink, from the stage Ethereum resembles:</p>
+   <div class="outs">${outs()}</div>
+   <p class="small" style="margin-top:8px">Chainlink's realised price change after that stage, measured from 2019-Q2. A historical record, not a forecast for Ethereum.</p>
+   <div class="pending"><b>Arrives with HPI v2:</b> follow-through checks at 14, 30 and 60 days on every new fingerprint, showing whether each one held.</div>
+   <div class="small" style="margin-top:18px">Not every candidate becomes a precedent. HPI v2 library statistics, current (not delayed), as of ${new Date(L.as_of).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}:</div>
+   <div class="kpis"><div class="stat"><div class="v">${c.PROMOTED||0}</div><div class="k">promoted</div></div><div class="stat"><div class="v">${c.REJECTED||0}</div><div class="k">rejected</div></div><div class="stat"><div class="v">${c.VALIDATING||0}</div><div class="k">still validating</div></div></div>
+   <div class="reasons">${rr.map(x=>`<div class="reason"><span>${REASON[x.reason]||x.reason.replace(/_/g,' ')}</span><span class="bar"><i style="width:${x.n/mx*100}%"></i></span><span class="mono">${x.n}</span></div>`).join('')}</div>`; }}
+];
+let si=0;
+function steps(){ $('steps').innerHTML=STAGE.map((x,k)=>`<li><button data-s="${k}" ${k===si?'aria-current="step"':''}><span class="num">${k+1}</span><span><span class="lbl">${x.t}</span><span class="pill ${x.st[0]}">${x.st[1]}</span></span></button></li>`).join(''); }
+function stage(){ const x=STAGE[si]; $('stage').innerHTML=`<div class="small">Stage ${si+1} of 5 · ${nm(C().entity)}</div><h3>${x.h()}</h3>${x.b()}<div style="display:flex;justify-content:space-between;margin-top:22px;gap:10px"><button class="btn" data-go="${si-1}" ${si===0?'hidden':''}>Back</button><button class="btn primary" data-go="${si+1}" ${si===4?'hidden':''}>Next stage</button></div>`; if(si===3) chart(); }
+function chart(){ const s=$('fpsvg'); if(!s) return; const draw=()=>{ const W=s.clientWidth,H=s.clientHeight,m={l:40,r:16,t:16,b:28};
+  const days=['08-09','08-16','08-23','08-30','09-06','09-15']; const all=FP.series.map(d=>d[0]).concat(['09-05','09-06','09-07','09-08','09-09','09-10','09-11','09-12','09-13','09-14','09-15']);
+  const ix=d=>all.indexOf(d), X=d=>m.l+ix(d)/(all.length-1)*(W-m.l-m.r), Y=v=>m.t+(0.74-v)/(0.74-0.57)*(H-m.t-m.b);
+  const pts=FP.series.map(([d,v])=>X(d)+','+Y(v)).join(' ');
+  s.innerHTML=`<rect x="${X('09-08')}" y="${m.t}" width="${X('09-15')-X('09-08')}" height="${H-m.t-m.b}" fill="#f5a524" opacity=".10"/>
+   ${W>520?`<text x="${X('09-08')+4}" y="${m.t+14}">fingerprint window</text>`:''}
+   ${[0.6,0.65,0.7].map(v=>`<line x1="${m.l}" x2="${W-m.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="#1f2840"/><text x="4" y="${Y(v)+4}">${v.toFixed(2)}</text>`).join('')}
+   <polyline points="${pts}" fill="none" stroke="#34d399" stroke-width="2.5"/>
+   <line x1="${X('09-04')}" y1="${Y(.707)}" x2="${X('09-15')}" y2="${Y(FP.endLevel)}" stroke="#34d399" stroke-width="2" stroke-dasharray="4 5"/>
+   <circle cx="${X('09-15')}" cy="${Y(FP.endLevel)}" r="5" fill="#f5a524"/><text x="${X('09-15')-46}" y="${Y(FP.endLevel)-10}" style="fill:#f5a524">peak ${FP.endLevel}</text>
+   ${FP.cia.map(d=>`<line x1="${X(d)}" x2="${X(d)}" y1="${H-m.b-8}" y2="${H-m.b}" stroke="#9db8ff" stroke-width="3"/>`).join('')}
+   ${days.filter((d,k)=>W>520||k%2===0).map((d,k,a)=>`<text x="${X(d)}" y="${H-8}" text-anchor="${k===a.length-1?'end':'middle'}">${d.replace('08-','Aug ').replace('09-','Sep ')}</text>`).join('')}`; };
+  const ro=new ResizeObserver(draw); ro.observe(s); }
+function mode(c){ $('caseview').hidden=!c; $('dashview').hidden=c; $('m-case').setAttribute('aria-pressed',c); $('m-dash').setAttribute('aria-pressed',!c); $('guide').hidden=c; if(c) gstop(); }
+$('m-case').onclick=()=>mode(true); $('m-dash').onclick=()=>mode(false);
+document.addEventListener('click',ev=>{ const b=ev.target.closest('[data-s]'), g=ev.target.closest('[data-go]'); if(b){si=+b.dataset.s;steps();stage();} if(g){si=+g.dataset.go;steps();stage();$('stage').scrollIntoView({block:'nearest'});} });
+
+fetch('data/demo-snapshot.json',{cache:'no-cache'}).then(r=>{ if(!r.ok) throw 0; return r.json(); }).then(d=>{
+  S=d; S.asof=new Date(d.as_of.slice(0,10)).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  $('asof').textContent=`Platform data as of ${S.asof} · ${d.delay_days} days delayed · refreshed weekly · not a live service`;
+  sel=(items()[0]||{}).entity; render(); steps(); stage(); mode(true);
+}).catch(()=>{ $('stage').innerHTML='<div class="empty">The demo data could not be loaded. Please refresh the page.</div>'; mode(true); });
+}
+</script>
+<script>window.goatcounter = {path: function(p) { return "/signal333" + p }}</script>
+<script data-goatcounter="https://oi-relay.psiisp.workers.dev/e" async src="/assets/site.js"></script>
+</body>
+</html>

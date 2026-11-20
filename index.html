@@ -92,7 +92,8 @@ section{padding:96px 0;}
 .hero h1{font-size:clamp(36px,5.2vw,60px);line-height:1.12;}
 .hero p{margin-top:26px;font-size:17.5px;color:var(--grey-700);max-width:480px;}
 .hero-built{margin-top:18px;font-size:14.5px;color:var(--grey-900);font-family:'Fraunces',serif;font-style:italic;max-width:460px;}
-.hero-ctas{display:flex;gap:14px;margin-top:36px;}
+.hero-ctas{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap;}
+.hero-ctas .btn{white-space:nowrap;}
 .hero-sub{margin-top:16px;font-size:12px;color:var(--grey-500);}
 
 .shot{background:var(--grey-900);border-radius:8px;padding:2px;box-shadow:0 40px 90px -40px rgba(0,0,0,0.4);}
@@ -273,6 +274,7 @@ footer a:hover{color:#fff;}
     <div class="logo">Signal Intelligence</div>
     <div class="navlinks" id="navlinks">
       <a href="#how">How it works</a>
+      <a href="demo.html">Live demo</a>
       <a href="genesis.html">Signal Genesis</a>
       <a href="#briefs">Intelligence Briefs</a>
       <a href="blog.html">Blog</a>
@@ -298,6 +300,7 @@ footer a:hover{color:#fff;}
       <div class="hero-ctas">
         <a href="#pricing" class="btn btn-blue">Get Started</a>
         <a href="#action" class="btn btn-outline">View Historical Cases</a>
+        <a href="demo.html" class="btn btn-outline">Live demo →</a>
       </div>
       <div class="hero-sub">Subscriptions from £29/month · Cancel anytime</div>
     </div>
@@ -307,6 +310,38 @@ footer a:hover{color:#fff;}
         <img src="assets/crop/hero-dashboard-overview.png" class="shot-img" alt="Signal Intelligence live dashboard">
       </a>
     </div>
+  </div>
+</section>
+
+<!-- 1b. INTELLIGENCE IN ACTION (demo) -->
+<style>
+.inaction{padding:72px 0;background:#0a0e18;color:#e8ecf6}
+.inaction h2{color:#fff;font-size:clamp(28px,3.6vw,40px);margin:8px 0 10px}
+.inaction .lede{color:#aab6d3;max-width:620px;font-size:16.5px}
+.stg{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:#1f2840;border:1px solid #1f2840;border-radius:6px;overflow:hidden;margin:32px 0 26px}
+.stg a{display:block;background:#0f1524;padding:20px 18px;color:#e8ecf6}
+.stg a:hover{background:#141c31}
+.stg .n{font-family:'JetBrains Mono',monospace;font-size:11px;color:#7da2ff}
+.stg h3{font-family:'Inter',sans-serif;font-size:15.5px;font-weight:600;color:#fff;margin:8px 0 6px}
+.stg p{font-size:13.5px;color:#aab6d3;line-height:1.5}
+.stg .s{display:inline-block;margin-top:10px;font-size:11px;padding:1px 8px;border-radius:999px;background:#0f3b2c;color:#6ee7b7}
+.stg .s.w{background:#3a2a0b;color:#fbbf24}
+@media(max-width:900px){.stg{grid-template-columns:minmax(0,1fr)}}
+</style>
+<section class="inaction" id="demo">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#7da2ff">See intelligence in action</div>
+    <h2>Five steps from a live signal to a historical precedent.</h2>
+    <p class="lede">Follow one real case through the engine: what it observed, which precedents it matched, why it scored as it did, where it sits on the path, and what happened next. No account needed.</p>
+    <div class="stg">
+      <a href="demo.html"><span class="n">1</span><h3>Fingerprint</h3><p>The independent evidence behind an entity's score.</p><span class="s">Real data</span></a>
+      <a href="demo.html"><span class="n">2</span><h3>Historical comparison</h3><p>The validated precedents it most resembles.</p><span class="s">Real data</span></a>
+      <a href="demo.html"><span class="n">3</span><h3>Similarity and conviction</h3><p>The six components that make up the score.</p><span class="s">Real data</span></a>
+      <a href="demo.html"><span class="n">4</span><h3>Trajectory</h3><p>Where it sits on its precedent's path.</p><span class="s">Real data</span></a>
+      <a href="demo.html"><span class="n">5</span><h3>Outcome verification</h3><p>What happened next, and which candidates were rejected.</p><span class="s w">With HPI v2</span></a>
+    </div>
+    <a href="demo.html" class="btn btn-blue">Try the live demo →</a>
+    <span style="margin-left:14px;font-size:13px;color:#8fa3d1">Runs on real platform data, 30 days delayed.</span>
   </div>
 </section>
 
@@ -604,16 +639,24 @@ footer a:hover{color:#fff;}
   </div>
 </section>
 
-<!-- 12b. STRATEGIC ENQUIRIES -->
-<section style="background:var(--grey-100);">
-  <div class="wrap" style="text-align:center; padding-top:56px; padding-bottom:56px;">
-    <div class="eyebrow">Strategic Enquiries</div>
-    <h2 style="font-size:22px; margin:10px 0 14px;">Interested in discussing Signal Intelligence beyond the published plans?</h2>
-    <p style="color:var(--grey-600); max-width:520px; margin:0 auto 22px; font-size:14.5px;">
-      For enterprise enquiries, strategic partnerships or licensing discussions, please connect via LinkedIn.
-    </p>
-    <a href="https://www.linkedin.com/in/oisuite/" class="btn btn-blue" target="_blank" rel="noopener" style="display:inline-block;">Connect on LinkedIn →</a>
+<!-- 12b. STRATEGIC OPPORTUNITIES -->
+<section style="background:var(--grey-100);" id="strategic">
+  <div class="wrap" style="padding-top:8px;padding-bottom:8px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start" class="strat">
+    <div>
+      <div class="eyebrow">Strategic opportunities</div>
+      <h2 style="font-size:30px;margin:10px 0 14px;">Beyond subscriptions.</h2>
+      <p style="color:var(--grey-700);font-size:15.5px;line-height:1.7;">Signal Intelligence is a developing intelligence infrastructure: continuous signal collection, behavioural analysis, historical precedent matching and an accumulating library of validated fingerprints. Its value extends beyond its subscriber base.</p>
+      <p style="color:var(--grey-700);font-size:15.5px;line-height:1.7;margin-top:12px;">Confidential discussions are available by introduction.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px"><a href="enquiries.html" class="btn btn-blue">Institutional enquiries →</a><a href="https://www.linkedin.com/in/oisuite/" class="btn btn-outline" target="_blank" rel="noopener">Connect on LinkedIn</a></div>
+    </div>
+    <ul style="list-style:none;border-top:1px solid var(--line)">
+      <li style="padding:16px 0;border-bottom:1px solid var(--line)"><b>Strategic partnerships</b><br><span style="color:var(--grey-700);font-size:14.5px">Research, data and fintech organisations building on historical intelligence.</span></li>
+      <li style="padding:16px 0;border-bottom:1px solid var(--line)"><b>Technology and data integration</b><br><span style="color:var(--grey-700);font-size:14.5px">Signals, scores and precedent matches delivered into your own systems.</span></li>
+      <li style="padding:16px 0;border-bottom:1px solid var(--line)"><b>Intelligence licensing</b><br><span style="color:var(--grey-700);font-size:14.5px">Licensed use of the engine, its lenses or its historical knowledge base.</span></li>
+      <li style="padding:16px 0;border-bottom:1px solid var(--line)"><b>Investment and acquisition</b><br><span style="color:var(--grey-700);font-size:14.5px">Discussions with organisations interested in the platform, its technology or its accumulated data.</span></li>
+    </ul>
   </div>
+  <style>@media(max-width:860px){.strat{grid-template-columns:minmax(0,1fr)!important;gap:24px!important}}</style>
 </section>
 
 <footer>
