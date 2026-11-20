@@ -1,0 +1,460 @@
+{
+ "version": 3,
+ "generated_at": "2026-11-20T07:06:48Z",
+ "delay_days": 30,
+ "as_of": "2026-10-21 06:58:43.914215+00:00",
+ "lenses": {
+  "crypto": {
+   "enabled": true,
+   "items": [
+    {
+     "entity": "bitcoin",
+     "score": 0.873,
+     "rank": 1,
+     "components": {
+      "signal_quality": 0.9432,
+      "source_breadth": 1.0,
+      "behaviour": 0.7325,
+      "outcome": 0.6,
+      "cia": 0.9802,
+      "recency": 1.0
+     },
+     "drivers": [
+      "Signal quality",
+      "CIA",
+      "Source breadth"
+     ],
+     "evidence": {
+      "observations": 3157,
+      "sources": 5,
+      "avg_signal_score": 0.743,
+      "source_types": [
+       "Market data",
+       "Developer activity",
+       "Protocol announcements",
+       "Public attention"
+      ],
+      "behaviours": [
+       {
+        "pattern": "momentum",
+        "n": 3149
+       },
+       {
+        "pattern": "repeated_appearance",
+        "n": 3148
+       },
+       {
+        "pattern": "multi_source",
+        "n": 2253
+       },
+       {
+        "pattern": "cross_domain",
+        "n": 2253
+       }
+      ]
+     }
+    },
+    {
+     "entity": "arbitrum",
+     "score": 0.8339,
+     "rank": 2,
+     "components": {
+      "signal_quality": 0.9654,
+      "source_breadth": 0.7737,
+      "behaviour": 0.7325,
+      "outcome": 0.6,
+      "cia": 0.9281,
+      "recency": 1.0
+     },
+     "drivers": [
+      "Signal quality",
+      "CIA",
+      "Outcome"
+     ],
+     "evidence": {
+      "observations": 2726,
+      "sources": 3,
+      "avg_signal_score": 0.767,
+      "source_types": [
+       "Market data",
+       "Protocol announcements",
+       "Developer activity"
+      ],
+      "behaviours": [
+       {
+        "pattern": "momentum",
+        "n": 2723
+       },
+       {
+        "pattern": "repeated_appearance",
+        "n": 2722
+       },
+       {
+        "pattern": "multi_source",
+        "n": 2575
+       },
+       {
+        "pattern": "cross_domain",
+        "n": 142
+       }
+      ]
+     }
+    },
+    {
+     "entity": "uniswap",
+     "score": 0.8189,
+     "rank": 3,
+     "components": {
+      "signal_quality": 0.9481,
+      "source_breadth": 0.7737,
+      "behaviour": 0.6309,
+      "outcome": 0.6,
+      "cia": 0.9281,
+      "recency": 1.0
+     },
+     "drivers": [
+      "Signal quality",
+      "CIA",
+      "Outcome"
+     ],
+     "evidence": {
+      "observations": 3132,
+      "sources": 3,
+      "avg_signal_score": 0.767,
+      "source_types": [
+       "Market data",
+       "Governance activity",
+       "Public attention"
+      ],
+      "behaviours": [
+       {
+        "pattern": "momentum",
+        "n": 3130
+       },
+       {
+        "pattern": "repeated_appearance",
+        "n": 3129
+       },
+       {
+        "pattern": "multi_source",
+        "n": 2268
+       }
+      ]
+     }
+    },
+    {
+     "entity": "hyperliquid",
+     "score": 0.8188,
+     "rank": 4,
+     "components": {
+      "signal_quality": 0.948,
+      "source_breadth": 0.7737,
+      "behaviour": 0.6309,
+      "outcome": 0.6,
+      "cia": 0.9281,
+      "recency": 1.0
+     },
+     "drivers": [
+      "Signal quality",
+      "CIA",
+      "Outcome"
+     ],
+     "evidence": {
+      "observations": 3139,
+      "sources": 3,
+      "avg_signal_score": 0.767,
+      "source_types": [
+       "Market data",
+       "Protocol announcements",
+       "Public attention"
+      ],
+      "behaviours": [
+       {
+        "pattern": "momentum",
+        "n": 3135
+       },
+       {
+        "pattern": "repeated_appearance",
+        "n": 3134
+       },
+       {
+        "pattern": "multi_source",
+        "n": 2893
+       }
+      ]
+     }
+    },
+    {
+     "entity": "ethereum",
+     "score": 0.8114,
+     "rank": 5,
+     "components": {
+      "signal_quality": 0.9216,
+      "source_breadth": 0.7737,
+      "behaviour": 0.6309,
+      "outcome": 0.6,
+      "cia": 0.9281,
+      "recency": 1.0
+     },
+     "drivers": [
+      "Signal quality",
+      "CIA",
+      "Outcome"
+     ],
+     "evidence": {
+      "observations": 2628,
+      "sources": 3,
+      "avg_signal_score": 0.71,
+      "source_types": [
+       "Market data",
+       "Protocol announcements",
+       "Developer activity"
+      ],
+      "behaviours": [
+       {
+        "pattern": "momentum",
+        "n": 2611
+       },
+       {
+        "pattern": "repeated_appearance",
+        "n": 2610
+       },
+       {
+        "pattern": "multi_source",
+        "n": 2366
+       }
+      ]
+     }
+    },
+    {
+     "entity": "nexo",
+     "score": 0.7998,
+     "rank": 6,
+     "components": {
+      "signal_quality": 0.9591,
+      "source_breadth": 0.6131,
+      "behaviour": 0.7325,
+      "outcome": 0.6,
+      "cia": 0.8911,
+      "recency": 1.0
+     },
+     "drivers": [
+      "Signal quality",
+      "CIA",
+      "Outcome"
+     ],
+     "evidence": {
+      "observations": 3006,
+      "sources": 2,
+      "avg_signal_score": 0.784,
+      "source_types": [
+       "Market data",
+       "On-chain data"
+      ],
+      "behaviours": [
+       {
+        "pattern": "momentum",
+        "n": 3004
+       },
+       {
+        "pattern": "repeated_appearance",
+        "n": 3003
+       },
+       {
+        "pattern": "multi_source",
+        "n": 1468
+       },
+       {
+        "pattern": "cross_domain",
+        "n": 1468
+       }
+      ]
+     }
+    },
+    {
+     "entity": "kucoin",
+     "score": 0.7983,
+     "rank": 7,
+     "components": {
+      "signal_quality": 0.9535,
+      "source_breadth": 0.6131,
+      "behaviour": 0.7325,
+      "outcome": 0.6,
+      "cia": 0.8911,
+      "recency": 1.0
+     },
+     "drivers": [
+      "Signal quality",
+      "CIA",
+      "Outcome"
+     ],
+     "evidence": {
+      "observations": 3003,
+      "sources": 2,
+      "avg_signal_score": 0.775,
+      "source_types": [
+       "Market data",
+       "On-chain data"
+      ],
+      "behaviours": [
+       {
+        "pattern": "momentum",
+        "n": 3000
+       },
+       {
+        "pattern": "repeated_appearance",
+        "n": 2999
+       },
+       {
+        "pattern": "multi_source",
+        "n": 299
+       },
+       {
+        "pattern": "cross_domain",
+        "n": 299
+       }
+      ]
+     }
+    },
+    {
+     "entity": "gate",
+     "score": 0.7969,
+     "rank": 8,
+     "components": {
+      "signal_quality": 0.9485,
+      "source_breadth": 0.6131,
+      "behaviour": 0.7325,
+      "outcome": 0.6,
+      "cia": 0.8911,
+      "recency": 1.0
+     },
+     "drivers": [
+      "Signal quality",
+      "CIA",
+      "Outcome"
+     ],
+     "evidence": {
+      "observations": 3002,
+      "sources": 2,
+      "avg_signal_score": 0.768,
+      "source_types": [
+       "Market data",
+       "On-chain data"
+      ],
+      "behaviours": [
+       {
+        "pattern": "momentum",
+        "n": 3000
+       },
+       {
+        "pattern": "repeated_appearance",
+        "n": 2999
+       },
+       {
+        "pattern": "multi_source",
+        "n": 2002
+       },
+       {
+        "pattern": "cross_domain",
+        "n": 2002
+       }
+      ]
+     }
+    }
+   ]
+  },
+  "ai": {
+   "enabled": false,
+   "items": []
+  },
+  "collectibles": {
+   "enabled": false,
+   "items": []
+  },
+  "energy": {
+   "enabled": false,
+   "items": []
+  }
+ },
+ "case": {
+  "entity": "ethereum",
+  "scored_at": "2026-10-21 06:58:43.914215+00:00",
+  "score": 0.8114,
+  "rank": 5,
+  "components": {
+   "signal_quality": 0.9216,
+   "source_breadth": 0.7737,
+   "behaviour": 0.6309,
+   "outcome": 0.6,
+   "cia": 0.9281,
+   "recency": 1.0
+  },
+  "drivers": [
+   "Signal quality",
+   "CIA",
+   "Outcome"
+  ],
+  "evidence": {
+   "observations": 2628,
+   "sources": 3,
+   "avg_signal_score": 0.71,
+   "source_types": [
+    "Market data",
+    "Protocol announcements",
+    "Developer activity"
+   ],
+   "behaviours": [
+    {
+     "pattern": "momentum",
+     "n": 2611
+    },
+    {
+     "pattern": "repeated_appearance",
+     "n": 2610
+    },
+    {
+     "pattern": "multi_source",
+     "n": 2366
+    }
+   ]
+  }
+ },
+ "precedent": {
+  "name": "chainlink",
+  "outcomes": [
+   {
+    "stage_date": "2019-Q2",
+    "archetype": "infrastructure_builder",
+    "price_pct": {
+     "3": 95.0,
+     "6": 380.0,
+     "12": 560.0,
+     "24": 2100.0,
+     "36": 1800.0
+    }
+   }
+  ]
+ },
+ "library": {
+  "as_of": "2026-11-20",
+  "candidates": {
+   "PROMOTED": 38,
+   "REJECTED": 21,
+   "VALIDATING": 1
+  },
+  "reject_reasons": [
+   {
+    "reason": "attention_lapse_decline",
+    "n": 8
+   },
+   {
+    "reason": "attention_lapse_decline,insufficient_evidence_at_cycle",
+    "n": 7
+   },
+   {
+    "reason": "insufficient_evidence_at_cycle",
+    "n": 6
+   }
+  ]
+ }
+}
