@@ -1,5 +1,55 @@
 [
  {
+  "slug": "silver-below-january-record-1980-2011-peaks",
+  "title": "Silver Is More Than 60% Below Its January Record. Here Is What Followed the 1980 and 2011 Peaks.",
+  "category": "precedents",
+  "filterBucket": "precedents",
+  "tags": [
+   {
+    "label": "📊 Historical Precedents",
+    "cls": "tag-hpi"
+   }
+  ],
+  "excerpt": "Silver has fallen this far from a record twice before: after it peaked near $50 in January 1980 and in April 2011, it fell to $10.80 within ten weeks in 1980 and to $13.695 by December 2015, and neither peak was surpassed until October 2025. Silver was trading near $41.86 on 20 November, more than 60% below its late-January record, and this time the stated driver is expected US rate rises rather than an exchange crackdown, so the precedents describe past paths rather than a forecast.",
+  "snapItems": [
+   {
+    "label": "Silver spot, 20 Nov 2026 (USAGOLD)",
+    "val": "$41.86",
+    "cls": "accent"
+   },
+   {
+    "label": "Silver since 1 Jan 2026, at 19 Nov (Forbes Advisor)",
+    "val": "−36.94%",
+    "cls": ""
+   },
+   {
+    "label": "Silver, Jan 1980 peak to Silver Thursday (Britannica)",
+    "val": "$49.45 → $10.80",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-21",
+  "readtime": "4 min read",
+  "sources": [
+   "https://www.usagold.com/daily-precious-metals-market-report-november-20-2026/",
+   "https://www.usagold.com/daily-precious-metals-market-report-november-16-2026/",
+   "https://www.usagold.com/daily-precious-metals-market-report-november-12-2026/",
+   "https://www.kitco.com/news/article/2026-11-13/silver-market-remains-resilient-despite-price-volatility-and-weakening",
+   "https://www.forbes.com/sites/conormurray/2026/11/16/gold-and-silver-hit-lowest-prices-in-a-year-as-expected-interest-rate-hikes-loom/",
+   "https://www.forbes.com/advisor/investing/silver-price/",
+   "https://tradingeconomics.com/commodity/silver/news/526171",
+   "https://www.moneymetals.com/news/2026/11/17/silver-market-still-expected-to-run-sixth-straight-supply-deficit-in-2026-005382",
+   "https://www.britannica.com/topic/Silver-Thursday",
+   "https://www.abajournal.com/magazine/article/panic-1893-hunt-brothers-1980",
+   "https://metalcharts.org/silver-price-history/1982",
+   "https://metalcharts.org/silver-all-time-high",
+   "https://www.investmentnews.com/ria-news/silver-investors-holding-a-falling-knife/36090",
+   "https://www.coinnews.net/2011/05/06/silver-tumbles-27-4-in-week-gold-prices-advance",
+   "https://www.coinnews.net/2015/12/14/silver-lowest-since-july-2009-silver-eagle-record-tops-46-6m/",
+   "https://www.miningweekly.com/article/lower-2015-silver-prices-drive-record-demand-2016-05-05"
+  ]
+ },
+ {
   "slug": "nvidia-ceo-exit-tech-succession-precedents",
   "title": "Nvidia Has Lost Its Founder as CEO. Here Is What Followed Earlier Tech Leadership Changes.",
   "category": "ai",
