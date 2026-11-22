@@ -1,5 +1,48 @@
 [
  {
+  "slug": "first-edition-charizard-million-2022-record-precedent",
+  "title": "1st Edition Charizard Has Reportedly Passed $1 Million. Its Last Record Stood for Almost Four Years.",
+  "category": "pokemon",
+  "filterBucket": "pokemon",
+  "tags": [
+   {
+    "label": "🃏 Pokémon",
+    "cls": "tag-pokemon"
+   }
+  ],
+  "excerpt": "A PSA 10 1st Edition Base Set Charizard was reported in October 2026 to have sold for $1,385,274, two and a half times the $550,000 record set only ten months earlier. The card has been through a run like this once before: it climbed from under $20,000 in 2017 to $420,000 in March 2022, and that record then stood for almost four years.",
+  "snapItems": [
+   {
+    "label": "Reported sale, Oct 2026",
+    "val": "$1.385M",
+    "cls": "accent"
+   },
+   {
+    "label": "Previous record, Dec 2025",
+    "val": "$550,000",
+    "cls": ""
+   },
+   {
+    "label": "Record of Mar 2022",
+    "val": "$420,000",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-22",
+  "readtime": "4 min read",
+  "sources": [
+   "https://www.vice.com/en/article/charizard-pokemon-card-record-breaking-sale/",
+   "https://polkastarter.com/blog/first-edition-charizard-psa-10-1380000-fanatics",
+   "https://ultraball.com/news/data/biggest-pokemon-card-sales-2026",
+   "https://sports.yahoo.com/articles/rare-1st-edition-charizard-pok-050000904.html",
+   "https://www.thegamer.com/psa-10-first-edition-charizard-pokemon-card-record/",
+   "https://hypebeast.com/2022/3/1999-pokemon-base-set-shadowless-first-edition-holo-charizard-all-time-record-420k-usd-pwcc-auctions",
+   "https://www.dexerto.com/pokemon/rare-1st-edition-charizard-pokemon-card-shatters-records-after-selling-for-420000-1789095/",
+   "https://www.wargamer.com/pokemon-trading-card-game/charizard-card-crashing",
+   "https://en.wikipedia.org/wiki/List_of_most_expensive_cards_from_collectible_card_games"
+  ]
+ },
+ {
   "slug": "silver-below-january-record-1980-2011-peaks",
   "title": "Silver Is More Than 60% Below Its January Record. Here Is What Followed the 1980 and 2011 Peaks.",
   "category": "precedents",
