@@ -1,5 +1,55 @@
 [
  {
+  "slug": "ether-two-thirds-below-record-past-falls",
+  "title": "Ether Is Two-Thirds Below Its Record. It Has Fallen Further Twice Before.",
+  "category": "crypto",
+  "filterBucket": "crypto",
+  "tags": [
+   {
+    "label": "⬡ Crypto",
+    "cls": "tag-crypto"
+   }
+  ],
+  "excerpt": "Ether traded at about $1,680 on 21 November, roughly two-thirds below its August 2025 record of about $4,947. It has fallen further twice before, by 94% in 2018 and 81% in 2022, and each time it took roughly three to four years to regain its previous peak.",
+  "snapItems": [
+   {
+    "label": "Ether, 21 Nov 2026 (CoinDesk)",
+    "val": "~$1,680",
+    "cls": "accent"
+   },
+   {
+    "label": "Record high, 24 Aug 2025 (CoinDesk)",
+    "val": "~$4,947",
+    "cls": ""
+   },
+   {
+    "label": "Spot ether ETF outflows, week to 21 Nov (The Block)",
+    "val": "$314m",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-23",
+  "readtime": "4 min read",
+  "sources": [
+   "https://fortune.com/article/price-of-ethereum-11-20-2026/",
+   "https://www.coindesk.com/markets/2026/11/21/bitcoin-bounces-9-from-two-year-low-to-retake-usd60-000-as-traders-eye-monday-s-stock-open",
+   "https://www.coindesk.com/markets/2025/08/24/as-eth-breaks-above-usd4-900-analyst-sums-up-crypto-market-btc-is-exhausted-eth-isn-t",
+   "https://www.coindesk.com/markets/2026/11/23/market-rout-kills-50-basis-points-december-fed-rate-hike-bets",
+   "https://www.theblock.co/news/markets/2026-11-23-spot-bitcoin-etfs-shed-1-79-billion-in-past-week-444857",
+   "https://www.theblock.co/news/markets/2026-11-14-bitcoin-etfs-lose-1-billion-for-the-second-week-in-a-row-as-crypto-funds-except-one-continue-bleeding-440337",
+   "https://chainwire.org/2026/11/16/bitmine-immersion-technologies-bmnr-announces-eth-holdings-reach-6-08-million-tokens-and-total-crypto-and-total-cash-marketable-securities-holdings-of-11-8-billion/",
+   "https://www.coindesk.com/business/2026/11/17/binance-hacker-moves-usd63-million-in-stolen-ether-after-two-weeks-of-silence",
+   "https://decrypt.co/383446/binance-hack-wallets-move-ethereum-after-two-weeks",
+   "https://www.coindesk.com/ether-price-now-down-94-from-januarys-record-high",
+   "https://www.theblock.co/news/ecosystems/2021-01-19-eth-price-breaks-previous-all-time-high-record-1420-after-three-years-91657",
+   "https://www.kitco.com/news/article/2022-06-18/crypto-weekend-meltdown-bitcoin-price-touches-17k-ethereum-below-900",
+   "https://www.kitco.com/news/article/2022-09-15/ethereum-now-officially-proof-stake-following-successful-merge",
+   "https://www.theblock.co/news/markets/2022-11-13-the-week-in-markets-crypto-prices-plummeted-as-ftx-unraveled-186542",
+   "https://cointelegraph.com/markets/ethereum-price-falls-to-2-year-low-but-pro-traders-still-have-hope",
+   "https://decrypt.co/334851"
+  ]
+ },
+ {
   "slug": "first-edition-charizard-million-2022-record-precedent",
   "title": "1st Edition Charizard Has Reportedly Passed $1 Million. Its Last Record Stood for Almost Four Years.",
   "category": "pokemon",
