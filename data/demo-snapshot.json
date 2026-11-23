@@ -1,18 +1,18 @@
 {
  "version": 3,
- "generated_at": "2026-11-20T07:06:48Z",
+ "generated_at": "2026-11-23T04:20:38Z",
  "delay_days": 30,
- "as_of": "2026-10-21 06:58:43.914215+00:00",
+ "as_of": "2026-10-24 04:08:27.554435+00:00",
  "lenses": {
   "crypto": {
    "enabled": true,
    "items": [
     {
      "entity": "bitcoin",
-     "score": 0.873,
+     "score": 0.8728,
      "rank": 1,
      "components": {
-      "signal_quality": 0.9432,
+      "signal_quality": 0.9425,
       "source_breadth": 1.0,
       "behaviour": 0.7325,
       "outcome": 0.6,
@@ -25,9 +25,9 @@
       "Source breadth"
      ],
      "evidence": {
-      "observations": 3157,
+      "observations": 3230,
       "sources": 5,
-      "avg_signal_score": 0.743,
+      "avg_signal_score": 0.742,
       "source_types": [
        "Market data",
        "Developer activity",
@@ -37,19 +37,19 @@
       "behaviours": [
        {
         "pattern": "momentum",
-        "n": 3149
+        "n": 3222
        },
        {
         "pattern": "repeated_appearance",
-        "n": 3148
+        "n": 3221
        },
        {
         "pattern": "multi_source",
-        "n": 2253
+        "n": 2326
        },
        {
         "pattern": "cross_domain",
-        "n": 2253
+        "n": 2326
        }
       ]
      }
@@ -59,7 +59,7 @@
      "score": 0.8339,
      "rank": 2,
      "components": {
-      "signal_quality": 0.9654,
+      "signal_quality": 0.9652,
       "source_breadth": 0.7737,
       "behaviour": 0.7325,
       "outcome": 0.6,
@@ -72,9 +72,9 @@
       "Outcome"
      ],
      "evidence": {
-      "observations": 2726,
+      "observations": 2800,
       "sources": 3,
-      "avg_signal_score": 0.767,
+      "avg_signal_score": 0.766,
       "source_types": [
        "Market data",
        "Protocol announcements",
@@ -83,61 +83,19 @@
       "behaviours": [
        {
         "pattern": "momentum",
-        "n": 2723
+        "n": 2797
        },
        {
         "pattern": "repeated_appearance",
-        "n": 2722
+        "n": 2796
        },
        {
         "pattern": "multi_source",
-        "n": 2575
+        "n": 2649
        },
        {
         "pattern": "cross_domain",
-        "n": 142
-       }
-      ]
-     }
-    },
-    {
-     "entity": "uniswap",
-     "score": 0.8189,
-     "rank": 3,
-     "components": {
-      "signal_quality": 0.9481,
-      "source_breadth": 0.7737,
-      "behaviour": 0.6309,
-      "outcome": 0.6,
-      "cia": 0.9281,
-      "recency": 1.0
-     },
-     "drivers": [
-      "Signal quality",
-      "CIA",
-      "Outcome"
-     ],
-     "evidence": {
-      "observations": 3132,
-      "sources": 3,
-      "avg_signal_score": 0.767,
-      "source_types": [
-       "Market data",
-       "Governance activity",
-       "Public attention"
-      ],
-      "behaviours": [
-       {
-        "pattern": "momentum",
-        "n": 3130
-       },
-       {
-        "pattern": "repeated_appearance",
-        "n": 3129
-       },
-       {
-        "pattern": "multi_source",
-        "n": 2268
+        "n": 216
        }
       ]
      }
@@ -145,7 +103,7 @@
     {
      "entity": "hyperliquid",
      "score": 0.8188,
-     "rank": 4,
+     "rank": 3,
      "components": {
       "signal_quality": 0.948,
       "source_breadth": 0.7737,
@@ -160,7 +118,7 @@
       "Outcome"
      ],
      "evidence": {
-      "observations": 3139,
+      "observations": 3212,
       "sources": 3,
       "avg_signal_score": 0.767,
       "source_types": [
@@ -171,25 +129,25 @@
       "behaviours": [
        {
         "pattern": "momentum",
-        "n": 3135
+        "n": 3208
        },
        {
         "pattern": "repeated_appearance",
-        "n": 3134
+        "n": 3207
        },
        {
         "pattern": "multi_source",
-        "n": 2893
+        "n": 2966
        }
       ]
      }
     },
     {
-     "entity": "ethereum",
-     "score": 0.8114,
-     "rank": 5,
+     "entity": "uniswap",
+     "score": 0.8187,
+     "rank": 4,
      "components": {
-      "signal_quality": 0.9216,
+      "signal_quality": 0.9476,
       "source_breadth": 0.7737,
       "behaviour": 0.6309,
       "outcome": 0.6,
@@ -202,7 +160,49 @@
       "Outcome"
      ],
      "evidence": {
-      "observations": 2628,
+      "observations": 3204,
+      "sources": 3,
+      "avg_signal_score": 0.766,
+      "source_types": [
+       "Market data",
+       "Governance activity",
+       "Public attention"
+      ],
+      "behaviours": [
+       {
+        "pattern": "momentum",
+        "n": 3202
+       },
+       {
+        "pattern": "repeated_appearance",
+        "n": 3201
+       },
+       {
+        "pattern": "multi_source",
+        "n": 2340
+       }
+      ]
+     }
+    },
+    {
+     "entity": "ethereum",
+     "score": 0.8114,
+     "rank": 5,
+     "components": {
+      "signal_quality": 0.9214,
+      "source_breadth": 0.7737,
+      "behaviour": 0.6309,
+      "outcome": 0.6,
+      "cia": 0.9281,
+      "recency": 1.0
+     },
+     "drivers": [
+      "Signal quality",
+      "CIA",
+      "Outcome"
+     ],
+     "evidence": {
+      "observations": 2685,
       "sources": 3,
       "avg_signal_score": 0.71,
       "source_types": [
@@ -213,25 +213,25 @@
       "behaviours": [
        {
         "pattern": "momentum",
-        "n": 2611
+        "n": 2668
        },
        {
         "pattern": "repeated_appearance",
-        "n": 2610
+        "n": 2667
        },
        {
         "pattern": "multi_source",
-        "n": 2366
+        "n": 2423
        }
       ]
      }
     },
     {
      "entity": "nexo",
-     "score": 0.7998,
+     "score": 0.7997,
      "rank": 6,
      "components": {
-      "signal_quality": 0.9591,
+      "signal_quality": 0.9587,
       "source_breadth": 0.6131,
       "behaviour": 0.7325,
       "outcome": 0.6,
@@ -244,9 +244,9 @@
       "Outcome"
      ],
      "evidence": {
-      "observations": 3006,
+      "observations": 3076,
       "sources": 2,
-      "avg_signal_score": 0.784,
+      "avg_signal_score": 0.783,
       "source_types": [
        "Market data",
        "On-chain data"
@@ -254,29 +254,29 @@
       "behaviours": [
        {
         "pattern": "momentum",
-        "n": 3004
+        "n": 3074
        },
        {
         "pattern": "repeated_appearance",
-        "n": 3003
+        "n": 3073
        },
        {
         "pattern": "multi_source",
-        "n": 1468
+        "n": 1538
        },
        {
         "pattern": "cross_domain",
-        "n": 1468
+        "n": 1538
        }
       ]
      }
     },
     {
      "entity": "kucoin",
-     "score": 0.7983,
+     "score": 0.7984,
      "rank": 7,
      "components": {
-      "signal_quality": 0.9535,
+      "signal_quality": 0.9541,
       "source_breadth": 0.6131,
       "behaviour": 0.7325,
       "outcome": 0.6,
@@ -289,9 +289,9 @@
       "Outcome"
      ],
      "evidence": {
-      "observations": 3003,
+      "observations": 3073,
       "sources": 2,
-      "avg_signal_score": 0.775,
+      "avg_signal_score": 0.776,
       "source_types": [
        "Market data",
        "On-chain data"
@@ -299,29 +299,29 @@
       "behaviours": [
        {
         "pattern": "momentum",
-        "n": 3000
+        "n": 3070
        },
        {
         "pattern": "repeated_appearance",
-        "n": 2999
+        "n": 3069
        },
        {
         "pattern": "multi_source",
-        "n": 299
+        "n": 369
        },
        {
         "pattern": "cross_domain",
-        "n": 299
+        "n": 369
        }
       ]
      }
     },
     {
      "entity": "gate",
-     "score": 0.7969,
+     "score": 0.7968,
      "rank": 8,
      "components": {
-      "signal_quality": 0.9485,
+      "signal_quality": 0.9481,
       "source_breadth": 0.6131,
       "behaviour": 0.7325,
       "outcome": 0.6,
@@ -334,9 +334,9 @@
       "Outcome"
      ],
      "evidence": {
-      "observations": 3002,
+      "observations": 3072,
       "sources": 2,
-      "avg_signal_score": 0.768,
+      "avg_signal_score": 0.767,
       "source_types": [
        "Market data",
        "On-chain data"
@@ -344,19 +344,19 @@
       "behaviours": [
        {
         "pattern": "momentum",
-        "n": 3000
+        "n": 3070
        },
        {
         "pattern": "repeated_appearance",
-        "n": 2999
+        "n": 3069
        },
        {
         "pattern": "multi_source",
-        "n": 2002
+        "n": 2072
        },
        {
         "pattern": "cross_domain",
-        "n": 2002
+        "n": 2072
        }
       ]
      }
@@ -378,11 +378,11 @@
  },
  "case": {
   "entity": "ethereum",
-  "scored_at": "2026-10-21 06:58:43.914215+00:00",
+  "scored_at": "2026-10-24 04:08:27.554435+00:00",
   "score": 0.8114,
   "rank": 5,
   "components": {
-   "signal_quality": 0.9216,
+   "signal_quality": 0.9214,
    "source_breadth": 0.7737,
    "behaviour": 0.6309,
    "outcome": 0.6,
@@ -395,7 +395,7 @@
    "Outcome"
   ],
   "evidence": {
-   "observations": 2628,
+   "observations": 2685,
    "sources": 3,
    "avg_signal_score": 0.71,
    "source_types": [
@@ -406,15 +406,15 @@
    "behaviours": [
     {
      "pattern": "momentum",
-     "n": 2611
+     "n": 2668
     },
     {
      "pattern": "repeated_appearance",
-     "n": 2610
+     "n": 2667
     },
     {
      "pattern": "multi_source",
-     "n": 2366
+     "n": 2423
     }
    ]
   }
@@ -436,24 +436,24 @@
   ]
  },
  "library": {
-  "as_of": "2026-11-20",
+  "as_of": "2026-11-23",
   "candidates": {
-   "PROMOTED": 38,
-   "REJECTED": 21,
+   "PROMOTED": 91,
+   "REJECTED": 43,
    "VALIDATING": 1
   },
   "reject_reasons": [
    {
-    "reason": "attention_lapse_decline",
-    "n": 8
+    "reason": "attention_lapse_decline,insufficient_evidence_at_cycle",
+    "n": 16
    },
    {
-    "reason": "attention_lapse_decline,insufficient_evidence_at_cycle",
-    "n": 7
+    "reason": "attention_lapse_decline",
+    "n": 16
    },
    {
     "reason": "insufficient_evidence_at_cycle",
-    "n": 6
+    "n": 11
    }
   ]
  }
