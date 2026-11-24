@@ -1,5 +1,50 @@
 [
  {
+  "slug": "nvidia-huang-return-ceo-comeback-precedents",
+  "title": "Jensen Huang Is Back at Nvidia After 11 Days. OpenAI and Disney Have Seen Sudden Returns Before.",
+  "category": "ai",
+  "filterBucket": "ai",
+  "tags": [
+   {
+    "label": "◈ AI & Startups",
+    "cls": "tag-ai"
+   }
+  ],
+  "excerpt": "Sudden returns of a former chief executive have happened before at large technology and media companies: OpenAI agreed to bring back Sam Altman four days after removing him in November 2023, and Disney's shares rose as much as 10% when it re-appointed Bob Iger in November 2022. Nvidia reinstated its co-founder Jensen Huang on 23 November 2026, eleven days after he resigned, and its shares rose more than 31% that day; these cases show how such comebacks have unfolded, not how this one will.",
+  "snapItems": [
+   {
+    "label": "Nvidia shares, Mon 23 Nov 2026 (Reuters)",
+    "val": "+31%",
+    "cls": "accent"
+   },
+   {
+    "label": "Nvidia market value added that day (Reuters)",
+    "val": "$950bn+",
+    "cls": ""
+   },
+   {
+    "label": "Disney intraday high after Iger's return, Nov 2022 (Business Insider)",
+    "val": "+10%",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-24",
+  "readtime": "4 min read",
+  "sources": [
+   "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000090/nov23pressrelease.htm",
+   "https://www.cbsnews.com/news/nvidia-reinstates-jensen-huang-ceo/",
+   "https://sfstandard.com/2026/11/12/nvidia-ceo-jensen-huang-resigns/",
+   "https://www.investing.com/news/stock-market-news/analysishuangs-stunning-nvidia-return-sparks-relief-for-battered-ai-trade-5046322",
+   "https://www.investing.com/news/stock-market-news/nvidia-bears-face-122-billion-hit-on-huangs-surprise-return-5046083",
+   "https://www.nbcnews.com/tech/tech-news/sam-altman-returns-openai-ceo-infighting-ai-startup-rcna126214",
+   "https://www.semafor.com/article/11/21/2023/sam-altman-is-returning-to-openai",
+   "https://www.aljazeera.com/news/2023/11/22/openai-averts-internal-crisis-with-return-of-ceo-sam-altman",
+   "https://www.cnbc.com/2022/11/21/bob-iger-named-disney-ceo-effective-immediately.html",
+   "https://uk.finance.yahoo.com/news/disney-shares-jump-bob-iger-122839162.html",
+   "https://fortune.com/2022/11/21/bob-iger-disney-ceo-returns/"
+  ]
+ },
+ {
   "slug": "ether-two-thirds-below-record-past-falls",
   "title": "Ether Is Two-Thirds Below Its Record. It Has Fallen Further Twice Before.",
   "category": "crypto",
