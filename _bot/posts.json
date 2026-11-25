@@ -1,5 +1,50 @@
 [
  {
+  "slug": "oil-war-premium-fades-1991-2022-precedents",
+  "title": "Brent Has Fallen Almost a Quarter in a Month. Here Is What Followed Earlier Oil War Spikes.",
+  "category": "precedents",
+  "filterBucket": "precedents",
+  "tags": [
+   {
+    "label": "📊 Historical Precedents",
+    "cls": "tag-hpi"
+   }
+  ],
+  "excerpt": "Oil has given back a war premium quickly before: in the 1990–91 Gulf War, US crude fell 58% from its October 1990 high, including a record one-day drop of about a third on 17 January 1991, and Brent ended 2022 at $85.91 after touching $139.13 in March. Brent was trading near $90.42 on 24 November, 23% below its level a month earlier, but shipping through the Strait of Hormuz is still being attacked, so the precedents describe past paths rather than a forecast.",
+  "snapItems": [
+   {
+    "label": "Brent, 24 Nov 2026, 7:45am ET (Fortune)",
+    "val": "$90.42",
+    "cls": "accent"
+   },
+   {
+    "label": "Brent vs one month earlier (Fortune)",
+    "val": "−23.02%",
+    "cls": ""
+   },
+   {
+    "label": "WTI, Gulf War high to low, 1990–91 (CER)",
+    "val": "$41.07 → $17.43",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-25",
+  "readtime": "4 min read",
+  "sources": [
+   "https://fortune.com/article/price-of-oil-11-24-2026/",
+   "https://kitco.com/news/off-the-wire/2026-11-24/oil-touches-three-month-lows-recovering-hormuz-threat",
+   "https://gulfnews.com/business/energy/brent-drops-to-88-wti-at-79-why-oil-is-sliding-despite-irans-tanker-attacks-1.500758802",
+   "https://www.morningstar.com/news/dow-jones/2026110610023/the-week-in-oil-crude-falls-below-100-a-barrel-amid-us-midterms-shake-up",
+   "https://www.kotakneo.com/news/commodities/oil-price-today-24-november-2026-brent-falls-below-90-us-iran-talks-supply-risks/",
+   "https://en.wikipedia.org/wiki/2026_Iran_war_fuel_crisis",
+   "https://cer-rec.gc.ca/en/data-analysis/energy-markets/market-snapshots/2020/market-snapshot-how-does-early-2020-crude-oil-price-drop-compare-other-historic-events-in-global-crude-oil-markets.html",
+   "https://www.ogj.com/general-interest/companies/article/17238743/oil-prices-log-record-plunge-despite-war-start",
+   "https://money.cnn.com/2008/07/15/markets/oil/index.htm",
+   "https://www.aljazeera.com/economy/2022/3/7/oil-soars-stocks-tank-as-russia-ukraine-war-rages",
+   "https://theprint.in/business/oil-ends-year-of-wild-price-swings-with-2nd-straight-annual-gain/1291080"
+  ]
+ },
+ {
   "slug": "nvidia-huang-return-ceo-comeback-precedents",
   "title": "Jensen Huang Is Back at Nvidia After 11 Days. OpenAI and Disney Have Seen Sudden Returns Before.",
   "category": "ai",
