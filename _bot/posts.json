@@ -1,5 +1,49 @@
 [
  {
+  "slug": "30th-celebration-price-fall-past-hyped-sets",
+  "title": "30th Celebration’s Chase Mew Is Down 87% Since Launch. Two Earlier Hyped Sets Took Very Different Paths.",
+  "category": "pokemon",
+  "filterBucket": "pokemon",
+  "tags": [
+   {
+    "label": "🃏 Pokémon",
+    "cls": "tag-pokemon"
+   }
+  ],
+  "excerpt": "The 30th Celebration set has fallen hard on the secondary market since its 16 September release: by 19 November its Futuristic Rare Mew ex was tracked at $28.76, 87% below its release-day price, and the standard Elite Trainer Box was 30% lower. Pokémon has seen hyped launches cool before, and the two clearest precedents, Celebrations in 2021 and Prismatic Evolutions in 2025, show that what followed a fall varied a great deal and played out over months or years.",
+  "snapItems": [
+   {
+    "label": "Mew ex Futuristic Rare, 19 Nov 2026",
+    "val": "$28.76",
+    "cls": "accent"
+   },
+   {
+    "label": "Standard ETB vs release day, 19 Nov",
+    "val": "−30%",
+    "cls": ""
+   },
+   {
+    "label": "Celebrations ETB, Apr 2022 → Apr 2026",
+    "val": "$65 → $330",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-26",
+  "readtime": "5 min read",
+  "sources": [
+   "https://kotaku.com/pokemon-tcg-30th-anniversary-set-prices-scalpers-resale-reddit-2000736052",
+   "https://kotaku.com/pokemon-tgc-30th-celebration-set-pull-rates-rarity-rgb-mew-2000735250",
+   "https://icv2.com/articles/news/view/63400/pokemon-tcg-30th-celebration-secondary-market-numbers-wild-post-release",
+   "https://finance.yahoo.com/markets/commodities/articles/pok-mon-card-scalpers-crushed-104500578.html",
+   "https://tcginvest.io/blog/pokemon-30th-celebration-prices",
+   "https://tcginvest.io/blog/pokemon-reprints-2026",
+   "https://www.pokemon.com/uk/news/the-pokemon-tcg-mega-evolution-delta-reign-expansion-arrives-november-6-2026",
+   "https://www.badmoonrising.com/news/pokemon-celebrations-25th-vs-30th-celebration",
+   "https://kotaku.com/pokemon-tcg-prismatic-evolutions-surging-sparks-sold-1851738920",
+   "https://kotaku.com/pokemon-tcg-prismatic-evolutions-prices-umbreon-1851747243"
+  ]
+ },
+ {
   "slug": "oil-war-premium-fades-1991-2022-precedents",
   "title": "Brent Has Fallen Almost a Quarter in a Month. Here Is What Followed Earlier Oil War Spikes.",
   "category": "precedents",
