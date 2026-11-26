@@ -1,17 +1,17 @@
 {
   "_about": "Written hourly by export_site_snapshot.py on the platform server. Totals only. Cumulative keys (signals, raw_events, cia_observations, score_readings) never decrease. Do not edit by hand.",
   "live": true,
-  "as_of": "2026-11-26T03:02:38Z",
+  "as_of": "2026-11-26T04:01:25Z",
   "max_age_hours": 24,
-  "entities": 7399,
-  "signals": 441365,
-  "raw_events": 438571,
+  "entities": 7400,
+  "signals": 441472,
+  "raw_events": 438677,
   "sources": 46,
   "opportunities": 2214,
   "active_jobs": null,
-  "cia_observations": 428804,
+  "cia_observations": 428908,
   "precedents": null,
-  "score_readings": 21785272,
+  "score_readings": 21794128,
   "collectors_active": 40,
-  "last_cycle_at": "2026-11-26T02:55:46Z"
+  "last_cycle_at": "2026-11-26T03:55:37Z"
 }
