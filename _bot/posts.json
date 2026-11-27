@@ -1,5 +1,53 @@
 [
  {
+  "slug": "us-bitcoin-reserve-bill-government-sales-precedents",
+  "title": "A US Bill Would Lock Away Federal Bitcoin for 20 Years. Here Is What Followed Earlier Government Sales.",
+  "category": "crypto",
+  "filterBucket": "crypto",
+  "tags": [
+   {
+    "label": "⬡ Crypto",
+    "cls": "tag-crypto"
+   }
+  ],
+  "excerpt": "A House committee has sent the full House a bill that would bar the US government from selling its bitcoin for at least 20 years, though The Block judges its chances of passing this Congress to be low. Earlier government sales of scarce assets, from Britain’s gold in 1999 to the US Silk Road auction in 2014 and Germany’s bitcoin in 2024, were each followed by rises that made the timing look costly in hindsight.",
+  "snapItems": [
+   {
+    "label": "Lock on federal bitcoin in H.R. 8957 (The Block)",
+    "val": "20 years",
+    "cls": "accent"
+   },
+   {
+    "label": "Polymarket odds of a US reserve by year-end (The Block)",
+    "val": "4%",
+    "cls": ""
+   },
+   {
+    "label": "Germany’s 2024 sale, average price (Cointelegraph)",
+    "val": "~$57,900",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-27",
+  "readtime": "5 min read",
+  "sources": [
+   "https://theblock.co/news/regulation/2026-11-25-house-committee-advances-strategic-bitcoin-reserve-bill-446778",
+   "https://www.coindesk.com/daybook-us/2026/11/26/bitcoin-etfs-are-bleeding-cash-and-the-fed-is-unlikely-to-help",
+   "https://www.theblock.co/news/markets/2026-11-25-bitcoin-falls-below-58000-coinshares-butterfill-sees-tail-end-bear-market-446678",
+   "https://www.whitehouse.gov/fact-sheets/2025/03/fact-sheet-president-donald-j-trump-establishes-the-strategic-bitcoin-reserve-and-u-s-digital-asset-stockpile/",
+   "https://www.pbs.org/newshour/nation/government-auctions-bitcoin-silk-road-seizure",
+   "https://fortune.com/2014/07/02/venture-capitalist-draper-wins-bitcoin-auction/",
+   "https://www.coindesk.com/tim-draper-revealed-silk-road-bitcoin-auction-winner",
+   "https://www.theblock.co/news/regulation/2024-07-17-german-governments-bitcoin-selloff-nets-2-9-billion-as-film-piracy-case-marches-on-305864",
+   "https://heise.de/en/news/The-last-German-government-bitcoin-is-gone-9800250.html",
+   "https://cointelegraph.com/news/german-gov-t-missed-2-3b-bitcoin-profit-sold-btc-57k",
+   "https://www.nao.org.uk/reports/the-sale-of-part-of-the-uk-gold-reserves/",
+   "https://www.lbma.org.uk/alchemist/issue-94/gordons-brown-bottom",
+   "https://www.bullionvault.com/gold-news/opinion-analysis/uk-gold-sales-15-years-day",
+   "https://www.bullionbypost.co.uk/gold-news/2019/may/07/worst-deal-uk-history-20-years-brown-sold-britains-gold/"
+  ]
+ },
+ {
   "slug": "30th-celebration-price-fall-past-hyped-sets",
   "title": "30th Celebration’s Chase Mew Is Down 87% Since Launch. Two Earlier Hyped Sets Took Very Different Paths.",
   "category": "pokemon",
