@@ -1,5 +1,55 @@
 [
  {
+  "slug": "anthropic-below-ipo-price-facebook-uber-precedents",
+  "title": "Anthropic Slipped Below Its IPO Price, Then Climbed Back. Facebook Took 14 Months; Uber Took Four Weeks.",
+  "category": "ai",
+  "filterBucket": "ai",
+  "tags": [
+   {
+    "label": "◈ AI & Startups",
+    "cls": "tag-ai"
+   }
+  ],
+  "excerpt": "Anthropic’s shares closed below their $83 offering price on 24 November, the fourth day of trading, and were back above it by Friday 27 November, closing at $91.88. Two earlier high-profile technology listings that broke issue took far longer: Uber needed almost four weeks to trade back at its offer price in 2019, and Facebook needed more than 14 months to close above its own in 2013.",
+  "snapItems": [
+   {
+    "label": "Anthropic IPO price, Nov 2026 (Forbes)",
+    "val": "$83",
+    "cls": "accent"
+   },
+   {
+    "label": "Anthropic close, Fri 27 Nov 2026 (Motley Fool)",
+    "val": "$91.88",
+    "cls": ""
+   },
+   {
+    "label": "Facebook’s post-IPO low, Sept 2012 (CNN)",
+    "val": "$17.55",
+    "cls": "amber"
+   }
+  ],
+  "date": "2026-11-28",
+  "readtime": "5 min read",
+  "sources": [
+   "https://www.bloomberg.com/news/articles/2026-11-24/anthropic-breaks-below-83-ipo-price-in-premarket-trading",
+   "https://www.forbes.com/sites/zacharyfolk/2026/11/24/anthropic-stock-falls-below-83-per-share-ipo-price/",
+   "https://finance.yahoo.com/markets/stocks/article/anthropic-stock-sinks-further-below-ipo-price-as-investors-sour-on-the-amodei-ai-bet-100918869.html",
+   "https://finance.yahoo.com/markets/stocks/articles/anthropic-shares-fall-below-ipo-181906660.html",
+   "https://www.unite.ai/anthropic-shares-close-above-ipo-price-after-two-sessions-below-it/",
+   "https://www.fool.com/coverage/stock-market-today/2026/11/27/stock-market-today-nov-27-anthropic-jumps-11-reclaiming-its-usd83-ipo-price-as-wall-street-rallies/",
+   "https://www.kitco.com/news/off-the-wire/2026-11-27/wall-street-ends-higher-battered-ai-stocks-gain-volatile-week",
+   "https://www.kitco.com/news/off-the-wire/2026-11-27/nasdaq-futures-surge-investors-pile-back-battered-ai-stocks",
+   "https://www.cbsnews.com/news/facebook-soaring-stock-closes-above-38-ipo-price",
+   "https://money.cnn.com/2013/07/31/investing/facebook-stock-ipo/index.html",
+   "https://www.npr.org/blogs/thetwo-way/2013/07/31/207272566/facebook-sees-its-shares-hit-38-ipo-price",
+   "https://www.mprnews.org/story/2013/08/01/facebook-passes-38-initial-public-offering-price",
+   "https://wjla.com/news/nation-world/your-uber-has-arrived-on-wall-street",
+   "https://www.foxbusiness.com/markets/uber-prices-long-awaited-ipo-at-45-per-share-valuing-worlds-largest-ride-hailing-company-at-82-billion",
+   "https://techcrunch.com/2019/06/05/uber-is-finally-trading-above-its-ipo-price/",
+   "https://www.fool.com/investing/2019/06/05/uber-ipo-finally-cracks-the-45-ceiling.aspx"
+  ]
+ },
+ {
   "slug": "us-bitcoin-reserve-bill-government-sales-precedents",
   "title": "A US Bill Would Lock Away Federal Bitcoin for 20 Years. Here Is What Followed Earlier Government Sales.",
   "category": "crypto",
